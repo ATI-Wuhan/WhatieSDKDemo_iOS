@@ -7,7 +7,7 @@ target 'WhatieSDKDemo' do
 
   # Pods for WhatieSDKDemo
   
-  pod 'WhatieSDK'
+  pod 'WhatieSDK',:git => 'https://github.com/IIDreams/WhatieSDK.git'
 
 #pod 'CocoaAsyncSocket'
 

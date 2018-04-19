@@ -1,0 +1,1 @@
+../../../../WhatieSDK/WhatieSDK/WhatieSDK.framework/Headers/EHOMEExtensions.h

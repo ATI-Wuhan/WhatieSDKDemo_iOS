@@ -1,12 +1,63 @@
 PODS:
-  - WhatieSDK (1.0.0)
+  - AFNetworking (3.2.0):
+    - AFNetworking/NSURLSession (= 3.2.0)
+    - AFNetworking/Reachability (= 3.2.0)
+    - AFNetworking/Security (= 3.2.0)
+    - AFNetworking/Serialization (= 3.2.0)
+    - AFNetworking/UIKit (= 3.2.0)
+  - AFNetworking/NSURLSession (3.2.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.0)
+  - AFNetworking/Security (3.2.0)
+  - AFNetworking/Serialization (3.2.0)
+  - AFNetworking/UIKit (3.2.0):
+    - AFNetworking/NSURLSession
+  - CocoaAsyncSocket (7.6.3)
+  - EspTouch (3.5.4)
+  - MJExtension (3.0.13)
+  - MQTTClient (0.13.1):
+    - MQTTClient/Core (= 0.13.1)
+  - MQTTClient/Core (0.13.1):
+    - MQTTClient/Manager
+    - MQTTClient/Min
+  - MQTTClient/Manager (0.13.1):
+    - MQTTClient/Min
+  - MQTTClient/Min (0.13.1)
+  - PPNetworkHelper (0.8.1):
+    - AFNetworking (~> 3.2.0)
+    - YYCache (~> 1.0.4)
+  - WhatieSDK (1.0.5):
+    - CocoaAsyncSocket
+    - EspTouch
+    - MJExtension
+    - MQTTClient (~> 0.13.0)
+    - PPNetworkHelper
+  - YYCache (1.0.4)
 
 DEPENDENCIES:
-  - WhatieSDK
+  - WhatieSDK (from `https://github.com/IIDreams/WhatieSDK.git`)
+
+EXTERNAL SOURCES:
+  WhatieSDK:
+    :git: https://github.com/IIDreams/WhatieSDK.git
+
+CHECKOUT OPTIONS:
+  WhatieSDK:
+    :commit: 1649ba3648b15637461cbf16fe9e779e013b85ee
+    :git: https://github.com/IIDreams/WhatieSDK.git
 
 SPEC CHECKSUMS:
-  WhatieSDK: aed046ec34bcf955428d7ab61ea87e84b1636378
+  AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
+  EspTouch: 0cd13729037eb6f20e9377445cb5b036a8df2bde
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MQTTClient: bedb2125ed9fcde295731e7605793f7757a41c8e
+  PPNetworkHelper: e893191a73665e9c496c2887fd5ceece9e930bb8
+  WhatieSDK: 5233760cb3c11b759561fa16ba6a274441b453ca
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: f1e1870ccf77b2e88aa686cbd92c7f049cc664ec
+PODFILE CHECKSUM: fae574a09abed071826c4c4cf3253d26372e293a
 
 COCOAPODS: 1.4.0
