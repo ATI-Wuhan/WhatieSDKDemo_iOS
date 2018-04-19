@@ -7,13 +7,7 @@ target 'WhatieSDKDemo' do
 
   # Pods for WhatieSDKDemo
   
-#  pod 'WhatieSDK'
-
-pod 'PPNetworkHelper'
-
-#pod 'MQTTClient','~>0.13.0'
-
-pod 'MJExtension'
+  pod 'WhatieSDK'
 
 #pod 'CocoaAsyncSocket'
 

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "627DFA4DEBBBEA7815F931B91C873D6A"
+               BlueprintIdentifier = "9C75E977C32E3837EA058592EBAD297E"
                BlueprintName = "Pods-WhatieSDKDemo"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-WhatieSDKDemo.a">
