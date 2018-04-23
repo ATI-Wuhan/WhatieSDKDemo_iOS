@@ -1,2 +1,0 @@
-# WhatieSDK
-# hello,eHome
