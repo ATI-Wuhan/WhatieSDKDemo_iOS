@@ -94,129 +94,34 @@
  */
 +(void)setCurrentUserWithUserModel:(EHOMEUserModel *)userModel;
 
-/**
- SendVerifyCodeToSinUp
- 
- When sign up first,It will send a PIN to user's email.
- 
- @param email : eamil for signing up
- */
-+(void)sendVerifyCodeToSinUpWithEmail:(NSString *)email
-                           startBlock:(startBlock)startblock
-                         successBlock:(successBlock)successblock
-                           faileBlock:(faileBlock)faileblock;
 
-/**
- CheckVerifyCode
- 
- After key PIN,check wether it is available.
- 
- @param email : email for checking PIN
- @param code : PIN for checking PIN
- */
-+(void)checkVerifyCodeWithEmail:(NSString *)email
-                           code:(NSString *)code
-                     startBlock:(startBlock)startblock
-                   successBlock:(successBlock)successblock
-                     faileBlock:(faileBlock)faileblock;
-
-/**
- SetPassword
- 
- After Sign up,set the login password.
- 
- @param email : email for setting password
- @param password : password for setting password
- */
-+(void)setPasswordWithEmail:(NSString *)email
-                   password:(NSString *)password
-                 startBlock:(startBlock)startblock
-               successBlock:(successBlock)successblock
-                 faileBlock:(faileBlock)faileblock;
-
-/**
- Login with Email
- 
- @param email : the account to login in.
- @param password : the password to login in, it has been encrypted by MD5
- 
- @blocks :
- The startblock means function has been begining,you can add some loading action here.
- The values will be returned as successblock if success.
- The error info will be also returned as faileblock if failed.
- */
 +(void)loginWithEmail:(NSString *)email
-             password:(NSString *)password
+             password:(NSString *)passwordMD5
+             accessId:(NSString *)accessId
+            accessKey:(NSString *)accessKey
            startBlock:(startBlock)startblock
          successBlock:(successBlock)successblock
-           faileBlock:(faileBlock)faileblock;
+            failBlock:(failBlock)failblock;
 
-/**
- SendVerifyCodeToFindPassword
- 
- When forget password,It will send a PIN to user's email.
- 
- @param email : eamil of user
- */
-+(void)sendVerifyCodeToFindPasswordWithEmail:(NSString *)email
-                                  startBlock:(startBlock)startblock
-                                successBlock:(successBlock)successblock
-                                  faileBlock:(faileBlock)faileblock;
-
-/**
- SetNewPasswordByOldPassword
- 
- Change login password with old password if user remembers.
- 
- @param email : eamil of user
- @param oldPassword : old password if user remembers
- @param newPassword : new password for signing in
- */
-+(void)setNewPasswordByOldPasswordWithEmail:(NSString *)email
-                                oldPassword:(NSString *)oldPassword
-                                newPassword:(NSString *)newPassword
-                                 startBlock:(startBlock)startblock
-                               successBlock:(successBlock)successblock
-                                 faileBlock:(faileBlock)faileblock;
 
 /**
  Logout
  
  If user want to logout,do this.
  */
-+(void)logoutWithStartBlock:(startBlock)startblock
-               successBlock:(successBlock)successblock
-                 faileBlock:(faileBlock)faileblock;
++(void)logoutWithAccessId:(NSString *)accessId
+                accessKey:(NSString *)accessKey
+               startBlock:(startBlock)startblock
+             successBlock:(successBlock)successblock
+                failBlock:(failBlock)failblock;
 
 
-/**
- GetUserInfo
- 
- If user isLogin,you can get user detail info with this way.
- */
-+(void)getUserInfoWithStartBlock:(startBlock)startblock
-                successBlock:(successBlock)successblock
-                  faileBlock:(faileBlock)faileblock;
-
-/**
- UpdateUserName
- 
- If user want to change name,such as nickName.key new name just.
- */
-+(void)updateUserNameWithName:(NSString *)name
-                   startBlock:(startBlock)startblock
-                 successBlock:(successBlock)successblock
-                   faileBlock:(faileBlock)faileblock;
-
-/**
- UpdateUserPortrait
- 
- If user want to change portrait,do this,input an image as UIImage.
- */
-+(void)updateUserPortraitWithImage:(UIImage *)image
-                        startBlock:(startBlock)startblock
-                      successBlock:(successBlock)successblock
-                        faileBlock:(faileBlock)faileblock;
++(void)updateLoginPasswordWithEmail:(NSString *)email
+                     OldPasswordMD5:(NSString *)oldPasswordMD5
+                     newPasswordMD5:(NSString *)newPasswordMD5
+                         startBlock:(startBlock)startblock
+                       successBlock:(successBlock)successblock
+                          failBlock:(failBlock)failblock;
 
 
 @end

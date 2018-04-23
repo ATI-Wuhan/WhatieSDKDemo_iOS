@@ -7,7 +7,18 @@ target 'WhatieSDKDemo' do
 
   # Pods for WhatieSDKDemo
   
-  pod 'WhatieSDK',:git => 'https://github.com/IIDreams/WhatieSDK.git'
+#  pod 'WhatieSDK',:git => 'https://github.com/IIDreams/WhatieSDK.git'
+  pod 'IQKeyboardManager'
+  pod 'Masonry'
+  pod "PPNetworkHelper"
+  pod "MJExtension"
+  pod "MQTTClient", "~> 0.13.0"
+  pod "CocoaAsyncSocket"
+  pod "EspTouch"
+  
+  pod 'DZNEmptyDataSet'
+  pod "MJRefresh"
+  pod 'SDWebImage'
 
 #pod 'CocoaAsyncSocket'
 

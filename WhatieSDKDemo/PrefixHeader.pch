@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  WhatieSDKDemo
+//
+//  Created by Change on 2018/4/19.
+//  Copyright © 2018年 IIDreams. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#define sharedKeyWindow [UIApplication sharedApplication].keyWindow
+
+
+#import "HUDHelper.h"
+#import <Masonry/Masonry.h>
+#import <WhatieSDK/WhatieSDK.h>
+#import <MJRefresh/MJRefresh.h>
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <MJExtension/MJExtension.h>
+
+#define AccessId @"4601134601"
+#define AccessKey @"c5cb80b69c5af7e41baded615391bbc0"
+
+
+#endif /* PrefixHeader_pch */

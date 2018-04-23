@@ -12,7 +12,7 @@
 typedef void (^startBlock)(void);//Block of Start
 typedef void (^successBlock)(id responseObject);//Block of Success
 typedef void (^progressBlock)(NSProgress *progress); //Blcock of Progress
-typedef void (^faileBlock)(NSError *error);//Block of Failure
+typedef void (^failBlock)(NSError *error);//Block of Failure
 
 @interface EHOMEBaseObject : NSObject
 

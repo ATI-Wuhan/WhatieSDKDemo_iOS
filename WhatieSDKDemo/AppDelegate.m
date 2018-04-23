@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
+#import "ViewController.h"
+#import "EHOMETabBarController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,34 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
+    keyboardManager.enable = YES;
+    keyboardManager.shouldResignOnTouchOutside = YES;
+
+    
+    if ([EHOMEUserModel isLogin]) {
+        //login
+        
+        EHOMETabBarController *tabBarController = [[EHOMETabBarController alloc] initWithNibName:@"EHOMETabBarController" bundle:nil];
+        
+        [[EHOMEMQTTClientManager shareInstance] loginMQTT];
+        [EHOMETCPManager shareInstance];
+        [[EHOMEMQTTClientManager shareInstance] setMqttStatusBlock:^(NSString *status) {
+            NSLog(@"status = %@", status);
+        }];
+        
+        self.window.rootViewController = tabBarController;
+    }else{
+        UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ViewController *loginVC = [mainSB instantiateViewControllerWithIdentifier:@"LoginVC"];
+        self.window.rootViewController = loginVC;
+    }
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

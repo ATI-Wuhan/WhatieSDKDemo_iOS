@@ -7,7 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C020A7E208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C020A7C208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.m */; };
+		0C020A7F208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C020A7D208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.xib */; };
+		0C020A85208ACEDF008FBE5D /* EHOMESmartConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C020A83208ACEDF008FBE5D /* EHOMESmartConfigViewController.m */; };
+		0C020A86208ACEDF008FBE5D /* EHOMESmartConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C020A84208ACEDF008FBE5D /* EHOMESmartConfigViewController.xib */; };
+		0C020A88208AD082008FBE5D /* deviceGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C020A87208AD082008FBE5D /* deviceGIF.gif */; };
+		0C020A8D208AD128008FBE5D /* EHOMEConfirmWifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C020A8B208AD128008FBE5D /* EHOMEConfirmWifiViewController.m */; };
+		0C020A8E208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C020A8C208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib */; };
 		0C2293BC2081B94D00A74864 /* WhatieSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2293BB2081B94D00A74864 /* WhatieSDK.framework */; };
+		0C6BF1342088BF720021D16A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C6BF1362088BF720021D16A /* Localizable.strings */; };
+		0C6BF13D2088C4F40021D16A /* HUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF13C2088C4F40021D16A /* HUDHelper.m */; };
+		0C6BF1402088C5760021D16A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF13F2088C5760021D16A /* MBProgressHUD.m */; };
+		0C6BF14F2089FC1F0021D16A /* EHOMEProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF14D2089FC1F0021D16A /* EHOMEProfileTableViewController.m */; };
+		0C6BF1502089FC1F0021D16A /* EHOMEProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6BF14E2089FC1F0021D16A /* EHOMEProfileTableViewController.xib */; };
+		0C6BF1542089FC360021D16A /* EHOMEHomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF1522089FC360021D16A /* EHOMEHomeTableViewController.m */; };
+		0C6BF1552089FC360021D16A /* EHOMEHomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6BF1532089FC360021D16A /* EHOMEHomeTableViewController.xib */; };
+		0C6BF15A2089FC740021D16A /* EHOMETabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF1582089FC740021D16A /* EHOMETabBarController.m */; };
+		0C6BF15B2089FC740021D16A /* EHOMETabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6BF1592089FC740021D16A /* EHOMETabBarController.xib */; };
+		0C6BF1602089FE9A0021D16A /* EHOMEHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF15E2089FE9A0021D16A /* EHOMEHomeTableViewCell.m */; };
+		0C6BF1612089FE9A0021D16A /* EHOMEHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6BF15F2089FE9A0021D16A /* EHOMEHomeTableViewCell.xib */; };
+		0C6BF166208A015E0021D16A /* EHOMEProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF164208A015E0021D16A /* EHOMEProfileTableViewCell.m */; };
+		0C6BF167208A015E0021D16A /* EHOMEProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6BF165208A015E0021D16A /* EHOMEProfileTableViewCell.xib */; };
 		0CB4A94B208087AB008C2017 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB4A94A208087AB008C2017 /* AppDelegate.m */; };
 		0CB4A94E208087AB008C2017 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB4A94D208087AB008C2017 /* ViewController.m */; };
 		0CB4A951208087AB008C2017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CB4A94F208087AB008C2017 /* Main.storyboard */; };
@@ -39,7 +59,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C020A7B208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEAddDeviceTableViewController.h; sourceTree = "<group>"; };
+		0C020A7C208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEAddDeviceTableViewController.m; sourceTree = "<group>"; };
+		0C020A7D208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEAddDeviceTableViewController.xib; sourceTree = "<group>"; };
+		0C020A82208ACEDF008FBE5D /* EHOMESmartConfigViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESmartConfigViewController.h; sourceTree = "<group>"; };
+		0C020A83208ACEDF008FBE5D /* EHOMESmartConfigViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESmartConfigViewController.m; sourceTree = "<group>"; };
+		0C020A84208ACEDF008FBE5D /* EHOMESmartConfigViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESmartConfigViewController.xib; sourceTree = "<group>"; };
+		0C020A87208AD082008FBE5D /* deviceGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = deviceGIF.gif; sourceTree = "<group>"; };
+		0C020A8A208AD128008FBE5D /* EHOMEConfirmWifiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEConfirmWifiViewController.h; sourceTree = "<group>"; };
+		0C020A8B208AD128008FBE5D /* EHOMEConfirmWifiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEConfirmWifiViewController.m; sourceTree = "<group>"; };
+		0C020A8C208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEConfirmWifiViewController.xib; sourceTree = "<group>"; };
 		0C2293BB2081B94D00A74864 /* WhatieSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WhatieSDK.framework; sourceTree = "<group>"; };
+		0C6BF1312088BE970021D16A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		0C6BF1352088BF720021D16A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0C6BF1372088BF8D0021D16A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		0C6BF1382088BF8D0021D16A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		0C6BF1392088BF8D0021D16A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		0C6BF13B2088C4F40021D16A /* HUDHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDHelper.h; sourceTree = "<group>"; };
+		0C6BF13C2088C4F40021D16A /* HUDHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDHelper.m; sourceTree = "<group>"; };
+		0C6BF13E2088C5760021D16A /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		0C6BF13F2088C5760021D16A /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		0C6BF14C2089FC1F0021D16A /* EHOMEProfileTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEProfileTableViewController.h; sourceTree = "<group>"; };
+		0C6BF14D2089FC1F0021D16A /* EHOMEProfileTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEProfileTableViewController.m; sourceTree = "<group>"; };
+		0C6BF14E2089FC1F0021D16A /* EHOMEProfileTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEProfileTableViewController.xib; sourceTree = "<group>"; };
+		0C6BF1512089FC360021D16A /* EHOMEHomeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEHomeTableViewController.h; sourceTree = "<group>"; };
+		0C6BF1522089FC360021D16A /* EHOMEHomeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEHomeTableViewController.m; sourceTree = "<group>"; };
+		0C6BF1532089FC360021D16A /* EHOMEHomeTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEHomeTableViewController.xib; sourceTree = "<group>"; };
+		0C6BF1572089FC740021D16A /* EHOMETabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMETabBarController.h; sourceTree = "<group>"; };
+		0C6BF1582089FC740021D16A /* EHOMETabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMETabBarController.m; sourceTree = "<group>"; };
+		0C6BF1592089FC740021D16A /* EHOMETabBarController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMETabBarController.xib; sourceTree = "<group>"; };
+		0C6BF15D2089FE9A0021D16A /* EHOMEHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEHomeTableViewCell.h; sourceTree = "<group>"; };
+		0C6BF15E2089FE9A0021D16A /* EHOMEHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEHomeTableViewCell.m; sourceTree = "<group>"; };
+		0C6BF15F2089FE9A0021D16A /* EHOMEHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEHomeTableViewCell.xib; sourceTree = "<group>"; };
+		0C6BF163208A015E0021D16A /* EHOMEProfileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEProfileTableViewCell.h; sourceTree = "<group>"; };
+		0C6BF164208A015E0021D16A /* EHOMEProfileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEProfileTableViewCell.m; sourceTree = "<group>"; };
+		0C6BF165208A015E0021D16A /* EHOMEProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEProfileTableViewCell.xib; sourceTree = "<group>"; };
 		0CB4A946208087AB008C2017 /* WhatieSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatieSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CB4A949208087AB008C2017 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0CB4A94A208087AB008C2017 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,9 +150,123 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C020A80208ACEB2008FBE5D /* AddDevice */ = {
+			isa = PBXGroup;
+			children = (
+				0C020A7B208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.h */,
+				0C020A7C208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.m */,
+				0C020A7D208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.xib */,
+			);
+			path = AddDevice;
+			sourceTree = "<group>";
+		};
+		0C020A81208ACEBD008FBE5D /* SmartConfig */ = {
+			isa = PBXGroup;
+			children = (
+				0C020A82208ACEDF008FBE5D /* EHOMESmartConfigViewController.h */,
+				0C020A83208ACEDF008FBE5D /* EHOMESmartConfigViewController.m */,
+				0C020A84208ACEDF008FBE5D /* EHOMESmartConfigViewController.xib */,
+			);
+			path = SmartConfig;
+			sourceTree = "<group>";
+		};
+		0C020A89208AD106008FBE5D /* ConfirmWifi */ = {
+			isa = PBXGroup;
+			children = (
+				0C020A87208AD082008FBE5D /* deviceGIF.gif */,
+				0C020A8A208AD128008FBE5D /* EHOMEConfirmWifiViewController.h */,
+				0C020A8B208AD128008FBE5D /* EHOMEConfirmWifiViewController.m */,
+				0C020A8C208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib */,
+			);
+			path = ConfirmWifi;
+			sourceTree = "<group>";
+		};
+		0C6BF12F2088BD260021D16A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0CB4A94C208087AB008C2017 /* ViewController.h */,
+				0CB4A94D208087AB008C2017 /* ViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0C6BF1302088BD310021D16A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0C6BF15C2089FE780021D16A /* cell */,
+				0C6BF1512089FC360021D16A /* EHOMEHomeTableViewController.h */,
+				0C6BF1522089FC360021D16A /* EHOMEHomeTableViewController.m */,
+				0C6BF1532089FC360021D16A /* EHOMEHomeTableViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0C6BF13A2088C4DF0021D16A /* Utlis */ = {
+			isa = PBXGroup;
+			children = (
+				0C6BF13E2088C5760021D16A /* MBProgressHUD.h */,
+				0C6BF13F2088C5760021D16A /* MBProgressHUD.m */,
+				0C6BF13B2088C4F40021D16A /* HUDHelper.h */,
+				0C6BF13C2088C4F40021D16A /* HUDHelper.m */,
+			);
+			path = Utlis;
+			sourceTree = "<group>";
+		};
+		0C6BF1462089FBB70021D16A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0C6BF162208A00FA0021D16A /* cell */,
+				0C6BF14C2089FC1F0021D16A /* EHOMEProfileTableViewController.h */,
+				0C6BF14D2089FC1F0021D16A /* EHOMEProfileTableViewController.m */,
+				0C6BF14E2089FC1F0021D16A /* EHOMEProfileTableViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		0C6BF1562089FC4B0021D16A /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				0C6BF1572089FC740021D16A /* EHOMETabBarController.h */,
+				0C6BF1582089FC740021D16A /* EHOMETabBarController.m */,
+				0C6BF1592089FC740021D16A /* EHOMETabBarController.xib */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		0C6BF15C2089FE780021D16A /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				0C6BF15D2089FE9A0021D16A /* EHOMEHomeTableViewCell.h */,
+				0C6BF15E2089FE9A0021D16A /* EHOMEHomeTableViewCell.m */,
+				0C6BF15F2089FE9A0021D16A /* EHOMEHomeTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		0C6BF162208A00FA0021D16A /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				0C6BF163208A015E0021D16A /* EHOMEProfileTableViewCell.h */,
+				0C6BF164208A015E0021D16A /* EHOMEProfileTableViewCell.m */,
+				0C6BF165208A015E0021D16A /* EHOMEProfileTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		0C6BF168208A06430021D16A /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				0C020A80208ACEB2008FBE5D /* AddDevice */,
+				0C020A89208AD106008FBE5D /* ConfirmWifi */,
+				0C020A81208ACEBD008FBE5D /* SmartConfig */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
 		0CB4A93D208087AB008C2017 = {
 			isa = PBXGroup;
 			children = (
+				0C6BF1362088BF720021D16A /* Localizable.strings */,
 				0CB4A948208087AB008C2017 /* WhatieSDKDemo */,
 				0CB4A961208087CB008C2017 /* WhatieSDKDemoTests */,
 				0CB4A96C208087CB008C2017 /* WhatieSDKDemoUITests */,
@@ -121,15 +289,20 @@
 		0CB4A948208087AB008C2017 /* WhatieSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0C6BF1562089FC4B0021D16A /* TabBar */,
+				0C6BF13A2088C4DF0021D16A /* Utlis */,
+				0C6BF12F2088BD260021D16A /* Login */,
+				0C6BF1302088BD310021D16A /* Home */,
+				0C6BF168208A06430021D16A /* Device */,
+				0C6BF1462089FBB70021D16A /* Profile */,
 				0CB4A949208087AB008C2017 /* AppDelegate.h */,
 				0CB4A94A208087AB008C2017 /* AppDelegate.m */,
-				0CB4A94C208087AB008C2017 /* ViewController.h */,
-				0CB4A94D208087AB008C2017 /* ViewController.m */,
 				0CB4A94F208087AB008C2017 /* Main.storyboard */,
 				0CB4A952208087CB008C2017 /* Assets.xcassets */,
 				0CB4A954208087CB008C2017 /* LaunchScreen.storyboard */,
 				0CB4A957208087CB008C2017 /* Info.plist */,
 				0CB4A958208087CB008C2017 /* main.m */,
+				0C6BF1312088BE970021D16A /* PrefixHeader.pch */,
 			);
 			path = WhatieSDKDemo;
 			sourceTree = "<group>";
@@ -271,6 +444,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 0CB4A93D208087AB008C2017;
 			productRefGroup = 0CB4A947208087AB008C2017 /* Products */;
@@ -289,8 +463,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C6BF1552089FC360021D16A /* EHOMEHomeTableViewController.xib in Resources */,
+				0C020A8E208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib in Resources */,
+				0C6BF167208A015E0021D16A /* EHOMEProfileTableViewCell.xib in Resources */,
 				0CB4A956208087CB008C2017 /* LaunchScreen.storyboard in Resources */,
+				0C020A88208AD082008FBE5D /* deviceGIF.gif in Resources */,
+				0C6BF1342088BF720021D16A /* Localizable.strings in Resources */,
+				0C6BF15B2089FC740021D16A /* EHOMETabBarController.xib in Resources */,
 				0CB4A953208087CB008C2017 /* Assets.xcassets in Resources */,
+				0C6BF1612089FE9A0021D16A /* EHOMEHomeTableViewCell.xib in Resources */,
+				0C6BF1502089FC1F0021D16A /* EHOMEProfileTableViewController.xib in Resources */,
+				0C020A7F208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.xib in Resources */,
+				0C020A86208ACEDF008FBE5D /* EHOMESmartConfigViewController.xib in Resources */,
 				0CB4A951208087AB008C2017 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,9 +550,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemo/Pods-WhatieSDKDemo-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -463,9 +652,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C6BF15A2089FC740021D16A /* EHOMETabBarController.m in Sources */,
+				0C020A8D208AD128008FBE5D /* EHOMEConfirmWifiViewController.m in Sources */,
+				0C6BF1542089FC360021D16A /* EHOMEHomeTableViewController.m in Sources */,
+				0C6BF14F2089FC1F0021D16A /* EHOMEProfileTableViewController.m in Sources */,
 				0CB4A94E208087AB008C2017 /* ViewController.m in Sources */,
 				0CB4A959208087CB008C2017 /* main.m in Sources */,
+				0C6BF1402088C5760021D16A /* MBProgressHUD.m in Sources */,
+				0C020A85208ACEDF008FBE5D /* EHOMESmartConfigViewController.m in Sources */,
 				0CB4A94B208087AB008C2017 /* AppDelegate.m in Sources */,
+				0C6BF13D2088C4F40021D16A /* HUDHelper.m in Sources */,
+				0C6BF166208A015E0021D16A /* EHOMEProfileTableViewCell.m in Sources */,
+				0C6BF1602089FE9A0021D16A /* EHOMEHomeTableViewCell.m in Sources */,
+				0C020A7E208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,10 +700,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0C6BF1362088BF720021D16A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0C6BF1352088BF720021D16A /* en */,
+				0C6BF1392088BF8D0021D16A /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		0CB4A94F208087AB008C2017 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0CB4A950208087AB008C2017 /* Base */,
+				0C6BF1372088BF8D0021D16A /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -513,6 +722,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0CB4A955208087CB008C2017 /* Base */,
+				0C6BF1382088BF8D0021D16A /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -524,6 +734,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -582,6 +793,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -635,12 +847,14 @@
 			baseConfigurationReference = EFBA169DC859625F1DC506B3 /* Pods-WhatieSDKDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WhatieSDKDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = WhatieSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -658,12 +872,14 @@
 			baseConfigurationReference = E59295F78C6670A39F64ADB2 /* Pods-WhatieSDKDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WhatieSDKDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = WhatieSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
