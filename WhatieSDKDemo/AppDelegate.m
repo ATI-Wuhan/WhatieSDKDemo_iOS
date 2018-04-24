@@ -33,18 +33,29 @@
         
         EHOMETabBarController *tabBarController = [[EHOMETabBarController alloc] initWithNibName:@"EHOMETabBarController" bundle:nil];
         
+
         [[EHOMEMQTTClientManager shareInstance] loginMQTT];
-        [EHOMETCPManager shareInstance];
-        [[EHOMEMQTTClientManager shareInstance] setMqttStatusBlock:^(NSString *status) {
-            NSLog(@"status = %@", status);
-        }];
+        
+        
+//        [[EHOMEMQTTClientManager shareInstance] setMqttStatusBlock:^(NSString *status) {
+//            NSLog(@"status = %@", status);
+//        }];
         
         self.window.rootViewController = tabBarController;
+        
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+
+        });
+        
     }else{
         UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         ViewController *loginVC = [mainSB instantiateViewControllerWithIdentifier:@"LoginVC"];
         self.window.rootViewController = loginVC;
     }
+    
+    [EHOMETCPManager shareInstance];
+    
+    
     
     [self.window makeKeyAndVisible];
     

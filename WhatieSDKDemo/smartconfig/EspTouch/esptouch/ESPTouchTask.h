@@ -9,17 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "ESPTouchResult.h"
 #import "ESPTouchDelegate.h"
-#import "ESPAES.h"
-
-#define ESPTOUCH_VERSION    @"v0.3.5.4"
 
 #define DEBUG_ON   YES
 
 @interface ESPTouchTask : NSObject
 
 @property (atomic,assign) BOOL isCancelled;
-
-- (id)initWithApSsid:(NSString *)apSsid andApBssid:(NSString *)apBssid andApPwd:(NSString *)apPwd andAES:(ESPAES *)aes;
 
 /**
  * Constructor of EsptouchTask
@@ -28,9 +23,9 @@
  *            the Ap's ssid
  * @param apBssid
  *            the Ap's bssid
- * @param apPwd
+ * @param apPassword
  *            the Ap's password
- * @param apPwd
+ * @param isSsidHidden
  *            whether the Ap's ssid is hidden
  */
 - (id) initWithApSsid: (NSString *)apSsid andApBssid: (NSString *) apBssid andApPwd: (NSString *)apPwd;

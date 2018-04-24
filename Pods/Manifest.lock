@@ -16,7 +16,6 @@ PODS:
     - AFNetworking/NSURLSession
   - CocoaAsyncSocket (7.6.3)
   - DZNEmptyDataSet (1.8.1)
-  - EspTouch (3.5.4)
   - IQKeyboardManager (6.0.1)
   - Masonry (1.1.0)
   - MJExtension (3.0.13)
@@ -40,7 +39,6 @@ PODS:
 DEPENDENCIES:
   - CocoaAsyncSocket
   - DZNEmptyDataSet
-  - EspTouch
   - IQKeyboardManager
   - Masonry
   - MJExtension
@@ -49,11 +47,24 @@ DEPENDENCIES:
   - PPNetworkHelper
   - SDWebImage
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - CocoaAsyncSocket
+    - DZNEmptyDataSet
+    - IQKeyboardManager
+    - Masonry
+    - MJExtension
+    - MJRefresh
+    - MQTTClient
+    - PPNetworkHelper
+    - SDWebImage
+    - YYCache
+
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  EspTouch: 0cd13729037eb6f20e9377445cb5b036a8df2bde
   IQKeyboardManager: 118602feb2d0b8852cc7387c21db988f2ebdec6d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
@@ -63,6 +74,6 @@ SPEC CHECKSUMS:
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 21545ae715f07e451f146a6faae55b0feff5e360
+PODFILE CHECKSUM: a66501dc7c8bed20a8de0ac35d6511058379a157
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

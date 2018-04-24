@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="109.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cjn-AW-5xS">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Cjn-AW-5xS">
                         <rect key="frame" x="15" y="15" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="0XI-ax-oq5"/>
@@ -57,7 +57,14 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="emailLabel" destination="ETa-gu-dqW" id="ZbG-I4-1Wh"/>
+                <outlet property="nameLabel" destination="lF8-9q-EmU" id="04E-bh-RzN"/>
+            </connections>
             <point key="canvasLocation" x="25" y="85"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="avatar" width="80" height="80"/>
+    </resources>
 </document>

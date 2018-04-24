@@ -14,7 +14,6 @@ target 'WhatieSDKDemo' do
   pod "MJExtension"
   pod "MQTTClient", "~> 0.13.0"
   pod "CocoaAsyncSocket"
-  pod "EspTouch"
   
   pod 'DZNEmptyDataSet'
   pod "MJRefresh"

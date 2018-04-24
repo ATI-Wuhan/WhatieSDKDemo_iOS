@@ -18,7 +18,7 @@
 
 @implementation ESPDatumCode
 
-- (id) initWithSsid: (NSData *) apSsid andApBssid: (NSData *) apBssid andApPwd: (NSData*) apPwd andInetAddrData: (NSData *) ipAddrData andIsSsidHidden: (BOOL) isSsidHidden
+- (id) initWithSsid: (NSString *) apSsid andApBssid: (NSString *) apBssid andApPwd: (NSString*) apPwd andInetAddrData: (NSData *) ipAddrData andIsSsidHidden: (BOOL) isSsidHidden
 {
     self = [super init];
     if (self)
@@ -30,22 +30,22 @@
         // total xor
         UInt8 totalXor = 0;
         
-        NSData *apPwdBytesData = apPwd;
-        NSData *apSsidBytesData = apSsid;
+        NSData *apPwdBytesData = [ESP_ByteUtil getBytesByNSString:apPwd];
+        NSData *apSsidBytesData = [ESP_ByteUtil getBytesByNSString:apSsid];
         Byte apPwdBytes[[apPwdBytesData length]];
         Byte apSsidBytes[[apSsidBytesData length]];
-        [apPwdBytesData getBytes:apPwdBytes length:[apPwdBytesData length]];
-        [apSsidBytesData getBytes:apSsidBytes length:[apSsidBytesData length]];
+        [apPwdBytesData getBytes:apPwdBytes];
+        [apSsidBytesData getBytes:apSsidBytes];
         Byte apPwdLen = [apPwdBytesData length];
         ESP_CRC8 *crc = [[ESP_CRC8 alloc]init];
         [crc updateWithBuf:apSsidBytes Nbytes:(int)sizeof(apSsidBytes)];
         Byte apSsidCrc = [crc getValue];
         
         [crc reset];
-        NSData *apBssidData = apBssid;
+        NSData *apBssidData = [ESP_NetUtil parseBssid2bytes:apBssid];
         int apBssidDataLen = (int)[apBssidData length];
         Byte apBssidBytes[apBssidDataLen];
-        [apBssidData getBytes:apBssidBytes length:[apBssidData length]];
+        [apBssidData getBytes:apBssidBytes];
         [crc updateWithBuf:apBssidBytes Nbytes:apBssidDataLen];
         UInt8 apBssidCrc = [crc getValue];
         
@@ -54,7 +54,7 @@
         // only support ipv4 at the moment
         UInt8 ipLen = [ipAddrData length];
         Byte ipAddrUint8s[ipLen];
-        [ipAddrData getBytes:ipAddrUint8s length:[ipAddrData length]];
+        [ipAddrData getBytes:ipAddrUint8s];
         
         UInt8 _totalLen = EXTRA_HEAD_LEN + ipLen + apPwdLen + apSsidLen;
         UInt8 totalLen = isSsidHidden ? (EXTRA_HEAD_LEN + ipLen + apPwdLen + apSsidLen):(EXTRA_HEAD_LEN + ipLen + apPwdLen);

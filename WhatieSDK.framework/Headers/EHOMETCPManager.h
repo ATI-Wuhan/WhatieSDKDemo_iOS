@@ -9,6 +9,7 @@
 #import "EHOMEBaseObject.h"
 #import "EHOMETcpClient.h"
 #import <CocoaAsyncSocket/GCDAsyncUdpSocket.h>
+#import "EHOMEDeviceModel.h"
 
 typedef void(^TCPBlock)(GCDAsyncSocket *sock, NSString *data);
 
@@ -35,5 +36,13 @@ typedef void(^TCPBlock)(GCDAsyncSocket *sock, NSString *data);
  @return self
  */
 +(EHOMETCPManager *)shareInstance;
+
+-(BOOL)isCurrentDeviceTCPConnectedWithDeviceModel:(EHOMEDeviceModel *)deviceModel;
+
+-(void)switchDeviceStatusWithDeviceModel:(EHOMEDeviceModel *)deviceModel
+                                  status:(BOOL)status
+                              startBlock:(startBlock)startblock
+                            successBlock:(successBlock)successblock
+                               failBlock:(failBlock)failblock;
 
 @end

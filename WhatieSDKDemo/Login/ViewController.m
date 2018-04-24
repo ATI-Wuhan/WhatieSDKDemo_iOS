@@ -48,9 +48,10 @@
 - (IBAction)loginAction:(id)sender {
     
 
-    NSString *email = @"15207136550@163.com";
-//    NSString *email = @"zhouwei20150901@icoud.com";
-    [EHOMEUserModel loginWithEmail:email password:[EHOMEExtensions MD5EncryptedWith:@"123456789"] accessId:AccessId accessKey:AccessKey startBlock:^{
+//    NSString *email = @"15207136550@163.com";
+    NSString *email = @"zhouwei20150901@icoud.com";
+//NSString *email = @"whatieTest0002";
+    [EHOMEUserModel loginWithEmail:email password:[EHOMEExtensions MD5EncryptedWith:@"123456"] accessId:AccessId accessKey:AccessKey startBlock:^{
         
         NSLog(@"开始注册");
         

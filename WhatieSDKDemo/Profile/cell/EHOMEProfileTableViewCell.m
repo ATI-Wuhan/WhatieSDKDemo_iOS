@@ -13,6 +13,12 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    EHOMEUserModel *userModel = [EHOMEUserModel getCurrentUser];
+
+    self.nameLabel.text = userModel.name;
+    self.emailLabel.text = userModel.email;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -20,5 +26,7 @@
 
     // Configure the view for the selected state
 }
+
+
 
 @end
