@@ -1,0 +1,6 @@
+framework module WhatieSDK {
+  umbrella header "WhatieSDK.h"
+
+  export *
+  module * { export * }
+}
