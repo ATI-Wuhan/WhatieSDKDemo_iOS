@@ -47,20 +47,6 @@ DEPENDENCIES:
   - PPNetworkHelper
   - SDWebImage
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - AFNetworking
-    - CocoaAsyncSocket
-    - DZNEmptyDataSet
-    - IQKeyboardManager
-    - Masonry
-    - MJExtension
-    - MJRefresh
-    - MQTTClient
-    - PPNetworkHelper
-    - SDWebImage
-    - YYCache
-
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
@@ -76,4 +62,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: a66501dc7c8bed20a8de0ac35d6511058379a157
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0
