@@ -94,7 +94,20 @@
  */
 +(void)setCurrentUserWithUserModel:(EHOMEUserModel *)userModel;
 
-
+/**
+ Login
+ 
+ When user login APP,this function must be used.
+ 
+ @param email : use's email
+ @param passwordMD5 : password to login which encrypted with MD5
+ @param accessId : accessId
+ @param accessKey : accessKey
+ 
+ @blocks:
+ successblock : return the value if login success
+ faileblock: return the reason if login failed
+ */
 +(void)loginWithEmail:(NSString *)email
              password:(NSString *)passwordMD5
              accessId:(NSString *)accessId
@@ -116,6 +129,19 @@
                 failBlock:(failBlock)failblock;
 
 
+/**
+ UpdateLoginPassword
+ 
+ Set new password by old password and email.
+ 
+ @param email : user's email
+ @param oldPasswordMD5 : old password encrypted by MD5
+ @param newPasswordMD5 : new password encrypted by MD5
+ 
+ @blocks:
+ successblock
+ 
+ */
 +(void)updateLoginPasswordWithEmail:(NSString *)email
                      OldPasswordMD5:(NSString *)oldPasswordMD5
                      newPasswordMD5:(NSString *)newPasswordMD5

@@ -49,39 +49,54 @@
     
 
 //    NSString *email = @"15207136550@163.com";
-    NSString *email = @"zhouwei20150901@icoud.com";
+//    NSString *email = @"zhouwei20150901@icoud.com";
 //NSString *email = @"whatieTest0002";
-    [EHOMEUserModel loginWithEmail:email password:[EHOMEExtensions MD5EncryptedWith:@"123456"] accessId:AccessId accessKey:AccessKey startBlock:^{
+    NSString *email = self.emailTextField.text;
+    NSString *password = [EHOMEExtensions MD5EncryptedWith:self.passwordTextField.text];
+    
+    if ([email containsString:@"@"] && [password length] > 0) {
+        [EHOMEUserModel loginWithEmail:email password:password accessId:AccessId accessKey:AccessKey startBlock:^{
+            
+            NSLog(@"开始注册");
+            
+            [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedString(@"Loading", nil) hideAfterDelay:25.0];
+            
+        } successBlock:^(id responseObject) {
+            NSLog(@"注册成功 = %@", responseObject);
+            
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            
+            [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedString(@"LoginSuccess", nil) hideAfterDelay:1.0];
+            
+            //        [EHOMEUserModel updateLoginPasswordWithEmail:@"zhouwei20150901@icloud.com" OldPasswordMD5:@"123456" newPasswordMD5:[EHOMEExtensions MD5EncryptedWith:@"123456"] startBlock:^{
+            //            NSLog(@"开始修改密码");
+            //        } successBlock:^(id responseObject) {
+            //            NSLog(@"修改密码成功 = %@", responseObject);
+            //        } failBlock:^(NSError *error) {
+            //            NSLog(@"修改密码失败 = %@", error);
+            //        }];
+            
+            [[EHOMEMQTTClientManager shareInstance] loginMQTT];
+            
+            EHOMETabBarController *homeTabbar = [[EHOMETabBarController alloc] initWithNibName:@"EHOMETabBarController" bundle:nil];
+            [self presentViewController:homeTabbar animated:YES completion:nil];
+        } failBlock:^(NSError *error) {
+            NSLog(@"注册失败 = %@", error);
+            
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            
+            [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedString(@"LoginFailed", nil) hideAfterDelay:1.0];
+        }];
+    }else{
+        [HUDHelper addHUDInView:sharedKeyWindow text:@"Please check email or password" hideAfterDelay:1.0];
+    }
+    
+    [EHOMEDeviceModel sharedDeviceWithAdminUserId:adminUserId sharedUserId:sharedUserId deviceId:deviceid timestamp:timestamp accessId:accessId accessKey:accessKey startBlock:^{
         
-        NSLog(@"开始注册");
+    } suucessBlock:^(id responseObject) {
         
-        [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedString(@"Loading", nil) hideAfterDelay:25.0];
-        
-    } successBlock:^(id responseObject) {
-        NSLog(@"注册成功 = %@", responseObject);
-        
-        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-        
-        [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedString(@"LoginSuccess", nil) hideAfterDelay:1.0];
-        
-//        [EHOMEUserModel updateLoginPasswordWithEmail:@"zhouwei20150901@icloud.com" OldPasswordMD5:@"123456" newPasswordMD5:[EHOMEExtensions MD5EncryptedWith:@"123456"] startBlock:^{
-//            NSLog(@"开始修改密码");
-//        } successBlock:^(id responseObject) {
-//            NSLog(@"修改密码成功 = %@", responseObject);
-//        } failBlock:^(NSError *error) {
-//            NSLog(@"修改密码失败 = %@", error);
-//        }];
-        
-        [[EHOMEMQTTClientManager shareInstance] loginMQTT];
-        
-        EHOMETabBarController *homeTabbar = [[EHOMETabBarController alloc] initWithNibName:@"EHOMETabBarController" bundle:nil];
-        [self presentViewController:homeTabbar animated:YES completion:nil];
     } failBlock:^(NSError *error) {
-        NSLog(@"注册失败 = %@", error);
         
-        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-        
-        [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedString(@"LoginFailed", nil) hideAfterDelay:1.0];
     }];
 
 }
