@@ -90,14 +90,6 @@
     }else{
         [HUDHelper addHUDInView:sharedKeyWindow text:@"Please check email or password" hideAfterDelay:1.0];
     }
-    
-    [EHOMEDeviceModel sharedDeviceWithAdminUserId:adminUserId sharedUserId:sharedUserId deviceId:deviceid timestamp:timestamp accessId:accessId accessKey:accessKey startBlock:^{
-        
-    } suucessBlock:^(id responseObject) {
-        
-    } failBlock:^(NSError *error) {
-        
-    }];
 
 }
 
