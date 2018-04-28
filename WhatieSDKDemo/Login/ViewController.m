@@ -47,17 +47,20 @@
 
 - (IBAction)loginAction:(id)sender {
     
+//    [self POSTTEST];
+//    return;
+    
 
 //    NSString *email = @"15207136550@163.com";
-//    NSString *email = @"zhouwei20150901@icoud.com";
-    NSString *email = @"huqintest";
+    NSString *email = @"zhouwei20150901@icoud.com";
+//    NSString *email = @"huqintest";
 //NSString *email = @"whatieTest0002";
 //    NSString *email = self.emailTextField.text;
 //    NSString *password = [EHOMEExtensions MD5EncryptedWith:self.passwordTextField.text];
     NSString *password = [EHOMEExtensions MD5EncryptedWith:@"123456"];
     
     if ([email length] > 0 && [password length] > 0) {
-        [EHOMEUserModel loginWithEmail:email password:password accessId:AccessId accessKey:AccessKey startBlock:^{
+        [EHOMEUserModel loginWithEmail:email password:password startBlock:^{
             
             NSLog(@"开始注册");
             
@@ -96,6 +99,58 @@
         [HUDHelper addHUDInView:sharedKeyWindow text:@"Please check email or password" hideAfterDelay:1.0];
     }
 
+}
+
+-(void)POSTTEST{
+    
+    NSString *email = @"zhouwei20150901@icloud.com";
+    
+
+    
+    NSDictionary *params = @{@"phone":@(76182),           @"password":[EHOMEExtensions MD5EncryptedWith:@"123456"]};
+    
+    
+
+    
+    NSURL *url = [NSURL URLWithString:@"https://app.ceks100.com/server/login/loginAdvisor"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"POST";
+
+    
+    NSString *str = [self HTTPBodyWithParameters:params];
+    
+    request.HTTPBody = [str dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        // Do sth to process returend data
+        if(!error)
+        {
+            NSLog(@"%@", [NSJSONSerialization JSONObjectWithData:data options:0 error:nil]);
+        }
+        else
+        {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+    [dataTask resume];
+}
+
+- (NSString *)HTTPBodyWithParameters:(NSDictionary *)parameters
+{
+    NSMutableArray *parametersArray = [[NSMutableArray alloc]init];
+    
+    for (NSString *key in [parameters allKeys]) {
+        id value = [parameters objectForKey:key];
+        if (value != nil) {
+            [parametersArray addObject:[NSString stringWithFormat:@"%@=%@",key,value]];
+        }else{
+            [parametersArray addObject:[NSString stringWithFormat:@"%@=%@",key,@""]];
+        }
+    }
+    
+    return [parametersArray componentsJoinedByString:@"&"];
 }
 
 @end

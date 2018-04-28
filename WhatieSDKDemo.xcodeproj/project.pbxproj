@@ -14,7 +14,7 @@
 		0C020A88208AD082008FBE5D /* deviceGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C020A87208AD082008FBE5D /* deviceGIF.gif */; };
 		0C020A8D208AD128008FBE5D /* EHOMEConfirmWifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C020A8B208AD128008FBE5D /* EHOMEConfirmWifiViewController.m */; };
 		0C020A8E208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C020A8C208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib */; };
-		0C2293BC2081B94D00A74864 /* WhatieSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2293BB2081B94D00A74864 /* WhatieSDK.framework */; };
+		0C2293BC2081B94D00A74864 /* WhatieSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2293BB2081B94D00A74864 /* WhatieSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		0C6BF1342088BF720021D16A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C6BF1362088BF720021D16A /* Localizable.strings */; };
 		0C6BF13D2088C4F40021D16A /* HUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF13C2088C4F40021D16A /* HUDHelper.m */; };
 		0C6BF1402088C5760021D16A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF13F2088C5760021D16A /* MBProgressHUD.m */; };
@@ -361,7 +361,6 @@
 				0CB4A943208087AB008C2017 /* Frameworks */,
 				0CB4A944208087AB008C2017 /* Resources */,
 				566BA2460D0B01AC6445FA9E /* [CP] Copy Pods Resources */,
-				CF780B57DE1789B276BC6311 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -380,8 +379,6 @@
 				0CB4A95A208087CB008C2017 /* Sources */,
 				0CB4A95B208087CB008C2017 /* Frameworks */,
 				0CB4A95C208087CB008C2017 /* Resources */,
-				94AF88DF39E81158ECF6B5FA /* [CP] Embed Pods Frameworks */,
-				825F8642F79F3225B7D6F7E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -401,8 +398,6 @@
 				0CB4A965208087CB008C2017 /* Sources */,
 				0CB4A966208087CB008C2017 /* Frameworks */,
 				0CB4A967208087CB008C2017 /* Resources */,
-				CDDDD1BC01B337A7A1D7B7DE /* [CP] Embed Pods Frameworks */,
-				9D636898D86F5E738310F6E0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -550,81 +545,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		825F8642F79F3225B7D6F7E4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		94AF88DF39E81158ECF6B5FA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9D636898D86F5E738310F6E0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemoUITests/Pods-WhatieSDKDemoUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CDDDD1BC01B337A7A1D7B7DE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemoUITests/Pods-WhatieSDKDemoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CF780B57DE1789B276BC6311 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemo/Pods-WhatieSDKDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F4F7EBB0567C4AC6EF7A05A0 /* [CP] Check Pods Manifest.lock */ = {

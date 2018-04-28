@@ -32,9 +32,7 @@
  Get my devices if the userModel's isLogin is YES.
  The successblock returns the devices with <EHOMEDeviceModel *> array.
  */
-+(void)getMyDeviceListWithAccessId:(NSString *)accessId
-                         accessKey:(NSString *)accessKey
-                        startBlock:(startBlock)startblock
++(void)getMyDeviceListWithStartBlock:(startBlock)startblock
                       successBlock:(successBlock)successblock
                          failBlock:(failBlock)failblock;
 
@@ -79,18 +77,21 @@
  @param sharedUserId : who the device shared to
  @param deviceId : EHOMEDeviceModel.device.id
  @param timestamp : timestamp unit to ms
- @param accessId : accessId
- @param accessKey : accessKey
+
  */
 +(void)sharedDeviceWithAdminUserId:(int)adminUserId
                       sharedUserId:(int)sharedUserId
                           deviceId:(int)deviceId
                          timestamp:(long)timestamp
-                          accessId:(NSString *)accessId
-                         accessKey:(NSString *)accessKey
                         startBlock:(startBlock)startblock
                       suucessBlock:(successBlock)successblock
                          failBlock:(failBlock)failblock;
+
++(void)switchDeviceStatusWithDeviceModel:(EHOMEDeviceModel*)deviceModel
+                                toStatus:(BOOL)isOn
+                              startBlock:(startBlock)startblock
+                            successBlock:(successBlock)successblock
+                               failBlock:(failBlock)failblock;
 
 
 @end

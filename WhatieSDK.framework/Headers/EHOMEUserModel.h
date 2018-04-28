@@ -6,7 +6,7 @@
 //  Copyright © 2018年 IIDreams. All rights reserved.
 //
 
-#import "EHOMEBaseObject.h"
+#import <WhatieSDK/WhatieSDK.h>
 
 @class EHOMEPhotoModel;
 
@@ -101,8 +101,6 @@
  
  @param email : use's email
  @param passwordMD5 : password to login which encrypted with MD5
- @param accessId : accessId
- @param accessKey : accessKey
  
  @blocks:
  successblock : return the value if login success
@@ -110,8 +108,6 @@
  */
 +(void)loginWithEmail:(NSString *)email
              password:(NSString *)passwordMD5
-             accessId:(NSString *)accessId
-            accessKey:(NSString *)accessKey
            startBlock:(startBlock)startblock
          successBlock:(successBlock)successblock
             failBlock:(failBlock)failblock;
@@ -122,9 +118,7 @@
  
  If user want to logout,do this.
  */
-+(void)logoutWithAccessId:(NSString *)accessId
-                accessKey:(NSString *)accessKey
-               startBlock:(startBlock)startblock
++(void)logoutWithStartBlock:(startBlock)startblock
              successBlock:(successBlock)successblock
                 failBlock:(failBlock)failblock;
 
@@ -133,8 +127,7 @@
  UpdateLoginPassword
  
  Set new password by old password and email.
- 
- @param email : user's email
+
  @param oldPasswordMD5 : old password encrypted by MD5
  @param newPasswordMD5 : new password encrypted by MD5
  
@@ -142,8 +135,7 @@
  successblock
  
  */
-+(void)updateLoginPasswordWithEmail:(NSString *)email
-                     OldPasswordMD5:(NSString *)oldPasswordMD5
++(void)updateLoginPasswordOldPasswordMD5:(NSString *)oldPasswordMD5
                      newPasswordMD5:(NSString *)newPasswordMD5
                          startBlock:(startBlock)startblock
                        successBlock:(successBlock)successblock

@@ -59,7 +59,7 @@
 }
 
 -(void)pullDownRefresh{
-    [EHOMEDeviceModel getMyDeviceListWithAccessId:AccessId accessKey:AccessKey startBlock:^{
+    [EHOMEDeviceModel getMyDeviceListWithStartBlock:^{
         NSLog(@"Start request my devices...");
     } successBlock:^(id responseObject) {
         NSLog(@"Get my devices successful : %@", responseObject);

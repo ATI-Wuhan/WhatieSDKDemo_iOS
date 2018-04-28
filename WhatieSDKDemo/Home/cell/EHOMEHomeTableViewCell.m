@@ -87,6 +87,14 @@
             [self.deviceSwitch setOn:!isOn];
         }];
     }
+    
+    [EHOMEDeviceModel switchDeviceStatusWithDeviceModel:_deviceModel toStatus:YES startBlock:^{
+        
+    } successBlock:^(id responseObject) {
+        
+    } failBlock:^(NSError *error) {
+        
+    }];
 }
 
 -(void)setDeviceModel:(EHOMEDeviceModel *)deviceModel{

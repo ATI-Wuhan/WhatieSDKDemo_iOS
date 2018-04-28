@@ -69,6 +69,12 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
         }
         
+        if (indexPath.section == 1) {
+            if (indexPath.row == 0) {
+                cell.textLabel.text = @"Update Login Password";
+            }
+        }
+        
         if (indexPath.section == 2) {
             cell.textLabel.text = @"Logout";
         }
@@ -92,11 +98,16 @@
  
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            NSLog(@"Update Login Password");
+            [self updateLoginPassword];
+        }
+    }
+    
     if (indexPath.section == 2) {
-        [EHOMEUserModel logoutWithAccessId:AccessId accessKey:AccessKey startBlock:^{
+        [EHOMEUserModel logoutWithStartBlock:^{
             NSLog(@"logout...");
-            
-            
         } successBlock:^(id responseObject) {
             NSLog(@"logout success = %@", responseObject);
             
@@ -117,6 +128,45 @@
             [self presentViewController:loginVC animated:YES completion:nil];
         }];
     }
+}
+
+-(void)updateLoginPassword{
+    NSString *title = @"Login Password";
+    NSString *message = @"Update your login password with your old password.";
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Please key your old password";
+    }];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Please key your new password";
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        ;
+        
+        NSString *oldPasswordMD5 = [EHOMEExtensions MD5EncryptedWith:[[alertController textFields] firstObject].text];
+        NSString *newPasswordMD5 = [EHOMEExtensions MD5EncryptedWith:[[alertController textFields] lastObject].text];
+        
+        [EHOMEUserModel updateLoginPasswordOldPasswordMD5:oldPasswordMD5 newPasswordMD5:newPasswordMD5 startBlock:^{
+            NSLog(@"Start Updating Login Password");
+        } successBlock:^(id responseObject) {
+            NSLog(@"Update Login Password Success = %@", responseObject);
+        } failBlock:^(NSError *error) {
+            NSLog(@"Update Login Password Failed = %@", error);
+        }];
+        
+    }];
+    
+    [alertController addAction:cancel];
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 

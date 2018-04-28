@@ -20,11 +20,12 @@ FOUNDATION_EXPORT const unsigned char WhatieSDKVersionString[];
 #import <WhatieSDK/EHOMEExtensions.h>
 #import <WhatieSDK/EHOMEUserModel.h>
 #import <WhatieSDK/EHOMEDeviceModel.h>
-
 #import <WhatieSDK/EHOMEMQTTClientManager.h>
 #import <WhatieSDK/EHOMETCPManager.h>
 #import <WhatieSDK/EHOMETcpClient.h>
 #import <WhatieSDK/EHOMESmartConfig.h>
+#import <WhatieSDK/EHOMESDK.h>
+#import <WhatieSDK/EHOMENetWorking.h>
 
 
 
