@@ -12,8 +12,6 @@ target 'WhatieSDKDemo' do
   pod 'Masonry'
   pod "PPNetworkHelper"
   pod "MJExtension"
-  pod "MQTTClient", "~> 0.13.0"
-  pod "CocoaAsyncSocket"
   
   pod 'DZNEmptyDataSet'
   pod "MJRefresh"

@@ -7,7 +7,7 @@
 //
 
 #import "EHOMEBaseObject.h"
-#import <CocoaAsyncSocket/GCDAsyncSocket.h>
+#import "GCDAsyncSocket.h"
 
 @protocol tcpClientDelegate <NSObject>;
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSString *)dataJson;

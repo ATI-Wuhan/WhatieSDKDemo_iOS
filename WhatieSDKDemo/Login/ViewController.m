@@ -48,11 +48,12 @@
 - (IBAction)loginAction:(id)sender {
     
 
-//    NSString *email = @"15207136550@163.com";
+    NSString *email = @"15207136550@163.com";
 //    NSString *email = @"zhouwei20150901@icoud.com";
 //NSString *email = @"whatieTest0002";
-    NSString *email = self.emailTextField.text;
-    NSString *password = [EHOMEExtensions MD5EncryptedWith:self.passwordTextField.text];
+//    NSString *email = self.emailTextField.text;
+//    NSString *password = [EHOMEExtensions MD5EncryptedWith:self.passwordTextField.text];
+    NSString *password = [EHOMEExtensions MD5EncryptedWith:@"123456789"];
     
     if ([email containsString:@"@"] && [password length] > 0) {
         [EHOMEUserModel loginWithEmail:email password:password accessId:AccessId accessKey:AccessKey startBlock:^{
@@ -83,9 +84,12 @@
         } failBlock:^(NSError *error) {
             NSLog(@"注册失败 = %@", error);
             
-            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+                
+                [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedString(@"LoginFailed", nil) hideAfterDelay:1.0];
+            });
             
-            [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedString(@"LoginFailed", nil) hideAfterDelay:1.0];
         }];
     }else{
         [HUDHelper addHUDInView:sharedKeyWindow text:@"Please check email or password" hideAfterDelay:1.0];
