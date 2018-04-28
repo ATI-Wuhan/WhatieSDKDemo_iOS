@@ -12,8 +12,4 @@
 
 +(NSString *)MD5EncryptedWith:(NSString *)string;
 
-+(NSString *)dictionaryToJsonStringWithDictionary:(NSDictionary *)dic;
-
-+(NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
-
 @end

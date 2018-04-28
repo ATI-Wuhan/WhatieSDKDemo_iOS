@@ -24,8 +24,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJExtension/MJExtension.h>
 
-#define AccessId @"4601134601"
-#define AccessKey @"c5cb80b69c5af7e41baded615391bbc0"
+#define AccessId    @"4601134601"
+#define AccessKey   @"c5cb80b69c5af7e41baded615391bbc0"
 
 
 #endif /* PrefixHeader_pch */

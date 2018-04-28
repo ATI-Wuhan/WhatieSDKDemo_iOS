@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#define ADDRESS @"d9lab"
+//#define ADDRESS @"whatie"
+
 typedef void (^startBlock)(void);//Block of Start
 typedef void (^successBlock)(id responseObject);//Block of Success
 typedef void (^progressBlock)(NSProgress *progress); //Blcock of Progress
@@ -16,6 +19,5 @@ typedef void (^failBlock)(NSError *error);//Block of Failure
 
 @interface EHOMEBaseObject : NSObject
 
-+(NSString *)getUrlByAction:(NSString *)action;
 
 @end
