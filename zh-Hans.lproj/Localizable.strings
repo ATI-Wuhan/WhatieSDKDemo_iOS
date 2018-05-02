@@ -6,9 +6,9 @@
   Copyright © 2018年 IIDreams. All rights reserved.
 */
 
-"Login" = "登录";
-"Loading" = "加载中...";
-"LoginSuccess" = "登录成功";
-"LoginFailed" = "登录失败";
-"PleaseKeyEmail" = "请输入您的邮箱";
-"PleaseKeyPassword" = "请输入您的密码";
+"Login" = "Login";
+"Loading" = "Loading...";
+"LoginSuccess" = "Login Success";
+"LoginFailed" = "Login Failed";
+"PleaseKeyEmail" = "Please key your email";
+"PleaseKeyPassword" = "Please key your password";
