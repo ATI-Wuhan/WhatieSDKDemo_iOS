@@ -36,6 +36,12 @@
                       successBlock:(successBlock)successblock
                          failBlock:(failBlock)failblock;
 
++(void)getStartedWithDevId:(NSString *)devId
+                deviceName:(NSString *)deviceName
+                startBlock:(startBlock)startblock
+              successBlock:(successBlock)successblock
+                 failBlock:(failBlock)failblock;
+
 /**
  UpdateDeviceName
  

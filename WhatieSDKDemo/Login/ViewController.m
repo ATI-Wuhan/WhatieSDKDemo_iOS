@@ -51,13 +51,13 @@
 //    return;
     
 
-//    NSString *email = @"15207136550@163.com";
-    NSString *email = @"zhouwei20150901@icoud.com";
+    NSString *email = @"15207136550@163.com";
+//    NSString *email = @"zhouwei20150901@icoud.com";
 //    NSString *email = @"huqintest";
 //NSString *email = @"whatieTest0002";
 //    NSString *email = self.emailTextField.text;
 //    NSString *password = [EHOMEExtensions MD5EncryptedWith:self.passwordTextField.text];
-    NSString *password = [EHOMEExtensions MD5EncryptedWith:@"123456"];
+    NSString *password = [EHOMEExtensions MD5EncryptedWith:@"123456789"];
     
     if ([email length] > 0 && [password length] > 0) {
         [EHOMEUserModel loginWithEmail:email password:password startBlock:^{
