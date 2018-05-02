@@ -39,6 +39,8 @@
 		1DE837C060A6979515A6C708 /* libPods-WhatieSDKDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3060AB96A092517C1EF1A2D /* libPods-WhatieSDKDemo.a */; };
 		4D8A7937488294CC1F45981F /* libPods-WhatieSDKDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353857A322CF1969C61E536 /* libPods-WhatieSDKDemoTests.a */; };
 		5FE5F7606CDE0FC0F323A9F5 /* libPods-WhatieSDKDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 781F4340D496FFC6D0AE3461 /* libPods-WhatieSDKDemoUITests.a */; };
+		A081D41920997C4800ECE05A /* EHOMEGetStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081D41720997C4800ECE05A /* EHOMEGetStartedViewController.m */; };
+		A081D41A20997C4800ECE05A /* EHOMEGetStartedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A081D41820997C4800ECE05A /* EHOMEGetStartedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,9 @@
 		3353857A322CF1969C61E536 /* libPods-WhatieSDKDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatieSDKDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		781F4340D496FFC6D0AE3461 /* libPods-WhatieSDKDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatieSDKDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		825AAC3DEE68AC92AB5E68E7 /* Pods-WhatieSDKDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoUITests/Pods-WhatieSDKDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A081D41620997C4800ECE05A /* EHOMEGetStartedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEGetStartedViewController.h; sourceTree = "<group>"; };
+		A081D41720997C4800ECE05A /* EHOMEGetStartedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEGetStartedViewController.m; sourceTree = "<group>"; };
+		A081D41820997C4800ECE05A /* EHOMEGetStartedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEGetStartedViewController.xib; sourceTree = "<group>"; };
 		B5D753639852B3A92984AB2A /* Pods-WhatieSDKDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC50C01285FE41E243FCAA47 /* Pods-WhatieSDKDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		D3060AB96A092517C1EF1A2D /* libPods-WhatieSDKDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatieSDKDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +264,7 @@
 				0C020A80208ACEB2008FBE5D /* AddDevice */,
 				0C020A89208AD106008FBE5D /* ConfirmWifi */,
 				0C020A81208ACEBD008FBE5D /* SmartConfig */,
+				A081D41520997C1400ECE05A /* GetStarted */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -336,6 +342,16 @@
 				E7AE5D8608AC924544C66DEB /* Pods-WhatieSDKDemoUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A081D41520997C1400ECE05A /* GetStarted */ = {
+			isa = PBXGroup;
+			children = (
+				A081D41620997C4800ECE05A /* EHOMEGetStartedViewController.h */,
+				A081D41720997C4800ECE05A /* EHOMEGetStartedViewController.m */,
+				A081D41820997C4800ECE05A /* EHOMEGetStartedViewController.xib */,
+			);
+			path = GetStarted;
 			sourceTree = "<group>";
 		};
 		F485E59782A7943DF687958B /* Frameworks */ = {
@@ -462,6 +478,7 @@
 				0C020A8E208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib in Resources */,
 				0C6BF167208A015E0021D16A /* EHOMEProfileTableViewCell.xib in Resources */,
 				0CB4A956208087CB008C2017 /* LaunchScreen.storyboard in Resources */,
+				A081D41A20997C4800ECE05A /* EHOMEGetStartedViewController.xib in Resources */,
 				0C020A88208AD082008FBE5D /* deviceGIF.gif in Resources */,
 				0C6BF1342088BF720021D16A /* Localizable.strings in Resources */,
 				0C6BF15B2089FC740021D16A /* EHOMETabBarController.xib in Resources */,
@@ -584,6 +601,7 @@
 				0C6BF13D2088C4F40021D16A /* HUDHelper.m in Sources */,
 				0C6BF166208A015E0021D16A /* EHOMEProfileTableViewCell.m in Sources */,
 				0C6BF1602089FE9A0021D16A /* EHOMEHomeTableViewCell.m in Sources */,
+				A081D41920997C4800ECE05A /* EHOMEGetStartedViewController.m in Sources */,
 				0C020A7E208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,8 +18,6 @@
 +(EHOMESmartConfig *)shareInstance;
 
 -(void)smartConfigWithWifiPassword:(NSString *)wifiPassword
-                          accessId:(NSString *)accessId
-                         accessKey:(NSString *)accessKey
                         startBlock:(startBlock)startblock
                      progressBlock:(progressBlock)progressblock
                       successBlock:(successBlock)successblock
