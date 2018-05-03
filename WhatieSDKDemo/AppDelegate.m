@@ -27,6 +27,10 @@
     keyboardManager.enable = YES;
     keyboardManager.shouldResignOnTouchOutside = YES;
     
+
+    NSString * AccessId = @"Your AccessId";
+    NSString * AccessKey = @"Your AccessKey";
+    
     //Init WhatieSDK
     [[EHOMESDK shareInstance] startWithAccessId:AccessId andAccessKey:AccessKey];
 
