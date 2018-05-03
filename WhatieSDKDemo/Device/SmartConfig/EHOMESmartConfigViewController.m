@@ -50,6 +50,8 @@
             //success
             
             EHOMEGetStartedViewController *getStartedVC = [[EHOMEGetStartedViewController alloc] initWithNibName:@"EHOMEGetStartedViewController" bundle:nil];
+            getStartedVC.devId = [[responseObject objectForKey:@"data"] objectForKey:@"devId"];
+            getStartedVC.deviceName = [[responseObject objectForKey:@"data"] objectForKey:@"name"];
             [self.navigationController pushViewController:getStartedVC animated:YES];
             
         }else{

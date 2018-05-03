@@ -12,10 +12,10 @@ target 'WhatieSDKDemo' do
   pod 'Masonry'
   pod "PPNetworkHelper"
   pod "MJExtension"
-  
-  pod 'DZNEmptyDataSet'
+
   pod "MJRefresh"
   pod 'SDWebImage'
+  pod 'SGQRCode'
 
 #pod 'CocoaAsyncSocket'
 

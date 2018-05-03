@@ -11,8 +11,6 @@
 @interface EHOMEGetStartedViewController ()
 
 
-@property (nonatomic, copy) NSString *devId;
-
 
 @property (weak, nonatomic) IBOutlet UITextField *deviceNameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *getStartedButton;
@@ -26,6 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.title = @"Get Started";
+    
+    self.deviceNameTextField.text = self.deviceName;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +47,8 @@
         NSLog(@"Start getting started...");
     } successBlock:^(id responseObject) {
         NSLog(@"GET STARTED Success = %@", responseObject);
+        
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"GetStartedNotice" object:nil userInfo:nil]];
         
         [self.navigationController popToRootViewControllerAnimated:YES];
         

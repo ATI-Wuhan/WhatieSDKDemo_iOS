@@ -20,7 +20,7 @@
 @property (nonatomic, strong) Device *device;
 @property (nonatomic, strong) NSArray <Function *> *functionList;
 @property (nonatomic, strong) FunctionValuesMap *functionValuesMap;
-@property (nonatomic, assign) int host;// = 1;
+@property (nonatomic, assign) BOOL host;// = true;
 
 
 
@@ -53,7 +53,7 @@
 +(void)updateDeviceNameWithDeviceModel:(EHOMEDeviceModel *)deviceModel
                                   name:(NSString *)name
                             startBlock:(startBlock)startblock
-                          suucessBlock:(successBlock)successblock
+                          successBlock:(successBlock)successblock
                              failBlock:(failBlock)failblock;
 
 /**
@@ -65,7 +65,7 @@
  */
 +(void)unBindDeviceWithDeviceModel:(EHOMEDeviceModel *)deviceModel
                         startBlock:(startBlock)startblock
-                      suucessBlock:(successBlock)successblock
+                      successBlock:(successBlock)successblock
                          failBlock:(failBlock)failblock;
 
 
@@ -124,7 +124,7 @@
 @property (nonatomic, strong) Product *product;
 @property (nonatomic, copy) NSString *secKey;// = "<null>";
 @property (nonatomic, assign) int sellerId;// = 14;
-@property (nonatomic, copy) NSString *status;// = "\U79bb\U7ebf";
+@property (nonatomic, copy) NSString *status;// = "Offline","Normal","Upgrading";
 @property (nonatomic, copy) NSString *token;// = "<null>";
 @property (nonatomic, assign) long long updateTime;// = 1523522816000;
 @property (nonatomic, assign) int uuid;// = 5;

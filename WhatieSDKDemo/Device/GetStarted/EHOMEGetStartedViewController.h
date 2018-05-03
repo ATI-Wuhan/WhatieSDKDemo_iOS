@@ -10,4 +10,7 @@
 
 @interface EHOMEGetStartedViewController : UIViewController
 
+@property (nonatomic, copy) NSString *devId;
+@property (nonatomic, copy) NSString *deviceName;
+
 @end

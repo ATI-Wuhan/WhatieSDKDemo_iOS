@@ -31,83 +31,57 @@
     
     BOOL isOn = deviceSwitch.on;
     
-    BOOL isTcpConnected = [[EHOMETCPManager shareInstance] isCurrentDeviceTCPConnectedWithDeviceModel:_deviceModel];
-    if (isTcpConnected) {
-        [[EHOMETCPManager shareInstance] switchDeviceStatusWithDeviceModel:_deviceModel status:isOn startBlock:^{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading..." hideAfterDelay:5];
-            });
-            
-        } successBlock:^(id responseObject) {
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                BOOL value = [[responseObject objectForKey:@"value"] boolValue];
-                if (value) {
-                    self.deviceStatusLabel.text = @"On";
-                }else{
-                    self.deviceStatusLabel.text = @"Off";
-                }
-                
-                [self.delegate switchDeviceStatusSuccessWithStatus:value indexPath:self.indexpath];
-            });
-            
-        } failBlock:^(NSError *error) {
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
-                self.deviceStatusLabel.text = @"Off";
-            });
-        }];
-    }else{
-        ///MQTT
-        [[EHOMEMQTTClientManager shareInstance] switchDeviceStatusWithDeviceModel:_deviceModel status:isOn startBlock:^{
-            NSLog(@"Turn...");
-        } successBlock:^(id responseObject) {
-            NSLog(@"Open switch On success = %@", responseObject);
-            /*
-             deviceName = "000000e_53_14_8p";
-             success = 1;
-             */
-            if ([[responseObject objectForKey:@"success"] boolValue]) {
-                if (isOn) {
-                    self.deviceStatusLabel.text = @"On";
-                }else{
-                    self.deviceStatusLabel.text = @"Off";
-                }
+    [EHOMEDeviceModel switchDeviceStatusWithDeviceModel:_deviceModel toStatus:isOn startBlock:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading..." hideAfterDelay:5];
+        });
+    } successBlock:^(id responseObject) {
+        /*
+        After controlling,the deviceId named "devId" and the latest BOOL status named "value" will be return as a dictinary.
+         @{
+            @"devId":devId,
+            @"value":@(true)
+         }
+        */
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            BOOL value = [[responseObject objectForKey:@"value"] boolValue];
+            if (value) {
+                self.deviceStatusLabel.text = @"On";
             }else{
-                [self.deviceSwitch setOn:isOn];
+                self.deviceStatusLabel.text = @"Off";
             }
             
-            [self.delegate switchDeviceStatusSuccessWithStatus:isOn indexPath:self.indexpath];
-            
-        } failBlock:^(NSError *error) {
-            NSLog(@"Open switch On failed = %@", error);
-            [self.deviceSwitch setOn:!isOn];
-        }];
-    }
-    
-    [EHOMEDeviceModel switchDeviceStatusWithDeviceModel:_deviceModel toStatus:YES startBlock:^{
-        
-    } successBlock:^(id responseObject) {
-        
+            [self.delegate switchDeviceStatusSuccessWithStatus:value indexPath:self.indexpath];
+        });
     } failBlock:^(NSError *error) {
-        
+        NSLog(@"Open switch On failed = %@", error);
+        [self.deviceSwitch setOn:!isOn];
     }];
+    
 }
 
 -(void)setDeviceModel:(EHOMEDeviceModel *)deviceModel{
     _deviceModel = deviceModel;
     if (_deviceModel != nil) {
+        
         self.deviceNameLabel.text = _deviceModel.device.name;
-        if (_deviceModel.functionValuesMap.power) {
-            self.deviceStatusLabel.text = @"On";
-            [self.deviceSwitch setOn:YES];
-        }else{
-            self.deviceStatusLabel.text = @"Off";
+        
+        if ([self.deviceModel.device.status isEqualToString:@"Offline"]) {
             [self.deviceSwitch setOn:NO];
+            self.deviceStatusLabel.text = @"Offline";
+            [self.deviceSwitch setEnabled:NO];
+        }else{
+            [self.deviceSwitch setEnabled:YES];
+            if (_deviceModel.functionValuesMap.power) {
+                self.deviceStatusLabel.text = @"On";
+                [self.deviceSwitch setOn:YES];
+            }else{
+                self.deviceStatusLabel.text = @"Off";
+                [self.deviceSwitch setOn:NO];
+            }
         }
+        
     }
 }
 

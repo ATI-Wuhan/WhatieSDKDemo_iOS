@@ -41,6 +41,10 @@
 		5FE5F7606CDE0FC0F323A9F5 /* libPods-WhatieSDKDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 781F4340D496FFC6D0AE3461 /* libPods-WhatieSDKDemoUITests.a */; };
 		A081D41920997C4800ECE05A /* EHOMEGetStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081D41720997C4800ECE05A /* EHOMEGetStartedViewController.m */; };
 		A081D41A20997C4800ECE05A /* EHOMEGetStartedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A081D41820997C4800ECE05A /* EHOMEGetStartedViewController.xib */; };
+		A081D4202099D99700ECE05A /* EHOMEQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081D41E2099D99700ECE05A /* EHOMEQRCodeViewController.m */; };
+		A081D4212099D99700ECE05A /* EHOMEQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A081D41F2099D99700ECE05A /* EHOMEQRCodeViewController.xib */; };
+		A081D4262099DCC800ECE05A /* EHOMEScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081D4242099DCC800ECE05A /* EHOMEScanViewController.m */; };
+		A081D4272099DCC800ECE05A /* EHOMEScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A081D4252099DCC800ECE05A /* EHOMEScanViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +122,12 @@
 		A081D41620997C4800ECE05A /* EHOMEGetStartedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEGetStartedViewController.h; sourceTree = "<group>"; };
 		A081D41720997C4800ECE05A /* EHOMEGetStartedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEGetStartedViewController.m; sourceTree = "<group>"; };
 		A081D41820997C4800ECE05A /* EHOMEGetStartedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEGetStartedViewController.xib; sourceTree = "<group>"; };
+		A081D41D2099D99700ECE05A /* EHOMEQRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEQRCodeViewController.h; sourceTree = "<group>"; };
+		A081D41E2099D99700ECE05A /* EHOMEQRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEQRCodeViewController.m; sourceTree = "<group>"; };
+		A081D41F2099D99700ECE05A /* EHOMEQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEQRCodeViewController.xib; sourceTree = "<group>"; };
+		A081D4232099DCC800ECE05A /* EHOMEScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEScanViewController.h; sourceTree = "<group>"; };
+		A081D4242099DCC800ECE05A /* EHOMEScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEScanViewController.m; sourceTree = "<group>"; };
+		A081D4252099DCC800ECE05A /* EHOMEScanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEScanViewController.xib; sourceTree = "<group>"; };
 		B5D753639852B3A92984AB2A /* Pods-WhatieSDKDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC50C01285FE41E243FCAA47 /* Pods-WhatieSDKDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		D3060AB96A092517C1EF1A2D /* libPods-WhatieSDKDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatieSDKDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +208,8 @@
 		0C6BF1302088BD310021D16A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A081D4222099DCBA00ECE05A /* Scan */,
+				A081D41B2099D96500ECE05A /* QRCode */,
 				0C6BF15C2089FE780021D16A /* cell */,
 				0C6BF1512089FC360021D16A /* EHOMEHomeTableViewController.h */,
 				0C6BF1522089FC360021D16A /* EHOMEHomeTableViewController.m */,
@@ -354,6 +366,26 @@
 			path = GetStarted;
 			sourceTree = "<group>";
 		};
+		A081D41B2099D96500ECE05A /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				A081D41D2099D99700ECE05A /* EHOMEQRCodeViewController.h */,
+				A081D41E2099D99700ECE05A /* EHOMEQRCodeViewController.m */,
+				A081D41F2099D99700ECE05A /* EHOMEQRCodeViewController.xib */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
+		A081D4222099DCBA00ECE05A /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				A081D4232099DCC800ECE05A /* EHOMEScanViewController.h */,
+				A081D4242099DCC800ECE05A /* EHOMEScanViewController.m */,
+				A081D4252099DCC800ECE05A /* EHOMEScanViewController.xib */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
 		F485E59782A7943DF687958B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,9 +516,11 @@
 				0C6BF15B2089FC740021D16A /* EHOMETabBarController.xib in Resources */,
 				0CB4A953208087CB008C2017 /* Assets.xcassets in Resources */,
 				0C6BF1612089FE9A0021D16A /* EHOMEHomeTableViewCell.xib in Resources */,
+				A081D4212099D99700ECE05A /* EHOMEQRCodeViewController.xib in Resources */,
 				0C6BF1502089FC1F0021D16A /* EHOMEProfileTableViewController.xib in Resources */,
 				0C020A7F208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.xib in Resources */,
 				0C020A86208ACEDF008FBE5D /* EHOMESmartConfigViewController.xib in Resources */,
+				A081D4272099DCC800ECE05A /* EHOMEScanViewController.xib in Resources */,
 				0CB4A951208087AB008C2017 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,11 +569,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemo/Pods-WhatieSDKDemo-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SGQRCode/SGQRCode/SGQRCode.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SGQRCode.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -595,10 +631,12 @@
 				0C6BF14F2089FC1F0021D16A /* EHOMEProfileTableViewController.m in Sources */,
 				0CB4A94E208087AB008C2017 /* ViewController.m in Sources */,
 				0CB4A959208087CB008C2017 /* main.m in Sources */,
+				A081D4262099DCC800ECE05A /* EHOMEScanViewController.m in Sources */,
 				0C6BF1402088C5760021D16A /* MBProgressHUD.m in Sources */,
 				0C020A85208ACEDF008FBE5D /* EHOMESmartConfigViewController.m in Sources */,
 				0CB4A94B208087AB008C2017 /* AppDelegate.m in Sources */,
 				0C6BF13D2088C4F40021D16A /* HUDHelper.m in Sources */,
+				A081D4202099D99700ECE05A /* EHOMEQRCodeViewController.m in Sources */,
 				0C6BF166208A015E0021D16A /* EHOMEProfileTableViewCell.m in Sources */,
 				0C6BF1602089FE9A0021D16A /* EHOMEHomeTableViewCell.m in Sources */,
 				A081D41920997C4800ECE05A /* EHOMEGetStartedViewController.m in Sources */,

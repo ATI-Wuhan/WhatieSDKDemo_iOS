@@ -20,7 +20,6 @@
 #import <Masonry/Masonry.h>
 #import <WhatieSDK/WhatieSDK.h>
 #import <MJRefresh/MJRefresh.h>
-#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJExtension/MJExtension.h>
 

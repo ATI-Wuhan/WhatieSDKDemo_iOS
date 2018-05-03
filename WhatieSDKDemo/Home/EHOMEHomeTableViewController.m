@@ -11,10 +11,10 @@
 #import "EHOMEHomeTableViewController.h"
 #import "EHOMEHomeTableViewCell.h"
 #import "EHOMEAddDeviceTableViewController.h"
+#import "EHOMEQRCodeViewController.h"
+#import "EHOMEScanViewController.h"
 
-@interface EHOMEHomeTableViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, HomeDeviceDelegate>
-
-@property (nonatomic, assign) BOOL NoDevices;
+@interface EHOMEHomeTableViewController ()<HomeDeviceDelegate>
 
 @property (nonatomic, strong) NSMutableArray *myDevicesArray;
 
@@ -27,13 +27,23 @@
 
     self.title = @"Home";
     
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"Scan" style:UIBarButtonItemStylePlain target:self action:@selector(gotoScanPage)];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addDeviceAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
-    
-    self.NoDevices = NO;
+
     self.myDevicesArray = [NSMutableArray array];
     
     [self initTableView];
+    
+    /**
+     Recived MQTT Data Here With Block
+     */
+    [[EHOMEMQTTClientManager shareInstance] setMqttBlock:^(NSData *data) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"**********MQTT********** = %@",dic);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,9 +55,6 @@
     
     self.tableView.rowHeight = 100;
     
-    self.tableView.emptyDataSetSource = self;
-    self.tableView.emptyDataSetDelegate = self;
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"EHOMEHomeTableViewCell" bundle:nil] forCellReuseIdentifier:cellId];
     
     __weak typeof(self) weakSelf = self;
@@ -55,6 +62,17 @@
         [weakSelf pullDownRefresh];
     }];
     
+    [self.tableView.mj_header beginRefreshing];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginPullDownRefresh) name:@"GetStartedNotice" object:nil];
+}
+
+-(void)gotoScanPage{
+    EHOMEScanViewController *scanVC = [[EHOMEScanViewController alloc] initWithNibName:@"EHOMEScanViewController" bundle:nil];
+    [self.navigationController pushViewController:scanVC animated:YES];
+}
+
+-(void)beginPullDownRefresh{
     [self.tableView.mj_header beginRefreshing];
 }
 
@@ -68,7 +86,13 @@
         [self.myDevicesArray addObjectsFromArray:responseObject];
         
         if (self.myDevicesArray.count == 0) {
-            self.NoDevices = YES;
+
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"There is no device in your HOME,try to Add devices to build your eHome." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            [alertController addAction:action];
+            [self presentViewController:alertController animated:YES completion:nil];
         }
         
         [self.tableView.mj_header endRefreshing];
@@ -115,6 +139,106 @@
 
 #pragma mark - Table view delegate
 
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    EHOMEDeviceModel *model = self.myDevicesArray[indexPath.section];
+    
+    NSString *title = @"Delete";
+    if (model.host) {
+        title = @"Unbind";
+    }
+    
+    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:title handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        [EHOMEDeviceModel unBindDeviceWithDeviceModel:model startBlock:^{
+            NSLog(@"Start unbinding...");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading" hideAfterDelay:10];
+            });
+        } successBlock:^(id responseObject) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            });
+            NSLog(@"unbind success = %@", responseObject);
+            
+            [self.myDevicesArray removeObjectAtIndex:indexPath.section];
+            [self.tableView reloadData];
+            
+        } failBlock:^(NSError *error) {
+            NSLog(@"unbind failed = %@", error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            });
+        }];
+    }];
+    
+    UITableViewRowAction *editNameRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Edit Name" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        
+        [self editDeviceNameWithIndexPath:indexPath];
+        
+    }];
+    editNameRowAction.backgroundColor = [UIColor blueColor];
+    
+    UITableViewRowAction *shareRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Share Device" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        EHOMEQRCodeViewController *qrCodeVC = [[EHOMEQRCodeViewController alloc] initWithNibName:@"EHOMEQRCodeViewController" bundle:nil];
+        qrCodeVC.deviceModel = model;
+        [self.navigationController pushViewController:qrCodeVC animated:YES];
+    }];
+    shareRowAction.backgroundColor = [UIColor greenColor];
+    
+    return @[deleteRowAction, editNameRowAction, shareRowAction];
+    
+}
+
+-(void)editDeviceNameWithIndexPath:(NSIndexPath *)indexPath{
+    
+    EHOMEDeviceModel *device = self.myDevicesArray[indexPath.section];
+    
+    NSString *title = @"Alert";
+    NSString *message = @"Edit your device's name here.";
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Please key device name here...";
+        textField.text = device.device.name;
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSString *name = [[alertController textFields] firstObject].text;
+        
+        [EHOMEDeviceModel updateDeviceNameWithDeviceModel:device name:name startBlock:^{
+            NSLog(@"Editting device name...");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading" hideAfterDelay:10];
+            });
+        } successBlock:^(id responseObject) {
+            NSLog(@"Edit device name success = %@", responseObject);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            });
+            device.device.name = name;
+            [self.myDevicesArray replaceObjectAtIndex:indexPath.section withObject:device];
+            [self.tableView reloadData];
+            
+        } failBlock:^(NSError *error) {
+            NSLog(@"Edit device name failed = %@", error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            });
+        }];
+    }];
+    
+    [alertController addAction:cancel];
+    [alertController addAction:action];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 }
@@ -134,97 +258,6 @@
 -(void)addDeviceAction{
     EHOMEAddDeviceTableViewController *addDeviceVC = [[EHOMEAddDeviceTableViewController alloc] initWithNibName:@"EHOMEAddDeviceTableViewController" bundle:nil];
     [self.navigationController pushViewController:addDeviceVC animated:YES];
-}
-
-
-
-
-#pragma mark - DZNEmptyDataSetSource
-//空白页显示图片
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    if(!self.NoDevices){
-        return nil;
-    }
-    UIImage *image=[UIImage imageNamed:@"nothing"];
-    [self scaleImage:image toScale:0.5];
-    return image;
-}
-
-- (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize{
-    
-    UIGraphicsBeginImageContext(CGSizeMake(image.size.width * scaleSize, image.size.height * scaleSize));
-    [image drawInRect:CGRectMake(0, 0, image.size.width * scaleSize, image.size.height * scaleSize)];
-    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return scaledImage;
-}
-//空白页显示标题
-- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    if(!self.NoDevices){
-        return nil;
-    }
-    NSString *title = @"No Devices";
-    NSDictionary *attributes = @{
-                                 NSFontAttributeName:[UIFont boldSystemFontOfSize:18.0f],
-                                 NSForegroundColorAttributeName:[UIColor blackColor]
-                                 };
-    return [[NSAttributedString alloc] initWithString:title attributes:attributes];
-}
-
-//空白页显示详细描述
-- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
-    if(!self.NoDevices){
-        return nil;
-    }
-    NSString *text = @"Sorry,there are no devices in your home.Please try to add a device to build your smart home.";
-    
-    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
-    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
-    paragraph.alignment = NSTextAlignmentCenter;
-    
-    NSDictionary *attributes = @{
-                                 NSFontAttributeName:[UIFont systemFontOfSize:14.0f],
-                                 NSForegroundColorAttributeName:[UIColor lightGrayColor],
-                                 NSParagraphStyleAttributeName:paragraph
-                                 };
-    
-    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
-}
-
-
-//设置按钮图片
-- (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
-    if(!self.NoDevices){
-        return nil;
-    }
-    return [UIImage imageNamed:@"ADDDEVICE"];
-}
-
-// 垂直偏移量
-- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
-    return -30;
-}
-
-//组件彼此之间的上下间距
-- (CGFloat)spaceHeightForEmptyDataSet:(UIScrollView *)scrollView {
-    return 25.0f;
-}
-
-#pragma mark - DZNEmptyDataSetSource
-- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
-{
-    return YES;
-}
-
-- (BOOL)emptyDataSetShouldAllowTouch:(UIScrollView *)scrollView
-{
-    return YES;
-}
-
-- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button {
-    // 处理按钮点击事件...
-    NSLog(@"Click the ADD DEVICE Button");
-    [self addDeviceAction];
 }
 
 
