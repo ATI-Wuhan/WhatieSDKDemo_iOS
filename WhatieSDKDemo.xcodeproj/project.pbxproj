@@ -14,7 +14,7 @@
 		0C020A88208AD082008FBE5D /* deviceGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C020A87208AD082008FBE5D /* deviceGIF.gif */; };
 		0C020A8D208AD128008FBE5D /* EHOMEConfirmWifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C020A8B208AD128008FBE5D /* EHOMEConfirmWifiViewController.m */; };
 		0C020A8E208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C020A8C208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib */; };
-		0C2293BC2081B94D00A74864 /* WhatieSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C2293BB2081B94D00A74864 /* WhatieSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		0C6ABF31209AC245002CC93E /* WhatieSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6ABF30209AC245002CC93E /* WhatieSDK.framework */; };
 		0C6BF1342088BF720021D16A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C6BF1362088BF720021D16A /* Localizable.strings */; };
 		0C6BF13D2088C4F40021D16A /* HUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF13C2088C4F40021D16A /* HUDHelper.m */; };
 		0C6BF1402088C5760021D16A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF13F2088C5760021D16A /* MBProgressHUD.m */; };
@@ -75,7 +75,7 @@
 		0C020A8A208AD128008FBE5D /* EHOMEConfirmWifiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEConfirmWifiViewController.h; sourceTree = "<group>"; };
 		0C020A8B208AD128008FBE5D /* EHOMEConfirmWifiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEConfirmWifiViewController.m; sourceTree = "<group>"; };
 		0C020A8C208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEConfirmWifiViewController.xib; sourceTree = "<group>"; };
-		0C2293BB2081B94D00A74864 /* WhatieSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WhatieSDK.framework; sourceTree = "<group>"; };
+		0C6ABF30209AC245002CC93E /* WhatieSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WhatieSDK.framework; sourceTree = "<group>"; };
 		0C6BF1312088BE970021D16A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		0C6BF1352088BF720021D16A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0C6BF1372088BF8D0021D16A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DE837C060A6979515A6C708 /* libPods-WhatieSDKDemo.a in Frameworks */,
-				0C2293BC2081B94D00A74864 /* WhatieSDK.framework in Frameworks */,
+				0C6ABF31209AC245002CC93E /* WhatieSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				0C6BF1362088BF720021D16A /* Localizable.strings */,
+				0C6ABF30209AC245002CC93E /* WhatieSDK.framework */,
 				0CB4A948208087AB008C2017 /* WhatieSDKDemo */,
 				0CB4A961208087CB008C2017 /* WhatieSDKDemoTests */,
 				0CB4A96C208087CB008C2017 /* WhatieSDKDemoUITests */,
@@ -389,7 +390,6 @@
 		F485E59782A7943DF687958B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0C2293BB2081B94D00A74864 /* WhatieSDK.framework */,
 				D3060AB96A092517C1EF1A2D /* libPods-WhatieSDKDemo.a */,
 				3353857A322CF1969C61E536 /* libPods-WhatieSDKDemoTests.a */,
 				781F4340D496FFC6D0AE3461 /* libPods-WhatieSDKDemoUITests.a */,
@@ -907,6 +907,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -914,7 +915,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WhatieSDKDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = WhatieSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -931,6 +935,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -938,7 +943,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WhatieSDKDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = WhatieSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -954,7 +962,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
 				INFOPLIST_FILE = WhatieSDKDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -970,7 +982,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
 				INFOPLIST_FILE = WhatieSDKDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -985,7 +1001,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
 				INFOPLIST_FILE = WhatieSDKDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1000,7 +1020,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
 				INFOPLIST_FILE = WhatieSDKDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
