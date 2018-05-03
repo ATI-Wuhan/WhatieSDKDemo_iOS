@@ -36,18 +36,6 @@ DEPENDENCIES:
   - SDWebImage
   - SGQRCode
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - AFNetworking
-    - IQKeyboardManager
-    - Masonry
-    - MJExtension
-    - MJRefresh
-    - PPNetworkHelper
-    - SDWebImage
-    - SGQRCode
-    - YYCache
-
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   IQKeyboardManager: 118602feb2d0b8852cc7387c21db988f2ebdec6d
@@ -61,4 +49,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 682324e2c0362ce889a40b6cb69f355c1783bd86
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0

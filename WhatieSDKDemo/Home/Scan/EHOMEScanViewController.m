@@ -37,9 +37,28 @@
 
 -(void)QRCodeScanManager:(SGQRCodeScanManager *)scanManager didOutputMetadataObjects:(NSArray *)metadataObjects{
     
-    NSLog(@"scan data = %@", metadataObjects);
+//    NSLog(@"scan data = %@", metadataObjects);
     
+    NSString *json = [metadataObjects firstObject];
     
+    NSDictionary *dic = [EHOMEExtensions dictionaryWithJsonString:json];
+    
+    int adminId = [[dic objectForKey:@"adminId"] intValue];
+    int deviceId = [[dic objectForKey:@"deviceId"] intValue];
+    long timestamp = [[dic objectForKey:@"timestamp"] longValue];
+    
+    [EHOMEDeviceModel sharedDeviceWithAdminUserId:adminId sharedUserId:[EHOMEUserModel getCurrentUser].id deviceId:deviceId timestamp:timestamp startBlock:^{
+        NSLog(@"Sharing device...");
+    } suucessBlock:^(id responseObject) {
+        NSLog(@"Share device success.= %@",responseObject);
+        
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"GetStartedNotice" object:nil userInfo:nil]];
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+    } failBlock:^(NSError *error) {
+        NSLog(@"Share device failed. = %@", error);
+    }];
     
 }
 
