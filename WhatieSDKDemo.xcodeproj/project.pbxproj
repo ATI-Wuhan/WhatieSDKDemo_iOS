@@ -14,7 +14,6 @@
 		0C020A88208AD082008FBE5D /* deviceGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0C020A87208AD082008FBE5D /* deviceGIF.gif */; };
 		0C020A8D208AD128008FBE5D /* EHOMEConfirmWifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C020A8B208AD128008FBE5D /* EHOMEConfirmWifiViewController.m */; };
 		0C020A8E208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C020A8C208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib */; };
-		0C6ABF31209AC245002CC93E /* WhatieSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6ABF30209AC245002CC93E /* WhatieSDK.framework */; };
 		0C6BF1342088BF720021D16A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C6BF1362088BF720021D16A /* Localizable.strings */; };
 		0C6BF13D2088C4F40021D16A /* HUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF13C2088C4F40021D16A /* HUDHelper.m */; };
 		0C6BF1402088C5760021D16A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF13F2088C5760021D16A /* MBProgressHUD.m */; };
@@ -28,6 +27,7 @@
 		0C6BF1612089FE9A0021D16A /* EHOMEHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6BF15F2089FE9A0021D16A /* EHOMEHomeTableViewCell.xib */; };
 		0C6BF166208A015E0021D16A /* EHOMEProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BF164208A015E0021D16A /* EHOMEProfileTableViewCell.m */; };
 		0C6BF167208A015E0021D16A /* EHOMEProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C6BF165208A015E0021D16A /* EHOMEProfileTableViewCell.xib */; };
+		0C86FC4F209BE842006D23A4 /* WhatieSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C86FC4E209BE842006D23A4 /* WhatieSDK.framework */; };
 		0CB4A94B208087AB008C2017 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB4A94A208087AB008C2017 /* AppDelegate.m */; };
 		0CB4A94E208087AB008C2017 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB4A94D208087AB008C2017 /* ViewController.m */; };
 		0CB4A951208087AB008C2017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CB4A94F208087AB008C2017 /* Main.storyboard */; };
@@ -75,7 +75,6 @@
 		0C020A8A208AD128008FBE5D /* EHOMEConfirmWifiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEConfirmWifiViewController.h; sourceTree = "<group>"; };
 		0C020A8B208AD128008FBE5D /* EHOMEConfirmWifiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEConfirmWifiViewController.m; sourceTree = "<group>"; };
 		0C020A8C208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEConfirmWifiViewController.xib; sourceTree = "<group>"; };
-		0C6ABF30209AC245002CC93E /* WhatieSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WhatieSDK.framework; sourceTree = "<group>"; };
 		0C6BF1312088BE970021D16A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		0C6BF1352088BF720021D16A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0C6BF1372088BF8D0021D16A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -100,6 +99,7 @@
 		0C6BF163208A015E0021D16A /* EHOMEProfileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEProfileTableViewCell.h; sourceTree = "<group>"; };
 		0C6BF164208A015E0021D16A /* EHOMEProfileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEProfileTableViewCell.m; sourceTree = "<group>"; };
 		0C6BF165208A015E0021D16A /* EHOMEProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEProfileTableViewCell.xib; sourceTree = "<group>"; };
+		0C86FC4E209BE842006D23A4 /* WhatieSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WhatieSDK.framework; sourceTree = "<group>"; };
 		0CB4A946208087AB008C2017 /* WhatieSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatieSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CB4A949208087AB008C2017 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0CB4A94A208087AB008C2017 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DE837C060A6979515A6C708 /* libPods-WhatieSDKDemo.a in Frameworks */,
-				0C6ABF31209AC245002CC93E /* WhatieSDK.framework in Frameworks */,
+				0C86FC4F209BE842006D23A4 /* WhatieSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				0C6BF1362088BF720021D16A /* Localizable.strings */,
-				0C6ABF30209AC245002CC93E /* WhatieSDK.framework */,
+				0C86FC4E209BE842006D23A4 /* WhatieSDK.framework */,
 				0CB4A948208087AB008C2017 /* WhatieSDKDemo */,
 				0CB4A961208087CB008C2017 /* WhatieSDKDemoTests */,
 				0CB4A96C208087CB008C2017 /* WhatieSDKDemoUITests */,
