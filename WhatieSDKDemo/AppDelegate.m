@@ -26,7 +26,6 @@
     IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
     keyboardManager.enable = YES;
     keyboardManager.shouldResignOnTouchOutside = YES;
-    
 
 //    NSString * AccessId = @"Your AccessId";
 //    NSString * AccessKey = @"Your AccessKey";
