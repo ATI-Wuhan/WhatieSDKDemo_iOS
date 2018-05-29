@@ -13,6 +13,7 @@
 #import "EHOMEAddDeviceTableViewController.h"
 #import "EHOMEQRCodeViewController.h"
 #import "EHOMEScanViewController.h"
+#import "EHOMEOutletDetailViewController.h"
 
 @interface EHOMEHomeTableViewController ()<HomeDeviceDelegate>
 
@@ -43,6 +44,28 @@
     [[EHOMEMQTTClientManager shareInstance] setMqttBlock:^(NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSLog(@"**********MQTT********** = %@",dic);
+        if ([[dic objectForKey:@"protocol"] intValue] == 1) {
+            
+            NSString *devId = [[dic objectForKey:@"data"] objectForKey:@"devId"];
+            
+            NSDictionary *dps = [[dic objectForKey:@"data"] objectForKey:@"dps"];
+            BOOL isOn = [[[dps allValues] firstObject] boolValue];
+            
+            for (int i = 0; i < self.myDevicesArray.count; i++) {
+                EHOMEDeviceModel *model = self.myDevicesArray[i];
+                NSLog(@"devId = %@", model.device.devId);
+                if ([model.device.devId isEqualToString:devId]) {
+                    model.functionValuesMap.power = isOn;
+                    [self.myDevicesArray replaceObjectAtIndex:i withObject:model];
+                    [self.tableView reloadData];
+                }else{
+
+                }
+            }
+            
+        }
+        
+        
     }];
 }
 
@@ -241,6 +264,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    EHOMEOutletDetailViewController *outletVC = [[EHOMEOutletDetailViewController alloc] initWithNibName:@"EHOMEOutletDetailViewController" bundle:nil];
+    outletVC.outlet = self.myDevicesArray[indexPath.section];
+    [self.navigationController pushViewController:outletVC animated:YES];
 }
 
 -(void)switchDeviceStatusSuccessWithStatus:(BOOL)isOn indexPath:(NSIndexPath *)indexPath{

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EHOMEOutletDetailViewController">
+            <connections>
+                <outlet property="alarmLabel" destination="zcK-aS-N0o" id="SH2-uX-4Qg"/>
+                <outlet property="countdownLabel" destination="TA6-BT-Oz4" id="1l9-y1-9Hs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpT-Aq-VRH">
+                    <rect key="frame" x="15" y="499" width="345" height="44"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Q5O-Rj-7VI"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Alarm"/>
+                    <connections>
+                        <action selector="alarmAction:" destination="-1" eventType="touchUpInside" id="aWr-wR-dhc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqO-bv-mBL">
+                    <rect key="frame" x="15" y="573" width="345" height="44"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="VTz-jW-ftc"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Countdown"/>
+                    <connections>
+                        <action selector="countdownAction:" destination="-1" eventType="touchUpInside" id="6up-iX-PQY"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcK-aS-N0o">
+                    <rect key="frame" x="15" y="120" width="344" height="80"/>
+                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="APO-Wf-8Pj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10s  when touch Countdown Button" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TA6-BT-Oz4">
+                    <rect key="frame" x="15" y="251" width="345" height="80"/>
+                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="0dX-3u-Ykl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKu-Gv-MqA">
+                    <rect key="frame" x="15" y="84" width="345" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="LyO-8m-95C"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countdown:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9n-Eq-1Dd">
+                    <rect key="frame" x="15" y="215" width="345" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="ozf-Gd-SZG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="TA6-BT-Oz4" firstAttribute="top" secondItem="v9n-Eq-1Dd" secondAttribute="bottom" constant="15" id="1Ia-hS-Ivh"/>
+                <constraint firstItem="KpT-Aq-VRH" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="2GT-f0-BC3"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="NqO-bv-mBL" secondAttribute="trailing" constant="15" id="65R-1z-woQ"/>
+                <constraint firstItem="zcK-aS-N0o" firstAttribute="top" secondItem="gKu-Gv-MqA" secondAttribute="bottom" constant="15" id="7gh-wb-MNa"/>
+                <constraint firstItem="gKu-Gv-MqA" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="64" id="CsL-MY-gNu"/>
+                <constraint firstItem="v9n-Eq-1Dd" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="Ikd-JL-mqB"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="KpT-Aq-VRH" secondAttribute="trailing" constant="15" id="NEy-CQ-MRo"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="v9n-Eq-1Dd" secondAttribute="trailing" constant="15" id="NkO-t5-6Ti"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="NqO-bv-mBL" secondAttribute="bottom" constant="50" id="OdJ-zT-1GB"/>
+                <constraint firstItem="NqO-bv-mBL" firstAttribute="top" secondItem="KpT-Aq-VRH" secondAttribute="bottom" constant="30" id="V6g-OA-PEz"/>
+                <constraint firstItem="v9n-Eq-1Dd" firstAttribute="top" secondItem="zcK-aS-N0o" secondAttribute="bottom" constant="15" id="VVv-1b-T8G"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="TA6-BT-Oz4" secondAttribute="trailing" constant="15" id="VeF-uN-hUB"/>
+                <constraint firstItem="TA6-BT-Oz4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="Yl3-Em-tEb"/>
+                <constraint firstItem="NqO-bv-mBL" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="fvj-Z8-nLJ"/>
+                <constraint firstItem="zcK-aS-N0o" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="l7u-mE-ZWs"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="zcK-aS-N0o" secondAttribute="trailing" constant="16" id="tRW-qG-VA3"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="gKu-Gv-MqA" secondAttribute="trailing" constant="15" id="woE-ZV-0TF"/>
+                <constraint firstItem="gKu-Gv-MqA" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="yqq-ZO-RD1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="-159" y="53"/>
+        </view>
+    </objects>
+</document>

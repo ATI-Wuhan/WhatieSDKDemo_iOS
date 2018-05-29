@@ -99,6 +99,21 @@
                             successBlock:(successBlock)successblock
                                failBlock:(failBlock)failblock;
 
++(void)alarmDeviceWithDeviceModel:(EHOMEDeviceModel *)deviceModel
+                         toStatus:(BOOL)isOn
+                         duration:(int)duration
+                       startBlock:(startBlock)startblock
+                     successBlock:(successBlock)successblock
+                        failBlock:(failBlock)failblock;
+
+
++(void)countdownDeviceWithDeviceModel:(EHOMEDeviceModel *)deviceModel
+                             toStatus:(BOOL)isOn
+                             duration:(int)duration
+                           startBlock:(startBlock)startblock
+                         successBlock:(successBlock)successblock
+                            failBlock:(failBlock)failblock;
+
 
 @end
 
