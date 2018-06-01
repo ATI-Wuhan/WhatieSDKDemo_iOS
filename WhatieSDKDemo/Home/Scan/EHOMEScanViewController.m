@@ -42,11 +42,16 @@
     NSString *json = [metadataObjects firstObject];
     
     NSDictionary *dic = [EHOMEExtensions dictionaryWithJsonString:json];
+
     
-    int adminId = [[dic objectForKey:@"adminId"] intValue];
-    int deviceId = [[dic objectForKey:@"deviceId"] intValue];
-    long timestamp = [[dic objectForKey:@"timestamp"] longValue];
+    NSDictionary *resultDic=[dic objectForKey:@"infoObj"];
     
+
+    int adminId = [[resultDic objectForKey:@"adminId"] intValue];
+    int deviceId = [[resultDic objectForKey:@"deviceId"] intValue];
+    long timestamp = [[resultDic objectForKey:@"timestamp"] longValue];
+
+
     [EHOMEDeviceModel sharedDeviceWithAdminUserId:adminId sharedUserId:[EHOMEUserModel getCurrentUser].id deviceId:deviceId timestamp:timestamp startBlock:^{
         NSLog(@"Sharing device...");
     } suucessBlock:^(id responseObject) {

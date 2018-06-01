@@ -43,6 +43,16 @@
 
 - (IBAction)alarmAction:(id)sender {
     
+    ///finishTime @"1857" means time is 18:57
+    
+    [EHOMEDeviceModel addTimerClockWithDeviceModel:self.outlet days:@"0010000" finishTime:@"1857" isOn:YES startBlock:^{
+        
+    } successBlock:^(id responseObject) {
+        NSLog(@"timer outlet = %@", responseObject);
+    } failBlock:^(NSError *error) {
+        
+    }];
+    
 }
 
 - (IBAction)countdownAction:(id)sender {

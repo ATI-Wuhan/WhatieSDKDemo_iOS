@@ -100,7 +100,7 @@
  When user login APP,this function must be used.
  
  @param email : use's email
- @param passwordMD5 : password to login which encrypted with MD5
+ @param passwordMD5 : encrypted password with MD5
  
  @blocks:
  successblock : return the value if login success
@@ -128,8 +128,8 @@
  
  Set new password by old password and email.
 
- @param oldPasswordMD5 : old password encrypted by MD5
- @param newPasswordMD5 : new password encrypted by MD5
+ @param oldPasswordMD5 : old encrypted password with MD5
+ @param newPasswordMD5 : new encrypted password with MD5
  
  @blocks:
  successblock
@@ -147,7 +147,6 @@
 @interface EHOMEPhotoModel : EHOMEBaseObject
 
 @property (nonatomic, assign) int id;// = 237;
-/** path, ex. https://files.d9lab.net/group1/M00/00/04/wKgA0lrQR4OAWKF5AASTFFSVQT4185.jpg */
 @property (nonatomic, copy) NSString *path;
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, assign) long long createTime;

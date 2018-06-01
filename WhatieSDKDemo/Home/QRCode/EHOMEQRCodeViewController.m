@@ -30,9 +30,11 @@
     NSTimeInterval time = [date timeIntervalSince1970] * 1000;
     long dTime = [[NSNumber numberWithDouble:time] longValue];
     
-    NSDictionary *shareDic = @{@"adminId":@([EHOMEUserModel getCurrentUser].id),
-                               @"deviceId":@(self.deviceModel.device.id),
-                               @"timestamp":@(dTime)
+    NSDictionary *shareDic = @{@"infoObj":@{@"adminId":@([EHOMEUserModel getCurrentUser].id),
+                                            @"deviceId":@(self.deviceModel.device.id),
+                                            @"timestamp":@(dTime)
+                                            },
+                               @"usage":@(2)
                                };
     
     NSString *shareJson = [EHOMEExtensions dictionaryToJsonStringWithDictionary:shareDic];

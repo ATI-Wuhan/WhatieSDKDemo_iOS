@@ -93,20 +93,61 @@
                       suucessBlock:(successBlock)successblock
                          failBlock:(failBlock)failblock;
 
+/**
+ Turn On & Turn off Device
+ 
+ Which status do you want to turn?
+ 
+ */
 +(void)switchDeviceStatusWithDeviceModel:(EHOMEDeviceModel*)deviceModel
                                 toStatus:(BOOL)isOn
                               startBlock:(startBlock)startblock
                             successBlock:(successBlock)successblock
                                failBlock:(failBlock)failblock;
 
-+(void)alarmDeviceWithDeviceModel:(EHOMEDeviceModel *)deviceModel
-                         toStatus:(BOOL)isOn
-                         duration:(int)duration
-                       startBlock:(startBlock)startblock
-                     successBlock:(successBlock)successblock
-                        failBlock:(failBlock)failblock;
+
+/**
+ addTimerClock
+ 
+ Set a time to turn on or turn off device on someday.
+ 
+ @param deviceModel : the device do you want set timer
+ @param days :  which day do you want to execute?
+                0 means unable, 1 means enable,
+                and the order of days are:
+                Sunday Saturday Friday Thursday Wednesday Tuesday Monday
+                for example:
+                    timer avaliable on Thursday and Monday,the param of "days" is @"0001001",
+                    if Sunday, "days" is @"1000000"
+ @param finishTime :  time user set
+ @param isOn :  turn device isOn when time is ready
+
+ */
++(void)addTimerClockWithDeviceModel:(EHOMEDeviceModel *)deviceModel
+                               days:(NSString *)days
+                         finishTime:(NSString *)finishTime
+                               isOn:(BOOL)isOn
+                         startBlock:(startBlock)startblock
+                       successBlock:(successBlock)successblock
+                          failBlock:(failBlock)failblock;
 
 
++(void)getTimerClockListWithDeviceModel:(EHOMEDeviceModel *)deviceModel
+                             startBlock:(startBlock)startblock
+                           successBlock:(successBlock)successblock
+                              failBlock:(failBlock)failblock;
+
+
+/**
+ Countdown
+ 
+ Countdown to turn on or turn off device on someday.
+ 
+ @param deviceModel : the device do you want set timer
+ @param isOn :  turn device isOn when countdown is done
+ @param duration :  the duration of countdown, such as 10s.If 10 minutes ,it is 600.
+ 
+ */
 +(void)countdownDeviceWithDeviceModel:(EHOMEDeviceModel *)deviceModel
                              toStatus:(BOOL)isOn
                              duration:(int)duration
