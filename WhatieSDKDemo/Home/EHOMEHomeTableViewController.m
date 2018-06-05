@@ -41,7 +41,7 @@
     /**
      Recived MQTT Data Here With Block
      */
-    [[EHOMEMQTTClientManager shareInstance] setMqttBlock:^(NSData *data) {
+    [[EHOMEMQTTClientManager shareInstance] setMqttBlock:^(NSString *topic, NSData *data) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSLog(@"**********MQTT********** = %@",dic);
         if ([[dic objectForKey:@"protocol"] intValue] == 1) {
@@ -102,11 +102,17 @@
 -(void)pullDownRefresh{
     [EHOMEDeviceModel getMyDeviceListWithStartBlock:^{
         NSLog(@"Start request my devices...");
+        
     } successBlock:^(id responseObject) {
         NSLog(@"Get my devices successful : %@", responseObject);
+
         
         [self.myDevicesArray removeAllObjects];
         [self.myDevicesArray addObjectsFromArray:responseObject];
+        
+        EHOMEDeviceModel *model = [self.myDevicesArray firstObject];
+        Function *fun = [model.functionList firstObject];
+        NSLog(@"fun name = %@", fun.name);
         
         if (self.myDevicesArray.count == 0) {
 
@@ -126,6 +132,14 @@
         
         [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
+    }];
+    
+    [EHOMEDeviceModel getMySharedDeviceListWithStartBlock:^{
+        
+    } successBlock:^(id responseObject) {
+        NSLog(@"获取分享的设备成功 = %@", responseObject);
+    } failBlock:^(NSError *error) {
+        NSLog(@"获取分享的设备失败 = %@", error);
     }];
 }
 
@@ -174,13 +188,13 @@
     UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:title handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         [EHOMEDeviceModel unBindDeviceWithDeviceModel:model startBlock:^{
             NSLog(@"Start unbinding...");
-            dispatch_async(dispatch_get_main_queue(), ^{
+
                 [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading" hideAfterDelay:10];
-            });
+
         } successBlock:^(id responseObject) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            });
+
             NSLog(@"unbind success = %@", responseObject);
             
             [self.myDevicesArray removeObjectAtIndex:indexPath.section];
@@ -188,9 +202,9 @@
             
         } failBlock:^(NSError *error) {
             NSLog(@"unbind failed = %@", error);
-            dispatch_async(dispatch_get_main_queue(), ^{
+
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            });
+
         }];
     }];
     
@@ -234,23 +248,23 @@
         
         [EHOMEDeviceModel updateDeviceNameWithDeviceModel:device name:name startBlock:^{
             NSLog(@"Editting device name...");
-            dispatch_async(dispatch_get_main_queue(), ^{
+
                 [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading" hideAfterDelay:10];
-            });
+
         } successBlock:^(id responseObject) {
             NSLog(@"Edit device name success = %@", responseObject);
-            dispatch_async(dispatch_get_main_queue(), ^{
+
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            });
+
             device.device.name = name;
             [self.myDevicesArray replaceObjectAtIndex:indexPath.section withObject:device];
             [self.tableView reloadData];
             
         } failBlock:^(NSError *error) {
             NSLog(@"Edit device name failed = %@", error);
-            dispatch_async(dispatch_get_main_queue(), ^{
+
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            });
+
         }];
     }];
     

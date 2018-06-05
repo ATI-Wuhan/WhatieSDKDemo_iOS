@@ -20,4 +20,10 @@
               successBlock:(successBlock)successblock
                  failBlock:(failBlock)failblock;
 
++ (void)postRequestWithUrl:(NSString *)url
+                    params:(NSDictionary *)params
+                startBlock:(startBlock)startblock
+              successBlock:(successBlock)successblock
+                 failBlock:(failBlock)failblock;
+
 @end

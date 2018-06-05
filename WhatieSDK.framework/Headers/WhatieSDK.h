@@ -14,7 +14,11 @@ FOUNDATION_EXPORT double WhatieSDKVersionNumber;
 //! Project version string for WhatieSDK.
 FOUNDATION_EXPORT const unsigned char WhatieSDKVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <WhatieSDK/PublicHeader.h>
+/**
+ 
+ WhatieSDK Version 1.1
+ 
+ */
 
 #import <WhatieSDK/EHOMEBaseObject.h>
 #import <WhatieSDK/EHOMEExtensions.h>

@@ -20,7 +20,8 @@
 @property (nonatomic, strong) Device *device;
 @property (nonatomic, strong) NSArray <Function *> *functionList;
 @property (nonatomic, strong) FunctionValuesMap *functionValuesMap;
-@property (nonatomic, assign) BOOL host;// = true;
+@property (nonatomic, assign) BOOL host;//  true
+@property (nonatomic, assign) BOOL hasCountDown;
 
 
 
@@ -35,6 +36,12 @@
 +(void)getMyDeviceListWithStartBlock:(startBlock)startblock
                       successBlock:(successBlock)successblock
                          failBlock:(failBlock)failblock;
+
+
++(void)getMySharedDeviceListWithStartBlock:(startBlock)startblock
+                              successBlock:(successBlock)successblock
+                                 failBlock:(failBlock)failblock;
+
 
 +(void)getStartedWithDevId:(NSString *)devId
                 deviceName:(NSString *)deviceName
@@ -130,6 +137,7 @@
                          startBlock:(startBlock)startblock
                        successBlock:(successBlock)successblock
                           failBlock:(failBlock)failblock;
+
 
 
 +(void)getTimerClockListWithDeviceModel:(EHOMEDeviceModel *)deviceModel

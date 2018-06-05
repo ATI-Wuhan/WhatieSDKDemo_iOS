@@ -18,7 +18,7 @@
 
 @end
 
-typedef void(^MQTTBlock)(NSData *data);
+typedef void(^MQTTBlock)(NSString *topic, NSData *data);
 typedef void(^MQTTStatusBlock)(NSString *status);
 
 @interface EHOMEMQTTClientManager : EHOMEBaseObject
@@ -28,6 +28,7 @@ typedef void(^MQTTStatusBlock)(NSString *status);
 
 @property (nonatomic, copy) MQTTBlock mqttBlock;
 @property (nonatomic, copy) MQTTStatusBlock mqttStatusBlock;
+
 
 /**
  instance
@@ -44,6 +45,9 @@ typedef void(^MQTTStatusBlock)(NSString *status);
 -(void)loginMQTT;
 
 
+-(void)subscribeTopicsWithTopics:(NSDictionary *)topics;
+
+
 -(void)switchDeviceStatusWithDeviceModel:(EHOMEDeviceModel *)deviceModel
                                   status:(BOOL)status
                               startBlock:(startBlock)startblock
@@ -57,6 +61,13 @@ typedef void(^MQTTStatusBlock)(NSString *status);
  publish data to topic
  */
 -(void)publishAndWaitData:(NSData *)data;
+
+/**
+ publish
+ 
+ publish data to topic
+ */
+-(void)publishAndWaitData:(NSData *)data onTopic:(NSString *)topic;
 
 
 /**

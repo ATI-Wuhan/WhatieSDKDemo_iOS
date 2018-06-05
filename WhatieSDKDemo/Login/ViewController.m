@@ -66,8 +66,6 @@
             
             [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedString(@"LoginSuccess", nil) hideAfterDelay:1.0];
             
-            [[EHOMEMQTTClientManager shareInstance] loginMQTT];
-            
             EHOMETabBarController *homeTabbar = [[EHOMETabBarController alloc] initWithNibName:@"EHOMETabBarController" bundle:nil];
             [self presentViewController:homeTabbar animated:YES completion:nil];
         } failBlock:^(NSError *error) {

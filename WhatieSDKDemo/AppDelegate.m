@@ -27,8 +27,12 @@
     keyboardManager.enable = YES;
     keyboardManager.shouldResignOnTouchOutside = YES;
 
-    NSString * AccessId = @"Your AccessId";
-    NSString * AccessKey = @"Your AccessKey";
+//    NSString * AccessId = @"Your AccessId";
+//    NSString * AccessKey = @"Your AccessKey";
+    
+    
+    NSString * AccessId = @"4601134601";
+    NSString * AccessKey = @"c5cb80b69c5af7e41baded615391bbc0";
     
 
     

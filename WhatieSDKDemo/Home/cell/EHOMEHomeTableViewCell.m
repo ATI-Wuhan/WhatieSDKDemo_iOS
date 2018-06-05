@@ -33,19 +33,19 @@
     
     [EHOMEDeviceModel switchDeviceStatusWithDeviceModel:_deviceModel toStatus:isOn startBlock:^{
         dispatch_async(dispatch_get_main_queue(), ^{
-            [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading..." hideAfterDelay:5];
+            [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading..."];
         });
     } successBlock:^(id responseObject) {
         /*
-        After controlling,the deviceId named "devId" and the latest BOOL status named "value" will be return as a dictinary.
+        After controlling,the deviceId named "devId" and the latest BOOL status named "power" will be return as a dictinary.
          @{
             @"devId":devId,
-            @"value":@(true)
+            @"power":@(true)
          }
         */
         dispatch_async(dispatch_get_main_queue(), ^{
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            BOOL value = [[responseObject objectForKey:@"value"] boolValue];
+            BOOL value = [[responseObject objectForKey:@"power"] boolValue];
             if (value) {
                 self.deviceStatusLabel.text = @"On";
             }else{
@@ -56,6 +56,7 @@
         });
     } failBlock:^(NSError *error) {
         NSLog(@"Open switch On failed = %@", error);
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
         [self.deviceSwitch setOn:!isOn];
     }];
     
