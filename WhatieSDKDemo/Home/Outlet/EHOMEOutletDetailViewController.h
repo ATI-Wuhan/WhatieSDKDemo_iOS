@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^updateDeviceStatusBlock)(EHOMEDeviceModel *device);
+
 @interface EHOMEOutletDetailViewController : UIViewController
 
-@property (nonatomic, strong) EHOMEDeviceModel *outlet;
+@property (nonatomic, copy) updateDeviceStatusBlock updateDeviceStatusBlock;
+
+@property (nonatomic, strong) EHOMEDeviceModel *device;
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright © 2018年 IIDreams. All rights reserved.
 //
 
-#import <WhatieSDK/WhatieSDK.h>
+#import "EHOMEDeviceModel.h"
 
 @class EHOMEPhotoModel;
 
@@ -60,7 +60,19 @@
 @property (nonatomic, assign) long long updateTime;
 
 
+@property (nonatomic, strong) NSArray <EHOMEDeviceModel *> *deviceArray;
+
+@property (nonatomic, strong) NSArray <EHOMEDeviceModel *> *sharedDeviceArray;
+
+
 #pragma mark - Functions
+
+/**
+ instance
+ 
+ @return self
+ */
++(EHOMEUserModel *)shareInstance;
 
 /**
  isLogin
@@ -94,52 +106,145 @@
  */
 +(void)setCurrentUserWithUserModel:(EHOMEUserModel *)userModel;
 
+
+/**
+ registerByEmail
+ 
+ No verification code is required during email registration. Users may register their accounts directly.
+ 
+ @param email : user email
+ @param password : password
+
+ */
+-(void)registerByEmail:(NSString *)email
+              password:(NSString *)password
+               success:(successBlock)success
+               failure:(failBlock)failure;
+
 /**
  Login
  
- When user login APP,this function must be used.
- 
- @param email : use's email
- @param passwordMD5 : encrypted password with MD5
- 
- @blocks:
- successblock : return the value if login success
- faileblock: return the reason if login failed
+ Upon a successful call, the user’s session will be stored locally by the SDK. When the app is launched next time, the used is logged in by default and no more login process is required.
+
+ @param email : user email
+ @param password : password
+
  */
-+(void)loginWithEmail:(NSString *)email
-             password:(NSString *)passwordMD5
-           startBlock:(startBlock)startblock
-         successBlock:(successBlock)successblock
-            failBlock:(failBlock)failblock;
+-(void)loginByEmail:(NSString *)email
+           password:(NSString *)password
+            success:(successBlock)success
+            failure:(failBlock)failure;
+
+/**
+ SendVerifyCodeByEmail(Step 1)
+ 
+ Sending a verification code to the mailbox for Resetting a password once forget password.
+
+ @param email : user email
+ 
+ */
+-(void)sendVerifyCodeByEmail:(NSString *)email
+                     success:(successBlock)success
+                     failure:(failBlock)failure;
+
+
+/**
+ resetPasswordByEmail(Step 2)
+ 
+ The verification code received is then used to reset the password
+
+ @param email : user email
+ @param newPassword : user new password
+ @param code : The verification code received
+ 
+ */
+-(void)resetPasswordByEmail:(NSString *)email
+                newPassword:(NSString *)newPassword
+                       code:(NSString *)code
+                    success:(successBlock)success
+                    failure:(failBlock)failure;
+
+
+/**
+ resetPasswordByOldPassword
+ 
+ Set new password by old password and email.
+ 
+ @param oldPassword : old password
+ @param newPassword : new password
+ 
+ */
+-(void)resetPasswordByOldPassword:(NSString *)oldPassword
+                      newPassword:(NSString *)newPassword
+                            email:(NSString *)email
+                          success:(successBlock)success
+                          failure:(failBlock)failure;
+
+
+
+/**
+ syncDeviceWithCloud
+ 
+ Using the "syncDeviceWithCloud" method will update the user’s current device list deviceArray.
+ 
+ The success returns the deviceArray with <EHOMEDeviceModel *> array.
+ 
+ */
+-(void)syncDeviceWithCloud:(successBlock)success
+                   failure:(failBlock)failure;
+
+
+/**
+ syncSharedDeviceWithCloud
+ 
+ Using the "syncSharedDeviceWithCloud" method will update the user’s current shared device list sharedDeviceArray.
+ 
+ The success returns the sharedDeviceArray with <EHOMEDeviceModel *> array.
+ 
+ */
+-(void)syncSharedDeviceWithCloud:(successBlock)success
+                         failure:(failBlock)failure;
+
+
+/**
+ updateNickname
+ 
+ */
+-(void)updateNickname:(NSString *)name
+              success:(successBlock)success
+              failure:(failBlock)failure;
 
 
 /**
  Logout
  
  If user want to logout,do this.
+ 
  */
-+(void)logoutWithStartBlock:(startBlock)startblock
-             successBlock:(successBlock)successblock
-                failBlock:(failBlock)failblock;
+-(void)loginOut:(successBlock)success
+      failure:(failBlock)failure;
+
 
 
 /**
- UpdateLoginPassword
- 
- Set new password by old password and email.
-
- @param oldPasswordMD5 : old encrypted password with MD5
- @param newPasswordMD5 : new encrypted password with MD5
- 
- @blocks:
- successblock
+ getFeedbackTalkList
  
  */
-+(void)updateLoginPasswordOldPasswordMD5:(NSString *)oldPasswordMD5
-                     newPasswordMD5:(NSString *)newPasswordMD5
-                         startBlock:(startBlock)startblock
-                       successBlock:(successBlock)successblock
-                          failBlock:(failBlock)failblock;
+-(void)getFeedbackListWithPage:(int)page
+                          size:(int)size
+                       success:(successBlock)success
+                       failure:(failBlock)failure;
+
+/**
+ addFeedback
+ 
+ */
+-(void)addFeedback:(NSString *)feedback
+           success:(successBlock)success
+           failure:(failBlock)failure;
+
+
+
 
 
 @end

@@ -15,9 +15,7 @@
 #import "EHOMEScanViewController.h"
 #import "EHOMEOutletDetailViewController.h"
 
-@interface EHOMEHomeTableViewController ()<HomeDeviceDelegate>
-
-@property (nonatomic, strong) NSMutableArray *myDevicesArray;
+@interface EHOMEHomeTableViewController ()
 
 @end
 
@@ -28,45 +26,15 @@
 
     self.title = @"Home";
     
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"Scan" style:UIBarButtonItemStylePlain target:self action:@selector(gotoScanPage)];
-    self.navigationItem.leftBarButtonItem = leftItem;
-    
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addDeviceAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
 
-    self.myDevicesArray = [NSMutableArray array];
     
     [self initTableView];
     
-    /**
-     Recived MQTT Data Here With Block
-     */
-    [[EHOMEMQTTClientManager shareInstance] setMqttBlock:^(NSString *topic, NSData *data) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        NSLog(@"**********MQTT********** = %@",dic);
-        if ([[dic objectForKey:@"protocol"] intValue] == 1) {
-            
-            NSString *devId = [[dic objectForKey:@"data"] objectForKey:@"devId"];
-            
-            NSDictionary *dps = [[dic objectForKey:@"data"] objectForKey:@"dps"];
-            BOOL isOn = [[[dps allValues] firstObject] boolValue];
-            
-            for (int i = 0; i < self.myDevicesArray.count; i++) {
-                EHOMEDeviceModel *model = self.myDevicesArray[i];
-                NSLog(@"devId = %@", model.device.devId);
-                if ([model.device.devId isEqualToString:devId]) {
-                    model.functionValuesMap.power = isOn;
-                    [self.myDevicesArray replaceObjectAtIndex:i withObject:model];
-                    [self.tableView reloadData];
-                }else{
+    //注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name: EHOMEUserNotificationDeviceArrayChanged object:nil];
 
-                }
-            }
-            
-        }
-        
-        
-    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,9 +58,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginPullDownRefresh) name:@"GetStartedNotice" object:nil];
 }
 
--(void)gotoScanPage{
-    EHOMEScanViewController *scanVC = [[EHOMEScanViewController alloc] initWithNibName:@"EHOMEScanViewController" bundle:nil];
-    [self.navigationController pushViewController:scanVC animated:YES];
+
+-(void) reloadData {
+    //可以在这里刷新UI
+
+    NSLog(@"[EHOMEUserModel shareInstance].deviceArray 有变更");
+    
+    [self.tableView reloadData];
+    
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)beginPullDownRefresh{
@@ -100,24 +77,15 @@
 }
 
 -(void)pullDownRefresh{
-    [EHOMEDeviceModel getMyDeviceListWithStartBlock:^{
-        NSLog(@"Start request my devices...");
-        
-    } successBlock:^(id responseObject) {
+    
+    [[EHOMEUserModel shareInstance] syncDeviceWithCloud:^(id responseObject) {
         NSLog(@"Get my devices successful : %@", responseObject);
 
         
-        [self.myDevicesArray removeAllObjects];
-        [self.myDevicesArray addObjectsFromArray:responseObject];
-        
-        EHOMEDeviceModel *model = [self.myDevicesArray firstObject];
-        Function *fun = [model.functionList firstObject];
-        NSLog(@"fun name = %@", fun.name);
-        
-        if (self.myDevicesArray.count == 0) {
-
+        if ([EHOMEUserModel shareInstance].deviceArray.count == 0) {
+            
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"There is no device in your HOME,try to Add devices to build your eHome." preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 
             }];
             [alertController addAction:action];
@@ -126,28 +94,20 @@
         
         [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
-        
-    } failBlock:^(NSError *error) {
+    } failure:^(NSError *error) {
         NSLog(@"Get my devices failed : %@", error);
         
         [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
     }];
-    
-    [EHOMEDeviceModel getMySharedDeviceListWithStartBlock:^{
-        
-    } successBlock:^(id responseObject) {
-        NSLog(@"获取分享的设备成功 = %@", responseObject);
-    } failBlock:^(NSError *error) {
-        NSLog(@"获取分享的设备失败 = %@", error);
-    }];
+
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return self.myDevicesArray.count;
+    return [EHOMEUserModel shareInstance].deviceArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -163,9 +123,7 @@
         cell = [[EHOMEHomeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     
-    cell.deviceModel = self.myDevicesArray[indexPath.section];
-    cell.indexpath = indexPath;
-    cell.delegate = self;
+    cell.deviceModel = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
     
     return cell;
 }
@@ -178,7 +136,7 @@
 
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    EHOMEDeviceModel *model = self.myDevicesArray[indexPath.section];
+    EHOMEDeviceModel *model = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
     
     NSString *title = @"Delete";
     if (model.host) {
@@ -186,26 +144,26 @@
     }
     
     UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:title handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        [EHOMEDeviceModel unBindDeviceWithDeviceModel:model startBlock:^{
-            NSLog(@"Start unbinding...");
-
-                [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading" hideAfterDelay:10];
-
-        } successBlock:^(id responseObject) {
-
-                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-
-            NSLog(@"unbind success = %@", responseObject);
-            
-            [self.myDevicesArray removeObjectAtIndex:indexPath.section];
-            [self.tableView reloadData];
-            
-        } failBlock:^(NSError *error) {
-            NSLog(@"unbind failed = %@", error);
-
-                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-
-        }];
+//        [EHOMEDeviceModel unBindDeviceWithDeviceModel:model startBlock:^{
+//            NSLog(@"Start unbinding...");
+//
+//                [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading" hideAfterDelay:10];
+//
+//        } successBlock:^(id responseObject) {
+//
+//                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+//
+//            NSLog(@"unbind success = %@", responseObject);
+//
+//            [self.myDevicesArray removeObjectAtIndex:indexPath.section];
+//            [self.tableView reloadData];
+//
+//        } failBlock:^(NSError *error) {
+//            NSLog(@"unbind failed = %@", error);
+//
+//                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+//
+//        }];
     }];
     
     UITableViewRowAction *editNameRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Edit Name" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
@@ -228,14 +186,14 @@
 
 -(void)editDeviceNameWithIndexPath:(NSIndexPath *)indexPath{
     
-    EHOMEDeviceModel *device = self.myDevicesArray[indexPath.section];
+    EHOMEDeviceModel *device = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
     
     NSString *title = @"Alert";
-    NSString *message = @"Edit your device's name here.";
+    NSString *message = @"update device name";
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"Please key device name here...";
+        textField.placeholder = @"device name";
         textField.text = device.device.name;
     }];
     
@@ -246,25 +204,18 @@
         
         NSString *name = [[alertController textFields] firstObject].text;
         
-        [EHOMEDeviceModel updateDeviceNameWithDeviceModel:device name:name startBlock:^{
-            NSLog(@"Editting device name...");
-
-                [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading" hideAfterDelay:10];
-
-        } successBlock:^(id responseObject) {
-            NSLog(@"Edit device name success = %@", responseObject);
-
-                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-
-            device.device.name = name;
-            [self.myDevicesArray replaceObjectAtIndex:indexPath.section withObject:device];
-            [self.tableView reloadData];
+        [device updateDeviceName:name success:^(id responseObject) {
+            NSLog(@"update device name success. res = %@", responseObject);
             
-        } failBlock:^(NSError *error) {
-            NSLog(@"Edit device name failed = %@", error);
+            device.device.name = name;
+            
+            NSMutableArray *tempArray = [NSMutableArray arrayWithArray:[EHOMEUserModel shareInstance].deviceArray];
+            [tempArray replaceObjectAtIndex:indexPath.section withObject:device];
+            [EHOMEUserModel shareInstance].deviceArray = tempArray;
+            [self.tableView reloadData];
 
-                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-
+        } failure:^(NSError *error) {
+            NSLog(@"update device name failed. error = %@", error);
         }];
     }];
     
@@ -281,21 +232,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     EHOMEOutletDetailViewController *outletVC = [[EHOMEOutletDetailViewController alloc] initWithNibName:@"EHOMEOutletDetailViewController" bundle:nil];
-    outletVC.outlet = self.myDevicesArray[indexPath.section];
+    outletVC.device = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
+    [outletVC setUpdateDeviceStatusBlock:^(EHOMEDeviceModel *device) {
+        [tableView reloadData];
+    }];
     [self.navigationController pushViewController:outletVC animated:YES];
 }
-
--(void)switchDeviceStatusSuccessWithStatus:(BOOL)isOn indexPath:(NSIndexPath *)indexPath{
-    
-    EHOMEDeviceModel *model = self.myDevicesArray[indexPath.section];
-    model.functionValuesMap.power = isOn;
-    [self.myDevicesArray replaceObjectAtIndex:indexPath.section withObject:model];
-    
-}
-
-
-
-
 
 -(void)addDeviceAction{
     EHOMEAddDeviceTableViewController *addDeviceVC = [[EHOMEAddDeviceTableViewController alloc] initWithNibName:@"EHOMEAddDeviceTableViewController" bundle:nil];

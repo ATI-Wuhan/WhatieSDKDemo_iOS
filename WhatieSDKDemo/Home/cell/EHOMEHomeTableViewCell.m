@@ -31,33 +31,10 @@
     
     BOOL isOn = deviceSwitch.on;
     
-    [EHOMEDeviceModel switchDeviceStatusWithDeviceModel:_deviceModel toStatus:isOn startBlock:^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading..."];
-        });
-    } successBlock:^(id responseObject) {
-        /*
-        After controlling,the deviceId named "devId" and the latest BOOL status named "power" will be return as a dictinary.
-         @{
-            @"devId":devId,
-            @"power":@(true)
-         }
-        */
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            BOOL value = [[responseObject objectForKey:@"power"] boolValue];
-            if (value) {
-                self.deviceStatusLabel.text = @"On";
-            }else{
-                self.deviceStatusLabel.text = @"Off";
-            }
-            
-            [self.delegate switchDeviceStatusSuccessWithStatus:value indexPath:self.indexpath];
-        });
-    } failBlock:^(NSError *error) {
-        NSLog(@"Open switch On failed = %@", error);
-        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-        [self.deviceSwitch setOn:!isOn];
+    [_deviceModel updateDeviceStatus:isOn success:^(id responseObject) {
+        NSLog(@"update device status success. res = %@", responseObject);
+    } failure:^(NSError *error) {
+        NSLog(@"update device status failed. error = %@", error);
     }];
     
 }
@@ -67,6 +44,8 @@
     if (_deviceModel != nil) {
         
         self.deviceNameLabel.text = _deviceModel.device.name;
+        
+        [self.deviceImageView sd_setImageWithURL:[NSURL URLWithString:_deviceModel.device.product.picture.path] placeholderImage:[UIImage imageNamed:@"socket"]];
         
         if ([self.deviceModel.device.status isEqualToString:@"Offline"]) {
             [self.deviceSwitch setOn:NO];

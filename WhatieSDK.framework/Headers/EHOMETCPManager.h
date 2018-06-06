@@ -41,7 +41,6 @@ typedef void(^TCPBlock)(GCDAsyncSocket *sock, NSString *data);
 
 -(void)switchDeviceStatusWithDeviceModel:(EHOMEDeviceModel *)deviceModel
                                   status:(BOOL)status
-                              startBlock:(startBlock)startblock
                             successBlock:(successBlock)successblock
                                failBlock:(failBlock)failblock;
 

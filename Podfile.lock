@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.0)
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
+  - FDFullscreenPopGesture (1.1)
   - IQKeyboardManager (6.0.1)
   - Masonry (1.1.0)
   - MJExtension (3.0.13)
@@ -28,6 +29,7 @@ PODS:
   - YYCache (1.0.4)
 
 DEPENDENCIES:
+  - FDFullscreenPopGesture (= 1.1)
   - IQKeyboardManager
   - Masonry
   - MJExtension
@@ -36,8 +38,22 @@ DEPENDENCIES:
   - SDWebImage
   - SGQRCode
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - FDFullscreenPopGesture
+    - IQKeyboardManager
+    - Masonry
+    - MJExtension
+    - MJRefresh
+    - PPNetworkHelper
+    - SDWebImage
+    - SGQRCode
+    - YYCache
+
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   IQKeyboardManager: 118602feb2d0b8852cc7387c21db988f2ebdec6d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
@@ -47,6 +63,6 @@ SPEC CHECKSUMS:
   SGQRCode: 6cd7f03ea6b74d1267820d427b07d1451b387c79
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 682324e2c0362ce889a40b6cb69f355c1783bd86
+PODFILE CHECKSUM: 36ec0fb21969f6fde9ec195b07ac3712489edc92
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

@@ -10,8 +10,8 @@
 
 @interface EHOMESDK : EHOMEBaseObject
 
-@property (nonatomic, copy) NSString *accessId;
-@property (nonatomic, copy) NSString *accessKey;
+@property (nonatomic, copy) NSString *appId;
+@property (nonatomic, copy) NSString *secretKey;
 
 
 /**
@@ -21,6 +21,8 @@
  */
 +(EHOMESDK *)shareInstance;
 
--(void)startWithAccessId:(NSString *)accessId andAccessKey:(NSString *)accesskey;
+
+-(void)startWithAppId:(NSString *)appId secretKey:(NSString *)secretKey;
+
 
 @end

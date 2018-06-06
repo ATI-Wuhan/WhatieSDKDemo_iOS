@@ -52,18 +52,18 @@
     long timestamp = [[resultDic objectForKey:@"timestamp"] longValue];
 
 
-    [EHOMEDeviceModel sharedDeviceWithAdminUserId:adminId sharedUserId:[EHOMEUserModel getCurrentUser].id deviceId:deviceId timestamp:timestamp startBlock:^{
-        NSLog(@"Sharing device...");
-    } suucessBlock:^(id responseObject) {
-        NSLog(@"Share device success.= %@",responseObject);
-        
-        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"GetStartedNotice" object:nil userInfo:nil]];
-        
-        [self.navigationController popToRootViewControllerAnimated:YES];
-        
-    } failBlock:^(NSError *error) {
-        NSLog(@"Share device failed. = %@", error);
-    }];
+//    [EHOMEDeviceModel sharedDeviceWithAdminUserId:adminId sharedUserId:[EHOMEUserModel getCurrentUser].id deviceId:deviceId timestamp:timestamp startBlock:^{
+//        NSLog(@"Sharing device...");
+//    } suucessBlock:^(id responseObject) {
+//        NSLog(@"Share device success.= %@",responseObject);
+//        
+//        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"GetStartedNotice" object:nil userInfo:nil]];
+//        
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+//        
+//    } failBlock:^(NSError *error) {
+//        NSLog(@"Share device failed. = %@", error);
+//    }];
     
 }
 

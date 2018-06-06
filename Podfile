@@ -7,11 +7,12 @@ target 'WhatieSDKDemo' do
 
   # Pods for WhatieSDKDemo
   
-#  pod 'WhatieSDK',:git => 'https://github.com/IIDreams/WhatieSDK.git'
+#  pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK.git'
   pod 'IQKeyboardManager'
   pod 'Masonry'
   pod "PPNetworkHelper"
   pod "MJExtension"
+  pod 'FDFullscreenPopGesture', '1.1'
 
   pod "MJRefresh"
   pod 'SDWebImage'

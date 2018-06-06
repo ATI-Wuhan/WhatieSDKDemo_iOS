@@ -28,122 +28,94 @@
 #pragma MARK - Functions About Device
 
 /**
- GetMyDeviceList
+ Turn On & Turn off Device
  
- Get my devices if the userModel's isLogin is YES.
- The successblock returns the devices with <EHOMEDeviceModel *> array.
+ @param status : update your device want to be
+ 
  */
-+(void)getMyDeviceListWithStartBlock:(startBlock)startblock
-                      successBlock:(successBlock)successblock
-                         failBlock:(failBlock)failblock;
+-(void)updateDeviceStatus:(BOOL)status
+                  success:(successBlock)success
+                  failure:(failBlock)failure;
 
-
-+(void)getMySharedDeviceListWithStartBlock:(startBlock)startblock
-                              successBlock:(successBlock)successblock
-                                 failBlock:(failBlock)failblock;
-
-
-+(void)getStartedWithDevId:(NSString *)devId
-                deviceName:(NSString *)deviceName
-                startBlock:(startBlock)startblock
-              successBlock:(successBlock)successblock
-                 failBlock:(failBlock)failblock;
 
 /**
  UpdateDeviceName
  
- Edit the Name of Device with one deviceModel as EHOMEDeviceModel.
+ update device name with name.
  
- @param deviceModel : current deviceModel'name edting.
  @param name : new device name.
- */
-+(void)updateDeviceNameWithDeviceModel:(EHOMEDeviceModel *)deviceModel
-                                  name:(NSString *)name
-                            startBlock:(startBlock)startblock
-                          successBlock:(successBlock)successblock
-                             failBlock:(failBlock)failblock;
-
-/**
- UnBindDevice
  
- Unbind device.Also means delete device.User should reSet the device while use next.
- 
- @param deviceModel : current unbinding deviceModel.
  */
-+(void)unBindDeviceWithDeviceModel:(EHOMEDeviceModel *)deviceModel
-                        startBlock:(startBlock)startblock
-                      successBlock:(successBlock)successblock
-                         failBlock:(failBlock)failblock;
+-(void)updateDeviceName:(NSString *)name
+                success:(successBlock)success
+                failure:(failBlock)failure;
 
 
 
 /**
- SharedDevice
+ removeDevice
  
- Share Device to sharedUser from AdminUser.
- That means the device is belongs to AdminUser,it is shared to sharedUser.
- This FUNCTION is used by sharedUser.
- The AdminUser genetate the String include "adminUserId","deviceId","timestamp","accessId","accessKey",and so on.
- And the deviceId is the EHOMEDeviceModel.device.id
+ remove your device.
  
- @param adminUserId : adminUser'id
- @param sharedUserId : who the device shared to
- @param deviceId : EHOMEDeviceModel.device.id
- @param timestamp : timestamp unit to ms
-
  */
-+(void)sharedDeviceWithAdminUserId:(int)adminUserId
-                      sharedUserId:(int)sharedUserId
-                          deviceId:(int)deviceId
-                         timestamp:(long)timestamp
-                        startBlock:(startBlock)startblock
-                      suucessBlock:(successBlock)successblock
-                         failBlock:(failBlock)failblock;
+-(void)removeDevice:(successBlock)success
+            failure:(failBlock)failure;
 
 /**
- Turn On & Turn off Device
- 
- Which status do you want to turn?
+ shareDeviceByEmail
  
  */
-+(void)switchDeviceStatusWithDeviceModel:(EHOMEDeviceModel*)deviceModel
-                                toStatus:(BOOL)isOn
-                              startBlock:(startBlock)startblock
-                            successBlock:(successBlock)successblock
-                               failBlock:(failBlock)failblock;
+-(void)shareDeviceByEmail:(NSString *)email
+                  success:(successBlock)success
+                  failure:(failBlock)failure;
+
 
 
 /**
- addTimerClock
+ addTimer
  
- Set a time to turn on or turn off device on someday.
+ add timer under a specified device
  
- @param deviceModel : the device do you want set timer
- @param days :  which day do you want to execute?
-                0 means unable, 1 means enable,
-                and the order of days are:
-                Sunday Saturday Friday Thursday Wednesday Tuesday Monday
-                for example:
-                    timer avaliable on Thursday and Monday,the param of "days" is @"0001001",
-                    if Sunday, "days" is @"1000000"
- @param finishTime :  time user set
- @param isOn :  turn device isOn when time is ready
-
+ Note: loops:
+ 
+ @param loops : @“0000000”, each bit, 0: off, 1: on, representing from left to right: Sunday Saturday Friday Thursday Wednesday Tuesday Monday
+ @param time : 24 hours. ex. @"18:00"
+ @param status : device to be once timer is finished
+ 
  */
-+(void)addTimerClockWithDeviceModel:(EHOMEDeviceModel *)deviceModel
-                               days:(NSString *)days
-                         finishTime:(NSString *)finishTime
-                               isOn:(BOOL)isOn
-                         startBlock:(startBlock)startblock
-                       successBlock:(successBlock)successblock
-                          failBlock:(failBlock)failblock;
+-(void)addTimerWithLoops:(NSString *)loops
+                    time:(NSString *)time
+                  status:(BOOL)status
+                 success:(successBlock)success
+                 failure:(failBlock)failure;
 
 
+/**
+ getAllTimers
+ 
+ Obtain all timers of a specified device
+ 
+ */
+-(void)getAllTimers:(successBlock)success
+            failure:(failBlock)failure;
 
-+(void)getTimerClockListWithDeviceModel:(EHOMEDeviceModel *)deviceModel
-                             startBlock:(startBlock)startblock
-                           successBlock:(successBlock)successblock
-                              failBlock:(failBlock)failblock;
+
+/**
+ Add a timing countdwon
+ 
+ */
+-(void)addTimingCountdownWithDuration:(int)duration
+                               status:(BOOL)status
+                              success:(successBlock)success
+                              failure:(failBlock)failure;
+
+/**
+ getTimingCountdown
+ 
+ */
+-(void)getTimingCountdown:(successBlock)success
+                  failure:(failBlock)failure;
+
 
 
 /**

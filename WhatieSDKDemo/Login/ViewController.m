@@ -49,17 +49,17 @@
     
     
     NSString *email = self.emailTextField.text;
-    NSString *password = [EHOMEExtensions MD5EncryptedWith:self.passwordTextField.text];
+    NSString *password = self.passwordTextField.text;
     
     
     if ([email length] > 0 && [password length] > 0) {
-        [EHOMEUserModel loginWithEmail:email password:password startBlock:^{
-            
-            NSLog(@"开始注册");
-            
-            [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedString(@"Loading", nil) hideAfterDelay:25.0];
-            
-        } successBlock:^(id responseObject) {
+        
+        
+        NSLog(@"开始注册");
+        
+        [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedString(@"Loading", nil) hideAfterDelay:25.0];
+        
+        [[EHOMEUserModel shareInstance] loginByEmail:email password:password success:^(id responseObject) {
             NSLog(@"注册成功 = %@", responseObject);
             
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
@@ -68,16 +68,13 @@
             
             EHOMETabBarController *homeTabbar = [[EHOMETabBarController alloc] initWithNibName:@"EHOMETabBarController" bundle:nil];
             [self presentViewController:homeTabbar animated:YES completion:nil];
-        } failBlock:^(NSError *error) {
+        } failure:^(NSError *error) {
             NSLog(@"注册失败 = %@", error);
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
             
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                
-                [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedString(@"LoginFailed", nil) hideAfterDelay:1.0];
-            });
-            
+            [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedString(@"LoginFailed", nil) hideAfterDelay:1.0];
         }];
+
     }else{
         [HUDHelper addHUDInView:sharedKeyWindow text:@"Please check email or password" hideAfterDelay:1.0];
     }

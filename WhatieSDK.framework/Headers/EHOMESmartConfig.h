@@ -8,6 +8,7 @@
 
 #import "EHOMEBaseObject.h"
 
+
 @interface EHOMESmartConfig : EHOMEBaseObject
 
 /**
@@ -17,11 +18,18 @@
  */
 +(EHOMESmartConfig *)shareInstance;
 
--(void)smartConfigWithWifiPassword:(NSString *)wifiPassword
-                        startBlock:(startBlock)startblock
-                     progressBlock:(progressBlock)progressblock
-                      successBlock:(successBlock)successblock
-                         failBlock:(failBlock)failblock;
+-(void)startSmartConfigWithSsid:(NSString *)ssid
+                          bssid:(NSString *)bssid
+                       password:(NSString *)password
+                       progress:(progressBlock)progress
+                        success:(successBlock)success
+                        failure:(failBlock)failure;
+
+
+-(void)getStartedWithDevId:(NSString *)devId
+                deviceName:(NSString *)deviceName
+                   success:(successBlock)success
+                   failure:(failBlock)failure;
 
 
 

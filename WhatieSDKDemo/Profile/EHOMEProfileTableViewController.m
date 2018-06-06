@@ -12,6 +12,8 @@
 #import "EHOMEProfileTableViewController.h"
 #import "EHOMEProfileTableViewCell.h"
 #import "ViewController.h"
+#import "EHOMESharedDeviceTableViewController.h"
+#import "EHOMEFeedbackTableViewController.h"
 
 @interface EHOMEProfileTableViewController ()
 
@@ -41,41 +43,48 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 3;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    if (section == 1) {
-        return 1;
-    }else{
-        return 1;
-    }
+    return 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         EHOMEProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:profileCellId];
+        
         if (!cell) {
             cell = [[EHOMEProfileTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:profileCellId];
         }
         
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
         return cell;
     }else{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
         }
         
         if (indexPath.section == 1) {
-            if (indexPath.row == 0) {
-                cell.textLabel.text = @"Update Login Password";
-            }
+            cell.textLabel.text = @"Update Login Password";
         }
         
         if (indexPath.section == 2) {
+            cell.textLabel.text = @"Received Shared Devices";
+        }
+        
+        if (indexPath.section == 3) {
+            cell.textLabel.text = @"Feedback";
+        }
+        
+        if (indexPath.section == 4) {
             cell.textLabel.text = @"Logout";
         }
     
@@ -91,6 +100,22 @@
     }
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 8;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 2;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return nil;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return nil;
+}
+
 
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
@@ -99,34 +124,24 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
-            NSLog(@"Update Login Password");
-            [self updateLoginPassword];
-        }
+        NSLog(@"Update Login Password");
+        [self updateLoginPassword];
     }
     
     if (indexPath.section == 2) {
-        [EHOMEUserModel logoutWithStartBlock:^{
-            NSLog(@"logout...");
-        } successBlock:^(id responseObject) {
-            NSLog(@"logout success = %@", responseObject);
-            
-            [EHOMEUserModel removeCurrentUser];
-            [[EHOMEMQTTClientManager shareInstance] close];
-            
-            UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            ViewController *loginVC = [mainSB instantiateViewControllerWithIdentifier:@"LoginVC"];
-            [self presentViewController:loginVC animated:YES completion:nil];
-            
-        } failBlock:^(NSError *error) {
-            NSLog(@"logout failed = %@", error);
-            [EHOMEUserModel removeCurrentUser];
-            [[EHOMEMQTTClientManager shareInstance] close];
-            
-            UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            ViewController *loginVC = [mainSB instantiateViewControllerWithIdentifier:@"LoginVC"];
-            [self presentViewController:loginVC animated:YES completion:nil];
-        }];
+        NSLog(@"received shared devices");
+        EHOMESharedDeviceTableViewController *sharedDeviceVC = [[EHOMESharedDeviceTableViewController alloc] initWithNibName:@"EHOMESharedDeviceTableViewController" bundle:nil];
+        [self.navigationController pushViewController:sharedDeviceVC animated:YES];
+    }
+    
+    if (indexPath.section == 3) {
+        NSLog(@"feedback");
+        EHOMEFeedbackTableViewController *feedbackVC = [[EHOMEFeedbackTableViewController alloc] initWithNibName:@"EHOMEFeedbackTableViewController" bundle:nil];
+        [self.navigationController pushViewController:feedbackVC animated:YES];
+    }
+    
+    if (indexPath.section == 4) {
+        [self loginOut];
     }
 }
 
@@ -150,14 +165,13 @@
         
         ;
         
-        NSString *oldPasswordMD5 = [EHOMEExtensions MD5EncryptedWith:[[alertController textFields] firstObject].text];
-        NSString *newPasswordMD5 = [EHOMEExtensions MD5EncryptedWith:[[alertController textFields] lastObject].text];
+        NSString *oldPassword = [[alertController textFields] firstObject].text;
+        NSString *newPassword = [[alertController textFields] lastObject].text;
+        NSString *email = [EHOMEUserModel shareInstance].email;
         
-        [EHOMEUserModel updateLoginPasswordOldPasswordMD5:oldPasswordMD5 newPasswordMD5:newPasswordMD5 startBlock:^{
-            NSLog(@"Start Updating Login Password");
-        } successBlock:^(id responseObject) {
+        [[EHOMEUserModel shareInstance] resetPasswordByOldPassword:oldPassword newPassword:newPassword email:email success:^(id responseObject) {
             NSLog(@"Update Login Password Success = %@", responseObject);
-        } failBlock:^(NSError *error) {
+        } failure:^(NSError *error) {
             NSLog(@"Update Login Password Failed = %@", error);
         }];
         
@@ -167,6 +181,28 @@
     [alertController addAction:ok];
     
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+-(void)loginOut{
+    
+    [[EHOMEUserModel shareInstance] loginOut:^(id responseObject) {
+        NSLog(@"logout success = %@", responseObject);
+        
+        [EHOMEUserModel removeCurrentUser];
+        [[EHOMEMQTTClientManager shareInstance] close];
+        
+        UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ViewController *loginVC = [mainSB instantiateViewControllerWithIdentifier:@"LoginVC"];
+        [self presentViewController:loginVC animated:YES completion:nil];
+    } failure:^(NSError *error) {
+        NSLog(@"logout failed = %@", error);
+        [EHOMEUserModel removeCurrentUser];
+        [[EHOMEMQTTClientManager shareInstance] close];
+        
+        UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ViewController *loginVC = [mainSB instantiateViewControllerWithIdentifier:@"LoginVC"];
+        [self presentViewController:loginVC animated:YES completion:nil];
+    }];
 }
 
 

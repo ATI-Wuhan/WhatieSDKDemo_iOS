@@ -43,18 +43,16 @@
         deviceName = @"No Name.";
     }
     
-    [EHOMEDeviceModel getStartedWithDevId:_devId deviceName:self.deviceNameTextField.text startBlock:^{
-        NSLog(@"Start getting started...");
-    } successBlock:^(id responseObject) {
+    [[EHOMESmartConfig shareInstance] getStartedWithDevId:_devId deviceName:self.deviceNameTextField.text success:^(id responseObject) {
         NSLog(@"GET STARTED Success = %@", responseObject);
         
         [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"GetStartedNotice" object:nil userInfo:nil]];
         
         [self.navigationController popToRootViewControllerAnimated:YES];
-        
-    } failBlock:^(NSError *error) {
+    } failure:^(NSError *error) {
         NSLog(@"GET STARTED Failed = %@", error);
     }];
+
 }
 
 @end

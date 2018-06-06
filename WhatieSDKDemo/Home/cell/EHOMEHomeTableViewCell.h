@@ -6,21 +6,11 @@
 //  Copyright © 2018年 IIDreams. All rights reserved.
 //
 
-@protocol HomeDeviceDelegate<NSObject>
-
-@optional
--(void)switchDeviceStatusSuccessWithStatus:(BOOL)isOn indexPath:(NSIndexPath *)indexPath;
-
-@end
-
 #import <UIKit/UIKit.h>
 
 
 
 @interface EHOMEHomeTableViewCell : UITableViewCell
-
-@property (nonatomic, strong) NSIndexPath *indexpath;
-@property (nonatomic, assign) id <HomeDeviceDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIImageView *deviceImageView;
 @property (weak, nonatomic) IBOutlet UILabel *deviceNameLabel;

@@ -31,13 +31,15 @@
     
     __weak typeof(self) weakSelf = self;
     
-    [[EHOMESmartConfig shareInstance] smartConfigWithWifiPassword:_wifiPassword startBlock:^{
-        NSLog(@"Start to smart config...");
-    } progressBlock:^(NSProgress *progress) {
+    NSString *ssid = @"";
+    NSString *bssid = @"";
+    NSString *password = @"";
+    
+    [[EHOMESmartConfig shareInstance] startSmartConfigWithSsid:ssid bssid:bssid password:password progress:^(NSProgress *progress) {
         NSLog(@"smart config progress = %@", progress);
         
         weakSelf.progressView.progress = progress.fractionCompleted;
-    } successBlock:^(id responseObject) {
+    } success:^(id responseObject) {
         NSLog(@"Smart config success = %@", responseObject);
         
         weakSelf.progressView.progress = 1;
@@ -67,12 +69,11 @@
         }];
         [alertController addAction:action];
         [weakSelf presentViewController:alertController animated:YES completion:nil];
-    } failBlock:^(NSError *error) {
+    } failure:^(NSError *error) {
         NSLog(@"Smart config failed = %@", error);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.progressView.progress = 0;
-        });
+        weakSelf.progressView.progress = 0;
     }];
+
     
 }
 

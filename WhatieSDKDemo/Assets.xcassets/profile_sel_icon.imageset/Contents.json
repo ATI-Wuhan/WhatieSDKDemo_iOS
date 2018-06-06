@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "profile_sel.png",
+      "filename" : "个人中心选中 copy 2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "profile_sel@2x.png",
+      "filename" : "个人中心选中 copy 2@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "profile_sel@3x.png",
+      "filename" : "个人中心选中 copy 2@3x.png",
       "scale" : "3x"
     }
   ],

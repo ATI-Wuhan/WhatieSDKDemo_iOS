@@ -9,8 +9,10 @@
 #import "EHOMEBaseObject.h"
 #import "GCDAsyncSocket.h"
 
-@protocol tcpClientDelegate <NSObject>;
+@protocol tcpClientDelegate <NSObject>
+
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSString *)dataJson;
+
 @end
 
 @interface EHOMETcpClient : EHOMEBaseObject<GCDAsyncSocketDelegate>

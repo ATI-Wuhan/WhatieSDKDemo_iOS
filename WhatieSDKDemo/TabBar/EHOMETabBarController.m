@@ -9,6 +9,7 @@
 #import "EHOMETabBarController.h"
 #import "EHOMEHomeTableViewController.h"
 #import "EHOMEProfileTableViewController.h"
+#import "EHOMENavigationController.h"
 
 @interface EHOMETabBarController ()
 
@@ -20,16 +21,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:[[EHOMEHomeTableViewController alloc] initWithNibName:@"EHOMEHomeTableViewController" bundle:nil]];
-    UINavigationController *profileNav = [[UINavigationController alloc] initWithRootViewController:[[EHOMEProfileTableViewController alloc] initWithNibName:@"EHOMEProfileTableViewController" bundle:nil]];
+    EHOMENavigationController *homeNav = [[EHOMENavigationController alloc] initWithRootViewController:[[EHOMEHomeTableViewController alloc] initWithNibName:@"EHOMEHomeTableViewController" bundle:nil]];
+    EHOMENavigationController *profileNav = [[EHOMENavigationController alloc] initWithRootViewController:[[EHOMEProfileTableViewController alloc] initWithNibName:@"EHOMEProfileTableViewController" bundle:nil]];
     
     homeNav.tabBarItem.title = @"Home";
-    homeNav.tabBarItem.image = [UIImage imageNamed:@"home_icon"];
-    homeNav.tabBarItem.selectedImage = [UIImage imageNamed:@"home_sel_icon"];
+    homeNav.tabBarItem.image = [[UIImage imageNamed:@"home_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    homeNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"home_sel_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
     
     profileNav.tabBarItem.title = @"Profile";
-    profileNav.tabBarItem.image = [UIImage imageNamed:@"profile_icon"];
-    profileNav.tabBarItem.selectedImage = [UIImage imageNamed:@"profile_sel_icon"];
+    profileNav.tabBarItem.image = [[UIImage imageNamed:@"profile_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    profileNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"profile_sel_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     self.viewControllers = @[homeNav, profileNav];
 }

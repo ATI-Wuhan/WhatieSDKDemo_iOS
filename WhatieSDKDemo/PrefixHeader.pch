@@ -15,13 +15,19 @@
 
 #define sharedKeyWindow [UIApplication sharedApplication].keyWindow
 
+#define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define RGB(r,g,b) RGBA(r,g,b,1.0f)
+#define THEMECOLOR RGB(38, 175, 246)
+
 
 #import "HUDHelper.h"
 #import <Masonry/Masonry.h>
-#import <WhatieSDK/WhatieSDK.h>
+
 #import <MJRefresh/MJRefresh.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJExtension/MJExtension.h>
+
+#import <WhatieSDK/WhatieSDK.h>
 
 
 
