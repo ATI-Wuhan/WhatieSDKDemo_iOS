@@ -21,7 +21,6 @@
 -(void)startSmartConfigWithSsid:(NSString *)ssid
                           bssid:(NSString *)bssid
                        password:(NSString *)password
-                       progress:(progressBlock)progress
                         success:(successBlock)success
                         failure:(failBlock)failure;
 

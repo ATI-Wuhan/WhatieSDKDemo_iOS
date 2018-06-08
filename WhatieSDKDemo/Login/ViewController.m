@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 #import "EHOMETabBarController.h"
+#import "EHOMERegisterAccountViewController.h"
+#import "EHOMEForgetPasswordViewController.h"
+#import "EHOMENavigationController.h"
 
 @interface ViewController ()
 
@@ -16,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 - (IBAction)loginAction:(id)sender;
+- (IBAction)forgetLoginPassword:(id)sender;
+- (IBAction)registerNewAccount:(id)sender;
 
 @end
 
@@ -79,6 +84,22 @@
         [HUDHelper addHUDInView:sharedKeyWindow text:@"Please check email or password" hideAfterDelay:1.0];
     }
 
+}
+
+- (IBAction)forgetLoginPassword:(id)sender {
+    EHOMEForgetPasswordViewController *forgetPasswordVC = [[EHOMEForgetPasswordViewController alloc] initWithNibName:@"EHOMEForgetPasswordViewController" bundle:nil];
+    
+    EHOMENavigationController *forgetPasswordNav = [[EHOMENavigationController alloc] initWithRootViewController:forgetPasswordVC];
+    
+    [self presentViewController:forgetPasswordNav animated:YES completion:nil];
+}
+
+- (IBAction)registerNewAccount:(id)sender {
+    EHOMERegisterAccountViewController *registerAccountVC = [[EHOMERegisterAccountViewController alloc] initWithNibName:@"EHOMERegisterAccountViewController" bundle:nil];
+    
+    EHOMENavigationController *registerAccountNav = [[EHOMENavigationController alloc] initWithRootViewController:registerAccountVC];
+    
+    [self presentViewController:registerAccountNav animated:YES completion:nil];
 }
 
 

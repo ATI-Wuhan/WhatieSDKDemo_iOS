@@ -14,17 +14,22 @@
     [super awakeFromNib];
     // Initialization code
     
-    EHOMEUserModel *userModel = [EHOMEUserModel getCurrentUser];
-
-    self.nameLabel.text = userModel.name;
-    self.emailLabel.text = userModel.email;
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)setUserModel:(EHOMEUserModel *)userModel{
+    
+    _userModel = userModel;
+    
+    if (_userModel != nil) {
+        self.nameLabel.text = _userModel.name;
+        self.emailLabel.text = _userModel.email;
+    }
 }
 
 

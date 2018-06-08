@@ -10,10 +10,12 @@
 
 #import <PPNetworkHelper/PPNetworkHelper.h>
 #import "EHOMEGetStartedViewController.h"
+#import <SystemConfiguration/CaptiveNetwork.h>
 
 @interface EHOMESmartConfigViewController ()
 
-@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIView *indicatorBGView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
 @property (nonatomic, copy) NSString *SSID;
 @property (nonatomic, copy) NSString *BSSID;
@@ -31,23 +33,27 @@
     
     __weak typeof(self) weakSelf = self;
     
-    NSString *ssid = @"";
-    NSString *bssid = @"";
-    NSString *password = @"";
+    self.indicatorBGView.layer.masksToBounds = YES;
+    self.indicatorBGView.layer.cornerRadius = 5.0;
     
-    [[EHOMESmartConfig shareInstance] startSmartConfigWithSsid:ssid bssid:bssid password:password progress:^(NSProgress *progress) {
-        NSLog(@"smart config progress = %@", progress);
-        
-        weakSelf.progressView.progress = progress.fractionCompleted;
-    } success:^(id responseObject) {
+    [self.indicator startAnimating];
+    
+    NSString *ssid = [[self wifiInfo] objectForKey:@"SSID"];
+    NSString *bssid = [[self wifiInfo] objectForKey:@"BSSID"];
+    NSString *password = self.wifiPassword;
+
+    
+    [[EHOMESmartConfig shareInstance] startSmartConfigWithSsid:ssid bssid:bssid password:password success:^(id responseObject) {
         NSLog(@"Smart config success = %@", responseObject);
         
-        weakSelf.progressView.progress = 1;
+        [self.indicator stopAnimating];
+
         
         NSString *title = @"Success";
         NSString *message = @"Smart Config Success.";
         
         NSInteger protocol = [[responseObject objectForKey:@"protocol"] integerValue];
+        
         if (protocol == 9) {
             //success
             
@@ -71,16 +77,27 @@
         [weakSelf presentViewController:alertController animated:YES completion:nil];
     } failure:^(NSError *error) {
         NSLog(@"Smart config failed = %@", error);
-        weakSelf.progressView.progress = 0;
+        [self.indicator stopAnimating];
     }];
 
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (NSDictionary *)wifiInfo {
+    NSArray *ifs = (__bridge_transfer id)CNCopySupportedInterfaces();
+    NSLog(@"interfaces:%@",ifs);
+    NSDictionary *info = nil;
+    for (NSString *ifname in ifs) {
+        info = (__bridge_transfer NSDictionary *)CNCopyCurrentNetworkInfo((__bridge CFStringRef)ifname);
+        NSLog(@"%@ => %@",ifname,info);
+    }
+    return info;
+}
+
 
 
 

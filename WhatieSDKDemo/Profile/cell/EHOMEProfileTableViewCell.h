@@ -12,4 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+
+@property (nonatomic, strong) EHOMEUserModel *userModel;
+
 @end

@@ -60,6 +60,8 @@
             cell = [[EHOMEProfileTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:profileCellId];
         }
         
+        cell.userModel = [EHOMEUserModel shareInstance];
+        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         return cell;
@@ -123,6 +125,12 @@
  
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    if (indexPath.section == 0) {
+        NSLog(@"Update Nickname");
+        
+        [self updateNickName];
+    }
+    
     if (indexPath.section == 1) {
         NSLog(@"Update Login Password");
         [self updateLoginPassword];
@@ -145,6 +153,43 @@
     }
 }
 
+-(void)updateNickName{
+    NSString *title = @"Update Nickname";
+    NSString *message = @"Update your nickname";
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Please enter nickname";
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSString *name = [[alertController textFields] firstObject].text;
+        
+        if (name.length > 0) {
+            [[EHOMEUserModel shareInstance] updateNickname:name success:^(id responseObject) {
+                NSLog(@"update nickname success. res = %@", responseObject);
+                [HUDHelper addHUDInView:sharedKeyWindow text:@"update nickname success" hideAfterDelay:1.0];
+                
+                [self.tableView reloadData];
+                
+            } failure:^(NSError *error) {
+                NSLog(@"update nickname failed. error = %@", error);
+            }];
+        }else{
+            [HUDHelper addHUDInView:sharedKeyWindow text:@"please enter name" hideAfterDelay:1.0];
+        }
+    }];
+    
+    [alertController addAction:cancel];
+    [alertController addAction:ok];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 -(void)updateLoginPassword{
     NSString *title = @"Login Password";
     NSString *message = @"Update your login password with your old password.";
@@ -162,9 +207,7 @@
         
     }];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        ;
-        
+
         NSString *oldPassword = [[alertController textFields] firstObject].text;
         NSString *newPassword = [[alertController textFields] lastObject].text;
         NSString *email = [EHOMEUserModel shareInstance].email;

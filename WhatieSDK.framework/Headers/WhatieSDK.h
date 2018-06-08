@@ -21,6 +21,7 @@ FOUNDATION_EXPORT const unsigned char WhatieSDKVersionString[];
  */
 
 #define EHOMEUserNotificationDeviceArrayChanged @"EHOMEUserNotificationDeviceArrayChanged"
+#define EHOMEUserNotificationSharedDeviceArrayChanged @"EHOMEUserNotificationSharedDeviceArrayChanged"
 
 #import <WhatieSDK/EHOMEBaseObject.h>
 #import <WhatieSDK/EHOMEExtensions.h>

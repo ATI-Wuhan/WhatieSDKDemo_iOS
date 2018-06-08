@@ -166,6 +166,23 @@
 
 -(void)removeDevice{
     
+    [self.device removeDevice:^(id responseObject) {
+        
+        NSLog(@"remove device success = %@", responseObject);
+        
+        NSMutableArray *temp = [NSMutableArray arrayWithArray:[EHOMEUserModel shareInstance].deviceArray];
+        
+        [temp removeObject:self.device];
+        
+        [EHOMEUserModel shareInstance].deviceArray = temp;
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:EHOMEUserNotificationDeviceArrayChanged object:nil userInfo:nil];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"remove device failed = %@", error);
+    }];
 }
 
 -(void)showDeviceInfo{

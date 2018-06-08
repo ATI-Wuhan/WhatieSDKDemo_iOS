@@ -138,32 +138,26 @@
     
     EHOMEDeviceModel *model = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
     
-    NSString *title = @"Delete";
-    if (model.host) {
-        title = @"Unbind";
-    }
+    NSString *title = @"Remove";
     
     UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:title handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-//        [EHOMEDeviceModel unBindDeviceWithDeviceModel:model startBlock:^{
-//            NSLog(@"Start unbinding...");
-//
-//                [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Loading" hideAfterDelay:10];
-//
-//        } successBlock:^(id responseObject) {
-//
-//                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-//
-//            NSLog(@"unbind success = %@", responseObject);
-//
-//            [self.myDevicesArray removeObjectAtIndex:indexPath.section];
-//            [self.tableView reloadData];
-//
-//        } failBlock:^(NSError *error) {
-//            NSLog(@"unbind failed = %@", error);
-//
-//                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-//
-//        }];
+        
+        [model removeDevice:^(id responseObject) {
+            
+            NSLog(@"unbind success = %@", responseObject);
+            
+            NSMutableArray *temp = [NSMutableArray arrayWithArray:[EHOMEUserModel shareInstance].deviceArray];
+            
+            [temp removeObjectAtIndex:indexPath.section];
+            
+            [EHOMEUserModel shareInstance].deviceArray = temp;
+            
+            [self.tableView reloadData];
+            
+        } failure:^(NSError *error) {
+            NSLog(@"unbind failed = %@", error);
+        }];
+
     }];
     
     UITableViewRowAction *editNameRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Edit Name" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
@@ -243,6 +237,7 @@
     EHOMEAddDeviceTableViewController *addDeviceVC = [[EHOMEAddDeviceTableViewController alloc] initWithNibName:@"EHOMEAddDeviceTableViewController" bundle:nil];
     [self.navigationController pushViewController:addDeviceVC animated:YES];
 }
+
 
 
 @end

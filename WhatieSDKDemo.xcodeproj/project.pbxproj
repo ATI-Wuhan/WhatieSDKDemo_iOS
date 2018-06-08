@@ -64,6 +64,10 @@
 		A081D4212099D99700ECE05A /* EHOMEQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A081D41F2099D99700ECE05A /* EHOMEQRCodeViewController.xib */; };
 		A081D4262099DCC800ECE05A /* EHOMEScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081D4242099DCC800ECE05A /* EHOMEScanViewController.m */; };
 		A081D4272099DCC800ECE05A /* EHOMEScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A081D4252099DCC800ECE05A /* EHOMEScanViewController.xib */; };
+		A0D3C36620C8D5240071AD24 /* EHOMERegisterAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C36420C8D5240071AD24 /* EHOMERegisterAccountViewController.m */; };
+		A0D3C36720C8D5240071AD24 /* EHOMERegisterAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D3C36520C8D5240071AD24 /* EHOMERegisterAccountViewController.xib */; };
+		A0D3C36B20C8D5350071AD24 /* EHOMEForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C36920C8D5350071AD24 /* EHOMEForgetPasswordViewController.m */; };
+		A0D3C36C20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D3C36A20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +180,12 @@
 		A081D4232099DCC800ECE05A /* EHOMEScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEScanViewController.h; sourceTree = "<group>"; };
 		A081D4242099DCC800ECE05A /* EHOMEScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEScanViewController.m; sourceTree = "<group>"; };
 		A081D4252099DCC800ECE05A /* EHOMEScanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEScanViewController.xib; sourceTree = "<group>"; };
+		A0D3C36320C8D5240071AD24 /* EHOMERegisterAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMERegisterAccountViewController.h; sourceTree = "<group>"; };
+		A0D3C36420C8D5240071AD24 /* EHOMERegisterAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMERegisterAccountViewController.m; sourceTree = "<group>"; };
+		A0D3C36520C8D5240071AD24 /* EHOMERegisterAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMERegisterAccountViewController.xib; sourceTree = "<group>"; };
+		A0D3C36820C8D5350071AD24 /* EHOMEForgetPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEForgetPasswordViewController.h; sourceTree = "<group>"; };
+		A0D3C36920C8D5350071AD24 /* EHOMEForgetPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEForgetPasswordViewController.m; sourceTree = "<group>"; };
+		A0D3C36A20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEForgetPasswordViewController.xib; sourceTree = "<group>"; };
 		B5D753639852B3A92984AB2A /* Pods-WhatieSDKDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC50C01285FE41E243FCAA47 /* Pods-WhatieSDKDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		D3060AB96A092517C1EF1A2D /* libPods-WhatieSDKDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatieSDKDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +257,8 @@
 		0C6BF12F2088BD260021D16A /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A0D3C36220C8D3610071AD24 /* RegisterNewAccount */,
+				A0D3C36120C8D3510071AD24 /* ForgetLoginPassword */,
 				0CB4A94C208087AB008C2017 /* ViewController.h */,
 				0CB4A94D208087AB008C2017 /* ViewController.m */,
 			);
@@ -528,6 +540,26 @@
 			path = Scan;
 			sourceTree = "<group>";
 		};
+		A0D3C36120C8D3510071AD24 /* ForgetLoginPassword */ = {
+			isa = PBXGroup;
+			children = (
+				A0D3C36820C8D5350071AD24 /* EHOMEForgetPasswordViewController.h */,
+				A0D3C36920C8D5350071AD24 /* EHOMEForgetPasswordViewController.m */,
+				A0D3C36A20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib */,
+			);
+			path = ForgetLoginPassword;
+			sourceTree = "<group>";
+		};
+		A0D3C36220C8D3610071AD24 /* RegisterNewAccount */ = {
+			isa = PBXGroup;
+			children = (
+				A0D3C36320C8D5240071AD24 /* EHOMERegisterAccountViewController.h */,
+				A0D3C36420C8D5240071AD24 /* EHOMERegisterAccountViewController.m */,
+				A0D3C36520C8D5240071AD24 /* EHOMERegisterAccountViewController.xib */,
+			);
+			path = RegisterNewAccount;
+			sourceTree = "<group>";
+		};
 		F485E59782A7943DF687958B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,6 +681,7 @@
 			files = (
 				0C6BF1552089FC360021D16A /* EHOMEHomeTableViewController.xib in Resources */,
 				0C020A8E208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib in Resources */,
+				A0D3C36C20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib in Resources */,
 				0C6BF167208A015E0021D16A /* EHOMEProfileTableViewCell.xib in Resources */,
 				0CBCFF6120BD2E51009EADEC /* EHOMEOutletDetailViewController.xib in Resources */,
 				0CB4A956208087CB008C2017 /* LaunchScreen.storyboard in Resources */,
@@ -659,6 +692,7 @@
 				0CB4A953208087CB008C2017 /* Assets.xcassets in Resources */,
 				A04D2AB520C79397007038D8 /* EHOMETimerTableViewController.xib in Resources */,
 				A053129C20C7FE5600BA20AB /* EHOMESharedDeviceTableViewController.xib in Resources */,
+				A0D3C36720C8D5240071AD24 /* EHOMERegisterAccountViewController.xib in Resources */,
 				A053129620C7B25C00BA20AB /* EHOMESetTimeViewController.xib in Resources */,
 				0C6BF1612089FE9A0021D16A /* EHOMEHomeTableViewCell.xib in Resources */,
 				A05312AB20C8059E00BA20AB /* EHOMEAddFeedbackViewController.xib in Resources */,
@@ -776,6 +810,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A04D2AB020C784E7007038D8 /* EHOMENavigationController.m in Sources */,
+				A0D3C36B20C8D5350071AD24 /* EHOMEForgetPasswordViewController.m in Sources */,
 				A053129520C7B25C00BA20AB /* EHOMESetTimeViewController.m in Sources */,
 				0C6BF15A2089FC740021D16A /* EHOMETabBarController.m in Sources */,
 				A05312A520C802DC00BA20AB /* EHOMEFeedbackTableViewController.m in Sources */,
@@ -798,6 +833,7 @@
 				A053129B20C7FE5600BA20AB /* EHOMESharedDeviceTableViewController.m in Sources */,
 				0C6BF1602089FE9A0021D16A /* EHOMEHomeTableViewCell.m in Sources */,
 				A053128F20C7A87300BA20AB /* EHOMEAddTimerTableViewController.m in Sources */,
+				A0D3C36620C8D5240071AD24 /* EHOMERegisterAccountViewController.m in Sources */,
 				A081D41920997C4800ECE05A /* EHOMEGetStartedViewController.m in Sources */,
 				A04D2ABB20C79D21007038D8 /* EHOMETimerTableViewCell.m in Sources */,
 				0C020A7E208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.m in Sources */,
