@@ -148,7 +148,7 @@
             
             NSMutableArray *temp = [NSMutableArray arrayWithArray:[EHOMEUserModel shareInstance].deviceArray];
             
-            [temp removeObjectAtIndex:indexPath.section];
+            [temp removeObject:model];
             
             [EHOMEUserModel shareInstance].deviceArray = temp;
             

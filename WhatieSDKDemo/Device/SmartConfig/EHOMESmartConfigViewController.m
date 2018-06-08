@@ -77,6 +77,7 @@
         [weakSelf presentViewController:alertController animated:YES completion:nil];
     } failure:^(NSError *error) {
         NSLog(@"Smart config failed = %@", error);
+        
         [self.indicator stopAnimating];
     }];
 

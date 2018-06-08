@@ -9,13 +9,11 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^updateTimerBlock)(EHOMETimer *timer);
-typedef void(^addTimerBlock)(BOOL success);
 
 @interface EHOMEAddTimerTableViewController : UITableViewController
 
 @property (nonatomic, copy) updateTimerBlock updateTimerBlock;
 
-@property (nonatomic, copy) addTimerBlock addTimerBlock;
 
 @property (nonatomic, assign) BOOL isEditTimer;
 

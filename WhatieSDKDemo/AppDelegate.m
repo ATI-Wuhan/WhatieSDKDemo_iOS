@@ -32,6 +32,8 @@
     
 
     
+
+    
     //Init WhatieSDK
     [[EHOMESDK shareInstance] startWithAppId:appId secretKey:secretKey];
 

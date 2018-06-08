@@ -67,6 +67,7 @@ static NSString *cellId = @"EHOMETimerTableViewCell";
     EHOMEAddTimerTableViewController *addTimerVC = [[EHOMEAddTimerTableViewController alloc] initWithNibName:@"EHOMEAddTimerTableViewController" bundle:nil];
     addTimerVC.isEditTimer = NO;
     addTimerVC.device = self.device;
+    
     [self.navigationController pushViewController:addTimerVC animated:YES];
 }
 

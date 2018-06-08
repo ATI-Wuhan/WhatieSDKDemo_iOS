@@ -7,7 +7,10 @@ target 'WhatieSDKDemo' do
 
   # Pods for WhatieSDKDemo
   
-#  pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK.git'
+  pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'
+  
+  
+  
   pod 'IQKeyboardManager'
   pod 'Masonry'
   pod "PPNetworkHelper"

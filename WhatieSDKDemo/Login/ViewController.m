@@ -60,12 +60,12 @@
     if ([email length] > 0 && [password length] > 0) {
         
         
-        NSLog(@"开始注册");
+        NSLog(@"start login");
         
         [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedString(@"Loading", nil) hideAfterDelay:25.0];
         
         [[EHOMEUserModel shareInstance] loginByEmail:email password:password success:^(id responseObject) {
-            NSLog(@"注册成功 = %@", responseObject);
+            NSLog(@"login success = %@", responseObject);
             
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
             
@@ -74,7 +74,7 @@
             EHOMETabBarController *homeTabbar = [[EHOMETabBarController alloc] initWithNibName:@"EHOMETabBarController" bundle:nil];
             [self presentViewController:homeTabbar animated:YES completion:nil];
         } failure:^(NSError *error) {
-            NSLog(@"注册失败 = %@", error);
+            NSLog(@"login failed = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
             
             [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedString(@"LoginFailed", nil) hideAfterDelay:1.0];

@@ -74,6 +74,7 @@
  */
 +(EHOMEUserModel *)shareInstance;
 
+
 /**
  isLogin
  

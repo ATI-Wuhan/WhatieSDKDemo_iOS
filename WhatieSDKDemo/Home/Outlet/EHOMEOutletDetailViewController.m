@@ -45,7 +45,18 @@
     
     [self.outletImageView sd_setImageWithURL:[NSURL URLWithString:self.device.device.product.picture.path] placeholderImage:[UIImage imageNamed:@"socket"]];
     
-    [self showDeviceInfo];
+    if ([self.device.device.status isEqualToString:@"Offline"]) {
+        [self.outletSwitch setOn:NO];
+        self.outletStatusLabel.text = @"Offline";
+    }else{
+        if (self.device.functionValuesMap.power) {
+            self.outletStatusLabel.text = @"On";
+            [self.outletSwitch setOn:YES];
+        }else{
+            self.outletStatusLabel.text = @"Off";
+            [self.outletSwitch setOn:NO];
+        }
+    }
     
     [self.device getTimingCountdown:^(id responseObject) {
         NSLog(@"get timing countdown success. res = %@", responseObject);
@@ -185,24 +196,7 @@
     }];
 }
 
--(void)showDeviceInfo{
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if ([self.device.device.status isEqualToString:@"Offline"]) {
-            [self.outletSwitch setOn:NO];
-            self.outletStatusLabel.text = @"Offline";
-        }else{
-            if (self.device.functionValuesMap.power) {
-                self.outletStatusLabel.text = @"On";
-                [self.outletSwitch setOn:YES];
-            }else{
-                self.outletStatusLabel.text = @"Off";
-                [self.outletSwitch setOn:NO];
-            }
-        }
-    });
-
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -223,7 +217,14 @@
         
         EHOMEDeviceModel *device = responseObject;
         weakSelf.device = device;
-        [weakSelf showDeviceInfo];
+        
+        if (device.functionValuesMap.power) {
+            weakSelf.outletStatusLabel.text = @"On";
+            [self.outletSwitch setOn:YES];
+        }else{
+            weakSelf.outletStatusLabel.text = @"Off";
+            [self.outletSwitch setOn:NO];
+        }
         
         weakSelf.updateDeviceStatusBlock(device);
         

@@ -15,7 +15,9 @@ static NSString *cellId = @"EHOMEFeedbackTableViewCell";
 
 @interface EHOMEFeedbackTableViewController ()
 
-@property (nonatomic, strong) NSArray *feedbackArray;
+@property (nonatomic, assign) int current;
+
+@property (nonatomic, strong) NSMutableArray *feedbackArray;
 
 @end
 
@@ -26,6 +28,8 @@ static NSString *cellId = @"EHOMEFeedbackTableViewCell";
     
     self.title = @"Feedback";
     
+    self.feedbackArray = [NSMutableArray array];
+    
     UIBarButtonItem *addFeedbackItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addFeedback)];
     self.navigationItem.rightBarButtonItem = addFeedbackItem;
     
@@ -33,6 +37,9 @@ static NSString *cellId = @"EHOMEFeedbackTableViewCell";
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf getFeedbackList];
+    }];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf getMoreFeedbackLidt];
     }];
     
     [self.tableView.mj_header beginRefreshing];
@@ -52,10 +59,35 @@ static NSString *cellId = @"EHOMEFeedbackTableViewCell";
 }
 
 -(void)getFeedbackList{
+    
+    self.current = 1;
+    
     [[EHOMEUserModel shareInstance] getFeedbackListWithPage:1 size:10 success:^(id responseObject) {
         NSLog(@"get feedback list success. res = %@", responseObject);
         
-        self.feedbackArray = [[responseObject objectForKey:@"page"] objectForKey:@"list"];
+        [self.feedbackArray removeAllObjects];
+        
+        [self.feedbackArray addObjectsFromArray:[[responseObject objectForKey:@"page"] objectForKey:@"list"]] ;
+        
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"get feedback list failed. error = %@", error);
+        
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    }];
+}
+
+-(void)getMoreFeedbackLidt{
+    
+    
+    self.current ++;
+    
+    [[EHOMEUserModel shareInstance] getFeedbackListWithPage:self.current size:10 success:^(id responseObject) {
+        NSLog(@"get feedback list success. res = %@", responseObject);
+        
+        [self.feedbackArray addObjectsFromArray:[[responseObject objectForKey:@"page"] objectForKey:@"list"]] ;
         
         [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];

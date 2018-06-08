@@ -86,8 +86,6 @@
         [self.device addTimerWithLoops:loops time:self.time status:self.status success:^(id responseObject) {
             NSLog(@"add timer success, response = %@", responseObject);
             
-            weakSelf.addTimerBlock(YES);
-            
             [weakSelf.navigationController popViewControllerAnimated:YES];
             
         } failure:^(NSError *error) {
