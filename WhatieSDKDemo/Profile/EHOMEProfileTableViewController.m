@@ -177,14 +177,21 @@
         NSString *name = [[alertController textFields] firstObject].text;
         
         if (name.length > 0) {
+            
+            [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"updating name" hideAfterDelay:10];
+            
             [[EHOMEUserModel shareInstance] updateNickname:name success:^(id responseObject) {
                 NSLog(@"update nickname success. res = %@", responseObject);
+                
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
                 [HUDHelper addHUDInView:sharedKeyWindow text:@"update nickname success" hideAfterDelay:1.0];
                 
                 [self.tableView reloadData];
                 
             } failure:^(NSError *error) {
                 NSLog(@"update nickname failed. error = %@", error);
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+                [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
             }];
         }else{
             [HUDHelper addHUDInView:sharedKeyWindow text:@"please enter name" hideAfterDelay:1.0];
@@ -219,10 +226,16 @@
         NSString *newPassword = [[alertController textFields] lastObject].text;
         NSString *email = [EHOMEUserModel shareInstance].email;
         
+        [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"updating password" hideAfterDelay:10];
+        
         [[EHOMEUserModel shareInstance] resetPasswordByOldPassword:oldPassword newPassword:newPassword email:email success:^(id responseObject) {
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper addHUDInView:sharedKeyWindow text:@"update password success" hideAfterDelay:1.0];
             NSLog(@"Update Login Password Success = %@", responseObject);
         } failure:^(NSError *error) {
             NSLog(@"Update Login Password Failed = %@", error);
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
         }];
         
     }];
@@ -235,7 +248,13 @@
 
 -(void)loginOut{
     
+    [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"logout..." hideAfterDelay:15];
+    
     [[EHOMEUserModel shareInstance] loginOut:^(id responseObject) {
+        
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+        [HUDHelper addHUDInView:sharedKeyWindow text:@"logout success" hideAfterDelay:1.0];
+        
         NSLog(@"logout success = %@", responseObject);
         
         [EHOMEUserModel removeCurrentUser];
@@ -246,6 +265,10 @@
         [self presentViewController:loginVC animated:YES completion:nil];
     } failure:^(NSError *error) {
         NSLog(@"logout failed = %@", error);
+        
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+        [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+        
         [EHOMEUserModel removeCurrentUser];
         [[EHOMEMQTTClientManager shareInstance] close];
         

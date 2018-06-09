@@ -30,7 +30,7 @@
     NSLog(@"Switch status = %d, %@", deviceSwitch.on, _deviceModel.device.devId);
     
     BOOL isOn = deviceSwitch.on;
-    
+
     [_deviceModel updateDeviceStatus:isOn success:^(id responseObject) {
         NSLog(@"update device status success. res = %@", responseObject);
     } failure:^(NSError *error) {

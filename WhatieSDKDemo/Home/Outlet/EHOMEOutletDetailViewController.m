@@ -14,13 +14,6 @@
 @property (nonatomic, assign) int duration;
 @property (nonatomic, strong) NSTimer *timer;
 
-@property (weak, nonatomic) IBOutlet UIImageView *outletImageView;
-@property (weak, nonatomic) IBOutlet UILabel *outletNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *outletStatusLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *outletSwitch;
-
-- (IBAction)updateDeviceStatus:(id)sender;
-
 
 - (IBAction)timerAction:(id)sender;
 
@@ -41,22 +34,6 @@
     UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editDeviceAction)];
     self.navigationItem.rightBarButtonItem = editItem;
     
-    self.outletNameLabel.text = self.device.device.name;
-    
-    [self.outletImageView sd_setImageWithURL:[NSURL URLWithString:self.device.device.product.picture.path] placeholderImage:[UIImage imageNamed:@"socket"]];
-    
-    if ([self.device.device.status isEqualToString:@"Offline"]) {
-        [self.outletSwitch setOn:NO];
-        self.outletStatusLabel.text = @"Offline";
-    }else{
-        if (self.device.functionValuesMap.power) {
-            self.outletStatusLabel.text = @"On";
-            [self.outletSwitch setOn:YES];
-        }else{
-            self.outletStatusLabel.text = @"Off";
-            [self.outletSwitch setOn:NO];
-        }
-    }
     
     [self.device getTimingCountdown:^(id responseObject) {
         NSLog(@"get timing countdown success. res = %@", responseObject);
@@ -125,10 +102,6 @@
             
             self.device.device.name = devicename;
             
-            self.outletNameLabel.text = self.device.device.name;
-            
-            self.updateDeviceStatusBlock(self.device);
-            
         } failure:^(NSError *error) {
             NSLog(@"update device name failed. error = %@", error);
         }];
@@ -155,13 +128,18 @@
         
         NSString *email = [alertController.textFields firstObject].text;
         
+        [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Sharing" hideAfterDelay:10];
+        
         [self.device shareDeviceByEmail:email success:^(id responseObject) {
             NSLog(@"share device success. res = %@", responseObject);
             
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
             [HUDHelper addHUDInView:sharedKeyWindow text:@"Share device success." hideAfterDelay:1.5];
             
         } failure:^(NSError *error) {
             NSLog(@"share device failed. error = %@", error);
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.5];
         }];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -177,9 +155,14 @@
 
 -(void)removeDevice{
     
+    [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Removing" hideAfterDelay:10];
+    
     [self.device removeDevice:^(id responseObject) {
         
         NSLog(@"remove device success = %@", responseObject);
+        
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+        [HUDHelper addHUDInView:sharedKeyWindow text:@"Remove device success" hideAfterDelay:1.0];
         
         NSMutableArray *temp = [NSMutableArray arrayWithArray:[EHOMEUserModel shareInstance].deviceArray];
         
@@ -193,6 +176,8 @@
         
     } failure:^(NSError *error) {
         NSLog(@"remove device failed = %@", error);
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+        [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
     }];
 }
 
@@ -203,35 +188,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)updateDeviceStatus:(id)sender {
-    
-    UISwitch *deviceSwitch = (UISwitch *)sender;
-    
-    BOOL isOn = deviceSwitch.on;
-    
-    __weak typeof(self) weakSelf = self;
-    
-    [self.device updateDeviceStatus:isOn success:^(id responseObject) {
-        NSLog(@"update device status success. res = %@", responseObject);
-        
-        EHOMEDeviceModel *device = responseObject;
-        weakSelf.device = device;
-        
-        if (device.functionValuesMap.power) {
-            weakSelf.outletStatusLabel.text = @"On";
-            [self.outletSwitch setOn:YES];
-        }else{
-            weakSelf.outletStatusLabel.text = @"Off";
-            [self.outletSwitch setOn:NO];
-        }
-        
-        weakSelf.updateDeviceStatusBlock(device);
-        
-    } failure:^(NSError *error) {
-        NSLog(@"update device status failed. error = %@", error);
-    }];
-}
 
 - (IBAction)timerAction:(id)sender {
     

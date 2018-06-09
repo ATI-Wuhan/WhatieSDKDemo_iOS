@@ -117,25 +117,6 @@
                   failure:(failBlock)failure;
 
 
-
-/**
- Countdown
- 
- Countdown to turn on or turn off device on someday.
- 
- @param deviceModel : the device do you want set timer
- @param isOn :  turn device isOn when countdown is done
- @param duration :  the duration of countdown, such as 10s.If 10 minutes ,it is 600.
- 
- */
-+(void)countdownDeviceWithDeviceModel:(EHOMEDeviceModel *)deviceModel
-                             toStatus:(BOOL)isOn
-                             duration:(int)duration
-                           startBlock:(startBlock)startblock
-                         successBlock:(successBlock)successblock
-                            failBlock:(failBlock)failblock;
-
-
 @end
 
 

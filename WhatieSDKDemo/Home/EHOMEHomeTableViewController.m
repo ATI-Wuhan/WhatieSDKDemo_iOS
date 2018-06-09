@@ -142,7 +142,12 @@
     
     UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:title handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         
+        [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Removing" hideAfterDelay:10];
+        
         [model removeDevice:^(id responseObject) {
+            
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper addHUDInView:sharedKeyWindow text:@"Remove device success" hideAfterDelay:1.0];
             
             NSLog(@"unbind success = %@", responseObject);
             
@@ -156,6 +161,8 @@
             
         } failure:^(NSError *error) {
             NSLog(@"unbind failed = %@", error);
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
         }];
 
     }];
@@ -168,13 +175,48 @@
     editNameRowAction.backgroundColor = [UIColor blueColor];
     
     UITableViewRowAction *shareRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Share Device" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        EHOMEQRCodeViewController *qrCodeVC = [[EHOMEQRCodeViewController alloc] initWithNibName:@"EHOMEQRCodeViewController" bundle:nil];
-        qrCodeVC.deviceModel = model;
-        [self.navigationController pushViewController:qrCodeVC animated:YES];
+        [self shareDevice:model];
     }];
     shareRowAction.backgroundColor = [UIColor greenColor];
     
     return @[deleteRowAction, editNameRowAction, shareRowAction];
+    
+}
+
+-(void)shareDevice:(EHOMEDeviceModel *)device{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"share device to your friend by email." preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"your friends email...";
+    }];
+    
+    UIAlertAction *updateAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"OK");
+        
+        NSString *email = [alertController.textFields firstObject].text;
+        
+        [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Sharing" hideAfterDelay:10];
+        
+        [device shareDeviceByEmail:email success:^(id responseObject) {
+            NSLog(@"share device success. res = %@", responseObject);
+            
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper addHUDInView:sharedKeyWindow text:@"Share device success." hideAfterDelay:1.5];
+            
+        } failure:^(NSError *error) {
+            NSLog(@"share device failed. error = %@", error);
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+        }];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"cancel");
+    }];
+    
+    [alertController addAction:updateAction];
+    [alertController addAction:cancel];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
     
 }
 
@@ -198,8 +240,13 @@
         
         NSString *name = [[alertController textFields] firstObject].text;
         
+        [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Updating name" hideAfterDelay:10];
+        
         [device updateDeviceName:name success:^(id responseObject) {
             NSLog(@"update device name success. res = %@", responseObject);
+            
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper addHUDInView:sharedKeyWindow text:@"update name success" hideAfterDelay:1.0];
             
             device.device.name = name;
             
@@ -210,6 +257,8 @@
 
         } failure:^(NSError *error) {
             NSLog(@"update device name failed. error = %@", error);
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
         }];
     }];
     
@@ -227,9 +276,7 @@
     
     EHOMEOutletDetailViewController *outletVC = [[EHOMEOutletDetailViewController alloc] initWithNibName:@"EHOMEOutletDetailViewController" bundle:nil];
     outletVC.device = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
-    [outletVC setUpdateDeviceStatusBlock:^(EHOMEDeviceModel *device) {
-        [tableView reloadData];
-    }];
+
     [self.navigationController pushViewController:outletVC animated:YES];
 }
 

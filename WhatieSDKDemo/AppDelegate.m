@@ -31,7 +31,7 @@
     NSString * secretKey = @"Your AccessKey";
     
 
-    
+
 
     
     //Init WhatieSDK

@@ -46,6 +46,8 @@ static NSString *cellId = @"EHOMEFeedbackTableViewCell";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"EHOMEFeedbackTableViewCell" bundle:nil] forCellReuseIdentifier:cellId];
     [self.tableView setTableFooterView:[UIView new]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(headerRefresh) name:@"AddFeedbackNoticeSuccess" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +58,10 @@ static NSString *cellId = @"EHOMEFeedbackTableViewCell";
 -(void)addFeedback{
     EHOMEAddFeedbackViewController *addFeedbackVC = [[EHOMEAddFeedbackViewController alloc] initWithNibName:@"EHOMEAddFeedbackViewController" bundle:nil];
     [self.navigationController pushViewController:addFeedbackVC animated:YES];
+}
+
+-(void)headerRefresh{
+    [self.tableView.mj_header beginRefreshing];
 }
 
 -(void)getFeedbackList{
@@ -70,11 +76,13 @@ static NSString *cellId = @"EHOMEFeedbackTableViewCell";
         [self.feedbackArray addObjectsFromArray:[[responseObject objectForKey:@"page"] objectForKey:@"list"]] ;
         
         [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"get feedback list failed. error = %@", error);
         
         [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
     }];
 }
@@ -90,11 +98,13 @@ static NSString *cellId = @"EHOMEFeedbackTableViewCell";
         [self.feedbackArray addObjectsFromArray:[[responseObject objectForKey:@"page"] objectForKey:@"list"]] ;
         
         [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"get feedback list failed. error = %@", error);
         
         [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
     }];
 }

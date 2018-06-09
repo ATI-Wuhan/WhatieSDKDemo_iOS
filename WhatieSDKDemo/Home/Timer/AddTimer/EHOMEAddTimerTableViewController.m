@@ -86,6 +86,8 @@
         [self.device addTimerWithLoops:loops time:self.time status:self.status success:^(id responseObject) {
             NSLog(@"add timer success, response = %@", responseObject);
             
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"AddTimerNoticeSuccess" object:nil userInfo:nil];
+            
             [weakSelf.navigationController popViewControllerAnimated:YES];
             
         } failure:^(NSError *error) {
@@ -204,9 +206,6 @@
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return @[@"Time",@"Status",@"Loops"][section];
 }
-
-
-
 
 
 @end

@@ -38,6 +38,8 @@ static NSString *cellId = @"EHOMETimerTableViewCell";
     }];
     
     [self.tableView.mj_header beginRefreshing];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getAllTimers) name:@"AddTimerNoticeSuccess" object:nil];
 
 }
 

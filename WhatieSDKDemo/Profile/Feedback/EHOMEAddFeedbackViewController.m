@@ -34,15 +34,23 @@
     if ([feedback isEqualToString:@"Feedback..."] || feedback.length == 0) {
         [HUDHelper addHUDInView:sharedKeyWindow text:@"Please enter feedback." hideAfterDelay:1.0];
     }else{
+        
+        [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Adding feedback" hideAfterDelay:15];
+        
         [[EHOMEUserModel shareInstance] addFeedback:feedback success:^(id responseObject) {
             NSLog(@"Add feedback success. res = %@", responseObject);
             
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
             [HUDHelper addHUDInView:sharedKeyWindow text:@"Feedback success" hideAfterDelay:1.0];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"AddFeedbackNoticeSuccess" object:nil userInfo:nil];
             
             [self.navigationController popViewControllerAnimated:YES];
             
         } failure:^(NSError *error) {
             NSLog(@"Add feedback failed. error = %@", error);
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
         }];
     }
 }
