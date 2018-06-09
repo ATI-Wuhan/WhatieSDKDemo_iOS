@@ -1,2 +1,2 @@
 # WhatieSDKDemo
-A Demo of WhatieSDK
+A Demo of iOS WhatieSDK
