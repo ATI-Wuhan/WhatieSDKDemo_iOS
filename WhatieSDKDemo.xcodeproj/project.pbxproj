@@ -40,6 +40,9 @@
 		1DE837C060A6979515A6C708 /* libPods-WhatieSDKDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3060AB96A092517C1EF1A2D /* libPods-WhatieSDKDemo.a */; };
 		4D8A7937488294CC1F45981F /* libPods-WhatieSDKDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353857A322CF1969C61E536 /* libPods-WhatieSDKDemoTests.a */; };
 		5FE5F7606CDE0FC0F323A9F5 /* libPods-WhatieSDKDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 781F4340D496FFC6D0AE3461 /* libPods-WhatieSDKDemoUITests.a */; };
+		A037BFCC20CE3F3000767519 /* EHOMERGBLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A037BFCA20CE3F3000767519 /* EHOMERGBLightViewController.m */; };
+		A037BFCD20CE3F3000767519 /* EHOMERGBLightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A037BFCB20CE3F3000767519 /* EHOMERGBLightViewController.xib */; };
+		A037BFD620CE53FB00767519 /* EHOMEColorSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A037BFD520CE53FB00767519 /* EHOMEColorSlider.m */; };
 		A04D2AB020C784E7007038D8 /* EHOMENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A04D2AAF20C784E7007038D8 /* EHOMENavigationController.m */; };
 		A04D2AB420C79397007038D8 /* EHOMETimerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A04D2AB220C79397007038D8 /* EHOMETimerTableViewController.m */; };
 		A04D2AB520C79397007038D8 /* EHOMETimerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04D2AB320C79397007038D8 /* EHOMETimerTableViewController.xib */; };
@@ -58,6 +61,8 @@
 		A05312AB20C8059E00BA20AB /* EHOMEAddFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05312A920C8059E00BA20AB /* EHOMEAddFeedbackViewController.xib */; };
 		A05312AF20C80E1A00BA20AB /* EHOMEFeedbackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A05312AD20C80E1A00BA20AB /* EHOMEFeedbackTableViewCell.m */; };
 		A05312B020C80E1A00BA20AB /* EHOMEFeedbackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A05312AE20C80E1A00BA20AB /* EHOMEFeedbackTableViewCell.xib */; };
+		A071CB4620CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A071CB4420CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.m */; };
+		A071CB4720CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A071CB4520CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.xib */; };
 		A081D41920997C4800ECE05A /* EHOMEGetStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081D41720997C4800ECE05A /* EHOMEGetStartedViewController.m */; };
 		A081D41A20997C4800ECE05A /* EHOMEGetStartedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A081D41820997C4800ECE05A /* EHOMEGetStartedViewController.xib */; };
 		A081D4202099D99700ECE05A /* EHOMEQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081D41E2099D99700ECE05A /* EHOMEQRCodeViewController.m */; };
@@ -144,6 +149,11 @@
 		3353857A322CF1969C61E536 /* libPods-WhatieSDKDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatieSDKDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		781F4340D496FFC6D0AE3461 /* libPods-WhatieSDKDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatieSDKDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		825AAC3DEE68AC92AB5E68E7 /* Pods-WhatieSDKDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoUITests/Pods-WhatieSDKDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A037BFC920CE3F3000767519 /* EHOMERGBLightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMERGBLightViewController.h; sourceTree = "<group>"; };
+		A037BFCA20CE3F3000767519 /* EHOMERGBLightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMERGBLightViewController.m; sourceTree = "<group>"; };
+		A037BFCB20CE3F3000767519 /* EHOMERGBLightViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMERGBLightViewController.xib; sourceTree = "<group>"; };
+		A037BFD420CE53FB00767519 /* EHOMEColorSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEColorSlider.h; sourceTree = "<group>"; };
+		A037BFD520CE53FB00767519 /* EHOMEColorSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEColorSlider.m; sourceTree = "<group>"; };
 		A04D2AAE20C784E7007038D8 /* EHOMENavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMENavigationController.h; sourceTree = "<group>"; };
 		A04D2AAF20C784E7007038D8 /* EHOMENavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMENavigationController.m; sourceTree = "<group>"; };
 		A04D2AB120C79397007038D8 /* EHOMETimerTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMETimerTableViewController.h; sourceTree = "<group>"; };
@@ -171,6 +181,9 @@
 		A05312AC20C80E1A00BA20AB /* EHOMEFeedbackTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEFeedbackTableViewCell.h; sourceTree = "<group>"; };
 		A05312AD20C80E1A00BA20AB /* EHOMEFeedbackTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEFeedbackTableViewCell.m; sourceTree = "<group>"; };
 		A05312AE20C80E1A00BA20AB /* EHOMEFeedbackTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEFeedbackTableViewCell.xib; sourceTree = "<group>"; };
+		A071CB4320CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMELightMenuCollectionViewCell.h; sourceTree = "<group>"; };
+		A071CB4420CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMELightMenuCollectionViewCell.m; sourceTree = "<group>"; };
+		A071CB4520CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMELightMenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		A081D41620997C4800ECE05A /* EHOMEGetStartedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEGetStartedViewController.h; sourceTree = "<group>"; };
 		A081D41720997C4800ECE05A /* EHOMEGetStartedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEGetStartedViewController.m; sourceTree = "<group>"; };
 		A081D41820997C4800ECE05A /* EHOMEGetStartedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEGetStartedViewController.xib; sourceTree = "<group>"; };
@@ -268,6 +281,7 @@
 		0C6BF1302088BD310021D16A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A037BFBE20CE3DB200767519 /* Light */,
 				A04D2AB620C7939B007038D8 /* Timer */,
 				0CBCFF5C20BD2E30009EADEC /* Outlet */,
 				A081D4222099DCBA00ECE05A /* Scan */,
@@ -432,6 +446,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A037BFBE20CE3DB200767519 /* Light */ = {
+			isa = PBXGroup;
+			children = (
+				A071CB4220CF8683004ACC8E /* cell */,
+				A037BFD320CE53E000767519 /* slider */,
+				A037BFC920CE3F3000767519 /* EHOMERGBLightViewController.h */,
+				A037BFCA20CE3F3000767519 /* EHOMERGBLightViewController.m */,
+				A037BFCB20CE3F3000767519 /* EHOMERGBLightViewController.xib */,
+			);
+			path = Light;
+			sourceTree = "<group>";
+		};
+		A037BFD320CE53E000767519 /* slider */ = {
+			isa = PBXGroup;
+			children = (
+				A037BFD420CE53FB00767519 /* EHOMEColorSlider.h */,
+				A037BFD520CE53FB00767519 /* EHOMEColorSlider.m */,
+			);
+			path = slider;
+			sourceTree = "<group>";
+		};
 		A04D2AAD20C78451007038D8 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +543,16 @@
 				A05312AE20C80E1A00BA20AB /* EHOMEFeedbackTableViewCell.xib */,
 			);
 			path = Feedback;
+			sourceTree = "<group>";
+		};
+		A071CB4220CF8683004ACC8E /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				A071CB4320CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.h */,
+				A071CB4420CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.m */,
+				A071CB4520CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		A081D41520997C1400ECE05A /* GetStarted */ = {
@@ -685,6 +730,7 @@
 				0C6BF167208A015E0021D16A /* EHOMEProfileTableViewCell.xib in Resources */,
 				0CBCFF6120BD2E51009EADEC /* EHOMEOutletDetailViewController.xib in Resources */,
 				0CB4A956208087CB008C2017 /* LaunchScreen.storyboard in Resources */,
+				A037BFCD20CE3F3000767519 /* EHOMERGBLightViewController.xib in Resources */,
 				A081D41A20997C4800ECE05A /* EHOMEGetStartedViewController.xib in Resources */,
 				0C020A88208AD082008FBE5D /* deviceGIF.gif in Resources */,
 				0C6BF1342088BF720021D16A /* Localizable.strings in Resources */,
@@ -702,6 +748,7 @@
 				0C6BF1502089FC1F0021D16A /* EHOMEProfileTableViewController.xib in Resources */,
 				A04D2ABC20C79D21007038D8 /* EHOMETimerTableViewCell.xib in Resources */,
 				0C020A7F208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.xib in Resources */,
+				A071CB4720CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.xib in Resources */,
 				0C020A86208ACEDF008FBE5D /* EHOMESmartConfigViewController.xib in Resources */,
 				A081D4272099DCC800ECE05A /* EHOMEScanViewController.xib in Resources */,
 				A05312B020C80E1A00BA20AB /* EHOMEFeedbackTableViewCell.xib in Resources */,
@@ -814,7 +861,9 @@
 				A053129520C7B25C00BA20AB /* EHOMESetTimeViewController.m in Sources */,
 				0C6BF15A2089FC740021D16A /* EHOMETabBarController.m in Sources */,
 				A05312A520C802DC00BA20AB /* EHOMEFeedbackTableViewController.m in Sources */,
+				A071CB4620CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.m in Sources */,
 				A04D2AB420C79397007038D8 /* EHOMETimerTableViewController.m in Sources */,
+				A037BFCC20CE3F3000767519 /* EHOMERGBLightViewController.m in Sources */,
 				0C020A8D208AD128008FBE5D /* EHOMEConfirmWifiViewController.m in Sources */,
 				A05312AA20C8059E00BA20AB /* EHOMEAddFeedbackViewController.m in Sources */,
 				0C6BF1542089FC360021D16A /* EHOMEHomeTableViewController.m in Sources */,
@@ -835,6 +884,7 @@
 				A053128F20C7A87300BA20AB /* EHOMEAddTimerTableViewController.m in Sources */,
 				A0D3C36620C8D5240071AD24 /* EHOMERegisterAccountViewController.m in Sources */,
 				A081D41920997C4800ECE05A /* EHOMEGetStartedViewController.m in Sources */,
+				A037BFD620CE53FB00767519 /* EHOMEColorSlider.m in Sources */,
 				A04D2ABB20C79D21007038D8 /* EHOMETimerTableViewCell.m in Sources */,
 				0C020A7E208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.m in Sources */,
 			);

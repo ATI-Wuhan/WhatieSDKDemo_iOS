@@ -14,6 +14,7 @@
 #import "EHOMEQRCodeViewController.h"
 #import "EHOMEScanViewController.h"
 #import "EHOMEOutletDetailViewController.h"
+#import "EHOMERGBLightViewController.h"
 
 @interface EHOMEHomeTableViewController ()
 
@@ -25,6 +26,9 @@
     [super viewDidLoad];
 
     self.title = @"Home";
+    
+//    UIBarButtonItem *light = [[UIBarButtonItem alloc] initWithTitle:@"light" style:UIBarButtonItemStylePlain target:self action:@selector(gotoLightPage)];
+//    self.navigationItem.leftBarButtonItem = light;
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addDeviceAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -40,6 +44,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)gotoLightPage{
+    
+    EHOMERGBLightViewController *light = [[EHOMERGBLightViewController alloc] initWithNibName:@"EHOMERGBLightViewController" bundle:nil];
+    [self.navigationController pushViewController:light animated:YES];
 }
 
 -(void)initTableView{
@@ -80,9 +90,15 @@
     
     [[EHOMEUserModel shareInstance] syncDeviceWithCloud:^(id responseObject) {
         NSLog(@"Get my devices successful : %@", responseObject);
+        
+        for (EHOMEDeviceModel *device in responseObject) {
+            NSLog(@"device = %@", device.mj_keyValues);
+        }
 
         
         if ([EHOMEUserModel shareInstance].deviceArray.count == 0) {
+            
+            
             
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Alert" message:@"There is no device in your HOME,try to Add devices to build your eHome." preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -274,10 +290,22 @@
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    EHOMEOutletDetailViewController *outletVC = [[EHOMEOutletDetailViewController alloc] initWithNibName:@"EHOMEOutletDetailViewController" bundle:nil];
-    outletVC.device = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
-
-    [self.navigationController pushViewController:outletVC animated:YES];
+    EHOMEDeviceModel *device = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
+    
+    if (device.device.product.productType == 2) {
+        NSLog(@"Light");
+        
+        EHOMERGBLightViewController *lightVC = [[EHOMERGBLightViewController alloc] initWithNibName:@"EHOMERGBLightViewController" bundle:nil];
+        
+        lightVC.device = device;
+        
+        [self.navigationController pushViewController:lightVC animated:YES];
+    }else{
+        EHOMEOutletDetailViewController *outletVC = [[EHOMEOutletDetailViewController alloc] initWithNibName:@"EHOMEOutletDetailViewController" bundle:nil];
+        outletVC.device = device;
+        
+        [self.navigationController pushViewController:outletVC animated:YES];
+    }
 }
 
 -(void)addDeviceAction{

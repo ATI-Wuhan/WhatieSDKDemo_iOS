@@ -117,6 +117,20 @@
                   failure:(failBlock)failure;
 
 
+
+//** Light
+
+-(void)updateLightColorWithR:(int)r
+                           G:(int)g
+                           B:(int)b
+                     success:(successBlock)success
+                     failure:(failBlock)failure;
+
+-(void)updateLightBrightness:(int)brightness
+                     success:(successBlock)success
+                     failure:(failBlock)failure;
+
+
 @end
 
 

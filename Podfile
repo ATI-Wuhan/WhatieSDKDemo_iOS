@@ -7,8 +7,8 @@ target 'WhatieSDKDemo' do
 
   # Pods for WhatieSDKDemo
   
-  pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'
-  
+#  pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'
+
   
   
   pod 'IQKeyboardManager'
@@ -20,6 +20,7 @@ target 'WhatieSDKDemo' do
   pod "MJRefresh"
   pod 'SDWebImage'
   pod 'SGQRCode'
+  pod 'MDRadialProgress'
 
 #pod 'CocoaAsyncSocket'
 

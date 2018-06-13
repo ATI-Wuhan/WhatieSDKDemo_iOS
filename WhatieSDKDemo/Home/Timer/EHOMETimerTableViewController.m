@@ -39,13 +39,17 @@ static NSString *cellId = @"EHOMETimerTableViewCell";
     
     [self.tableView.mj_header beginRefreshing];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getAllTimers) name:@"AddTimerNoticeSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTimer) name:@"AddTimerNoticeSuccess" object:nil];
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)reloadTimer{
+    [self.tableView.mj_header beginRefreshing];
 }
 
 

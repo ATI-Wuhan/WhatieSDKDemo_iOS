@@ -43,14 +43,21 @@
         deviceName = @"No Name.";
     }
     
+    [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Please waiting" hideAfterDelay:15];
+    
     [[EHOMESmartConfig shareInstance] getStartedWithDevId:_devId deviceName:self.deviceNameTextField.text success:^(id responseObject) {
         NSLog(@"GET STARTED Success = %@", responseObject);
+        
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
         
         [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"GetStartedNotice" object:nil userInfo:nil]];
         
         [self.navigationController popToRootViewControllerAnimated:YES];
     } failure:^(NSError *error) {
         NSLog(@"GET STARTED Failed = %@", error);
+        
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+        [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
     }];
 
 }

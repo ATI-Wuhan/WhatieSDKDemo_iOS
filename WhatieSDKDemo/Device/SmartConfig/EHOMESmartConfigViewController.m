@@ -12,14 +12,19 @@
 #import "EHOMEGetStartedViewController.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 
-@interface EHOMESmartConfigViewController ()
+#import <QuartzCore/QuartzCore.h>
+#import <MDRadialProgress/MDRadialProgressView.h>
+#import <MDRadialProgress/MDRadialProgressTheme.h>
 
-@property (weak, nonatomic) IBOutlet UIView *indicatorBGView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+@interface EHOMESmartConfigViewController ()
 
 @property (nonatomic, copy) NSString *SSID;
 @property (nonatomic, copy) NSString *BSSID;
 @property (nonatomic, copy) NSString *password;
+
+@property (nonatomic, strong) MDRadialProgressView *progressView;
+@property (nonatomic, assign) int duration;
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -33,20 +38,18 @@
     
     __weak typeof(self) weakSelf = self;
     
-    self.indicatorBGView.layer.masksToBounds = YES;
-    self.indicatorBGView.layer.cornerRadius = 5.0;
-    
-    [self.indicator startAnimating];
     
     NSString *ssid = [[self wifiInfo] objectForKey:@"SSID"];
     NSString *bssid = [[self wifiInfo] objectForKey:@"BSSID"];
     NSString *password = self.wifiPassword;
+    
 
+    [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"SmartConfig..." hideAfterDelay:60];
     
     [[EHOMESmartConfig shareInstance] startSmartConfigWithSsid:ssid bssid:bssid password:password success:^(id responseObject) {
         NSLog(@"Smart config success = %@", responseObject);
         
-        [self.indicator stopAnimating];
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
 
         
         NSString *title = @"Success";
@@ -69,19 +72,33 @@
             message = [NSString stringWithFormat:@"The device is now available,but it isn't belongs to you.Please try to email %@",email];
         }
         
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            //            [self.navigationController popToRootViewControllerAnimated:YES];
-        }];
-        [alertController addAction:action];
-        [weakSelf presentViewController:alertController animated:YES completion:nil];
+        [weakSelf showAlertViewWithTitle:title message:message];
+        
     } failure:^(NSError *error) {
         NSLog(@"Smart config failed = %@", error);
         
-        [self.indicator stopAnimating];
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+
+        [weakSelf showAlertViewWithTitle:@"Alert" message:error.domain];
     }];
 
 }
+
+
+-(void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message{
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+    }];
+    [alertController addAction:action];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

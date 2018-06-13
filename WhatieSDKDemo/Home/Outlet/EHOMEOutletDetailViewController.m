@@ -200,10 +200,11 @@
     
     BOOL isOn = self.device.functionValuesMap.power;
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Timing Countdown" message:@"Start timing countdown" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Timing Countdown" message:@"Start timing countdown with Duration" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         textField.placeholder = @"duration";
+        textField.keyboardType = UIKeyboardTypeNumberPad;
     }];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

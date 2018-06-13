@@ -44,4 +44,11 @@ typedef void(^TCPBlock)(GCDAsyncSocket *sock, NSString *data);
                             successBlock:(successBlock)successblock
                                failBlock:(failBlock)failblock;
 
+-(void)updateLightColorWithDeviceModel:(EHOMEDeviceModel *)deviceModel
+                                     R:(int)r
+                                     G:(int)g
+                                     B:(int)b
+                            successBlock:(successBlock)successblock
+                               failBlock:(failBlock)failblock;
+
 @end
