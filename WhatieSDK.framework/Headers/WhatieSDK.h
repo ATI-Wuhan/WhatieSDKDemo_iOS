@@ -16,7 +16,7 @@ FOUNDATION_EXPORT const unsigned char WhatieSDKVersionString[];
 
 /**
  
- WhatieSDK Version 1.1.4
+ WhatieSDK Version 1.1.6
  
  */
 

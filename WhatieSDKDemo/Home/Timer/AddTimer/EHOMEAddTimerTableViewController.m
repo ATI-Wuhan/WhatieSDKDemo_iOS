@@ -69,8 +69,13 @@
     
     if (self.isEditTimer) {
         //update timer
+        
+        [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"updating timer..." hideAfterDelay:10];
+        
         [self.timer updateTimerWithLoops:loops time:self.time status:self.status success:^(id responseObject) {
             NSLog(@"update timer success, response = %@", responseObject);
+            
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
 
             EHOMETimer *timer = responseObject;
             
@@ -80,11 +85,18 @@
             
         } failure:^(NSError *error) {
             NSLog(@"update timer failed, error = %@", error);
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1];
         }];
     }else{
         //add timer
+        
+        [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Adding timer..." hideAfterDelay:10];
+        
         [self.device addTimerWithLoops:loops time:self.time status:self.status success:^(id responseObject) {
             NSLog(@"add timer success, response = %@", responseObject);
+            
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"AddTimerNoticeSuccess" object:nil userInfo:nil];
             
@@ -92,6 +104,8 @@
             
         } failure:^(NSError *error) {
             NSLog(@"add timer failed, error = %@", error);
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1];
         }];
     }
 }

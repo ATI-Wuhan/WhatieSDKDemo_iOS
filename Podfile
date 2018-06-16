@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+ platform :ios, '9.0'
 
 target 'WhatieSDKDemo' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
@@ -7,7 +7,10 @@ target 'WhatieSDKDemo' do
 
   # Pods for WhatieSDKDemo
   
+#  pod 'WhatieSDK'
 #  pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'
+
+pod "TuyaSmartKit", :git => "https://github.com/TuyaInc/tuyasmart_ios_sdk.git"
 
   
   

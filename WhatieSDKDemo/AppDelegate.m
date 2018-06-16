@@ -10,6 +10,7 @@
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "ViewController.h"
 #import "EHOMETabBarController.h"
+#import <TuyaSmartKit/TuyaSmartKit.h>
 
 @interface AppDelegate ()
 
@@ -36,6 +37,9 @@
     
     //Init WhatieSDK
     [[EHOMESDK shareInstance] startWithAppId:appId secretKey:secretKey];
+    
+    
+    [[TuyaSmartSDK sharedInstance] startWithAppKey:@"rcryshu7kvg7ap89xekn" secretKey:@"hkn8y7fjhsjveguv3pcnfqter4yqj9f4"];
 
     
     if ([EHOMEUserModel isLogin]) {

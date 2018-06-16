@@ -38,13 +38,6 @@ typedef void(^MQTTBlock)(NSString *topic, NSData *data);
 -(void)subscribeTopicsWithTopics:(NSDictionary *)topics;
 
 
--(void)switchDeviceStatusWithDeviceModel:(EHOMEDeviceModel *)deviceModel
-                                  status:(BOOL)status
-                              startBlock:(startBlock)startblock
-                            successBlock:(successBlock)successblock
-                               failBlock:(failBlock)failblock;
-
-
 /**
  publish
  

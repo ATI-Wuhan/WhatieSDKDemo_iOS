@@ -22,6 +22,7 @@
 @property (nonatomic, strong) FunctionValuesMap *functionValuesMap;
 @property (nonatomic, assign) BOOL host;//  true
 @property (nonatomic, assign) BOOL hasCountDown;
+@property (nonatomic, copy) NSString *productName;//RgbLight,Plug
 
 
 
@@ -120,15 +121,36 @@
 
 //** Light
 
--(void)updateLightColorWithR:(int)r
-                           G:(int)g
-                           B:(int)b
-                     success:(successBlock)success
-                     failure:(failBlock)failure;
+-(void)updateIncandescentLightBrightness:(int)brightness
+                                 success:(successBlock)success
+                                 failure:(failBlock)failure;
 
--(void)updateLightBrightness:(int)brightness
-                     success:(successBlock)success
-                     failure:(failBlock)failure;
+
+-(void)updateRGBLightColorWithRGB:(NSString *)rgb
+                          success:(successBlock)success
+                          failure:(failBlock)failure;
+
+-(void)updateRGBLightBrightness:(int)brightness
+                        success:(successBlock)success
+                        failure:(failBlock)failure;
+
+//stream light
+-(void)updateStreamLightColorWithRGB1:(NSString *)rgb1
+                                 RGB2:(NSString *)rgb2
+                                 RGB3:(NSString *)rgb3
+                                 RGB4:(NSString *)rgb4
+                              success:(successBlock)success
+                              failure:(failBlock)failure;
+
+-(void)updateStreamLightDuration:(int)duration
+                         success:(successBlock)success
+                         failure:(failBlock)failure;
+
+
+-(void)updateStreamLightBrightness:(int)brightness
+                           success:(successBlock)success
+                           failure:(failBlock)failure;
+
 
 
 @end
@@ -189,7 +211,19 @@
 
 @interface FunctionValuesMap : EHOMEBaseObject
 
+//only outlets
 @property (nonatomic, assign) BOOL power;
+
+//only light
+@property (nonatomic, assign) BOOL colorLight;
+@property (nonatomic, copy) NSString *colorData;
+@property (nonatomic, copy) NSString *colorTemperature;
+@property (nonatomic, copy) NSString *brightness;
+@property (nonatomic, copy) NSString *duration;
+@property (nonatomic, copy) NSString *rgb1;
+@property (nonatomic, copy) NSString *rgb2;
+@property (nonatomic, copy) NSString *rgb3;
+@property (nonatomic, copy) NSString *rgb4;
 
 @end
 

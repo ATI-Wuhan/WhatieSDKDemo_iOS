@@ -53,12 +53,23 @@
             [self.deviceSwitch setEnabled:NO];
         }else{
             [self.deviceSwitch setEnabled:YES];
-            if (_deviceModel.functionValuesMap.power) {
-                self.deviceStatusLabel.text = @"On";
-                [self.deviceSwitch setOn:YES];
-            }else{
-                self.deviceStatusLabel.text = @"Off";
-                [self.deviceSwitch setOn:NO];
+            
+            if([deviceModel.productName isEqualToString:@"RgbLight"]){
+                if (_deviceModel.functionValuesMap.colorLight) {
+                    self.deviceStatusLabel.text = @"On";
+                    [self.deviceSwitch setOn:YES];
+                }else{
+                    self.deviceStatusLabel.text = @"Off";
+                    [self.deviceSwitch setOn:NO];
+                }
+            }else if ([deviceModel.productName isEqualToString:@"Plug"]){
+                if (_deviceModel.functionValuesMap.power) {
+                    self.deviceStatusLabel.text = @"On";
+                    [self.deviceSwitch setOn:YES];
+                }else{
+                    self.deviceStatusLabel.text = @"Off";
+                    [self.deviceSwitch setOn:NO];
+                }
             }
         }
         

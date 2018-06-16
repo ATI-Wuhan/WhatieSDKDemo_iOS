@@ -42,7 +42,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 
@@ -54,8 +54,15 @@
     }
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.imageView.image = [UIImage imageNamed:@"socket"];
-    cell.textLabel.text = @"Outlet";
+    
+    if(indexPath.row == 0){
+        cell.imageView.image = [UIImage imageNamed:@"socket"];
+        cell.textLabel.text = @"Outlets";
+    }else{
+        cell.imageView.image = [UIImage imageNamed:@"rgb_light"];
+        cell.textLabel.text = @"RGB_Light";
+    }
+
     
     return cell;
 }

@@ -37,7 +37,7 @@
     
     
     NSMutableArray *tempHourArray = [NSMutableArray array];
-    for (int i = 0; i<=24; i++) {
+    for (int i = 0; i<=23; i++) {
         if (i<10) {
             [tempHourArray addObject:[NSString stringWithFormat:@"0%d",i]];
         }else{

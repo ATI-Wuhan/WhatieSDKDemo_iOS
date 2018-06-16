@@ -16,6 +16,9 @@
 #import <MDRadialProgress/MDRadialProgressView.h>
 #import <MDRadialProgress/MDRadialProgressTheme.h>
 
+#import "ESPTouchTask.h"
+#import "ESPTouchResult.h"
+
 @interface EHOMESmartConfigViewController ()
 
 @property (nonatomic, copy) NSString *SSID;
@@ -25,6 +28,9 @@
 @property (nonatomic, strong) MDRadialProgressView *progressView;
 @property (nonatomic, assign) int duration;
 @property (nonatomic, strong) NSTimer *timer;
+
+
+@property (nonatomic, strong) ESPTouchTask *esptouchTask;
 
 @end
 
@@ -45,6 +51,17 @@
     
 
     [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"SmartConfig..." hideAfterDelay:60];
+    
+    ESPTouchResult *espTouchResult = [self executeForResult];
+    
+    if (!espTouchResult.isCancelled) {
+        if (espTouchResult.isSuc) {
+            
+            NSLog(@"smartConfig Success");
+        }else{
+
+        }
+    }
     
     [[EHOMESmartConfig shareInstance] startSmartConfigWithSsid:ssid bssid:bssid password:password success:^(id responseObject) {
         NSLog(@"Smart config success = %@", responseObject);
@@ -82,6 +99,27 @@
         [weakSelf showAlertViewWithTitle:@"Alert" message:error.domain];
     }];
 
+}
+
+- (ESPTouchResult *) executeForResult{
+    
+    if (_SSID == nil || _BSSID == nil) {
+        
+        NSLog(@"SSID OR BSSID is nil");
+        
+        return 0;
+    }else{
+        
+        NSString *ssid = [[self wifiInfo] objectForKey:@"SSID"];
+        NSString *bssid = [[self wifiInfo] objectForKey:@"BSSID"];
+        NSString *password = self.wifiPassword;
+        
+        _esptouchTask = [[ESPTouchTask alloc]initWithApSsid:ssid andApBssid:bssid andApPwd:@"111"];
+        ESPTouchResult * esptouchResult = [_esptouchTask executeForResult];
+        
+        //        NSLog(@"ESPViewController executeForResult() result is: %@",esptouchResult);
+        return esptouchResult;
+    }
 }
 
 

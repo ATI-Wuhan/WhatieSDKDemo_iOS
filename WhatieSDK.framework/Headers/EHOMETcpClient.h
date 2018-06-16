@@ -7,7 +7,7 @@
 //
 
 #import "EHOMEBaseObject.h"
-#import "GCDAsyncSocket.h"
+#import <GCDAsyncSocket.h>
 
 @protocol tcpClientDelegate <NSObject>
 

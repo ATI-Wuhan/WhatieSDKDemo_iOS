@@ -74,6 +74,10 @@
 
     NSLog(@"[EHOMEUserModel shareInstance].deviceArray 有变更");
     
+    for (EHOMEDeviceModel *model in [EHOMEUserModel shareInstance].deviceArray) {
+        NSLog(@"变更后的设备model = %@", model.functionValuesMap.mj_keyValues);
+    }
+    
     [self.tableView reloadData];
     
 }
@@ -291,21 +295,38 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     EHOMEDeviceModel *device = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
+
     
-    if (device.device.product.productType == 2) {
-        NSLog(@"Light");
-        
-        EHOMERGBLightViewController *lightVC = [[EHOMERGBLightViewController alloc] initWithNibName:@"EHOMERGBLightViewController" bundle:nil];
-        
-        lightVC.device = device;
-        
-        [self.navigationController pushViewController:lightVC animated:YES];
-    }else{
-        EHOMEOutletDetailViewController *outletVC = [[EHOMEOutletDetailViewController alloc] initWithNibName:@"EHOMEOutletDetailViewController" bundle:nil];
-        outletVC.device = device;
-        
-        [self.navigationController pushViewController:outletVC animated:YES];
+    NSArray *products = @[@"RgbLight",@"Plug"];
+    
+    NSInteger index = [products indexOfObject:device.productName];
+    
+    switch (index) {
+        case 0:{
+            NSLog(@"Clicked RgbLight");
+            
+            EHOMERGBLightViewController *lightVC = [[EHOMERGBLightViewController alloc] initWithNibName:@"EHOMERGBLightViewController" bundle:nil];
+            
+            lightVC.device = device;
+            
+            [self.navigationController pushViewController:lightVC animated:YES];
+        }
+            break;
+            
+        case 1:{
+            NSLog(@"Clicked Plug");
+            
+            EHOMEOutletDetailViewController *outletVC = [[EHOMEOutletDetailViewController alloc] initWithNibName:@"EHOMEOutletDetailViewController" bundle:nil];
+            outletVC.device = device;
+            
+            [self.navigationController pushViewController:outletVC animated:YES];
+        }
+            break;
+            
+        default:
+            break;
     }
+
 }
 
 -(void)addDeviceAction{
