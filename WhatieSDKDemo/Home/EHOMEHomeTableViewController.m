@@ -96,7 +96,7 @@
         NSLog(@"Get my devices successful : %@", responseObject);
         
         for (EHOMEDeviceModel *device in responseObject) {
-            NSLog(@"device = %@", device.mj_keyValues);
+            NSLog(@"device version = %@", device.device.version.version);
         }
 
         

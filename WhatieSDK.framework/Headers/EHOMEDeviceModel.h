@@ -268,7 +268,7 @@
 @property (nonatomic, copy) NSString *upgradeDoc;// = "<null>";
 @property (nonatomic, assign) long long upgradeTime;// = "<null>";
 @property (nonatomic, copy) NSString *upgradeType;// = "APP\U63d0\U9192\U5347\U7ea7";
-@property (nonatomic, assign) int version;// = 1;
+@property (nonatomic, copy) NSString *version;// = 1;
 
 @end
 

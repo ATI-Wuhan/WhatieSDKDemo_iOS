@@ -30,6 +30,8 @@
                    success:(successBlock)success
                    failure:(failBlock)failure;
 
+-(void)stopSmartConfig;
+
 
 
 @end

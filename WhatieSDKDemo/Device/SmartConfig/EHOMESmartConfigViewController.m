@@ -16,8 +16,6 @@
 #import <MDRadialProgress/MDRadialProgressView.h>
 #import <MDRadialProgress/MDRadialProgressTheme.h>
 
-#import "ESPTouchTask.h"
-#import "ESPTouchResult.h"
 
 @interface EHOMESmartConfigViewController ()
 
@@ -30,7 +28,6 @@
 @property (nonatomic, strong) NSTimer *timer;
 
 
-@property (nonatomic, strong) ESPTouchTask *esptouchTask;
 
 @end
 
@@ -42,6 +39,11 @@
     
     self.title = @"Smart Config";
     
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"Stop" style:UIBarButtonItemStylePlain target:self action:@selector(stopSmartConfigAction)];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
+    
     __weak typeof(self) weakSelf = self;
     
     
@@ -50,29 +52,19 @@
     NSString *password = self.wifiPassword;
     
 
-    [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"SmartConfig..." hideAfterDelay:60];
-    
-    ESPTouchResult *espTouchResult = [self executeForResult];
-    
-    if (!espTouchResult.isCancelled) {
-        if (espTouchResult.isSuc) {
-            
-            NSLog(@"smartConfig Success");
-        }else{
+    [HUDHelper addHUDProgressInView:self.view text:@"SmartConfig..." hideAfterDelay:60];
 
-        }
-    }
-    
     [[EHOMESmartConfig shareInstance] startSmartConfigWithSsid:ssid bssid:bssid password:password success:^(id responseObject) {
         NSLog(@"Smart config success = %@", responseObject);
         
-        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+        [HUDHelper hideAllHUDsForView:self.view animated:YES];
 
         
         NSString *title = @"Success";
         NSString *message = @"Smart Config Success.";
         
         NSInteger protocol = [[responseObject objectForKey:@"protocol"] integerValue];
+
         
         if (protocol == 9) {
             //success
@@ -94,33 +86,14 @@
     } failure:^(NSError *error) {
         NSLog(@"Smart config failed = %@", error);
         
-        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-
+        [HUDHelper hideAllHUDsForView:self.view animated:YES];
+        
         [weakSelf showAlertViewWithTitle:@"Alert" message:error.domain];
+
     }];
 
 }
 
-- (ESPTouchResult *) executeForResult{
-    
-    if (_SSID == nil || _BSSID == nil) {
-        
-        NSLog(@"SSID OR BSSID is nil");
-        
-        return 0;
-    }else{
-        
-        NSString *ssid = [[self wifiInfo] objectForKey:@"SSID"];
-        NSString *bssid = [[self wifiInfo] objectForKey:@"BSSID"];
-        NSString *password = self.wifiPassword;
-        
-        _esptouchTask = [[ESPTouchTask alloc]initWithApSsid:ssid andApBssid:bssid andApPwd:@"111"];
-        ESPTouchResult * esptouchResult = [_esptouchTask executeForResult];
-        
-        //        NSLog(@"ESPViewController executeForResult() result is: %@",esptouchResult);
-        return esptouchResult;
-    }
-}
 
 
 -(void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message{
@@ -131,6 +104,11 @@
     }];
     [alertController addAction:action];
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+-(void)stopSmartConfigAction{
+    
+    [[EHOMESmartConfig shareInstance] stopSmartConfig];
 }
 
 
