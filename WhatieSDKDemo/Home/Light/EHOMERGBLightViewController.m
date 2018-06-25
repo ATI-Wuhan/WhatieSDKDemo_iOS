@@ -208,7 +208,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         make.centerY.mas_equalTo(bgView);
         make.height.mas_equalTo(30);
     }];
-    [self.brightnessSlider addTarget:self action:@selector(brightnessSliderValueChange:) forControlEvents:UIControlEventValueChanged];
+    [self.brightnessSlider addTarget:self action:@selector(brightnessSliderValueChange:) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
@@ -239,7 +239,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     
     _slider=[[EHOMEColorSlider alloc] initWithFrame:CGRectMake(15, 60,[UIScreen mainScreen].bounds.size.width - 30, 30)];
     _slider.value=0.5;
-    [_slider addTarget:self action:@selector(rgbColorSliderValueChange:) forControlEvents:UIControlEventValueChanged];
+    [_slider addTarget:self action:@selector(rgbColorSliderValueChange:) forControlEvents:UIControlEventTouchUpInside];
     [bgView1 addSubview:_slider];
     
     
@@ -298,7 +298,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         make.centerY.mas_equalTo(bgView2);
         make.height.mas_equalTo(30);
     }];
-    [self.RGBBrightnessSlider addTarget:self action:@selector(rgbBrightnessSliderValueChange:) forControlEvents:UIControlEventValueChanged];
+    [self.RGBBrightnessSlider addTarget:self action:@selector(rgbBrightnessSliderValueChange:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)initStreamLightView:(UIView *)streamView{
@@ -359,7 +359,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         make.centerY.mas_equalTo(bgView1);
         make.height.mas_equalTo(30);
     }];
-    [self.streamDurationSlider addTarget:self action:@selector(durationBrightnessSliderValueChange:) forControlEvents:UIControlEventValueChanged];
+    [self.streamDurationSlider addTarget:self action:@selector(durationBrightnessSliderValueChange:) forControlEvents:UIControlEventTouchUpInside];
     
     
     ///bg2
@@ -417,7 +417,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         make.centerY.mas_equalTo(bgView2);
         make.height.mas_equalTo(30);
     }];
-    [self.StreamBrightnessSlider addTarget:self action:@selector(streamBrightnessSliderValueChange:) forControlEvents:UIControlEventValueChanged];
+    [self.StreamBrightnessSlider addTarget:self action:@selector(streamBrightnessSliderValueChange:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *settingButton = [[UIButton alloc] init];
     settingButton.layer.masksToBounds = YES;
@@ -546,6 +546,9 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
 -(void)brightnessSliderValueChange:(UISlider *)slider{
     
     NSLog(@"brightness slider value = %f", slider.value);
+    
+    
+    
     
     self.brightnessSlider.value = slider.value;
     self.RGBBrightnessSlider.value = slider.value;
