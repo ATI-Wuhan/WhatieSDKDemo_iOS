@@ -239,7 +239,6 @@
 @property (nonatomic, assign) int count;// = 73;
 @property (nonatomic, assign) long long createTime;// = 1522226480000;
 @property (nonatomic, assign) int deleted;// = 0;
-//@property (nonatomic, copy) NSString *description;// = "<null>";
 @property (nonatomic, assign) int id;// = 53;
 @property (nonatomic, copy) NSString *name;// = WhatiePlug;
 @property (nonatomic, strong) Picture *picture;
@@ -258,6 +257,11 @@
 
 @interface Version : EHOMEBaseObject
 
+/**
+ *  version of a device
+ */
+@property (nonatomic, copy) NSString *version;
+
 @property (nonatomic, assign) long long createTime;// = 1522137915000;
 @property (nonatomic, assign) int deleted;// = 0;
 @property (nonatomic, strong) Picture *file;
@@ -268,7 +272,6 @@
 @property (nonatomic, copy) NSString *upgradeDoc;// = "<null>";
 @property (nonatomic, assign) long long upgradeTime;// = "<null>";
 @property (nonatomic, copy) NSString *upgradeType;// = "APP\U63d0\U9192\U5347\U7ea7";
-@property (nonatomic, copy) NSString *version;// = 1;
 
 @end
 
