@@ -61,6 +61,25 @@ DEPENDENCIES:
   - SGQRCode
   - TuyaSmartKit (from `https://github.com/TuyaInc/tuyasmart_ios_sdk.git`)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - CocoaAsyncSocket
+    - FDFullscreenPopGesture
+    - IQKeyboardManager
+    - Mantle
+    - Masonry
+    - MDRadialProgress
+    - MJExtension
+    - MJRefresh
+    - MQTTClient
+    - PPNetworkHelper
+    - Reachability
+    - SDWebImage
+    - SGQRCode
+    - UICKeyChainStore
+    - YYCache
+
 EXTERNAL SOURCES:
   TuyaSmartKit:
     :git: https://github.com/TuyaInc/tuyasmart_ios_sdk.git
@@ -91,4 +110,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: e1393e980d95ea78bb4f38ba4c9e8954e2bf631e
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
