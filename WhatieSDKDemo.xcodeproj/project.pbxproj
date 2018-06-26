@@ -77,6 +77,8 @@
 		A0D3C36720C8D5240071AD24 /* EHOMERegisterAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D3C36520C8D5240071AD24 /* EHOMERegisterAccountViewController.xib */; };
 		A0D3C36B20C8D5350071AD24 /* EHOMEForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C36920C8D5350071AD24 /* EHOMEForgetPasswordViewController.m */; };
 		A0D3C36C20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D3C36A20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib */; };
+		A0EB79DC20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EB79DA20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m */; };
+		A0EB79DD20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EB79DB20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +211,9 @@
 		A0D3C36820C8D5350071AD24 /* EHOMEForgetPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEForgetPasswordViewController.h; sourceTree = "<group>"; };
 		A0D3C36920C8D5350071AD24 /* EHOMEForgetPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEForgetPasswordViewController.m; sourceTree = "<group>"; };
 		A0D3C36A20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEForgetPasswordViewController.xib; sourceTree = "<group>"; };
+		A0EB79D920E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEHomeEmptyTableViewCell.h; sourceTree = "<group>"; };
+		A0EB79DA20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEHomeEmptyTableViewCell.m; sourceTree = "<group>"; };
+		A0EB79DB20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEHomeEmptyTableViewCell.xib; sourceTree = "<group>"; };
 		B5D753639852B3A92984AB2A /* Pods-WhatieSDKDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC50C01285FE41E243FCAA47 /* Pods-WhatieSDKDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		D3060AB96A092517C1EF1A2D /* libPods-WhatieSDKDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatieSDKDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -344,6 +349,9 @@
 				0C6BF15D2089FE9A0021D16A /* EHOMEHomeTableViewCell.h */,
 				0C6BF15E2089FE9A0021D16A /* EHOMEHomeTableViewCell.m */,
 				0C6BF15F2089FE9A0021D16A /* EHOMEHomeTableViewCell.xib */,
+				A0EB79D920E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.h */,
+				A0EB79DA20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m */,
+				A0EB79DB20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -781,6 +789,7 @@
 				0C6BF1502089FC1F0021D16A /* EHOMEProfileTableViewController.xib in Resources */,
 				A02BC73D20D3B8BD0003992B /* EHOMEStreamSettingViewController.xib in Resources */,
 				A04D2ABC20C79D21007038D8 /* EHOMETimerTableViewCell.xib in Resources */,
+				A0EB79DD20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib in Resources */,
 				0C020A7F208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.xib in Resources */,
 				A071CB4720CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.xib in Resources */,
 				0C020A86208ACEDF008FBE5D /* EHOMESmartConfigViewController.xib in Resources */,
@@ -897,6 +906,7 @@
 				A02BC73C20D3B8BD0003992B /* EHOMEStreamSettingViewController.m in Sources */,
 				A05312A520C802DC00BA20AB /* EHOMEFeedbackTableViewController.m in Sources */,
 				A071CB4620CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.m in Sources */,
+				A0EB79DC20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m in Sources */,
 				A04D2AB420C79397007038D8 /* EHOMETimerTableViewController.m in Sources */,
 				A037BFCC20CE3F3000767519 /* EHOMERGBLightViewController.m in Sources */,
 				0C020A8D208AD128008FBE5D /* EHOMEConfirmWifiViewController.m in Sources */,

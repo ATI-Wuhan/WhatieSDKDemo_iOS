@@ -7,9 +7,11 @@
 //
 
 #define cellId @"EHOMEHomeTableViewCell"
+#define emptyCellId @"EHOMEHomeEmptyTableViewCell"
 
 #import "EHOMEHomeTableViewController.h"
 #import "EHOMEHomeTableViewCell.h"
+#import "EHOMEHomeEmptyTableViewCell.h"
 #import "EHOMEAddDeviceTableViewController.h"
 #import "EHOMEQRCodeViewController.h"
 #import "EHOMEScanViewController.h"
@@ -57,6 +59,7 @@
     self.tableView.rowHeight = 100;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"EHOMEHomeTableViewCell" bundle:nil] forCellReuseIdentifier:cellId];
+    [self.tableView registerNib:[UINib nibWithNibName:@"EHOMEHomeEmptyTableViewCell" bundle:nil] forCellReuseIdentifier:emptyCellId];
     
     __weak typeof(self) weakSelf = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -126,8 +129,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return [EHOMEUserModel shareInstance].deviceArray.count;
+    
+    if ([EHOMEUserModel shareInstance].deviceArray.count == 0) {
+        return 1;
+    }else{
+        return [EHOMEUserModel shareInstance].deviceArray.count;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -137,15 +144,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    EHOMEHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-
-    if (!cell) {
-        cell = [[EHOMEHomeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    if ([EHOMEUserModel shareInstance].deviceArray.count == 0) {
+        EHOMEHomeEmptyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:emptyCellId];
+        
+        if (!cell) {
+            cell = [[EHOMEHomeEmptyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:emptyCellId];
+        }
+        
+        return cell;
+    }else{
+        EHOMEHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+        
+        if (!cell) {
+            cell = [[EHOMEHomeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        }
+        
+        cell.deviceModel = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
+        
+        return cell;
     }
-    
-    cell.deviceModel = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
-    
-    return cell;
 }
 
 
@@ -156,51 +173,62 @@
 
 -(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    EHOMEDeviceModel *model = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
-    
-    NSString *title = @"Remove";
-    
-    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:title handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+    if ([EHOMEUserModel shareInstance].deviceArray.count > 0) {
+        EHOMEDeviceModel *model = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
         
-        [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Removing" hideAfterDelay:10];
+        NSString *title = @"Remove";
         
-        [model removeDevice:^(id responseObject) {
+        UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:title handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
             
-            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:@"Remove device success" hideAfterDelay:1.0];
+            [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Removing" hideAfterDelay:10];
             
-            NSLog(@"unbind success = %@", responseObject);
+            [model removeDevice:^(id responseObject) {
+                
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+                [HUDHelper addHUDInView:sharedKeyWindow text:@"Remove device success" hideAfterDelay:1.0];
+                
+                NSLog(@"unbind success = %@", responseObject);
+                
+                NSMutableArray *temp = [NSMutableArray arrayWithArray:[EHOMEUserModel shareInstance].deviceArray];
+                
+                [temp removeObject:model];
+                
+                [EHOMEUserModel shareInstance].deviceArray = temp;
+                
+                [self.tableView reloadData];
+                
+            } failure:^(NSError *error) {
+                NSLog(@"unbind failed = %@", error);
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+                [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            }];
             
-            NSMutableArray *temp = [NSMutableArray arrayWithArray:[EHOMEUserModel shareInstance].deviceArray];
-            
-            [temp removeObject:model];
-            
-            [EHOMEUserModel shareInstance].deviceArray = temp;
-            
-            [self.tableView reloadData];
-            
-        } failure:^(NSError *error) {
-            NSLog(@"unbind failed = %@", error);
-            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
         }];
+        
+        UITableViewRowAction *editNameRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Edit Name" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+            
+            [self editDeviceNameWithIndexPath:indexPath];
+            
+        }];
+        editNameRowAction.backgroundColor = [UIColor blueColor];
+        
+        UITableViewRowAction *shareRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Share Device" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+            [self shareDevice:model];
+        }];
+        shareRowAction.backgroundColor = [UIColor greenColor];
+        
+        return @[deleteRowAction, editNameRowAction, shareRowAction];
+    }else{
+        return nil;
+    }
+}
 
-    }];
-    
-    UITableViewRowAction *editNameRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Edit Name" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        
-        [self editDeviceNameWithIndexPath:indexPath];
-        
-    }];
-    editNameRowAction.backgroundColor = [UIColor blueColor];
-    
-    UITableViewRowAction *shareRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Share Device" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        [self shareDevice:model];
-    }];
-    shareRowAction.backgroundColor = [UIColor greenColor];
-    
-    return @[deleteRowAction, editNameRowAction, shareRowAction];
-    
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([EHOMEUserModel shareInstance].deviceArray.count == 0) {
+        return NO;
+    }else{
+        return YES;
+    }
 }
 
 -(void)shareDevice:(EHOMEDeviceModel *)device{
@@ -294,39 +322,65 @@
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    EHOMEDeviceModel *device = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
-
-    
-    NSArray *products = @[@"RgbLight",@"Plug"];
-    
-    NSInteger index = [products indexOfObject:device.productName];
-    
-    switch (index) {
-        case 0:{
-            NSLog(@"Clicked RgbLight");
-            
-            EHOMERGBLightViewController *lightVC = [[EHOMERGBLightViewController alloc] initWithNibName:@"EHOMERGBLightViewController" bundle:nil];
-            
-            lightVC.device = device;
-            
-            [self.navigationController pushViewController:lightVC animated:YES];
+    if ([EHOMEUserModel shareInstance].deviceArray.count > 0) {
+        
+        EHOMEDeviceModel *device = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
+        
+        
+        NSArray *products = @[@"RgbLight",@"Plug"];
+        
+        NSInteger index = [products indexOfObject:device.productName];
+        
+        switch (index) {
+            case 0:{
+                NSLog(@"Clicked RgbLight");
+                
+                EHOMERGBLightViewController *lightVC = [[EHOMERGBLightViewController alloc] initWithNibName:@"EHOMERGBLightViewController" bundle:nil];
+                
+                lightVC.device = device;
+                
+                [self.navigationController pushViewController:lightVC animated:YES];
+            }
+                break;
+                
+            case 1:{
+                NSLog(@"Clicked Plug");
+                
+                EHOMEOutletDetailViewController *outletVC = [[EHOMEOutletDetailViewController alloc] initWithNibName:@"EHOMEOutletDetailViewController" bundle:nil];
+                outletVC.device = device;
+                
+                [self.navigationController pushViewController:outletVC animated:YES];
+            }
+                break;
+                
+            default:
+                break;
         }
-            break;
-            
-        case 1:{
-            NSLog(@"Clicked Plug");
-            
-            EHOMEOutletDetailViewController *outletVC = [[EHOMEOutletDetailViewController alloc] initWithNibName:@"EHOMEOutletDetailViewController" bundle:nil];
-            outletVC.device = device;
-            
-            [self.navigationController pushViewController:outletVC animated:YES];
-        }
-            break;
-            
-        default:
-            break;
     }
+}
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if ([EHOMEUserModel shareInstance].deviceArray.count == 0) {
+        return 0.001;
+    }else{
+        return 8.0;
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if ([EHOMEUserModel shareInstance].deviceArray.count == 0) {
+        return 0.001;
+    }else{
+        return 2.0;
+    }
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return nil;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return nil;
 }
 
 -(void)addDeviceAction{
