@@ -77,8 +77,6 @@
 		A0D3C36720C8D5240071AD24 /* EHOMERegisterAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D3C36520C8D5240071AD24 /* EHOMERegisterAccountViewController.xib */; };
 		A0D3C36B20C8D5350071AD24 /* EHOMEForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C36920C8D5350071AD24 /* EHOMEForgetPasswordViewController.m */; };
 		A0D3C36C20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D3C36A20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib */; };
-		A0EB79DC20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EB79DA20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m */; };
-		A0EB79DD20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EB79DB20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,9 +209,6 @@
 		A0D3C36820C8D5350071AD24 /* EHOMEForgetPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEForgetPasswordViewController.h; sourceTree = "<group>"; };
 		A0D3C36920C8D5350071AD24 /* EHOMEForgetPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEForgetPasswordViewController.m; sourceTree = "<group>"; };
 		A0D3C36A20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEForgetPasswordViewController.xib; sourceTree = "<group>"; };
-		A0EB79D920E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEHomeEmptyTableViewCell.h; sourceTree = "<group>"; };
-		A0EB79DA20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEHomeEmptyTableViewCell.m; sourceTree = "<group>"; };
-		A0EB79DB20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEHomeEmptyTableViewCell.xib; sourceTree = "<group>"; };
 		B5D753639852B3A92984AB2A /* Pods-WhatieSDKDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC50C01285FE41E243FCAA47 /* Pods-WhatieSDKDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		D3060AB96A092517C1EF1A2D /* libPods-WhatieSDKDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatieSDKDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -349,9 +344,6 @@
 				0C6BF15D2089FE9A0021D16A /* EHOMEHomeTableViewCell.h */,
 				0C6BF15E2089FE9A0021D16A /* EHOMEHomeTableViewCell.m */,
 				0C6BF15F2089FE9A0021D16A /* EHOMEHomeTableViewCell.xib */,
-				A0EB79D920E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.h */,
-				A0EB79DA20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m */,
-				A0EB79DB20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -667,7 +659,6 @@
 				0CB4A943208087AB008C2017 /* Frameworks */,
 				0CB4A944208087AB008C2017 /* Resources */,
 				566BA2460D0B01AC6445FA9E /* [CP] Copy Pods Resources */,
-				D0AFDCD66B3213667047E80D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -686,8 +677,6 @@
 				0CB4A95A208087CB008C2017 /* Sources */,
 				0CB4A95B208087CB008C2017 /* Frameworks */,
 				0CB4A95C208087CB008C2017 /* Resources */,
-				C09441A472F5DE5124BEAD4C /* [CP] Embed Pods Frameworks */,
-				D0ADF1920F209A8806B9CEB4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -707,8 +696,6 @@
 				0CB4A965208087CB008C2017 /* Sources */,
 				0CB4A966208087CB008C2017 /* Frameworks */,
 				0CB4A967208087CB008C2017 /* Resources */,
-				1E31E7E2F099F989555308AE /* [CP] Embed Pods Frameworks */,
-				8685CD98AC592DD3C65DD4D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -794,7 +781,6 @@
 				0C6BF1502089FC1F0021D16A /* EHOMEProfileTableViewController.xib in Resources */,
 				A02BC73D20D3B8BD0003992B /* EHOMEStreamSettingViewController.xib in Resources */,
 				A04D2ABC20C79D21007038D8 /* EHOMETimerTableViewCell.xib in Resources */,
-				A0EB79DD20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib in Resources */,
 				0C020A7F208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.xib in Resources */,
 				A071CB4720CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.xib in Resources */,
 				0C020A86208ACEDF008FBE5D /* EHOMESmartConfigViewController.xib in Resources */,
@@ -821,21 +807,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E31E7E2F099F989555308AE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemoUITests/Pods-WhatieSDKDemoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2CA008FE85175EE25E8351F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -894,66 +865,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8685CD98AC592DD3C65DD4D5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemoUITests/Pods-WhatieSDKDemoUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C09441A472F5DE5124BEAD4C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0ADF1920F209A8806B9CEB4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemoTests/Pods-WhatieSDKDemoTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0AFDCD66B3213667047E80D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemo/Pods-WhatieSDKDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F4F7EBB0567C4AC6EF7A05A0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -986,7 +897,6 @@
 				A02BC73C20D3B8BD0003992B /* EHOMEStreamSettingViewController.m in Sources */,
 				A05312A520C802DC00BA20AB /* EHOMEFeedbackTableViewController.m in Sources */,
 				A071CB4620CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.m in Sources */,
-				A0EB79DC20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m in Sources */,
 				A04D2AB420C79397007038D8 /* EHOMETimerTableViewController.m in Sources */,
 				A037BFCC20CE3F3000767519 /* EHOMERGBLightViewController.m in Sources */,
 				0C020A8D208AD128008FBE5D /* EHOMEConfirmWifiViewController.m in Sources */,
@@ -1195,7 +1105,7 @@
 			baseConfigurationReference = EFBA169DC859625F1DC506B3 /* Pods-WhatieSDKDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = "$(inherited)";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
@@ -1207,7 +1117,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WhatieSDKDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = WhatieSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1220,7 +1133,7 @@
 			baseConfigurationReference = E59295F78C6670A39F64ADB2 /* Pods-WhatieSDKDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = "$(inherited)";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
@@ -1232,7 +1145,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WhatieSDKDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = WhatieSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1248,7 +1164,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
 				INFOPLIST_FILE = WhatieSDKDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1264,7 +1184,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
 				INFOPLIST_FILE = WhatieSDKDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1278,10 +1202,12 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
-				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WhatieSDKDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1295,10 +1221,12 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
-				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = WhatieSDKDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
