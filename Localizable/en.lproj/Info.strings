@@ -1,0 +1,42 @@
+/* 
+  File.strings
+  WhatieSDKDemo
+
+  Created by clj on 2018/7/4.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+"Name" = "Name";
+"Email" = "Email";
+"Update Login Password" = "Update Login Password";
+"Logout" = "Logout";
+
+"Update Nickname" = "Nickname";
+"Update your nickname" = "Update your nickname";
+"Please enter nickname" = "Please enter nickname";
+"Cancel" = "Cancel";
+"OK" = "OK";
+"updating user name" = "updating name";
+"update nickname success" = "update nickname success";
+"please enter name" = "please enter name";
+
+"Login Password" = "Login Password";
+"Update your login password" = "Update your login password with your old password.";
+"key old psw" = "Please key your old password";
+"key new psw" = "Please key your new password";
+"comfirm new psw" = "Please key comfirm password";
+"updating password" = "updating password";
+"update password success" = "update password success";
+
+"choose photo" = "choose photo";
+"From the album" = "From the album";
+"Photograph" = "Photograph";
+"uploading..." = "uploading...";
+
+"logout..." = "logout...";
+"logout success" = "logout success";
+
+"Old password" = "Old password";
+"New password" = "New password";
+"Confirm new password" = "Confirm new password";
+"different password" = "New password is different from the confirmed password";
+"SUBMIT" = "SUBMIT";

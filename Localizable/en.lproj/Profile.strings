@@ -1,0 +1,43 @@
+/* 
+  Profile.strings
+  WhatieSDKDemo
+
+  Created by IIDreams_zhouwei on 2018/7/3.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+//Profile
+"Profile" = "Profile";
+"My Home" = "My Home";
+"My Devices" = "My Devices";
+"Sharing" = "Sharing";
+"Integration" = "Integration";
+"Experience" = "Experience";
+"Feedback" = "Feedback";
+
+//Integration
+"Use Echo" = "Use Echo";
+
+//ProfileSetting
+"About" = "About";
+"Features" = "Features";
+"Rate On App Store" = "Rate On App Store";
+"Service Agreement" = "Service Agreement";
+
+//ExperienceCenter
+"Experience Center" = "Experience Center";
+"Experience Now" = "Experience Now";
+"Outlets" = "Outlets";
+"control smart outlet" = "Turn on or turn off your smart outlet by wireless control";
+"Outlets Experience" = "Outlets Experience";
+
+//Feedback
+"Add" = "Add";
+"Add Feedback" = "Add Feedback";
+"Done" = "Done";
+"Please enter feedback" = "Please enter feedback.";
+"Adding feedback" = "Adding feedback";
+"Feedback success" = "Feedback success";
+
+//share
+"Shared Devices" = "Shared Devices";
+"Remove" = "Remove";

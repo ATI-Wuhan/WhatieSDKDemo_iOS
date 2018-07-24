@@ -1,0 +1,42 @@
+/* 
+  File.strings
+  WhatieSDKDemo
+
+  Created by clj on 2018/7/4.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+"Name" = "名称";
+"Email" = "邮箱";
+"Update Login Password" = "修改登录密码";
+"Logout" = "退出登录";
+
+"Update Nickname" = "昵称";
+"Update your nickname" = "修改你的昵称";
+"Please enter nickname" ="请输入昵称";
+"Cancel" = "取消";
+"OK" = "确定";
+"updating user name" = "正在修改昵称";
+"update nickname success" = "修改昵称成功";
+"please enter name" = "请输入名字";
+
+"Login Password" = "登录密码";
+"Update your login password" = "用旧密码更新登录密码";
+"key old psw" = "请输入你的旧密码";
+"key new psw" = "请输入你的新密码";
+"comfirm new psw" = "请确认你的新密码";
+"updating password" = "正在更改密码";
+"update password success" = "更改密码成功";
+
+"choose photo" = "选择照片";
+"From the album" = "相册";
+"Photograph" = "拍照";
+"uploading..." = "正在上传";
+
+"logout..." = "正在退出登录";
+"logout success" = "退出登录成功";
+
+"Old password" = "旧密码";
+"New password" = "新密码";
+"Confirm new password" = "确认新密码";
+"different password" = "新密码与确认密码不同";
+"SUBMIT" = "提交";

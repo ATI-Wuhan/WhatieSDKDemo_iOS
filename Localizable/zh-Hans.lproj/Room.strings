@@ -1,0 +1,32 @@
+/* 
+  Room.strings
+  WhatieSDKDemo
+
+  Created by IIDreams_zhouwei on 2018/7/3.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+"Room" = "房间";
+"online" = "在线";
+"NEW ROOM" = "添加房间";
+"Please enter room name" = "请输入房间的名字";
+"Please select room background" = "请选择房间背景";
+"Creating room" = "正在创建房间";
+"add room success" = "添加房间成功";
+"Add room failure" = "添加房间失败";
+"Room Name" = "房间名字";
+"Background" = "背景";
+"Change backgroud Successfully" = "修改背景成功";
+"Change backgroud failure" = "修改背景失败";
+"inforoom" = "这个房间的信息";
+"Edit Name" = "编辑名字";
+"Change Background" = "修改背景图片";
+"Delete Room" = "删除房间";
+"Delete room successfully" = "删除房间成功";
+"Update Roomname" = "修改房间名字";
+"updating room name" = "正在修改房间名字";
+"update room name success" = "修改房间名字成功";
+"Select Room" = "选择房间";
+"Add New Room" = "添加房间";
+"ROOMS" = "房间";
+"NEW ROOM" = "添加房间";
+"Creating room" = "正在创建房间";

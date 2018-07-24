@@ -1,0 +1,55 @@
+/* 
+  DeviceFunction.strings
+  WhatieSDKDemo
+
+  Created by clj on 2018/7/5.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+//outlet
+"Timing countdown" = "Timing countdown";
+"Start countdown" = "Start timing countdown with Duration";
+"duration" = "duration";
+"enter duration" = "Please enter duration";
+"No countdown" = "No timing countdown";
+
+"Timer" = "Timer";
+"Tag" = "Tag";
+"TO" = "TO";
+"Turn on" = "Turn on";
+"Turn off" = "Turn off";
+"Sunday" = "Sunday";
+"Saturday" = "Saturday";
+"Friday" ="Friday";
+"Thursday" = "Thursday";
+"Wednesday" ="Wednesday";
+"Tuesday" = "Tuesday";
+"Monday" = "Monday";
+"Sun" = "Sun";
+"Sat" = "Sat";
+"Fri" = "Fri";
+"Thu" = "Thu";
+"Wed" = "Wed";
+"Tue" = "Tue";
+"Mon" = "Mon";
+"weekend" = "weekend";
+"weekday" = "weekday";
+"Everyday" = "Everyday";
+"Time" = "Time";
+"key timer Tag" = "Please key timer Tag";
+"Update Timer" = "Update Timer";
+"Add Timer" = "Add Timer";
+"Remove Timer" = "Remove Timer";
+"updating timer" = "updating timer...";
+"Adding timer" = "Adding timer...";
+"Status" = "Status";
+"Loops" = "Loops";
+
+//light
+"Light" = "Light";
+"Update brightness" = "Update brightness";
+"Update Color" = "Update Color";
+"Update Duration" = "Update Duration";
+"Setting" = "Setting";
+"White Light" = "White Light";
+"RGB Light" = "RGB Light";
+"Stream Light" = "Stream Light";

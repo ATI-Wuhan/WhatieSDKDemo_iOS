@@ -1,0 +1,55 @@
+/* 
+  DeviceFunction.strings
+  WhatieSDKDemo
+
+  Created by clj on 2018/7/5.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+//outlet
+"Timing countdown" = "倒计时";
+"Start countdown" = "设置倒计时时间";
+"duration" = "时间";
+"enter duration" = "请输入倒计时的时间";
+"No countdown" = "无倒计时";
+
+"Timer" = "定时";
+"Tag" = "标签";
+"TO" = "状态";
+"Turn on" = "打开";
+"Turn off" = "关闭";
+"Sunday" = "周日";
+"Saturday" = "周六";
+"Friday" = "周五";
+"Thursday" = "周四";
+"Wednesday" ="周三";
+"Tuesday" = "周二";
+"Monday" = "周一";
+"Sun" = "周日";
+"Sat" = "周六";
+"Fri" = "周五";
+"Thu" = "周四";
+"Wed" = "周三";
+"Tue" = "周二";
+"Mon" = "周一";
+"weekend" = "周末";
+"weekday" = "工作日";
+"Everyday" = "每天";
+"Time" = "时间";
+"key timer Tag" = "请输入定时的标签";
+"Update Timer" = "修改定时";
+"Add Timer" = "添加定时";
+"Remove Timer" = "删除定时";
+"updating timer" = "正在修改定时";
+"Adding timer" = "正在添加定时";
+"Status" = "状态";
+"Loops" = "重复";
+
+//light
+"Light" = "灯泡";
+"Update brightness" = "调整亮度";
+"Update Color" = "调整颜色";
+"Update Duration" = "时间间隔";
+"Setting" = "设置";
+"White Light" = "日光灯";
+"RGB Light" = "彩光灯";
+"Stream Light" = "流光灯";

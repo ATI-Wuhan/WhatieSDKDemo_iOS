@@ -1,0 +1,49 @@
+/* 
+  Home.strings
+  WhatieSDKDemo
+
+  Created by IIDreams_zhouwei on 2018/7/3.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+//home-SelectHome
+"Homes" = "家庭";
+"Add New Home" = "添加家庭";
+"Add Home" = "添加家庭";
+"Please enter home name" = "请输入房间名";
+"name" = "名字";
+"Creating home" = "正在创建家庭";
+"add home success" = "添加家庭成功";
+"Transfer Home" = "转让家庭";
+"Delete Home" = "删除家庭";
+"Invite member" = "邀请其他成员";
+"Administrator" = "管理员";
+"Member" = "成员";
+"Update Homename" = "修改名字";
+"Update your home name" = "修改你的家庭名字";
+"updating home name" = "正在修改家庭名字";
+"update home success" = "修改家庭名字成功";
+"Invitation" = "邀请";
+"inviting home member" = "正在邀请家庭成员";
+"Invite successfully" = "邀请成员成功";
+"Transfer" = "转让";
+"transfering home" = "正在转让家庭";
+"Tranfer home sucessfully" = "转让家庭成功";
+"Exit Home" = "退出家庭";
+"unsure exit" = "此操作将删除家庭或退出家庭。您确定要继续吗?";
+"sure" = "确定";
+"deleting" = "正在删除";
+"exiting" = "正在退出";
+"Home" = "家庭";
+"Family Member" = "家庭成员";
+"Transfer Home" = "转让家庭";
+"Delete Home Or Exit Home" = "删除或退出家庭";
+"Family Member" = "家庭成员";
+"Set as Administrator" = "设置为管理员";
+"setting the administrator" = "正在设置管理员";
+"Transfer successfully" = "转让管理员成功";
+"Delete Member" = "删除成员";
+"Delete" = "删除";
+"deleting the member" = "正在删除成员";
+"Delete successfully" = "删除成员成功";
+"Delete home successfully" = "删除家庭成功";
+"Exit home successfully" = "退出家庭成功";

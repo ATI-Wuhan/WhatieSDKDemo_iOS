@@ -1,0 +1,64 @@
+/* 
+  Localizable.strings
+  WhatieSDKDemo
+
+  Created by Change on 2018/4/19.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+
+"Register" = "注册";
+"check" = "请检查您的邮箱或密码";
+"Reset Password" = "重置密码";
+"sending" = "正在发送";
+"Please enter email" = "请输入邮箱";
+"reset password success" = "重置密码成功";
+"Please check email,code,or password" = "请检查邮箱，验证码或密码";
+"Sign in" = "登录";
+"with your email" = "使用邮箱登录";
+"Password" = "密码";
+"Forgot your password?" = "忘记密码？";
+"Don't have an account?" = "没有账户?";
+"Recover Login Password" = "找回密码";
+"Enter the account you want to recover." = "输入您的邮箱";
+"PIN" = "验证码";
+"Your Email" = "你的邮箱";
+"Verify Code" = "验证码";
+"Your New Password" = "你的新密码";
+"send code" = "发送验证码";
+"Sign up" = "注册";
+"email and password" = "请输入你的邮箱和密码";
+
+"Login" = "登录";
+"Loading" = "正在登录中...";
+"LoginSuccess" = "登录成功";
+"LoginFailed" = "登录失败";
+"PleaseKeyEmail" = "请输入你的邮箱";
+"PleaseKeyPassword" = "请输入你的密码";
+
+//场景
+"Smart Scenes" = "智能场景";
+"Remove Scene" = "删除场景";
+"sure remove scene" = "此操作将从场景列表中删除设备。您确定要继续吗?";
+"Removing scene successfully" = "删除场景成功";
+"Openning time" = "开启时间";
+"Edit Scene" = "编辑场景";
+"Add Scene" = "添加场景";
+"New Scene" = "新场景";
+"Editting scene..." = "正在编辑场景";
+"Edit scene success." = "编辑设备成功";
+"Adding scene..." = "正在添加场景";
+"Add scene success." = "添加场景成功";
+"Repeat" = "重复";
+"Set Name" = "设置名字";
+"Set your scene name here." = "在这里设置你的场景名字";
+"Please key scene name" = "请输入场景名字";
+"Deleting fail device" = "正在删除失败设备";
+"Delete added failed device successfully" = "删除添加失败的设备成功";
+"Delete added failed device failure" = "删除添加失败的设备失败";
+"Reseting fail device" = "重置失败设备";
+"Reset added failed device successfully" = "重置添加失败的设备成功";
+"Reset added failed device failure" = "重置添加失败的设备失败";
+"Never" = "永不";
+"Add Action" = "添加操作";
+"Turn On" = "开";
+"Turn Off" = "关";

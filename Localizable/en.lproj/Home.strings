@@ -1,0 +1,49 @@
+/* 
+  Home.strings
+  WhatieSDKDemo
+
+  Created by IIDreams_zhouwei on 2018/7/3.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+//home-SelectHome
+"Homes" = "Homes";
+"Add New Home" = "Add New Home";
+"Add Home" = "Add Home";
+"Please enter home name" = "Please enter home name";
+"name" = "name";
+"Creating home" = "Creating home";
+"add home success" = "add home success";
+"Transfer Home" = "Transfer Home";
+"Delete Home" = "Delete Home";
+"Invite member" = "Invite member";
+"Administrator" = "Administrator";
+"Member" = "Member";
+"Update Homename" = "Update Homename";
+"Update your home name" = "Update your home name";
+"updating home name" = "updating home name";
+"update home success" = "update home success";
+"Invitation" = "Invitation";
+"inviting home member" = "inviting home member";
+"Invite successfully" = "Invite successfully!";
+"Transfer" = "Transfer";
+"transfering home" = "transfering home";
+"Tranfer home sucessfully" = "Tranfer home sucessfully";
+"Exit Home" = "Exit Home";
+"unsure exit" = "This action will delete or exit home.Are you sure to continue?";
+"sure" = "sure";
+"deleting" = "deleting";
+"exiting" = "exiting";
+"Home" = "Home";
+"Family Member" = "Family Member";
+"Transfer Home" = "Transfer Home";
+"Delete Home Or Exit Home" = "Delete Home Or Exit Home";
+"Family Member" = "Family Member";
+"Set as Administrator" = "Set as Administrator";
+"setting the administrator" = "setting the administrator";
+"Transfer successfully" = "Transfer successfully";
+"Delete Member" = "Delete Member";
+"Delete" = "Delete";
+"deleting the member" = "deleting the member";
+"Delete successfully" = "Delete successfully";
+"Delete home successfully" = "Delete home successfully";
+"Exit home successfully" = "Exit home successfully";

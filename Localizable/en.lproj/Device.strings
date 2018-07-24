@@ -1,0 +1,65 @@
+/* 
+  Device.strings
+  WhatieSDKDemo
+
+  Created by clj on 2018/7/3.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+"Close" = "Close";
+"Open" = "Open";
+"Offline" = "Offline";
+"On" = "On";
+"Off" = "Off";
+
+"Remove Device" = "Remove Device";
+"unsure remove" = "This action will remove your device from your device list.Are you sure to continue?";
+"Removing" = "Removing";
+"Remove device success" = "Remove device success";
+
+"ReName" = "ReName";
+"update device name" ="update device name";
+"updating device name" = "updating name";
+"update devName success" = "update name success";
+
+"Share" = "Share";
+"Alert" = "Alert";
+"share by email" = "share device to your friend by email.";
+"friends email" = "your friends email...";
+"Sharing" = "Sharing";
+"Share success" = "Share device success.";
+
+"Options" = "Options";
+"Outlets is On" = "Outlets is On";
+"Outlets is Off" = "Outlets is Off";
+"Device" = "Device";
+"Edit" = "Edit";
+"Edit device" = "Edit device name,remove device,and share device.";
+"share device" = "share device";
+"remove device" = "remove device";
+
+"Add Device" = "Add Device";
+"Outlets" = "Outlets";
+"RGB_Light" = "RGB_Light";
+"Confirm" = "Confirm";
+"Confirmtext" = "1.Confirm the indicator light rapidly blinks. \n\n2.If the indicator light does not blinks, please hold the reset button for 5s. \n\n3.Please configure the network under the 2.4G WiFi network.";
+"NOT FOUND" = "NOT FOUND";
+"Confirm Wifi" = "Confirm Home Wifi";
+"current wifi" = "current wifi";
+"wifi password" = "wifi password";
+"Config" = "Smart Config";
+"Stop" = "Stop";
+"Success" = "Success";
+"Config Success" = "Smart Config Success.";
+"binded" = "The device is now available,but it isn't belongs to you.Please try to email";
+"Please Wait" = "Please Wait";
+"willbe available" = "your smart device will be available soon";
+"Please ensure" = "Please ensure that the device, router, and mobile phone are as close to the phone as possible";
+"progress1" = "1.Device has been searched";
+"progress2" = "2.Device is registering";
+"progress3" = "3.Start to add Device";
+"Config failed" = "Configuration failed";
+"problems" = "Common problems\n\n*The device did not enter the distribution network mode.\n*WiFi password incorrectly entered.\n*The WiFi signal of the device is poor.\n*Need to ensure the use of 2G-band WiFi network to add devices.";
+"Reconnect" = "Reconnect";
+"Get Started" = "Get Started";
+"No Name." = "No Name.";
+"next" = "NEXT";

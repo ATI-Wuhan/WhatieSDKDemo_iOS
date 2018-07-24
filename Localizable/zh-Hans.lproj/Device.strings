@@ -1,0 +1,65 @@
+/* 
+  Device.strings
+  WhatieSDKDemo
+
+  Created by clj on 2018/7/3.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+"Close" = "关";
+"Open" = "开";
+"Offline" = "离线";
+"On" = "开";
+"Off" = "关";
+
+"Remove Device" = "删除设备";
+"unsure remove" = "此操作将从设备列表中删除设备。您确定要继续吗?";
+"Removing" = "正在删除";
+"Remove device success" = "删除设备成功";
+
+"ReName" = "修改";
+"update device name" = "修改设备名字";
+"updating device name" = "正在修改设备名字";
+"update devName success" = "修改设备名字成功";
+
+"Share" = "分享";
+"Alert" = "提示";
+"share by email" = "通过邮箱分享设备给你的朋友";
+"friends email" = "你的朋友的邮箱";
+"Sharing" = "正在分享";
+"Share success" = "分享设备成功";
+
+"Options" = "选择";
+"Outlets is On" = "插座打开";
+"Outlets is Off" = "插座关闭";
+"Device" = "插座";
+"Edit" = "编辑";
+"Edit device" = "编辑设备名称、删除设备和共享设备";
+"share device" = "分享设备";
+"remove device" = "删除设备";
+
+"Add Device" = "添加设备";
+"Outlets" = "插座";
+"RGB_Light" = "灯泡";
+"Confirm" = "确认";
+"Confirmtext" = "1.确认指示灯快速闪烁。\n\n2.如果指示灯不闪烁，请按住重置按钮5秒钟。\n\n3.请在2.4G WiFi网络下配置网络。";
+"NOT FOUND" = "未知的ssid";
+"Confirm Wifi" = "确认家庭Wifi";
+"current wifi" = "当前wifi";
+"wifi password" = "wifi密码";
+"Config" = "智能配网";
+"Stop" = "停止";
+"Success" = "成功";
+"Config Success" = "配网成功";
+"binded" = "该设备现已可用，但它不属于您。请尝试发送电子邮件给";
+"Please Wait" = "请稍等";
+"willbe available" = "您的智能设备即将可用";
+"Please ensure" = "请确保设备，路由器尽可能靠近手机";
+"progress1" = "1.已经查找到设备";
+"progress2" = "2.设备正在注册";
+"progress3" = "3.开始添加设备";
+"Config failed" = "配置失败";
+"problems" = "常见问题\n*设备没有进入配网模式\n*WiFi密码输入错误\n*设备连接的WiFi信号差\n*需要确保使用2G频段的WiFi网络添加设备";
+"Reconnect" = "重连";
+"Get Started" = "开始使用";
+"No Name." = "未命名";
+"next" = "下一步";

@@ -1,0 +1,64 @@
+/* 
+  Localizable.strings
+  WhatieSDKDemo
+
+  Created by Change on 2018/4/19.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+
+"Register" = "Register";
+"check" = "Please check your email or password";
+"Reset Password" = "Reset Password";
+"sending" = "sending";
+"Please enter email" = "Please enter email";
+"reset password success" = "reset password success";
+"Please check email,code,or password" = "Please check email,code,or password";
+"Sign in" = "Sign in";
+"with your email" = "with your email.";
+"Password" = "Password";
+"Forgot your password?" = "Forgot your password?";
+"Don't have an account?" = "Don't have an account?";
+"Recover Login Password" = "Recover Login Password";
+"Enter the account you want to recover." = "Enter the account you want to recover.";
+"PIN" = "PIN";
+"Your Email" = "Your Email";
+"Verify Code" = "Verify Code";
+"Your New Password" = "Your New Password";
+"send code" = "send code";
+"Sign up" = "Sign up";
+"email and password" = "Please key your email and password.";
+
+"Login" = "Login";
+"Loading" = "Loading...";
+"LoginSuccess" = "Login Success";
+"LoginFailed" = "Login Failed";
+"PleaseKeyEmail" = "Please key your email";
+"PleaseKeyPassword" = "Please key your password";
+
+//场景
+"Smart Scenes" = "Smart Scenes";
+"Remove Scene" = "Remove Scene";
+"sure remove scene" = "This action will remove your scene from your scene list.Are you sure to continue?";
+"Removing scene successfully" = "Removing scene successfully";
+"Openning time" = "Openning time";
+"Edit Scene" = "Edit Scene";
+"Add Scene" = "Add Scene";
+"New Scene" = "New Scene";
+"Editting scene..." = "Editting scene...";
+"Edit scene success." = "Edit scene success.";
+"Adding scene..." = "Adding scene...";
+"Add scene success." = "Add scene success.";
+"Repeat" = "Repeat";
+"Set Name" = "Set Name";
+"Set your scene name here." = "Set your scene name here.";
+"Please key scene name" = "Please key scene name";
+"Deleting fail device" = "Deleting fail device";
+"Delete added failed device successfully" = "Delete added failed device successfully";
+"Delete added failed device failure" = "Delete added failed device failure";
+"Reseting fail device" = "Reset fail device";
+"Reset added failed device successfully" = "Reset added failed device successfully";
+"Reset added failed device failure" = "Reset added failed device failure";
+"Never" = "Never";
+"Add Action" = "Add Action";
+"Turn On" = "Turn On";
+"Turn Off" = "Turn Off";
