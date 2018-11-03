@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) UICollectionView *bgCollectionView;
 @property (nonatomic, strong) NSMutableArray *defaultRoomPicList;
+@property (nonatomic, strong) NSMutableArray *HorizontalPicList;
 @property (nonatomic, strong) NSString *picUrl;
 
 @end
@@ -24,6 +25,9 @@
     [super viewDidLoad];
     self.title = NSLocalizedStringFromTable(@"Background", @"Room", nil);
     self.view.backgroundColor = RGB(240, 240, 240);
+    
+    self.defaultRoomPicList = [NSMutableArray array];
+    self.HorizontalPicList = [NSMutableArray array];
     [self getbgphoto];
     [self initcollectionView];
     // Do any additional setup after loading the view.
@@ -33,7 +37,14 @@
     NSLog(@"获取背景图");
     [EHOMERoomModel getRoomBackgroundListSuccess:^(id responseObject) {
         NSLog(@"获取默认壁纸成功！=%@",responseObject);
-        self.defaultRoomPicList=responseObject;
+        for(EHOMEBackgroundModel *background in responseObject){
+            if(background.vertical){
+                [self.defaultRoomPicList addObject:background];
+            }else{
+                [self.HorizontalPicList addObject:background];
+            }
+        }
+        NSLog(@"默认壁纸成功！=%@",self.defaultRoomPicList);
         [self.bgCollectionView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"获取默认壁纸失败");
@@ -90,19 +101,29 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     EHOMEBackgroundModel *model=self.defaultRoomPicList[indexPath.item];
+    
+    NSMutableArray *modelArray = [NSMutableArray arrayWithObject:model];
+    for(EHOMEBackgroundModel *back in self.HorizontalPicList){
+        if(back.wallpaperNum == model.wallpaperNum){
+            [modelArray addObject:back];
+            break;
+        }
+    }
+    NSArray *ary = modelArray;
+    
     if(self.tag==0){
         [self.roommodel updateRoomBackground:model success:^(id responseObject) {
             NSLog(@"提交成功 = %@", responseObject);
             [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Change backgroud Successfully", @"Room", nil) hideAfterDelay:1];
-            self.changePictureBlock(model);
+            self.changePictureBlock(ary);
             [self.navigationController popViewControllerAnimated:YES];
         } failure:^(NSError *error) {
-            NSLog(@"提交失败 = %@",error.domain);
-            [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Change backgroud failure", @"Room", nil) hideAfterDelay:1];
+            NSLog(@"提交失败 = %@",error);
+            [HUDHelper showErrorDomain:error];
         }];
         
     }else{
-        self.changePictureBlock(model);
+        self.changePictureBlock(ary);
         [self.navigationController popViewControllerAnimated:YES];
     }
     

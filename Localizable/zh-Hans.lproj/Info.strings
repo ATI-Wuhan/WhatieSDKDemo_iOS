@@ -40,3 +40,8 @@
 "Confirm new password" = "确认新密码";
 "different password" = "新密码与确认密码不同";
 "SUBMIT" = "提交";
+"updating password" = "正在修改密码";
+"code sent success" = "验证码发送成功";
+
+"Registering" = "正在注册...";
+"Reseting" = "正在重置...";

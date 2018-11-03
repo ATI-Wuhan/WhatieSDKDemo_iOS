@@ -80,7 +80,7 @@
             cell.accessoryType = UITableViewCellAccessoryNone;
         }else{
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            cell.tintColor = THEMECOLOR;
+            cell.tintColor = [UIColor THEMECOLOR];
         }
         
     }else{
@@ -88,7 +88,7 @@
         
         if ([self.loopsArray[indexPath.row] isEqual:@(1)]) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            cell.tintColor = THEMECOLOR;
+            cell.tintColor = [UIColor THEMECOLOR];
         }else{
             cell.accessoryType = UITableViewCellAccessoryNone;
         }

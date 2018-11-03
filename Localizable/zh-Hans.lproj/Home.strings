@@ -9,7 +9,7 @@
 "Homes" = "家庭";
 "Add New Home" = "添加家庭";
 "Add Home" = "添加家庭";
-"Please enter home name" = "请输入房间名";
+"Please enter home name" = "请输入家庭名";
 "name" = "名字";
 "Creating home" = "正在创建家庭";
 "add home success" = "添加家庭成功";
@@ -35,7 +35,6 @@
 "exiting" = "正在退出";
 "Home" = "家庭";
 "Family Member" = "家庭成员";
-"Transfer Home" = "转让家庭";
 "Delete Home Or Exit Home" = "删除或退出家庭";
 "Family Member" = "家庭成员";
 "Set as Administrator" = "设置为管理员";
@@ -47,3 +46,17 @@
 "Delete successfully" = "删除成员成功";
 "Delete home successfully" = "删除家庭成功";
 "Exit home successfully" = "退出家庭成功";
+"Located in" = "位于";
+"Accounts" = "快速登录";
+"DEVICE NAME" = "设备名称";
+"BELONG TO" = "属于";
+"GET STARTED" = "开始使用";
+"No Devices" = "无设备";
+"Sorry no device" = "对不起，在你的家里没有设备，你可以通过添加设备来构建你的智能家居";
+"Invite Member" = "邀请家庭成员";
+"Device Share" = "分享设备";
+"Invite Member By Email" = "通过邮箱邀请成员";
+"Transfer Home By Email" = "通过邮箱转让家庭";
+"Share Device By Email" = "通过邮箱分享设备";
+
+"Store" = "商城";

@@ -20,18 +20,21 @@
     
     self.title = NSLocalizedStringFromTable(@"Homes", @"Home", nil);
     
+    [self getHomeList];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self getHomeList];
+    
+    [self.tableView reloadData];
 }
 
 -(void)getHomeList{
     [[EHOMEUserModel shareInstance] syncHomeWithCloud:^(id responseObject) {
         NSLog(@"Home List = %@", responseObject);
         
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadData];
         
     } failure:^(NSError *error) {
         NSLog(@"Home List failed = %@", error);

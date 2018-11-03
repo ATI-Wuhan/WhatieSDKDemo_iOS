@@ -13,4 +13,7 @@ typedef void(^selectedRoom)(EHOMERoomModel *model);
 
 @property (nonatomic, strong) NSArray *ModelArray;
 @property (nonatomic, strong) EHOMERoomModel *selectedmodel;
+//改变设备所在房间的时候
+@property (nonatomic, assign) BOOL IsChangeDeviceRoom;
+@property (nonatomic, strong) EHOMEDeviceModel *DeviceModel;
 @end

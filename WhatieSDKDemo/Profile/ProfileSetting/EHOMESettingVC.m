@@ -8,7 +8,8 @@
 
 #import "EHOMESettingVC.h"
 #import "EHOMELogoView.h"
-#import "EHOMEAgreementVC.h"
+#import "EHOMENewFeatureTableViewController.h"
+#import "EHOMETermsTableViewController.h"
 
 @interface EHOMESettingVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *aboutTableView;
@@ -52,7 +53,25 @@
     self.bottomLabel.minimumScaleFactor = 0.5;
     self.bottomLabel.adjustsFontSizeToFitWidth = YES;
     self.bottomLabel.textAlignment=NSTextAlignmentCenter;
-    self.bottomLabel.text=@"©2018 ATI (WUHAN) ELECTRONICS Co., Ltd All Rights Reserved";
+    
+//    NSString *rightsInfo;
+//    switch (CurrentApp) {
+//        case eHome:
+//            rightsInfo = @"©2018 ATI (WUHAN) ELECTRONICS Co., Ltd All Rights Reserved";
+//            break;
+//        case Geek:
+//            rightsInfo = @"©2018 Shenzhen Proxelle Co.,Ltd All Rights Reserved";
+//            break;
+//        case Ozwi:
+//            rightsInfo = @"©2018 Ozwi Home Co., Ltd All Rights Reserved";
+//            break;
+//
+//        default:
+//            rightsInfo = @"©2018 ATI (WUHAN) ELECTRONICS Co., Ltd All Rights Reserved";
+//            break;
+//    }
+    
+    self.bottomLabel.text=@"©2018 Whatie Co., Ltd All Rights Reserved";
     [self.view addSubview:self.bottomLabel];
     
     [self.bottomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -108,15 +127,34 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row == 1) {
+    if (indexPath.row == 0) {
+        EHOMENewFeatureTableViewController *newFeatureVC=[[EHOMENewFeatureTableViewController alloc] initWithNibName:@"EHOMENewFeatureTableViewController" bundle:nil];
+        [self.navigationController pushViewController:newFeatureVC animated:YES];
+    }else if (indexPath.row == 1) {
         NSLog(@"跳转到App Store");
+        
         NSString *APPID = @"1367100039";
+        
+        switch (CurrentApp) {
+            case eHome:
+                APPID = @"1367100039";
+                break;
+            case Geek:
+                APPID = @"1420362590";
+                break;
+            case Ozwi:
+                APPID = @"1367100039";
+                break;
+                
+            default:
+                break;
+        }
+        
         NSString *urlStr = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/cn/app/id%@?mt=8&action=write-review", APPID];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
     }else{
-        EHOMEAgreementVC *agreementVC=[[EHOMEAgreementVC alloc] init];
-        agreementVC.fromWhere = indexPath.row;
-        [self.navigationController pushViewController:agreementVC animated:YES];
+        EHOMETermsTableViewController *termsVC = [[EHOMETermsTableViewController alloc] initWithNibName:@"EHOMETermsTableViewController" bundle:nil];
+        [self.navigationController pushViewController:termsVC animated:YES];
     }
     
 }
@@ -136,14 +174,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

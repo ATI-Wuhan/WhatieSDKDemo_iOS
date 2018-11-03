@@ -22,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 
     [self initTableView];
 }
@@ -185,6 +184,15 @@
     }]];
     //按钮：取消，类型：UIAlertActionStyleCancel
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:nil]];
+    
+    UIPopoverPresentationController *popover = alert.popoverPresentationController;
+    
+    if (popover) {
+        
+        popover.sourceView = self.view;
+        popover.sourceRect = CGRectMake(0, DEVICE_H, DEVICE_W, DEVICE_H);
+    }
+    
     [self presentViewController:alert animated:YES completion:nil];
     
 }
@@ -215,8 +223,9 @@
             
             [self.tableView reloadData];
         } failure:^(NSError *error) {
-            NSLog(@"上传失败 = %@",error.domain);
+            NSLog(@"上传失败 = %@",error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper showErrorDomain:error];
         }];
         
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -252,8 +261,9 @@
             } failure:^(NSError *error) {
                 NSLog(@"update user name failed. error = %@", error);
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+                [HUDHelper showErrorDomain:error];
             }];
+            
         }else{
             [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"please enter name", @"Info", nil) hideAfterDelay:1.0];
         }
@@ -297,7 +307,7 @@
         } failure:^(NSError *error) {
             NSLog(@"Update Login Password Failed = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
         
     }];
@@ -311,6 +321,12 @@
 -(void)loginOut{
     
     [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"logout...", @"Info", nil) hideAfterDelay:15];
+    
+    //清除本地数据库数据
+    [EHOMEDataStore removeAllHomesFromDB];
+    [EHOMEDataStore removeAllRoomsFromDB];
+    [EHOMEDataStore removeAllDevicesFromDB];
+    [EHOMEDataStore removeAllScenesFromDB];
     
     [[EHOMEUserModel shareInstance] loginOut:^(id responseObject) {
         
@@ -330,9 +346,10 @@
         NSLog(@"logout failed = %@", error);
         
         [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-        [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+        [HUDHelper showErrorDomain:error];
         
         [EHOMEUserModel removeCurrentUser];
+        [[EHOMEUserModel  shareInstance] removeCurrentHome];
         [[EHOMEMQTTClientManager shareInstance] close];
         
         UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -340,6 +357,5 @@
         [self presentViewController:loginVC animated:YES completion:nil];
     }];
 }
-
 
 @end

@@ -11,5 +11,6 @@
 @interface EHOMETimerTableViewController : UITableViewController
 
 @property (nonatomic, strong) EHOMEDeviceModel *device;
+@property (nonatomic, assign) int stripTag;
 
 @end

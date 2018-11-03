@@ -67,26 +67,34 @@
         vc.roommodel=self.roomModel;
 
         __weak typeof(self) weakSelf = self;
-        [vc setChangePictureBlock:^(EHOMEBackgroundModel *model) {
-            weakSelf.roomModel.room.background.path=model.file.path;
-            [weakSelf.groundView sd_setImageWithURL:[NSURL URLWithString:model.file.path] placeholderImage:[UIImage imageNamed:@""]];
-            weakSelf.roomBgBlock(model.file.path);
+        [vc setChangePictureBlock:^(NSArray *backgrounds) {
+            for(EHOMEBackgroundModel *model in backgrounds){
+                if(model.vertical){
+                    weakSelf.roomModel.room.background.path=model.file.path;
+                    [weakSelf.groundView sd_setImageWithURL:[NSURL URLWithString:model.file.path] placeholderImage:[UIImage imageNamed:@""]];
+                }else{
+                    weakSelf.roomBgBlock(model.file.path);
+                }
+            }
+            
         }];
         [self.navigationController pushViewController:vc animated:YES];
 
     }]];
 
-    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Delete Room", @"profile", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action){
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Delete Room", @"Room", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action){
         NSLog(@"点击删除房间");
         [self.roomModel removeRoomSuccess:^(id responseObject) {
             [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Delete room successfully", @"Room", nil) hideAfterDelay:1];
+            
+            //删除本地数据库的改房间
+            [EHOMEDataStore removeRoomFromDB:self.roomModel InHomeId:self.roomModel.room.home.id];
+            
             self.deleteBlock(YES);
             [self.navigationController popViewControllerAnimated:YES];
         } failure:^(NSError *error) {
-            NSLog(@"删除家庭失败！=%@",error);
-            [HUDHelper addHUDInView:sharedKeyWindow
-                               text:error.domain
-                     hideAfterDelay:1];
+            NSLog(@"删除房间失败！=%@",error);
+            [HUDHelper showErrorDomain:error];
         }];
     }]];
     
@@ -130,12 +138,13 @@
                 self.roomModel.room.name = name;
                 self.title = name;
                 self.roomNameBlock(name);
+                [EHOMEDataStore setRoomToDB:self.roomModel];
                 
                 [self.tableView reloadData];
             } failure:^(NSError *error) {
                 NSLog(@"update room name failed. error = %@", error);
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+                [HUDHelper showErrorDomain:error];
             }];
             
         }else{
@@ -237,7 +246,7 @@
                 } failure:^(NSError *error) {
                     NSLog(@"remove failed = %@", error);
                     [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                    [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+                    [HUDHelper showErrorDomain:error];
                 }];
             }];
             
@@ -295,7 +304,7 @@
         } failure:^(NSError *error) {
             NSLog(@"share device failed. error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -349,7 +358,7 @@
         } failure:^(NSError *error) {
             NSLog(@"update device name failed. error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
     }];
     

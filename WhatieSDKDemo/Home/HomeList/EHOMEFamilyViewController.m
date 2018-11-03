@@ -28,7 +28,7 @@
     self.homeImageView.layer.masksToBounds = YES;
     self.homeImageView.layer.cornerRadius = 30.0;
     self.homeImageView.layer.borderWidth = 1;
-    self.homeImageView.layer.borderColor=[THEMECOLOR CGColor];
+    self.homeImageView.layer.borderColor=[[UIColor THEMECOLOR] CGColor];
     self.homeImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.homeImageView.clipsToBounds = YES;
     [self.homeImageView sd_setImageWithURL:[NSURL URLWithString:self.memberModel.customer.portraitThumb.path] placeholderImage:[UIImage imageNamed:@"avatar"]];
@@ -39,7 +39,7 @@
     self.Transfertitle.text=NSLocalizedStringFromTable(@"Transfer Home", @"Home", nil);
     
     self.setLabel.text=NSLocalizedStringFromTable(@"Set as Administrator", @"Home", nil);
-    self.setLabel.backgroundColor = THEMECOLOR;
+    self.setLabel.backgroundColor = [UIColor THEMECOLOR];
     UITapGestureRecognizer *labelTapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ClickSet)];
     [self.setLabel addGestureRecognizer:labelTapGestureRecognizer1];
     self.setLabel.userInteractionEnabled = YES;
@@ -47,7 +47,7 @@
     self.Deletetitle.text=NSLocalizedStringFromTable(@"Delete Member", @"Home", nil);
     
     self.DeleteMember.text=NSLocalizedStringFromTable(@"Delete", @"Home", nil);
-    self.DeleteMember.backgroundColor = THEMECOLOR;
+    self.DeleteMember.backgroundColor = [UIColor THEMECOLOR];
     UITapGestureRecognizer *labelTapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ClickDelete)];
     [self.DeleteMember addGestureRecognizer:labelTapGestureRecognizer2];
     self.DeleteMember.userInteractionEnabled = YES;
@@ -59,6 +59,7 @@
     [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"setting the administrator", @"Home", nil) hideAfterDelay:10];
     
     [self.homeModel transferAdminWithMemberModel:self.memberModel success:^(id responseObject) {
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
         [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Transfer successfully", @"Home", nil) hideAfterDelay:1];
         NSLog(@"成功%@",responseObject);
         NSNotification *notice = [NSNotification notificationWithName:@"transferAdmin" object:nil userInfo:nil];
@@ -66,7 +67,8 @@
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
         NSLog(@"转让管理员失败！=%@",error);
-        [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1];
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+        [HUDHelper showErrorDomain:error];
     }];
     
 }
@@ -76,13 +78,15 @@
     [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"deleting the member", @"Home", nil) hideAfterDelay:10];
     
     [self.memberModel removeMemberFromHome:self.homeModel success:^(id responseObject) {
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
         [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Delete successfully", @"Home", nil) hideAfterDelay:1];
         NSNotification *notice = [NSNotification notificationWithName:@"deleteMember" object:nil userInfo:nil];
         [[NSNotificationCenter defaultCenter] postNotification:notice];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
         NSLog(@"删除成员失败！=%@",error);
-        [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1];
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+        [HUDHelper showErrorDomain:error];
     }];
     
 }

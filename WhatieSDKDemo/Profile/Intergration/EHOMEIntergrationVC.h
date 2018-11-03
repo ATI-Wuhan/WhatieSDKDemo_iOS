@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EHOMEIntergrationVC : UIViewController
+@interface EHOMEIntergrationVC : UITableViewController
 
 @end

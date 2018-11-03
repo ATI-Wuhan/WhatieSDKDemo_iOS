@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rKg-id-ZE5">
-                    <rect key="frame" x="0.0" y="22" width="414" height="90"/>
+                    <rect key="frame" x="0.0" y="2" width="414" height="90"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="dWd-BN-E2L"/>
@@ -36,20 +35,19 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWH-zc-fdB">
-                    <rect key="frame" x="0.0" y="112" width="414" height="624"/>
+                    <rect key="frame" x="0.0" y="92" width="414" height="644"/>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="uWH-zc-fdB" secondAttribute="bottom" id="Bpb-DJ-DFn"/>
-                <constraint firstItem="rKg-id-ZE5" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="2" id="Cs5-Lm-A9n"/>
-                <constraint firstItem="rKg-id-ZE5" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="F7r-ip-q38"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="uWH-zc-fdB" secondAttribute="trailing" id="Pa1-59-CcL"/>
+                <constraint firstAttribute="bottom" secondItem="uWH-zc-fdB" secondAttribute="bottom" id="Bpb-DJ-DFn"/>
+                <constraint firstItem="rKg-id-ZE5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="2" id="Cs5-Lm-A9n"/>
+                <constraint firstItem="rKg-id-ZE5" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="F7r-ip-q38"/>
+                <constraint firstAttribute="trailing" secondItem="uWH-zc-fdB" secondAttribute="trailing" id="Pa1-59-CcL"/>
                 <constraint firstItem="uWH-zc-fdB" firstAttribute="top" secondItem="rKg-id-ZE5" secondAttribute="bottom" id="VfD-w6-She"/>
-                <constraint firstItem="uWH-zc-fdB" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="jqX-MP-E6o"/>
-                <constraint firstItem="rKg-id-ZE5" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="qyC-nT-Hnb"/>
+                <constraint firstItem="uWH-zc-fdB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jqX-MP-E6o"/>
+                <constraint firstItem="rKg-id-ZE5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qyC-nT-Hnb"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="-425" y="53"/>
         </view>
     </objects>

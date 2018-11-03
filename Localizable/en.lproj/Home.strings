@@ -35,7 +35,6 @@
 "exiting" = "exiting";
 "Home" = "Home";
 "Family Member" = "Family Member";
-"Transfer Home" = "Transfer Home";
 "Delete Home Or Exit Home" = "Delete Home Or Exit Home";
 "Family Member" = "Family Member";
 "Set as Administrator" = "Set as Administrator";
@@ -47,3 +46,17 @@
 "Delete successfully" = "Delete successfully";
 "Delete home successfully" = "Delete home successfully";
 "Exit home successfully" = "Exit home successfully";
+"Located in" = "Located in";
+"Accounts" = "Accounts";
+"DEVICE NAME" = "DEVICE NAME";
+"BELONG TO" = "BELONG TO";
+"GET STARTED" = "GET STARTED";
+"No Devices" = "No Devices";
+"Sorry no device" = "Sorry,no device in your home,you can build your SmartHome by adding devices.";
+"Invite Member" = "Invite Member";
+"Device Share" = "Device Share";
+"Invite Member By Email" = "Invite Member By Email";
+"Transfer Home By Email" = "Transfer Home By Email";
+"Share Device By Email" = "Share Device By Email";
+
+"Store" = "Store";

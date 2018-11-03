@@ -43,8 +43,8 @@
     self.ComfirmView.layer.masksToBounds = YES;
     self.ComfirmView.layer.cornerRadius = 3.0;
     
-    self.submitBtn.backgroundColor=THEMECOLOR;
-    [self.submitBtn setTitle:@"SUBMIT" forState:UIControlStateNormal];
+    self.submitBtn.backgroundColor=[UIColor THEMECOLOR];
+    [self.submitBtn setTitle:NSLocalizedStringFromTable(@"SUBMIT", @"Info", nil) forState:UIControlStateNormal];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -86,6 +86,8 @@
         [HUDHelper addHUDInView:sharedKeyWindow text:newPasswordAlert hideAfterDelay:1];
     }else{
         if ([confirmPsw1 isEqualToString:newPassword1]) {
+            [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"updating password", @"Info", nil) hideAfterDelay:10];
+            
             [[EHOMEUserModel shareInstance] resetPasswordByOldPassword:oldPassword1 newPassword:newPassword1 email:[EHOMEUserModel shareInstance].email success:^(id responseObject) {
                 
                 [HUDHelper addHUDInView:sharedKeyWindow
@@ -100,14 +102,13 @@
                 [self presentViewController:LoginNav animated:YES completion:nil];
             } failure:^(NSError *error) {
                 [HUDHelper hideHUDForView:sharedKeyWindow animated:YES];
-                [HUDHelper addHUDInView:sharedKeyWindow
-                                   text:error.domain
-                         hideAfterDelay:1];
+                [HUDHelper showErrorDomain:error];
             }];
             
         }else{
             [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"different password", @"Info", nil) hideAfterDelay:1];
         }
+        
     }
 }
 @end

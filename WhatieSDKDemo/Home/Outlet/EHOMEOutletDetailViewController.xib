@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,6 +16,8 @@
                 <outlet property="optionsLabel" destination="4UQ-XZ-ciI" id="3jL-vO-ADx"/>
                 <outlet property="stateLabel" destination="uFu-3g-mb4" id="gAO-WP-i9M"/>
                 <outlet property="switchButton" destination="v5o-aY-Mkj" id="50j-nZ-2lg"/>
+                <outlet property="timerLabel" destination="Lt2-Dn-3fM" id="A37-Sl-tRO"/>
+                <outlet property="timingCountdownLabel" destination="W7S-jZ-zNR" id="0W3-Ae-REi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -180,10 +181,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5M-qT-Ob4">
-                    <rect key="frame" x="0.0" y="28" width="375" height="264"/>
+                    <rect key="frame" x="0.0" y="8" width="375" height="284"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experience_outlets" translatesAutoresizingMaskIntoConstraints="NO" id="vjc-3r-87N">
-                            <rect key="frame" x="121" y="0.0" width="132" height="264"/>
+                            <rect key="frame" x="116" y="0.0" width="142" height="284"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="vjc-3r-87N" secondAttribute="height" multiplier="1:2" id="y56-hI-0mQ"/>
                             </constraints>
@@ -199,21 +200,20 @@
             </subviews>
             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="TA6-BT-Oz4" secondAttribute="trailing" constant="15" id="0dx-VA-oZh"/>
-                <constraint firstItem="p8q-Ob-q5E" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="AzS-hg-llI"/>
-                <constraint firstItem="uFu-3g-mb4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="8" id="DIP-ik-oal"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="e5M-qT-Ob4" secondAttribute="trailing" id="E4k-bY-Hl2"/>
-                <constraint firstItem="p8q-Ob-q5E" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="EYu-Ik-IgG"/>
-                <constraint firstItem="e5M-qT-Ob4" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="8" id="WVv-sr-qmr"/>
+                <constraint firstAttribute="trailing" secondItem="TA6-BT-Oz4" secondAttribute="trailing" constant="15" id="0dx-VA-oZh"/>
+                <constraint firstItem="p8q-Ob-q5E" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AzS-hg-llI"/>
+                <constraint firstItem="uFu-3g-mb4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="DIP-ik-oal"/>
+                <constraint firstAttribute="trailing" secondItem="e5M-qT-Ob4" secondAttribute="trailing" id="E4k-bY-Hl2"/>
+                <constraint firstItem="p8q-Ob-q5E" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="EYu-Ik-IgG"/>
+                <constraint firstItem="e5M-qT-Ob4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="WVv-sr-qmr"/>
                 <constraint firstItem="uFu-3g-mb4" firstAttribute="top" secondItem="e5M-qT-Ob4" secondAttribute="bottom" constant="8" id="avu-Jn-HGi"/>
                 <constraint firstItem="TA6-BT-Oz4" firstAttribute="top" secondItem="uFu-3g-mb4" secondAttribute="bottom" constant="8" id="cYx-Ue-heT"/>
                 <constraint firstItem="p8q-Ob-q5E" firstAttribute="top" secondItem="TA6-BT-Oz4" secondAttribute="bottom" constant="8" id="ci8-9n-voQ"/>
-                <constraint firstItem="TA6-BT-Oz4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="dJK-lv-vry"/>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="uFu-3g-mb4" secondAttribute="trailing" constant="8" id="ey8-38-gis"/>
-                <constraint firstItem="e5M-qT-Ob4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="mja-QB-g2t"/>
-                <constraint firstItem="p8q-Ob-q5E" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="y0c-DA-2ne"/>
+                <constraint firstItem="TA6-BT-Oz4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="dJK-lv-vry"/>
+                <constraint firstAttribute="trailing" secondItem="uFu-3g-mb4" secondAttribute="trailing" constant="8" id="ey8-38-gis"/>
+                <constraint firstItem="e5M-qT-Ob4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mja-QB-g2t"/>
+                <constraint firstItem="p8q-Ob-q5E" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="y0c-DA-2ne"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="-153.5" y="44.5"/>
         </view>
     </objects>

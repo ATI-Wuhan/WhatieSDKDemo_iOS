@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"My Devices";
+    self.title = NSLocalizedStringFromTable(@"My Devices", @"Profile", nil);
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
@@ -144,9 +144,9 @@
                 [self.tableView reloadData];
                 
             } failure:^(NSError *error) {
-                NSLog(@"remove failed = %@", error);
+                NSLog(@"remove failed = %@",error.domain);
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+                [HUDHelper showErrorDomain:error];
             }];
         }];
         
@@ -233,7 +233,7 @@
         } failure:^(NSError *error) {
             NSLog(@"update device name failed. error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
     }];
     
@@ -267,7 +267,7 @@
         } failure:^(NSError *error) {
             NSLog(@"share device failed. error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

@@ -10,6 +10,7 @@
 #import "EHOMERoomListTableViewController.h"
 
 @interface EHOMEGetStartViewController ()<UITableViewDelegate, UITableViewDataSource>
+@property (retain, nonatomic) IBOutlet UIButton *getStartButton;
 @property (nonatomic, strong) EHOMERoomModel *selectedRoom;
 @property (nonatomic, strong) EHOMEHomeModel *selectedHome;
 @end
@@ -21,18 +22,93 @@
     
     self.title = NSLocalizedStringFromTable(@"Get Started", @"Device", nil);
     
+    [self.getStartBtn setTitle:NSLocalizedStringFromTable(@"GET STARTED", @"Home", nil) forState:UIControlStateNormal];
+    self.getStartBtn.layer.masksToBounds = YES;
+    self.getStartBtn.layer.cornerRadius = 3.0;
+    
+    //不显示返回上一界面按钮
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.hidesBackButton = YES;
+    //禁止侧滑
+    id traget = self.navigationController.interactivePopGestureRecognizer.delegate;
+    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:traget action:nil];
+    [self.view addGestureRecognizer:pan];
+    
     self.getStartTableview.delegate=self;
     self.getStartTableview.dataSource=self;
     
-    self.getStartBtn.backgroundColor = THEMECOLOR;
+    self.getStartBtn.backgroundColor = [UIColor THEMECOLOR];
     
-    for(EHOMERoomModel *model in self.roomModelArray){
-        if([model.room.type isEqualToString:@"defaultRoom"]){
-            self.selectedRoom = model;
-            break;
+//    for(EHOMERoomModel *model in self.roomModelArray){
+//        if([model.room.type isEqualToString:@"defaultRoom"]){
+//            self.selectedRoom = model;
+//            break;
+//        }
+//    }
+
+    
+    [self getRooms];
+}
+
+-(void)getRooms{
+    
+    [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedString(@"Loading", nil) hideAfterDelay:10];
+    
+    [[EHOMEUserModel shareInstance] getCurrentHomeSuccess:^(id responseObject) {
+        NSLog(@"Get current home success.home = %@", responseObject);
+        
+        EHOMEHomeModel *currenthome = responseObject;
+        
+        //从数据库中获取房间数据
+        NSArray *localRooms = [EHOMEDataStore getRoomsFromDBWithHomeId:currenthome.id];
+        
+        if (localRooms.count > 0) {
+            
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            
+            self.roomModelArray = localRooms;
+            for(EHOMERoomModel *model in self.roomModelArray){
+                if([model.room.type isEqualToString:@"defaultRoom"]){
+                    self.selectedRoom = model;
+                    
+                    [self.getStartTableview reloadData];
+                    
+                    break;
+                }
+            }
+            
+            [currenthome syncRoomByHomeSuccess:^(id responseObject) {
+                self.roomModelArray = responseObject;
+                [EHOMEDataStore setRoomsToDBWithRooms:self.roomModelArray inHome:currenthome.id];
+            } failure:^(NSError *error) {
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            }];
+        }else{
+            [currenthome syncRoomByHomeSuccess:^(id responseObject) {
+                
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+                
+                self.roomModelArray = responseObject;
+                for(EHOMERoomModel *model in self.roomModelArray){
+                    if([model.room.type isEqualToString:@"defaultRoom"]){
+                        self.selectedRoom = model;
+                        
+                        [self.getStartTableview reloadData];
+                        
+                        break;
+                    }
+                }
+                
+                [EHOMEDataStore setRoomsToDBWithRooms:self.roomModelArray inHome:currenthome.id];
+            } failure:^(NSError *error) {
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            }];
         }
-    }
-    // Do any additional setup after loading the view from its nib.
+
+    } failure:^(NSError *error) {
+        NSLog(@"Get current home failed.error = %@", error);
+        [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,6 +159,7 @@
         EHOMERoomListTableViewController *roomlistVC = [[EHOMERoomListTableViewController alloc] initWithNibName:@"EHOMERoomListTableViewController" bundle:nil];
         roomlistVC.ModelArray = self.roomModelArray;
         roomlistVC.selectedmodel = self.selectedRoom;
+        roomlistVC.IsChangeDeviceRoom = NO;
         
         __weak typeof(self) weakSelf = self;
         [roomlistVC setSelectedRoomBlock:^(EHOMERoomModel *model) {
@@ -96,8 +173,8 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
-    NSArray *titles=@[@"DEVICE NAME",
-                      @"BELONG TO"];
+    NSArray *titles=@[NSLocalizedStringFromTable(@"DEVICE NAME", @"Home", nil),
+                      NSLocalizedStringFromTable(@"BELONG TO", @"Home", nil)];
     return titles[section];
 }
 
@@ -106,7 +183,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 50;
+    return 0.001;
 }
 
 /*
@@ -179,7 +256,11 @@
         NSLog(@"GET STARTED Failed = %@", error);
         
         [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-        [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+        [HUDHelper showErrorDomain:error];
     }];
+}
+- (void)dealloc {
+    [_getStartButton release];
+    [super dealloc];
 }
 @end

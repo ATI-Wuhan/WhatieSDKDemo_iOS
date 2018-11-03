@@ -1,0 +1,85 @@
+/* 
+  language.strings
+  WhatieSDKDemo
+
+  Created by IIDreams_zhouwei on 2018/8/18.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+"10001" = "No access to this interface";
+"10002" = "Interaction failure";
+"10003" = "Parameter is empty";
+"10101" = "Failed to send verification code";
+"10102" = "This username is not registered";
+"10201" = "Email address and verification code could be not empty";
+"10202" = "Failed to verify code. Please make sure the code is correct";
+"10301" = "Failed to send verification code";
+"10302" = "This user is already registered";
+"10401" = "The account is disabled";
+"10402" = "Failed to get user information";
+"10501" = "Failed to set password";
+"10602" = "Password could not be less than 6 letters";
+"10603" = "Old password is incorrect";
+"10701" = "Email address is invalid";
+"10702" = "Username already exists";
+"10703" = "Incorrect username or password";
+"10704" = "Password can not be empty";
+"10705" = "The user is disabled, please contact customer service";
+"10801" = "Device could not be found";
+"10802" = "Device could not be shared";
+"10803" = "Device could not be shared to the home member";
+"10804" = "Device is already shared to this user";
+"10901" = "This device could not be removed";
+"10902" = "Failed to remove device";
+"11001" = "Device name already exists";
+"11101" = "Failed to cancel device share";
+"11201" = "Device name can not be used. Please try another name.";
+"11301" = "Sharing failed:The qrCode is expired";
+"11302" = "The qrcode is invalid";
+"11303" = "Device could not be shared to the home member";
+"11304" = "The device is already in your received sharing device list";
+"11401" = "The qrCode is expired";
+"11402" = "Default home could not be transformed";
+"11501" = "Failed to update home name";
+"11601" = "User does not exist";
+"11701" = "You are not the member of the home";
+"11702" = "Default home could not be deleted";
+"11801" = "The qrCode is expired";
+"11802" = "This user is already in your home";
+"11803" = "Failed to add member";
+"11901" = "Home does not exist";
+"12001" = "You are not the Administrator of the home";
+"12101" = "Only the host could add room";
+"12102" = "Please choose another name";
+"12103" = "Default room could not be add";
+"12201" = "Failed to get room devices";
+"12301" = "The room does not exist";
+"12302" = "Default room could not be removed";
+"12401" = "Please choose another name";
+"12601" = "Set device to room failed!";
+"12602" = "This device does not belongs to you!";
+"20101" = "You can not add more than 32 timers.";
+"20201" = "No device in this scene";
+"20301" = "Failed to add clock";
+"20302" = "Failed to update clock";
+"20401" = "Failed to update scene status";
+"20501" = "Failed to get devices";
+"20601" = "Reset failed device error";
+"20701" = "Delete failed device error";
+
+
+//SDK
+"-999" = "Interaction failure";
+"-998" = "Please make sure you are logged into account.";
+"-997" = "No Current Home.";
+"-996" = "Your device was not found. Please make sure your device is reset and try again.";
+"-995" = "Unable to update device status";
+"-994" = "No timing countdown";
+"-899" = "Name could not be more than 15 letters.";
+"-898" = "Password could not be more than 64 letters.";
+"-897" = "Feedback could not be more than 255 letters.";
+"-896" = "Email could not be more than 50 letters.";
+"-895" = "Name could not be more than 30 letters.";
+"-894" = "Name could not be more than 25 letters.";
+"-893" = "Tag could not be more than 255 letters.";
+
+

@@ -94,4 +94,19 @@
     [progress hide:animated afterDelay:delay];
 }
 
+
++(void)showErrorDomain:(NSError *)error{
+    
+    NSString *code = [NSString stringWithFormat:@"%@",@(error.code)];
+    //NSString *domain = error.domain;
+    
+    NSString *errorString = NSLocalizedStringFromTable(code, @"language", nil);
+    
+    if ([errorString isEqualToString:code]) {
+        errorString = NSLocalizedStringFromTable(@"-999", @"language", nil);
+    }
+    
+    [HUDHelper addHUDInView:sharedKeyWindow text:errorString hideAfterDelay:1.0];
+}
+
 @end

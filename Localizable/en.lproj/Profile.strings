@@ -15,7 +15,8 @@
 "Feedback" = "Feedback";
 
 //Integration
-"Use Echo" = "Use Echo";
+"Use Amazon Alexa" = "Use Amazon Alexa";
+"Use Google Home" = "Use Google Home";
 
 //ProfileSetting
 "About" = "About";
@@ -41,3 +42,13 @@
 //share
 "Shared Devices" = "Shared Devices";
 "Remove" = "Remove";
+
+//Scancode
+"Scan" = "Scan";
+"light" = "light";
+"Scan results" = "Scan results";
+"Scan code failure:code does not belong to eHome" = "Scan code failure:code does not belong to eHome";
+"Scan code successfully" = "Scan code successfully";
+"Interaction failed. Please try again!" = "Interaction failed. Please try again!";
+"Turn off" = "Turn off";
+"Turn on" = "Turn on";

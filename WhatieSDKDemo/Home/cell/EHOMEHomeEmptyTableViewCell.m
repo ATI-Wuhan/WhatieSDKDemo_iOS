@@ -14,8 +14,10 @@
     [super awakeFromNib];
     // Initialization code
     
-    if ([CurrentApp isEqualToString:@"Geek+"]) {
+    if (CurrentApp == Geek) {
         self.emptyImageView.image = [UIImage imageNamed:@"Geek+empty_home"];
+    }else if(CurrentApp == Ozwi){
+        self.emptyImageView.image = [UIImage imageNamed:@"Ozwi+empty_home"];
     }else{
         self.emptyImageView.image = [UIImage imageNamed:@"empty_home"];
     }
@@ -24,9 +26,11 @@
     
     self.addDeviceButton.layer.masksToBounds = YES;
     self.addDeviceButton.layer.cornerRadius = 3.0;
-    self.addDeviceButton.backgroundColor = THEMECOLOR;
+    self.addDeviceButton.backgroundColor = [UIColor THEMECOLOR];
     [self.addDeviceButton setTitle:NSLocalizedStringFromTable(@"Add Device", @"Device", nil) forState:UIControlStateNormal];
     
+    self.nodevicesLabel.text = NSLocalizedStringFromTable(@"No Devices", @"Home", nil);
+    self.nodevicesDescribLabel.text = NSLocalizedStringFromTable(@"Sorry no device", @"Home", nil);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -40,4 +44,9 @@
     [self.delegate gotoAddDevicePage];
 }
 
+- (void)dealloc {
+    [_nodevicesLabel release];
+    [_nodevicesDescribLabel release];
+    [super dealloc];
+}
 @end

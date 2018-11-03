@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EHOMETabBarController : UITabBarController
+#import <CYLTabBarController/CYLTabBarController.h>
+
+@interface EHOMETabBarController : CYLTabBarController
 
 @end

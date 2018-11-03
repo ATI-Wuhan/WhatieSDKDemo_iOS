@@ -18,7 +18,7 @@
 #import "ZZCACircleProgress.h"
 
 
-@interface EHOMESmartConfigViewController ()
+@interface EHOMESmartConfigViewController ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, copy) NSString *SSID;
 @property (nonatomic, copy) NSString *BSSID;
@@ -27,10 +27,10 @@
 @property (nonatomic, strong) MDRadialProgressView *progressView;
 @property (nonatomic, assign) int duration;
 @property (nonatomic, strong) NSTimer *timer1;
-@property (nonatomic, strong) NSTimer *timer2;
 @property (nonatomic, strong) NSDictionary *recieveDic;
 @property (nonatomic, strong) NSString *RoomName;
-@property (nonatomic, strong) NSArray *rooms;
+@property (nonatomic, assign) BOOL isRegister;
+@property (nonatomic, assign) BOOL isSmartconfig;
 
 @property(nonatomic,strong) UILabel *pleaseLabel;
 @property(nonatomic,strong) UILabel *yourLabel;
@@ -56,10 +56,22 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = NSLocalizedStringFromTable(@"Config", @"Device", nil);
+    self.isRegister = NO;
+    self.isSmartconfig = NO;
     
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Stop", @"Device", nil) style:UIBarButtonItemStylePlain target:self action:@selector(stopSmartConfigAction)];
-    self.navigationItem.rightBarButtonItem = rightItem;
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Stop", @"Device", nil) style:UIBarButtonItemStylePlain target:self action:@selector(stopSmartConfigAction)];
+//    self.navigationItem.rightBarButtonItem = rightItem;
     
+    self.navigationItem.hidesBackButton = YES;
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"left_back"] style:UIBarButtonItemStylePlain target:self action:@selector(popSmartConfig)];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    self.navigationItem.leftItemsSupplementBackButton = YES;
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, NSIntegerMin) forBarMetrics:UIBarMetricsDefault];
+    
+    //禁止侧滑
+    id traget = self.navigationController.interactivePopGestureRecognizer.delegate;
+    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:traget action:nil];
+    [self.view addGestureRecognizer:pan];
     
     [self setupviews];
     
@@ -72,92 +84,84 @@
 
     [[EHOMESmartConfig shareInstance] startSmartConfigWithSsid:ssid bssid:bssid password:password success:^(id responseObject) {
         NSLog(@"Smart config success = %@", responseObject);
+        self.isSmartconfig = YES;
         
-        [HUDHelper hideAllHUDsForView:self.view animated:YES];
-
-        
-        NSString *title = NSLocalizedStringFromTable(@"Success", @"Device", nil);
-        NSString *message = NSLocalizedStringFromTable(@"Config Success", @"Device", nil);
-        
-        NSInteger protocol = [[responseObject objectForKey:@"protocol"] integerValue];
-        
-        if (protocol == 10) {
-            //设备配网成功
-        }else if (protocol == 9) {
-            //设备确认配好，通知APP
+        //设备配网成功
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //[HUDHelper hideAllHUDsForView:self.view animated:YES];
+            
             [self._spinner1 stopAnimating];
             self.progressImage1.hidden=NO;
             [self._spinner2 startAnimating];
-            self.progressLabel2.textColor = THEMECOLOR;
-            
-            self.timer1 =[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(action1) userInfo:nil repeats:NO];
-            self.recieveDic=responseObject;
-            
-            [self getRooms];
-            
-        }else{
-            //the device is other's
-            title = @"Sorry";
-            NSString *email = [[responseObject objectForKey:@"data"] objectForKey:@"email"];
-            NSString *bindedStr = NSLocalizedStringFromTable(@"binded", @"Device", nil);
-            message = [NSString stringWithFormat:@"%@ %@",bindedStr,email];
-            [weakSelf showAlertViewWithTitle:title message:message];
-        }
+            self.progressLabel2.textColor = [UIColor THEMECOLOR];
+        });
         
     } failure:^(NSError *error) {
         NSLog(@"Smart config failed = %@", error);
         
-        [HUDHelper hideAllHUDsForView:self.view animated:YES];
-        
-        //[weakSelf showAlertViewWithTitle:@"Alert" message:error.domain];
-        [self._spinner1 stopAnimating];
-        self.progressImage1.hidden=NO;
-        [self showFailAlert];
-
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            //[HUDHelper hideAllHUDsForView:self.view animated:YES];
+            
+            NSLog(@"配网失败");
+            [self showFailAlert];
+        });
     }];
-
+    
+    [[EHOMEMQTTClientManager shareInstance] setMqttBlock:^(NSString *topic, NSData *data) {
+        NSDictionary *MQTTMessage = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+        if ([[MQTTMessage allKeys] containsObject:@"protocol"]) {
+            NSInteger protocol = [[MQTTMessage objectForKey:@"protocol"] integerValue];
+            
+            if (protocol == 10) {
+                
+            }else if (protocol == 9) {
+                //设备确认配好，通知APP
+                self.isRegister = YES;
+                [weakSelf._spinner2 stopAnimating];
+                weakSelf.progressImage2.hidden=NO;
+                [weakSelf._spinner3 startAnimating];
+                weakSelf.progressLabel3.textColor = [UIColor THEMECOLOR];
+                
+                weakSelf.timer1 =[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(action1) userInfo:nil repeats:NO];
+                weakSelf.recieveDic=MQTTMessage;
+                
+            }
+        }
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self._spinner1 startAnimating];
-    self.progressLabel1.textColor = THEMECOLOR;
+    self.progressLabel1.textColor = [UIColor THEMECOLOR];
 }
 
--(void)getRooms{
-    [[EHOMEUserModel shareInstance] getCurrentHomeSuccess:^(id responseObject) {
-        NSLog(@"Get current home success.home = %@", responseObject);
-        
-        
-        EHOMEHomeModel *currenthome = responseObject;
-        
-        [currenthome syncRoomByHomeSuccess:^(id responseObject) {
-            
-            self.rooms = responseObject;
-            
-        } failure:^(NSError *error) {
-            
-        }];
-        
-    } failure:^(NSError *error) {
-        NSLog(@"Get current home failed.error = %@", error);
-    }];
+-(void)viewDidAppear:(BOOL)animated{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(60 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (!self.isRegister && self.isSmartconfig) {
+            NSLog(@"注册失败");
+            [self showFailAlert];
+        }
+    });
 }
+
+-(void)popSmartConfig{
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTable(@"Alert", @"Device", @"提示") message:NSLocalizedStringFromTable(@"Do you want to stop SmartConfig?", @"DeviceFunction", @"返回将停止配网，你确定返回吗") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", @"取消") style:UIAlertActionStyleCancel handler:nil];
+    
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"OK", @"Info", @"确定") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self stopSmartConfigAction];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [alertVC addAction:cancelAction];
+    [alertVC addAction:sureAction];
+    [self presentViewController:alertVC animated:YES completion:nil];
+}
+
 
 -(void)action1{
-    [self._spinner2 stopAnimating];
-    self.progressImage2.hidden=NO;
-    [self._spinner3 startAnimating];
-    self.progressLabel3.textColor = THEMECOLOR;
-    
-    [self.timer1 invalidate];
-    self.timer1 = nil;
-    
-    self.timer2 =[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(action2) userInfo:nil repeats:NO];
-    
-}
-
--(void)action2{
     [self._spinner3 stopAnimating];
     self.progressImage3.hidden=NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,(int64_t)(1*NSEC_PER_SEC)),dispatch_get_main_queue(), ^{
@@ -165,9 +169,9 @@
         EHOMEGetStartViewController *getStartedVC = [[EHOMEGetStartViewController alloc] initWithNibName:@"EHOMEGetStartViewController" bundle:nil];
         getStartedVC.devId = [[self.recieveDic objectForKey:@"data"] objectForKey:@"devId"];
         getStartedVC.deviceName = [[self.recieveDic objectForKey:@"data"] objectForKey:@"name"];
-        getStartedVC.roomModelArray = self.rooms;
         [self.navigationController pushViewController:getStartedVC animated:YES];
     });
+    
 }
 
 -(void)setupviews{
@@ -175,7 +179,7 @@
     CGFloat xCrack = (DEVICE_W - 130)/2;
     CGFloat yCrack = 60;
     CGFloat itemWidth = 130;
-    circle = [[ZZCACircleProgress alloc]initWithFrame:CGRectMake(xCrack, yCrack, itemWidth, itemWidth) pathBackColor:nil pathFillColor:THEMECOLOR startAngle:-90 strokeWidth:5];
+    circle = [[ZZCACircleProgress alloc]initWithFrame:CGRectMake(xCrack, yCrack, itemWidth, itemWidth) pathBackColor:nil pathFillColor:[UIColor THEMECOLOR] startAngle:-90 strokeWidth:5];
     circle.showPoint = NO;
     circle.increaseFromLast = YES;
     circle.prepareToShow =YES;
@@ -212,9 +216,17 @@
     self.progressLabel1.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:self.progressLabel1];
     
-    self.progressImage1 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"progress_ok"]];
+    UIImage *okImage;
+    if (CurrentApp == Geek) {
+        okImage = [UIImage imageNamed:@"geek+progress_ok"];
+    }else if (CurrentApp == Ozwi){
+        okImage = [UIImage imageNamed:@"ozwi_progress_ok"];
+    }else{
+        okImage = [UIImage imageNamed:@"progress_ok"];
+    }
+    self.progressImage1 = [[UIImageView alloc]initWithImage:okImage];
     self._spinner1=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    self._spinner1.color=THEMECOLOR;
+    self._spinner1.color=[UIColor THEMECOLOR];
     [self.view addSubview:self.progressImage1];
     [self.view addSubview:self._spinner1];
     self.progressImage1.hidden=YES;
@@ -226,9 +238,9 @@
     self.progressLabel2.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:self.progressLabel2];
     
-    self.progressImage2 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"progress_ok"]];
+    self.progressImage2 = [[UIImageView alloc]initWithImage:okImage];
     self._spinner2=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    self._spinner2.color=THEMECOLOR;
+    self._spinner2.color=[UIColor THEMECOLOR];
     [self.view addSubview:self.progressImage2];
     [self.view addSubview:self._spinner2];
     self.progressImage2.hidden=YES;
@@ -240,9 +252,9 @@
     self.progressLabel3.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:self.progressLabel3];
     
-    self.progressImage3 = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"progress_ok"]];
+    self.progressImage3 = [[UIImageView alloc]initWithImage:okImage];
     self._spinner3=[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    self._spinner3.color=THEMECOLOR;
+    self._spinner3.color=[UIColor THEMECOLOR];
     [self.view addSubview:self.progressImage3];
     [self.view addSubview:self._spinner3];
     self.progressImage3.hidden=YES;
@@ -271,64 +283,62 @@
         make.centerX.mas_equalTo(self.view);
     }];
     
-    [self.progressLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(188, 25));
-        make.top.mas_equalTo(self.yourLabel.mas_bottom).mas_offset(36);
-        make.left.mas_equalTo(self.view).mas_offset(15);
-    }];
+
     
     [self.progressImage1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(15, 15));
-        make.left.mas_equalTo(self.progressLabel1.mas_right).mas_offset(5);
-        make.centerY.mas_equalTo(self.progressLabel1);
+        make.top.mas_equalTo(self.yourLabel.mas_bottom).mas_offset(36);
+        make.trailing.mas_equalTo(-30);
     }];
     
     [self._spinner1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(15, 15));
-        make.left.mas_equalTo(self.progressLabel1.mas_right).mas_offset(5);
-        make.centerY.mas_equalTo(self.progressLabel1);
+        make.edges.mas_equalTo(self.progressImage1);
     }];
     
-    [self.progressLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(153, 25));
-        make.top.mas_equalTo(self.progressLabel1.mas_bottom).mas_offset(5);
-        make.left.mas_equalTo(self.view).mas_offset(15);
+    [self.progressLabel1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.mas_equalTo(15);
+        make.height.mas_equalTo(21);
+        make.trailing.mas_equalTo(-40);
+        make.centerY.mas_equalTo(self.progressImage1);
     }];
+
     
     [self.progressImage2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(15, 15));
-        make.left.mas_equalTo(self.progressLabel2.mas_right).mas_offset(5);
-        make.centerY.mas_equalTo(self.progressLabel2);
+        make.top.mas_equalTo(self.progressLabel1.mas_bottom).mas_offset(8);
+        make.trailing.mas_equalTo(-30);
     }];
     
     [self._spinner2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(15, 15));
-        make.left.mas_equalTo(self.progressLabel2.mas_right).mas_offset(5);
-        make.centerY.mas_equalTo(self.progressLabel2);
+        make.edges.mas_equalTo(self.progressImage2);
     }];
     
-    [self.progressLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(147, 25));
-        make.top.mas_equalTo(self.progressLabel2.mas_bottom).mas_offset(5);
-        make.left.mas_equalTo(self.view).mas_offset(15);
+    
+    [self.progressLabel2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.height.mas_equalTo(self.progressLabel1);
+        make.centerY.mas_equalTo(self.progressImage2);
     }];
+    
+
     
     [self.progressImage3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(15, 15));
-        make.left.mas_equalTo(self.progressLabel3.mas_right).mas_offset(5);
-        make.centerY.mas_equalTo(self.progressLabel3);
+        make.trailing.mas_equalTo(-30);
+        make.top.mas_equalTo(self.progressLabel2.mas_bottom).mas_offset(8);
     }];
     
     [self._spinner3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(15, 15));
-        make.left.mas_equalTo(self.progressLabel3.mas_right).mas_offset(5);
-        make.centerY.mas_equalTo(self.progressLabel3);
+        make.edges.mas_equalTo(self.progressImage3);
+    }];
+    
+    [self.progressLabel3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.height.mas_equalTo(self.progressLabel2);
+        make.centerY.mas_equalTo(self.progressImage3);
     }];
 
 }
 
 -(void)showFailAlert{
-    [self._spinner1 stopAnimating];
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTable(@"Config failed", @"Device", nil) message:NSLocalizedStringFromTable(@"problems", @"Device", nil) preferredStyle:  UIAlertControllerStyleAlert];
     UIView *subView1 = alert.view.subviews[0];
@@ -354,7 +364,7 @@
         //点击按钮的响应事件；
         [self.navigationController popViewControllerAnimated:YES];
     }];
-    [ReconnetAction setValue:THEMECOLOR forKey:@"titleTextColor"];
+    [ReconnetAction setValue:[UIColor THEMECOLOR] forKey:@"titleTextColor"];
     [alert addAction:ReconnetAction];
     //弹出提示框；
     [self presentViewController:alert animated:true completion:nil];
@@ -373,6 +383,7 @@
 -(void)stopSmartConfigAction{
     
     [[EHOMESmartConfig shareInstance] stopSmartConfig];
+    
 }
 
 

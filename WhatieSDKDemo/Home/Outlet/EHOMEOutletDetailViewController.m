@@ -8,12 +8,15 @@
 
 #import "EHOMEOutletDetailViewController.h"
 #import "EHOMETimerTableViewController.h"
+#import "EHOMEShareViewController.h"
 
 @interface EHOMEOutletDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *optionsLabel;
 @property (nonatomic, assign) int duration;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) int setDuratuon;
+@property (nonatomic, assign) int setClockId;
 
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
 
@@ -26,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
 
 - (IBAction)timingCountdownAction:(id)sender;
+
+@property (retain, nonatomic) IBOutlet UILabel *timerLabel;
+@property (retain, nonatomic) IBOutlet UILabel *timingCountdownLabel;
 
 @end
 
@@ -42,20 +48,43 @@
     
     self.optionsLabel.text = NSLocalizedStringFromTable(@"Options", @"Device", nil);
     
+    self.timerLabel.text = NSLocalizedStringFromTable(@"Timer", @"DeviceFunction", nil);
+    self.timingCountdownLabel.text = NSLocalizedStringFromTable(@"Timing countdown", @"DeviceFunction", nil);
+    
     self.switchButton.layer.masksToBounds = YES;
     self.switchButton.layer.cornerRadius = 3.0;
     [self updateOutletView];
     
+    [[EHOMEMQTTClientManager shareInstance] setMqttBlock:^(NSString *topic, NSData *data) {
+        NSDictionary *MQTTMessage = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"接收到插座mqtt消息 = %@",MQTTMessage);
+        if([[MQTTMessage objectForKey:@"protocol"] intValue] == 13){
+            if([[[MQTTMessage objectForKey:@"data"] objectForKey:@"devId"] isEqualToString:self.device.device.devId]){
+                
+                if([[[MQTTMessage objectForKey:@"data"] objectForKey:@"executionType"] intValue] == 2){
+                    int Duration = [[[MQTTMessage objectForKey:@"data"] objectForKey:@"duration"] intValue];
+                    int ClockId = [[[MQTTMessage objectForKey:@"data"] objectForKey:@"clockId"] intValue];
+                    self.setDuratuon = Duration;
+                    self.setClockId = ClockId;
+                    self.duration = Duration;
+                    [self countdownLabelWithDuration:Duration];
+                }else if ([[[MQTTMessage objectForKey:@"data"] objectForKey:@"executionType"] intValue] == 0){
+                    [self countdownLabelWithDuration:0];
+                }
+            }
+        }
+    }];
+    
     //注册通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name: EHOMEUserNotificationDeviceArrayChanged object:nil];
-    //注册分享设备的通知
+    //注册分享设备的通知   
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name: EHOMEUserNotificationSharedDeviceArrayChanged object:nil];
     
     
     [self.device getTimingCountdown:^(id responseObject) {
-        NSLog(@"get timing countdown success. res = %@", responseObject);
+        NSLog(@"get timing countdown success. res = %@", [responseObject firstObject]);
         
-        EHOMETimer *timer = responseObject;
+        EHOMETimer *timer = [responseObject firstObject];
         
         if (timer.durationTime > 0) {
             self.duration = timer.durationTime;
@@ -63,10 +92,7 @@
         }
         
     } failure:^(NSError *error) {
-        if([error.domain isEqual:@"No timing countdown"]){
-            self.countdownLabel.text = NSLocalizedStringFromTable(@"No countdown", @"DeviceFunction", nil);
-        }
-        NSLog(@"get timing countdown failed. error = %@", error.domain);
+//        [HUDHelper showErrorDomain:error];
     }];
     
 }
@@ -81,7 +107,7 @@
     
     [super viewWillDisappear:animated];
     
-    self.navigationController.navigationBar.barTintColor = THEMECOLOR;
+    self.navigationController.navigationBar.barTintColor = [UIColor THEMECOLOR];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -89,7 +115,7 @@
     [super viewWillAppear:animated];
     
     if (self.device.functionValuesMap.power) {
-        self.navigationController.navigationBar.barTintColor = THEMECOLOR;
+        self.navigationController.navigationBar.barTintColor = [UIColor THEMECOLOR];
     }else{
         self.navigationController.navigationBar.barTintColor = RGB(62, 62, 62);
     }
@@ -108,7 +134,11 @@
 
     UIAlertAction *shareDeviceAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"share device", @"Device", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"share device action");
-        [self shareDevice];
+        //[self shareDevice];
+        EHOMEShareViewController *shareVC = [[EHOMEShareViewController alloc] initWithNibName:@"EHOMEShareViewController" bundle:nil];
+        shareVC.codeType = 2;
+        shareVC.deviceModel = self.device;
+        [self.navigationController pushViewController:shareVC animated:YES];
     }];
     
     UIAlertAction *removeDeviceAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"remove device", @"Device", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
@@ -138,6 +168,14 @@
     [alertController addAction:removeDeviceAction];
     [alertController addAction:cancel];
     
+    UIPopoverPresentationController *popover = alertController.popoverPresentationController;
+    
+    if (popover) {
+        
+        popover.sourceView = self.view;
+        popover.sourceRect = CGRectMake(0, DEVICE_H, DEVICE_W, DEVICE_H);
+    }
+    
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
@@ -165,7 +203,7 @@
         } failure:^(NSError *error) {
             NSLog(@"update device name failed. error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -201,7 +239,7 @@
         } failure:^(NSError *error) {
             NSLog(@"share device failed. error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.5];
+            [HUDHelper showErrorDomain:error];
         }];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -231,8 +269,9 @@
     } failure:^(NSError *error) {
         NSLog(@"remove device failed = %@", error);
         [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-        [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+        [HUDHelper showErrorDomain:error];
     }];
+
 }
 
 
@@ -252,6 +291,10 @@
     } failure:^(NSError *error) {
         
     }];
+    
+    if(self.duration > 0){
+        [self cancelCountdownTimer];
+    }
 }
 
 
@@ -262,11 +305,11 @@
         [self.switchButton setTitle:NSLocalizedStringFromTable(@"Close", @"Device", nil) forState:UIControlStateNormal];
         self.switchButton.backgroundColor = RGB(62, 62, 62);
         self.stateLabel.text = NSLocalizedStringFromTable(@"Outlets is On", @"Device", nil);
-        self.view.backgroundColor = THEMECOLOR;
-        self.navigationController.navigationBar.barTintColor = THEMECOLOR;
+        self.view.backgroundColor = [UIColor THEMECOLOR];
+        self.navigationController.navigationBar.barTintColor = [UIColor THEMECOLOR];
     }else{
         [self.switchButton setTitle:NSLocalizedStringFromTable(@"Open", @"Device", nil) forState:UIControlStateNormal];
-        self.switchButton.backgroundColor = THEMECOLOR;
+        self.switchButton.backgroundColor = [UIColor THEMECOLOR];
         self.stateLabel.text = NSLocalizedStringFromTable(@"Outlets is Off", @"Device", nil);
         self.view.backgroundColor = RGB(62, 62, 62);
         self.navigationController.navigationBar.barTintColor = RGB(62, 62, 62);
@@ -303,14 +346,11 @@
             [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"enter duration", @"DeviceFunction", nil) hideAfterDelay:1.0];
         }else{
             
-            __weak typeof(self) weakSelf = self;
-            
-            [self.device addTimingCountdownWithDuration:duration status:!isOn success:^(id responseObject) {
-                
+            [self.device addTimingCountdownWithIsPowerStrips:false clockId:0 Duration:duration status:!isOn success:^(id responseObject) {
                 NSLog(@"add timing countdown success. res = %@", responseObject);
                 
-                int duration = [[responseObject objectForKey:@"duration"] intValue];
-                [weakSelf countdownLabelWithDuration:duration];
+//                int duration = [[responseObject objectForKey:@"duration"] intValue];
+//                [weakSelf countdownLabelWithDuration:duration];
             } failure:^(NSError *error) {
                 NSLog(@"add timing countdown failed. error = %@", error);
             }];
@@ -346,4 +386,47 @@
     }
 }
 
+-(void)cancelCountdownTimer{
+    NSLog(@"取消插座的倒计时");
+    
+    BOOL status = self.device.functionValuesMap.power;
+    
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];//获取当前时间0秒后的时间
+    NSTimeInterval time=[date timeIntervalSince1970] * 1000;// *1000 是精确到毫秒，不乘就是精确到秒
+    long dTime = [[NSNumber numberWithDouble:time] longValue];
+    
+    NSDictionary *dic = @{
+                          @"protocol":@(12),
+                          @"timestamp":@(dTime),
+                          @"data":@{
+                                  @"clockId":@(self.setClockId),
+                                  @"devId":self.device.device.devId,
+                                  @"dps":@{
+                                          @"1":@(!status),
+                                          @"2":@(!status)
+                                          },
+                                  @"duration":@(self.setDuratuon),
+                                  @"clockStatus":@(NO)
+                                  }
+                          };
+    
+    NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+    
+    NSMutableString *jsonStr = [[NSMutableString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSRange range = {0,jsonStr.length};
+    [jsonStr replaceOccurrencesOfString:@" " withString:@"" options:NSLiteralSearch range:range];
+    NSRange range2 = {0,jsonStr.length};
+    [jsonStr replaceOccurrencesOfString:@"/n" withString:@"" options:NSLiteralSearch range:range2];
+    NSData *data2 = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *topicOut = [NSString stringWithFormat:@"d9lab/device/in/%@",self.device.device.devId];
+    
+    [[EHOMEMQTTClientManager shareInstance] publishAndWaitData:data2 onTopic:topicOut];
+}
+
+- (void)dealloc {
+    [_timerLabel release];
+    [_timingCountdownLabel release];
+    [super dealloc];
+}
 @end

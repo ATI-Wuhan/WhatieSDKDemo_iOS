@@ -20,12 +20,15 @@
  */
 +(EHOMESmartConfig *)shareInstance;
 
+/**
+ start SmartConfig
+ 
+ */
 -(void)startSmartConfigWithSsid:(NSString *)ssid
                           bssid:(NSString *)bssid
                        password:(NSString *)password
                         success:(successBlock)success
                         failure:(failBlock)failure;
-
 
 -(void)getStartedWithDevId:(NSString *)devId
                 deviceName:(NSString *)deviceName

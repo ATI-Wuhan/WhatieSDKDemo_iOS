@@ -14,9 +14,10 @@
     [super awakeFromNib];
     // Initialization code
     
-    
-    if ([CurrentApp isEqualToString:@"Geek+"]) {
+    if (CurrentApp == Geek) {
         self.profileBannerImageView.image = [UIImage imageNamed:@"Geek+profile_banner"];
+    }else if(CurrentApp == Ozwi){
+        self.profileBannerImageView.image = [UIImage imageNamed:@"Ozwi_profile_banner"];
     }else{
         self.profileBannerImageView.image = [UIImage imageNamed:@"profile_banner"];
     }

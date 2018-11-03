@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -69,7 +68,6 @@
                 <constraint firstAttribute="trailing" secondItem="nV7-hC-7JC" secondAttribute="trailing" constant="30" id="rlH-Cv-1d1"/>
                 <constraint firstItem="nV7-hC-7JC" firstAttribute="leading" secondItem="ZjI-yl-D1G" secondAttribute="leading" constant="30" id="yps-MZ-cTA"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Afa-ab-SW3"/>
             <size key="customSize" width="312" height="493"/>
             <connections>
                 <outlet property="experienceContentLabel" destination="93g-Rc-l8g" id="epw-8A-2qo"/>

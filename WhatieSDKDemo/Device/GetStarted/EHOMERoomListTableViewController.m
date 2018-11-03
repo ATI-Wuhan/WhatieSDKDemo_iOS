@@ -61,7 +61,7 @@
         cell.textLabel.text = room.room.name;
         
         if(room.room.id == self.selectedmodel.room.id){
-            cell.textLabel.textColor = THEMECOLOR;
+            cell.textLabel.textColor = [UIColor THEMECOLOR];
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }else{
             cell.textLabel.textColor = [UIColor blackColor];
@@ -76,7 +76,7 @@
             cell = [[EHOMEDefaultCenterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CenterCellId];
         }
         cell.centerTitleLabel.text = @"Add New Room";
-        cell.centerTitleLabel.textColor = THEMECOLOR;
+        cell.centerTitleLabel.textColor = [UIColor THEMECOLOR];
 
         return cell;
     }
@@ -90,9 +90,23 @@
     if (indexPath.section == 0) {
         
         EHOMERoomModel *room = self.ModelArray[indexPath.row];
-        self.selectedRoomBlock(room);
-        
-        [self.navigationController popViewControllerAnimated:YES];
+        if(self.IsChangeDeviceRoom){
+            [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"changingRoom", @"Device", nil) hideAfterDelay:10];
+            [self.DeviceModel changeDeviceRoomWithRoomId:room.room.id success:^(id responseObject) {
+                NSLog(@"更改设备所在房间成功！");
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+                [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"chang Room success", @"Device", nil) hideAfterDelay:1.0];
+                self.selectedRoomBlock(room);
+                [self.navigationController popViewControllerAnimated:YES];
+            } failure:^(NSError *error) {
+                NSLog(@"更改设备所在房间失败！");
+                [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+                [HUDHelper showErrorDomain:error];
+            }];
+        }else{
+            self.selectedRoomBlock(room);
+            [self.navigationController popViewControllerAnimated:YES];
+        }
         
     }else{
         EHOMEAddRoomTableViewController *addRoomVC = [[EHOMEAddRoomTableViewController alloc] initWithNibName:@"EHOMEAddRoomTableViewController" bundle:nil];
@@ -132,6 +146,7 @@
         
         [currenthome syncRoomByHomeSuccess:^(id responseObject) {
             self.ModelArray = responseObject;
+            [EHOMEDataStore setRoomsToDBWithRooms:self.ModelArray inHome:currenthome.id];
             [self.tableView reloadData];
         } failure:^(NSError *error) {
             

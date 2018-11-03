@@ -19,6 +19,7 @@
     if (self) {
         logoImageView = [[UIImageView alloc] init];
         versionLabel = [[UILabel alloc] init];
+        versionLabel.textColor = [UIColor darkGrayColor];
         
         [self addSubview:logoImageView];
         [self addSubview:versionLabel];
@@ -48,20 +49,34 @@
 }
 
 -(void)showDeviceImage{
-    [logoImageView setImage:[UIImage imageNamed:@"AppIconGeekPlus"]];
     
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
     
-    versionLabel.text = [NSString stringWithFormat:@"GeekHome %@", app_Version];
+    switch (CurrentApp) {
+        case eHome:{
+            [logoImageView setImage:[UIImage imageNamed:@"aboutLogoEHome"]];
+            versionLabel.text = [NSString stringWithFormat:@"eHome %@", app_Version];
+        }
+            break;
+        case Geek:{
+            [logoImageView setImage:[UIImage imageNamed:@"aboutLogoGeekHome"]];
+            versionLabel.text = [NSString stringWithFormat:@"Geek Home %@", app_Version];
+        }
+            break;
+        case Ozwi:{
+            [logoImageView setImage:[UIImage imageNamed:@"aboutLogoOzwiHome"]];
+            versionLabel.text = [NSString stringWithFormat:@"Ozwi Home %@", app_Version];
+        }
+            break;
+            
+        default:{
+            [logoImageView setImage:[UIImage imageNamed:@"AppIcon"]];
+            versionLabel.text = [NSString stringWithFormat:@"GeekHome %@", app_Version];
+        }
+            break;
+    }
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

@@ -32,6 +32,14 @@
     self.navigationItem.rightBarButtonItem = rightItem;
     
     [self initTableView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshRoomList) name:@"currentHomeIsExchanged" object:nil];
+
+}
+
+-(void)refreshRoomList{
+    [self.tableView.mj_header beginRefreshing];
+    [self getRoomsFromDB];
 }
 
 -(void)initTableView{
@@ -43,7 +51,34 @@
         [weakSelf getRoomList];
     }];
     
-    [self.tableView.mj_header beginRefreshing];
+//    [self.tableView.mj_header beginRefreshing];
+    
+    [self getRoomsFromDB];
+    
+    
+}
+
+-(void)getRoomsFromDB{
+    
+    [[EHOMEUserModel shareInstance] getCurrentHomeSuccess:^(id responseObject) {
+        NSLog(@"Get current home success.home = %@", responseObject);
+
+        EHOMEHomeModel *currenthome = responseObject;
+        
+        [self.rooms removeAllObjects];
+        //从数据库中获取房间列表
+        [self.rooms addObjectsFromArray:[EHOMEDataStore getRoomsFromDBWithHomeId:currenthome.id]];
+        
+        if (self.rooms.count == 0) {
+            [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedString(@"Loading", nil) hideAfterDelay:3];
+        }
+        
+        [self getRoomList];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"Get current home failed.error = %@", error);
+        [self getRoomList];
+    }];
 }
 
 -(void)getRoomList{
@@ -54,7 +89,16 @@
         EHOMEHomeModel *currenthome = responseObject;
         
         [currenthome syncRoomByHomeSuccess:^(id responseObject) {
-            self.rooms = responseObject;
+            
+            [HUDHelper hideHUDForView:sharedKeyWindow animated:YES];
+            
+            [self.rooms removeAllObjects];
+            [self.rooms addObjectsFromArray:responseObject];
+            
+            //下拉刷新获取到最新的房间列表数据，存档至本地数据库
+
+            //再存档最新的改家庭的房间数据
+            [EHOMEDataStore setRoomsToDBWithRooms:self.rooms inHome:currenthome.id];
             
             [self.tableView.mj_header endRefreshing];
             [self.tableView reloadData];

@@ -1,0 +1,40 @@
+/* 
+  NewFeature.strings
+  WhatieSDKDemo
+
+  Created by IIDreams_zhouwei on 2018/8/20.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+
+//eHome
+"eHomeNewFeatureTitle1" = "1.Hello eHome";
+"eHomeNewFeatureTitle2" = "2.Room";
+"eHomeNewFeatureTitle3" = "3.Scene";
+"eHomeNewFeatureTitle4" = "4.Profile";
+
+"eHomeNewFeatureContent1" = "Welcome to build your smart home with eHome!";
+"eHomeNewFeatureContent2" = "Now you can control your devices in your room.";
+"eHomeNewFeatureContent3" = "Scenes are ready for you.You can make scene to control your devices smartly.";
+"eHomeNewFeatureContent4" = "Your homes,devices,sharings are here.Let's get started.";
+
+//Geek Home
+"GeekNewFeatureTitle1" = "1.Hello Geek Home";
+"GeekNewFeatureTitle2" = "2.Room";
+"GeekNewFeatureTitle3" = "3.Scene";
+"GeekNewFeatureTitle4" = "4.Profile";
+
+"GeekNewFeatureContent1" = "Welcome to build your smart home with Geek Home!";
+"GeekNewFeatureContent2" = "Now you can control your devices in your room.";
+"GeekNewFeatureContent3" = "Scenes are ready for you.You can make scene to control your devices smartly.";
+"GeekNewFeatureContent4" = "Your homes,devices,sharings are here.Let's get started.";
+
+//Ozwi Home
+"OzwiNewFeatureTitle1" = "1.Hello Ozwi Home";
+"OzwiNewFeatureTitle2" = "2.Room";
+"OzwiNewFeatureTitle3" = "3.Scene";
+"OzwiNewFeatureTitle4" = "4.Profile";
+
+"OzwiNewFeatureContent1" = "Welcome to build your smart home with Ozwi Home!";
+"OzwiNewFeatureContent2" = "Now you can control your devices in your room.";
+"OzwiNewFeatureContent3" = "Scenes are ready for you.You can make scene to control your devices smartly.";
+"OzwiNewFeatureContent4" = "Your homes,devices,sharings are here.Let's get started.";

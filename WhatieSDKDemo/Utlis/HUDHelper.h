@@ -33,4 +33,6 @@
 
 + (void)hideHUD:(MBProgressHUD *)progress afterDelay:(NSTimeInterval)delay animated:(BOOL)animated;
 
++(void)showErrorDomain:(NSError *)error;
+
 @end

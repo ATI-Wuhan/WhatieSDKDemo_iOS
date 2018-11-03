@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -41,10 +40,9 @@
                 <constraint firstItem="0tc-An-7LD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="5Hs-Vu-dOD"/>
                 <constraint firstItem="0tc-An-7LD" firstAttribute="top" secondItem="c9W-WM-oFe" secondAttribute="bottom" constant="8" id="Onl-30-Dni"/>
                 <constraint firstAttribute="trailing" secondItem="0tc-An-7LD" secondAttribute="trailing" constant="8" id="Q3U-eM-fUI"/>
-                <constraint firstItem="c9W-WM-oFe" firstAttribute="centerX" secondItem="SEy-5g-ep8" secondAttribute="centerX" id="Xxe-ci-Kge"/>
-                <constraint firstItem="c9W-WM-oFe" firstAttribute="centerY" secondItem="SEy-5g-ep8" secondAttribute="centerY" constant="-12" id="oG9-dH-GaT"/>
+                <constraint firstItem="c9W-WM-oFe" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Xxe-ci-Kge"/>
+                <constraint firstItem="c9W-WM-oFe" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-12" id="oG9-dH-GaT"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="96" height="88"/>
             <connections>
                 <outlet property="menuImageView" destination="c9W-WM-oFe" id="lv2-mj-eHs"/>

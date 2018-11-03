@@ -28,7 +28,7 @@
 -(void)setRoomModel:(EHOMERoomModel *)roomModel{
     _roomModel = roomModel;
     if (_roomModel != nil) {
-        [self.roomImageview sd_setImageWithURL:[NSURL URLWithString:_roomModel.room.backgroundThumb.path] placeholderImage:[UIImage imageNamed:@"room_default"]];
+        [self.roomImageview sd_setImageWithURL:[NSURL URLWithString:_roomModel.room.backgroundThumb.path] placeholderImage:[UIImage imageNamed:@"room_bg_default"]];
         
         NSString *loneStr = NSLocalizedStringFromTable(@"online", @"Room", nil);
         self.nameLabel.text=_roomModel.room.name;

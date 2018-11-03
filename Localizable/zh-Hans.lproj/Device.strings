@@ -8,6 +8,8 @@
 "Close" = "关";
 "Open" = "开";
 "Offline" = "离线";
+"Unbind" = "解绑";
+"FirmwareUpgrading" = "固件升级";
 "On" = "开";
 "Off" = "关";
 
@@ -28,10 +30,15 @@
 "Sharing" = "正在分享";
 "Share success" = "分享设备成功";
 
+"ChangeRoom" = "更换房间";
+"changingRoom" = "正在更换设备所在的房间";
+"chang Room success" = "更换房间成功";
+
 "Options" = "选择";
 "Outlets is On" = "插座打开";
 "Outlets is Off" = "插座关闭";
 "Device" = "插座";
+"PowerStrips" = "排插";
 "Edit" = "编辑";
 "Edit device" = "编辑设备名称、删除设备和共享设备";
 "share device" = "分享设备";
@@ -54,7 +61,7 @@
 "Please Wait" = "请稍等";
 "willbe available" = "您的智能设备即将可用";
 "Please ensure" = "请确保设备，路由器尽可能靠近手机";
-"progress1" = "1.已经查找到设备";
+"progress1" = "1.正在查找设备";
 "progress2" = "2.设备正在注册";
 "progress3" = "3.开始添加设备";
 "Config failed" = "配置失败";

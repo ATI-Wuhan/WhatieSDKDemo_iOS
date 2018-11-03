@@ -10,7 +10,8 @@ target 'WhatieSDKDemo' do
 #  pod 'WhatieSDK'
 #  pod 'WhatieSDK',:git => 'https://github.com/ATI-Wuhan/WhatieSDK_iOS.git'
 
-pod "TuyaSmartKit", :git => "https://github.com/TuyaInc/tuyasmart_ios_sdk.git"
+  pod 'CocoaAsyncSocket'
+  pod 'MQTTClient', '0.8.8'
 
   
   
@@ -22,8 +23,11 @@ pod "TuyaSmartKit", :git => "https://github.com/TuyaInc/tuyasmart_ios_sdk.git"
 
   pod "MJRefresh"
   pod 'SDWebImage'
-  pod 'SGQRCode'
+
   pod 'MDRadialProgress'
+  
+  pod 'Realm'
+  pod 'CYLTabBarController','1.17.20'
 
 #pod 'CocoaAsyncSocket'
 

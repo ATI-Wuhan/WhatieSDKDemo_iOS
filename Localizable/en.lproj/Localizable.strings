@@ -5,7 +5,6 @@
   Created by Change on 2018/4/19.
   Copyright © 2018年 IIDreams. All rights reserved.
 */
-
 "Register" = "Register";
 "check" = "Please check your email or password";
 "Reset Password" = "Reset Password";
@@ -17,7 +16,7 @@
 "with your email" = "with your email.";
 "Password" = "Password";
 "Forgot your password?" = "Forgot your password?";
-"Don't have an account?" = "Don't have an account?";
+"Don't have an account?" = "Don't have an account? Sign Up";
 "Recover Login Password" = "Recover Login Password";
 "Enter the account you want to recover." = "Enter the account you want to recover.";
 "PIN" = "PIN";
@@ -29,21 +28,19 @@
 "email and password" = "Please key your email and password.";
 
 "Login" = "Login";
+"Logining" = "Logining...";
 "Loading" = "Loading...";
 "LoginSuccess" = "Login Success";
 "LoginFailed" = "Login Failed";
 "PleaseKeyEmail" = "Please key your email";
 "PleaseKeyPassword" = "Please key your password";
-
 //场景
-"Smart Scenes" = "Smart Scenes";
+"Scene" = "Scene";
 "Remove Scene" = "Remove Scene";
 "sure remove scene" = "This action will remove your scene from your scene list.Are you sure to continue?";
 "Removing scene successfully" = "Removing scene successfully";
 "Openning time" = "Openning time";
-"Edit Scene" = "Edit Scene";
 "Add Scene" = "Add Scene";
-"New Scene" = "New Scene";
 "Editting scene..." = "Editting scene...";
 "Edit scene success." = "Edit scene success.";
 "Adding scene..." = "Adding scene...";
@@ -52,13 +49,32 @@
 "Set Name" = "Set Name";
 "Set your scene name here." = "Set your scene name here.";
 "Please key scene name" = "Please key scene name";
-"Deleting fail device" = "Deleting fail device";
-"Delete added failed device successfully" = "Delete added failed device successfully";
-"Delete added failed device failure" = "Delete added failed device failure";
-"Reseting fail device" = "Reset fail device";
-"Reset added failed device successfully" = "Reset added failed device successfully";
-"Reset added failed device failure" = "Reset added failed device failure";
 "Never" = "Never";
 "Add Action" = "Add Action";
+"Add timing" = "Add timing";
 "Turn On" = "Turn On";
 "Turn Off" = "Turn Off";
+"Add Smart Scene" = "Add Smart Scene";
+"Please Select Type" = "Please Select Type";
+"Manual" = "Manual";
+"Auto" = "Auto";
+"Scene setting" = "Scene setting";
+"Scene name" = "Scene name";
+"ACTION" = "ACTION";
+"TIME" = "TIME";
+"Please select time" = "Please select time";
+"Action could not be empty" = "Action could not be empty";
+"Add action" = "Add action";
+"ON" = "ON";
+"OFF" = "OFF";
+"on-off" = "on-off";
+"Switch" = "Switch";
+"WhiteLight" = "WhiteLight";
+"ColorLight" = "ColorLight";
+"StreamLight" = "StreamLight";
+"Modify the color" = "Modify the color";
+"Manual execution" = "Manual execution";
+"Timing execution" = "Timing execution";
+"result" = "result";
+"No device in this scene" = "No device in this scene";
+"No scenes" = "No scenes";

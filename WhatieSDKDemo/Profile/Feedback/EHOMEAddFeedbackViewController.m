@@ -50,8 +50,9 @@
         } failure:^(NSError *error) {
             NSLog(@"Add feedback failed. error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
+        
     }
 }
 

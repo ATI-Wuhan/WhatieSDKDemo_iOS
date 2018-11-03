@@ -38,20 +38,34 @@
 		0CBCFF6020BD2E51009EADEC /* EHOMEOutletDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCFF5E20BD2E51009EADEC /* EHOMEOutletDetailViewController.m */; };
 		0CBCFF6120BD2E51009EADEC /* EHOMEOutletDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBCFF5F20BD2E51009EADEC /* EHOMEOutletDetailViewController.xib */; };
 		1DE837C060A6979515A6C708 /* libPods-WhatieSDKDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3060AB96A092517C1EF1A2D /* libPods-WhatieSDKDemo.a */; };
+		4702F4D621084C410020C57F /* LHCustomModalTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4702F4D521084C410020C57F /* LHCustomModalTransition.m */; };
+		4702F4DA2108587D0020C57F /* EHOMEIntelligentSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4702F4D82108587D0020C57F /* EHOMEIntelligentSettingTableViewController.m */; };
+		4702F4DB2108587D0020C57F /* EHOMEIntelligentSettingTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4702F4D92108587D0020C57F /* EHOMEIntelligentSettingTableViewController.xib */; };
+		4702F4DF210859AE0020C57F /* EHOMESceneNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4702F4DD210859AE0020C57F /* EHOMESceneNameCell.m */; };
+		4702F4E0210859AE0020C57F /* EHOMESceneNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4702F4DE210859AE0020C57F /* EHOMESceneNameCell.xib */; };
+		4702F4EA2108651C0020C57F /* EHOMESceneTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4702F4E82108651C0020C57F /* EHOMESceneTimeCell.m */; };
+		4702F4EB2108651C0020C57F /* EHOMESceneTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4702F4E92108651C0020C57F /* EHOMESceneTimeCell.xib */; };
+		4702F4EF210866BF0020C57F /* EHOMEAddTimingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4702F4ED210866BF0020C57F /* EHOMEAddTimingCell.m */; };
+		4702F4F0210866BF0020C57F /* EHOMEAddTimingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4702F4EE210866BF0020C57F /* EHOMEAddTimingCell.xib */; };
+		4702F4FB21088D310020C57F /* EHOMEAddActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4702F4F921088D310020C57F /* EHOMEAddActionCell.m */; };
+		4702F4FC21088D310020C57F /* EHOMEAddActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4702F4FA21088D310020C57F /* EHOMEAddActionCell.xib */; };
+		4702F50021088EAD0020C57F /* EHOMESceneActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4702F4FE21088EAD0020C57F /* EHOMESceneActionCell.m */; };
+		4702F50121088EAD0020C57F /* EHOMESceneActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4702F4FF21088EAD0020C57F /* EHOMESceneActionCell.xib */; };
 		4704B49E20F842D800E6C779 /* EHOMERoomListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4704B49C20F842D800E6C779 /* EHOMERoomListTableViewController.m */; };
 		4704B49F20F842D800E6C779 /* EHOMERoomListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4704B49D20F842D800E6C779 /* EHOMERoomListTableViewController.xib */; };
 		4704FE3420E61D3D0044246E /* EHOMEIntergrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4704FE3320E61D3C0044246E /* EHOMEIntergrationVC.m */; };
 		4704FE3720E61DA70044246E /* EHOMEUseEchoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4704FE3620E61DA70044246E /* EHOMEUseEchoVC.m */; };
-		4706083720F719E200F83233 /* EHOMEScenesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4706083520F719E200F83233 /* EHOMEScenesCell.m */; };
-		4706083820F719E200F83233 /* EHOMEScenesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4706083620F719E200F83233 /* EHOMEScenesCell.xib */; };
 		4706084420F789F700F83233 /* EHOMEGetStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4706084220F789F700F83233 /* EHOMEGetStartViewController.m */; };
 		4706084520F789F700F83233 /* EHOMEGetStartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4706084320F789F700F83233 /* EHOMEGetStartViewController.xib */; };
 		4707D28E20EB6B18003BB17F /* Device.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4707D29020EB6B18003BB17F /* Device.strings */; };
 		4707D29A20EB847B003BB17F /* EHOMEUpdatePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4707D29820EB847B003BB17F /* EHOMEUpdatePasswordVC.m */; };
 		4707D29B20EB847B003BB17F /* EHOMEUpdatePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4707D29920EB847B003BB17F /* EHOMEUpdatePasswordVC.xib */; };
-		471C8FD520FCCB590052352D /* EHOMEAddDeviceFailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 471C8FD320FCCB590052352D /* EHOMEAddDeviceFailTableViewCell.m */; };
-		471C8FD620FCCB590052352D /* EHOMEAddDeviceFailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471C8FD420FCCB590052352D /* EHOMEAddDeviceFailTableViewCell.xib */; };
-		471D7FAF20F4888B00BEA785 /* WhatieSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 471D7FAE20F4888B00BEA785 /* WhatieSDK.framework */; };
+		471A9C93210965A000A0C4E9 /* EHOMESceneDeviceListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471A9C91210965A000A0C4E9 /* EHOMESceneDeviceListTableViewController.m */; };
+		471A9C94210965A000A0C4E9 /* EHOMESceneDeviceListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471A9C92210965A000A0C4E9 /* EHOMESceneDeviceListTableViewController.xib */; };
+		471A9C982109678100A0C4E9 /* EHOMEDeviceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 471A9C962109678100A0C4E9 /* EHOMEDeviceInfoCell.m */; };
+		471A9C992109678100A0C4E9 /* EHOMEDeviceInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471A9C972109678100A0C4E9 /* EHOMEDeviceInfoCell.xib */; };
+		471A9C9F21096BE900A0C4E9 /* EHOMEOutletStatusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471A9C9D21096BE900A0C4E9 /* EHOMEOutletStatusTableViewController.m */; };
+		471A9CA021096BE900A0C4E9 /* EHOMEOutletStatusTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471A9C9E21096BE900A0C4E9 /* EHOMEOutletStatusTableViewController.xib */; };
 		471D7FB420F4A51D00BEA785 /* EHOMERoomDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471D7FB220F4A51D00BEA785 /* EHOMERoomDetailTableViewController.m */; };
 		471D7FB520F4A51D00BEA785 /* EHOMERoomDetailTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471D7FB320F4A51D00BEA785 /* EHOMERoomDetailTableViewController.xib */; };
 		471D7FB920F4A91F00BEA785 /* EHOMEAddRoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471D7FB720F4A91F00BEA785 /* EHOMEAddRoomTableViewController.m */; };
@@ -62,35 +76,70 @@
 		472208E420F2F0F500087594 /* EHOMEDetailHomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 472208E220F2F0F500087594 /* EHOMEDetailHomeTableViewController.xib */; };
 		472208E820F2F26100087594 /* EHOMEMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 472208E620F2F26100087594 /* EHOMEMemberCell.m */; };
 		472208E920F2F26100087594 /* EHOMEMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 472208E720F2F26100087594 /* EHOMEMemberCell.xib */; };
+		472352E9210D81CF005FE2BE /* EHOMELightModeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 472352E7210D81CF005FE2BE /* EHOMELightModeTableViewController.m */; };
+		472352EA210D81CF005FE2BE /* EHOMELightModeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 472352E8210D81CF005FE2BE /* EHOMELightModeTableViewController.xib */; };
+		4723A6D521313B8F00D2426A /* EHOMEStoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4723A6D321313B8F00D2426A /* EHOMEStoreCollectionViewCell.m */; };
+		4723A6D621313B8F00D2426A /* EHOMEStoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4723A6D421313B8F00D2426A /* EHOMEStoreCollectionViewCell.xib */; };
+		4723A6DA2131505400D2426A /* EHOMEMallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4723A6D82131505300D2426A /* EHOMEMallViewController.m */; };
+		4723A6DB2131505400D2426A /* EHOMEMallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4723A6D92131505300D2426A /* EHOMEMallViewController.xib */; };
 		4725ECFC20F34F4D00E69A8B /* EHOMEFamilyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4725ECFA20F34F4D00E69A8B /* EHOMEFamilyViewController.m */; };
 		4725ECFD20F34F4D00E69A8B /* EHOMEFamilyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4725ECFB20F34F4D00E69A8B /* EHOMEFamilyViewController.xib */; };
 		4729B15F20E399B900C74A2E /* EHOMELogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4729B15E20E399B900C74A2E /* EHOMELogoView.m */; };
 		4729B16220E39A5D00C74A2E /* EHOMESettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4729B16120E39A5D00C74A2E /* EHOMESettingVC.m */; };
-		4729B16520E39A7800C74A2E /* EHOMEAgreementVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4729B16420E39A7800C74A2E /* EHOMEAgreementVC.m */; };
 		4729B16920E39C8900C74A2E /* features.html in Resources */ = {isa = PBXBuildFile; fileRef = 4729B16720E39C8900C74A2E /* features.html */; };
 		4729B16A20E39C8900C74A2E /* TermsOfUse.html in Resources */ = {isa = PBXBuildFile; fileRef = 4729B16820E39C8900C74A2E /* TermsOfUse.html */; };
 		4729B17420E3A10D00C74A2E /* NSTimer+timerBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4729B16E20E3A10C00C74A2E /* NSTimer+timerBlock.m */; };
 		4729B17520E3A10D00C74A2E /* ZZCACircleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 4729B17020E3A10C00C74A2E /* ZZCACircleProgress.m */; };
 		4729B17620E3A10D00C74A2E /* ZZCircleProgress.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4729B17120E3A10C00C74A2E /* ZZCircleProgress.bundle */; };
 		4729B17720E3A10D00C74A2E /* ZZCountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4729B17320E3A10C00C74A2E /* ZZCountingLabel.m */; };
+		472C74B921114A7E0010990F /* EHMySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 472C74B821114A7D0010990F /* EHMySlider.m */; };
+		472C74BD211152830010990F /* EHColorslider.m in Sources */ = {isa = PBXBuildFile; fileRef = 472C74BC211152820010990F /* EHColorslider.m */; };
+		472C74C621119B6A0010990F /* EHOMEStreamLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 472C74C421119B6A0010990F /* EHOMEStreamLightViewController.m */; };
+		472C74C721119B6A0010990F /* EHOMEStreamLightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 472C74C521119B6A0010990F /* EHOMEStreamLightViewController.xib */; };
 		4740971720FF62AE00FB4A01 /* EHOMEMyDevicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4740971520FF62AE00FB4A01 /* EHOMEMyDevicesTableViewController.m */; };
 		4740971820FF62AE00FB4A01 /* EHOMEMyDevicesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4740971620FF62AE00FB4A01 /* EHOMEMyDevicesTableViewController.xib */; };
+		476A3CC0212FA0CE001E11BF /* UIViewController+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 476A3CBB212FA0CD001E11BF /* UIViewController+Message.m */; };
+		476A3CC1212FA0CE001E11BF /* MaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 476A3CBD212FA0CE001E11BF /* MaskView.m */; };
+		476A3CC2212FA0CE001E11BF /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 476A3CBE212FA0CE001E11BF /* ScanViewController.m */; };
+		476A3CC7212FF972001E11BF /* EHOMEShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 476A3CC5212FF972001E11BF /* EHOMEShareViewController.m */; };
+		476A3CC8212FF972001E11BF /* EHOMEShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 476A3CC6212FF972001E11BF /* EHOMEShareViewController.xib */; };
 		4779F8FA20F4CFB500D0334E /* EHOMEBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4779F8F920F4CFB500D0334E /* EHOMEBackgroundViewController.m */; };
 		4779F8FD20F4D0EF00D0334E /* EHOMEbackgroundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4779F8FC20F4D0EF00D0334E /* EHOMEbackgroundCell.m */; };
+		47955EB421109189009A8E0E /* EHOMESetRgbLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47955EB221109188009A8E0E /* EHOMESetRgbLightViewController.m */; };
+		47955EB521109189009A8E0E /* EHOMESetRgbLightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47955EB321109188009A8E0E /* EHOMESetRgbLightViewController.xib */; };
 		4798604720F5D71A00A7C0FC /* EHOMEScenesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4798604520F5D71A00A7C0FC /* EHOMEScenesTableViewController.m */; };
 		4798604820F5D71A00A7C0FC /* EHOMEScenesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4798604620F5D71A00A7C0FC /* EHOMEScenesTableViewController.xib */; };
 		479A2B3B20F4419E006C47D8 /* EHOMRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 479A2B3920F4419E006C47D8 /* EHOMRoomCell.m */; };
 		479A2B3C20F4419E006C47D8 /* EHOMRoomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 479A2B3A20F4419E006C47D8 /* EHOMRoomCell.xib */; };
+		479ADBB1210EF2FE008C16F4 /* EHOMEAddSceneInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 479ADBAE210EF2FE008C16F4 /* EHOMEAddSceneInfoTableViewCell.m */; };
+		479ADBB2210EF2FE008C16F4 /* EHOMEAddSceneInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 479ADBB0210EF2FE008C16F4 /* EHOMEAddSceneInfoTableViewCell.xib */; };
+		479ADBB9210F33A8008C16F4 /* EHOMESetWhiteLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 479ADBB7210F33A8008C16F4 /* EHOMESetWhiteLightViewController.m */; };
 		47A27B1020EF4E3A00E6540F /* EHOMERoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A27B0E20EF4E3A00E6540F /* EHOMERoomTableViewController.m */; };
 		47A27B1120EF4E3A00E6540F /* EHOMERoomTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47A27B0F20EF4E3A00E6540F /* EHOMERoomTableViewController.xib */; };
+		47B8003B2172F70E0024BF06 /* EHOMEMonochromeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47B800392172F70E0024BF06 /* EHOMEMonochromeViewController.xib */; };
 		47BAEE8920EDB4A00089B1A5 /* DeviceFunction.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47BAEE8B20EDB4A00089B1A5 /* DeviceFunction.strings */; };
+		47C53D8C216CCA3A00B0D14C /* EHOMEPowerStripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C53D8A216CCA3A00B0D14C /* EHOMEPowerStripViewController.m */; };
+		47C53D8D216CCA3A00B0D14C /* EHOMEPowerStripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47C53D8B216CCA3A00B0D14C /* EHOMEPowerStripViewController.xib */; };
+		47D085982173087F00610A19 /* EHOMEMonochromeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D085962173087F00610A19 /* EHOMEMonochromeViewController.m */; };
 		47D1412120EC660E001986B7 /* Info.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47D1412320EC660E001986B7 /* Info.strings */; };
 		47E7450F2106FCB000F54B88 /* EHOMEManualSceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E7450D2106FCB000F54B88 /* EHOMEManualSceneCell.m */; };
 		47E745102106FCB100F54B88 /* EHOMEManualSceneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E7450E2106FCB000F54B88 /* EHOMEManualSceneCell.xib */; };
 		47E7451421070A7400F54B88 /* EHOMETimingSceneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E7451221070A7400F54B88 /* EHOMETimingSceneCell.m */; };
 		47E7451521070A7400F54B88 /* EHOMETimingSceneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E7451321070A7400F54B88 /* EHOMETimingSceneCell.xib */; };
+		47E745192107596700F54B88 /* EHOMEAddIntelligenceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E745172107596700F54B88 /* EHOMEAddIntelligenceVC.m */; };
+		47E7451A2107596700F54B88 /* EHOMEAddIntelligenceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E745182107596700F54B88 /* EHOMEAddIntelligenceVC.xib */; };
+		47EC22372119995B00E70B3D /* LrdAlertTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EC22352119995A00E70B3D /* LrdAlertTableView.m */; };
+		47EC223C211999C000E70B3D /* EHOMEAlertActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EC223A211999C000E70B3D /* EHOMEAlertActionTableViewCell.m */; };
+		47EC223D211999C000E70B3D /* EHOMEAlertActionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47EC223B211999C000E70B3D /* EHOMEAlertActionTableViewCell.xib */; };
+		47F1F60B2114875800BB3754 /* EHOMEWhiteLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47F1F6092114875800BB3754 /* EHOMEWhiteLightViewController.m */; };
+		47F1F60C2114875800BB3754 /* EHOMEWhiteLightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F1F60A2114875800BB3754 /* EHOMEWhiteLightViewController.xib */; };
 		4D8A7937488294CC1F45981F /* libPods-WhatieSDKDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353857A322CF1969C61E536 /* libPods-WhatieSDKDemoTests.a */; };
 		5FE5F7606CDE0FC0F323A9F5 /* libPods-WhatieSDKDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 781F4340D496FFC6D0AE3461 /* libPods-WhatieSDKDemoUITests.a */; };
+		A013746F212A4FFF007ED189 /* EHOMEDefaultEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A013746D212A4FFF007ED189 /* EHOMEDefaultEmptyTableViewCell.m */; };
+		A0137470212A4FFF007ED189 /* EHOMEDefaultEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A013746E212A4FFF007ED189 /* EHOMEDefaultEmptyTableViewCell.xib */; };
+		A0137473212A5C56007ED189 /* Empty.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0137475212A5C56007ED189 /* Empty.strings */; };
+		A0137479212A66C5007ED189 /* Alert.strings in Resources */ = {isa = PBXBuildFile; fileRef = A013747B212A66C5007ED189 /* Alert.strings */; };
+		A013747F212AA2BC007ED189 /* NewFeature.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0137481212AA2BC007ED189 /* NewFeature.strings */; };
 		A02BC73C20D3B8BD0003992B /* EHOMEStreamSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A02BC73A20D3B8BD0003992B /* EHOMEStreamSettingViewController.m */; };
 		A02BC73D20D3B8BD0003992B /* EHOMEStreamSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02BC73B20D3B8BD0003992B /* EHOMEStreamSettingViewController.xib */; };
 		A02BC74220D3BAE30003992B /* EHOMEColorCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A02BC74020D3BAE30003992B /* EHOMEColorCollectionViewCell.m */; };
@@ -100,6 +149,12 @@
 		A037BFCC20CE3F3000767519 /* EHOMERGBLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A037BFCA20CE3F3000767519 /* EHOMERGBLightViewController.m */; };
 		A037BFCD20CE3F3000767519 /* EHOMERGBLightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A037BFCB20CE3F3000767519 /* EHOMERGBLightViewController.xib */; };
 		A037BFD620CE53FB00767519 /* EHOMEColorSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A037BFD520CE53FB00767519 /* EHOMEColorSlider.m */; };
+		A03A5F9A211AACA0006EFE96 /* EHOMEWifiDB.m in Sources */ = {isa = PBXBuildFile; fileRef = A03A5F99211AACA0006EFE96 /* EHOMEWifiDB.m */; };
+		A03A5F9D211AB9A4006EFE96 /* EHOMEUserDB.m in Sources */ = {isa = PBXBuildFile; fileRef = A03A5F9C211AB9A4006EFE96 /* EHOMEUserDB.m */; };
+		A03A5FA0211AC1A0006EFE96 /* EHOMELoginAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A03A5F9F211AC1A0006EFE96 /* EHOMELoginAlertView.m */; };
+		A03A5FA4211B03F1006EFE96 /* EHOMESceneEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A03A5FA2211B03F1006EFE96 /* EHOMESceneEmptyTableViewCell.m */; };
+		A03A5FA5211B03F1006EFE96 /* EHOMESceneEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A03A5FA3211B03F1006EFE96 /* EHOMESceneEmptyTableViewCell.xib */; };
+		A047B68F218C6942005DF64A /* EHOMESwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = A047B68E218C6942005DF64A /* EHOMESwitch.m */; };
 		A04D2AB020C784E7007038D8 /* EHOMENavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A04D2AAF20C784E7007038D8 /* EHOMENavigationController.m */; };
 		A04D2AB420C79397007038D8 /* EHOMETimerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A04D2AB220C79397007038D8 /* EHOMETimerTableViewController.m */; };
 		A04D2AB520C79397007038D8 /* EHOMETimerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04D2AB320C79397007038D8 /* EHOMETimerTableViewController.xib */; };
@@ -122,12 +177,20 @@
 		A06B28D120EB059B007EA7A6 /* Profile.strings in Resources */ = {isa = PBXBuildFile; fileRef = A06B28D320EB059B007EA7A6 /* Profile.strings */; };
 		A071CB4620CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A071CB4420CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.m */; };
 		A071CB4720CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A071CB4520CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.xib */; };
-		A081D41920997C4800ECE05A /* EHOMEGetStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081D41720997C4800ECE05A /* EHOMEGetStartedViewController.m */; };
-		A081D41A20997C4800ECE05A /* EHOMEGetStartedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A081D41820997C4800ECE05A /* EHOMEGetStartedViewController.xib */; };
-		A081D4202099D99700ECE05A /* EHOMEQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081D41E2099D99700ECE05A /* EHOMEQRCodeViewController.m */; };
-		A081D4212099D99700ECE05A /* EHOMEQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A081D41F2099D99700ECE05A /* EHOMEQRCodeViewController.xib */; };
-		A081D4262099DCC800ECE05A /* EHOMEScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A081D4242099DCC800ECE05A /* EHOMEScanViewController.m */; };
-		A081D4272099DCC800ECE05A /* EHOMEScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A081D4252099DCC800ECE05A /* EHOMEScanViewController.xib */; };
+		A0737D292113115E009A9E26 /* DeviceDB.m in Sources */ = {isa = PBXBuildFile; fileRef = A0737D282113115E009A9E26 /* DeviceDB.m */; };
+		A0737D2C211333CF009A9E26 /* RoomDB.m in Sources */ = {isa = PBXBuildFile; fileRef = A0737D2B211333CF009A9E26 /* RoomDB.m */; };
+		A0810FDB2111C84A00E3DEAA /* EHOMETermsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0810FD92111C84A00E3DEAA /* EHOMETermsTableViewController.m */; };
+		A0810FDC2111C84A00E3DEAA /* EHOMETermsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0810FDA2111C84A00E3DEAA /* EHOMETermsTableViewController.xib */; };
+		A0810FE62111C89800E3DEAA /* EHOMETermsTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0810FE42111C89800E3DEAA /* EHOMETermsTitleTableViewCell.m */; };
+		A0810FE72111C89800E3DEAA /* EHOMETermsTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0810FE52111C89800E3DEAA /* EHOMETermsTitleTableViewCell.xib */; };
+		A0810FEB2111C8A800E3DEAA /* EHOMETermsContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0810FE92111C8A800E3DEAA /* EHOMETermsContentTableViewCell.m */; };
+		A0810FEC2111C8A800E3DEAA /* EHOMETermsContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0810FEA2111C8A800E3DEAA /* EHOMETermsContentTableViewCell.xib */; };
+		A0810FEF2112CFB000E3DEAA /* EHOMEDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A0810FEE2112CFB000E3DEAA /* EHOMEDataStore.m */; };
+		A0810FF62112DEDD00E3DEAA /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = A0810FF52112DEDD00E3DEAA /* Home.m */; };
+		A094BD702121D5C2001D3AC6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A094BD722121D5C2001D3AC6 /* InfoPlist.strings */; };
+		A0994E752127B95B00BDA6EB /* language.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0994E772127B95B00BDA6EB /* language.strings */; };
+		A0994E7D212845B300BDA6EB /* EHOMESharedOutUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0994E7B212845B300BDA6EB /* EHOMESharedOutUserTableViewCell.m */; };
+		A0994E7E212845B300BDA6EB /* EHOMESharedOutUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0994E7C212845B300BDA6EB /* EHOMESharedOutUserTableViewCell.xib */; };
 		A0B798EA20EB1DCA0097AAFB /* EHOMEHomeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B798E820EB1DCA0097AAFB /* EHOMEHomeListTableViewController.m */; };
 		A0B798EB20EB1DCA0097AAFB /* EHOMEHomeListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B798E920EB1DCA0097AAFB /* EHOMEHomeListTableViewController.xib */; };
 		A0B798F020EB22280097AAFB /* EHOMEDefaultCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B798EE20EB22280097AAFB /* EHOMEDefaultCenterTableViewCell.m */; };
@@ -142,20 +205,19 @@
 		A0D3C36720C8D5240071AD24 /* EHOMERegisterAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D3C36520C8D5240071AD24 /* EHOMERegisterAccountViewController.xib */; };
 		A0D3C36B20C8D5350071AD24 /* EHOMEForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D3C36920C8D5350071AD24 /* EHOMEForgetPasswordViewController.m */; };
 		A0D3C36C20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D3C36A20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib */; };
-		A0D973DA20F6F55800F3E47C /* EHOMEAddSceneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D973D820F6F55800F3E47C /* EHOMEAddSceneTableViewController.m */; };
-		A0D973DB20F6F55800F3E47C /* EHOMEAddSceneTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D973D920F6F55800F3E47C /* EHOMEAddSceneTableViewController.xib */; };
-		A0D973E020F6F75400F3E47C /* EHOMEAddSceneInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D973DE20F6F75400F3E47C /* EHOMEAddSceneInfoTableViewCell.m */; };
-		A0D973E120F6F75400F3E47C /* EHOMEAddSceneInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D973DF20F6F75400F3E47C /* EHOMEAddSceneInfoTableViewCell.xib */; };
-		A0D973E520F6FAEC00F3E47C /* EHOMESceneDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D973E320F6FAEC00F3E47C /* EHOMESceneDeviceTableViewCell.m */; };
-		A0D973E620F6FAEC00F3E47C /* EHOMESceneDeviceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D973E420F6FAEC00F3E47C /* EHOMESceneDeviceTableViewCell.xib */; };
+		A0D7D4AC2111473F001532E4 /* WhatieSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D7D4AB2111473F001532E4 /* WhatieSDK.framework */; };
+		A0D7D4AF21115005001532E4 /* EHOMEExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D7D4AE21115005001532E4 /* EHOMEExtension.m */; };
+		A0D7D4BE2111A4DC001532E4 /* EHOMEIntergrationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D7D4BC2111A4DC001532E4 /* EHOMEIntergrationTableViewCell.m */; };
+		A0D7D4BF2111A4DC001532E4 /* EHOMEIntergrationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D7D4BD2111A4DC001532E4 /* EHOMEIntergrationTableViewCell.xib */; };
+		A0D7D4C42111B48C001532E4 /* EHOMENewFeatureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D7D4C22111B48C001532E4 /* EHOMENewFeatureTableViewController.m */; };
+		A0D7D4C52111B48C001532E4 /* EHOMENewFeatureTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D7D4C32111B48C001532E4 /* EHOMENewFeatureTableViewController.xib */; };
+		A0D7D4CA2111B500001532E4 /* EHOMENewFeatureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D7D4C82111B500001532E4 /* EHOMENewFeatureTableViewCell.m */; };
+		A0D7D4CB2111B500001532E4 /* EHOMENewFeatureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D7D4C92111B500001532E4 /* EHOMENewFeatureTableViewCell.xib */; };
 		A0D9742520F7345900F3E47C /* EHOMESelectTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D9742320F7345900F3E47C /* EHOMESelectTimeViewController.m */; };
 		A0D9742620F7345900F3E47C /* EHOMESelectTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D9742420F7345900F3E47C /* EHOMESelectTimeViewController.xib */; };
 		A0D9742B20F747FC00F3E47C /* EHOMELoopsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D9742920F747FC00F3E47C /* EHOMELoopsTableViewController.m */; };
 		A0D9742C20F747FC00F3E47C /* EHOMELoopsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D9742A20F747FC00F3E47C /* EHOMELoopsTableViewController.xib */; };
-		A0D9743120F7609C00F3E47C /* EHOMESceneAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D9742F20F7609C00F3E47C /* EHOMESceneAddDeviceViewController.m */; };
-		A0D9743220F7609C00F3E47C /* EHOMESceneAddDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D9743020F7609C00F3E47C /* EHOMESceneAddDeviceViewController.xib */; };
-		A0D9743720F764CD00F3E47C /* EHOMESceneAddDeviceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D9743520F764CD00F3E47C /* EHOMESceneAddDeviceCollectionViewCell.m */; };
-		A0D9743820F764CD00F3E47C /* EHOMESceneAddDeviceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D9743620F764CD00F3E47C /* EHOMESceneAddDeviceCollectionViewCell.xib */; };
+		A0E5A06A211545AD0069728A /* SceneDB.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E5A069211545AD0069728A /* SceneDB.m */; };
 		A0EB79DC20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EB79DA20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m */; };
 		A0EB79DD20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EB79DB20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib */; };
 		A0EB7A1B20E22E780008473A /* EHOMEProfileMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EB7A1920E22E780008473A /* EHOMEProfileMenuTableViewCell.m */; };
@@ -238,6 +300,26 @@
 		0CBCFF5E20BD2E51009EADEC /* EHOMEOutletDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEOutletDetailViewController.m; sourceTree = "<group>"; };
 		0CBCFF5F20BD2E51009EADEC /* EHOMEOutletDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEOutletDetailViewController.xib; sourceTree = "<group>"; };
 		3353857A322CF1969C61E536 /* libPods-WhatieSDKDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatieSDKDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4702F4D421084C410020C57F /* LHCustomModalTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHCustomModalTransition.h; sourceTree = "<group>"; };
+		4702F4D521084C410020C57F /* LHCustomModalTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHCustomModalTransition.m; sourceTree = "<group>"; };
+		4702F4D72108587D0020C57F /* EHOMEIntelligentSettingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEIntelligentSettingTableViewController.h; sourceTree = "<group>"; };
+		4702F4D82108587D0020C57F /* EHOMEIntelligentSettingTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEIntelligentSettingTableViewController.m; sourceTree = "<group>"; };
+		4702F4D92108587D0020C57F /* EHOMEIntelligentSettingTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEIntelligentSettingTableViewController.xib; sourceTree = "<group>"; };
+		4702F4DC210859AE0020C57F /* EHOMESceneNameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESceneNameCell.h; sourceTree = "<group>"; };
+		4702F4DD210859AE0020C57F /* EHOMESceneNameCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESceneNameCell.m; sourceTree = "<group>"; };
+		4702F4DE210859AE0020C57F /* EHOMESceneNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESceneNameCell.xib; sourceTree = "<group>"; };
+		4702F4E72108651C0020C57F /* EHOMESceneTimeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESceneTimeCell.h; sourceTree = "<group>"; };
+		4702F4E82108651C0020C57F /* EHOMESceneTimeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESceneTimeCell.m; sourceTree = "<group>"; };
+		4702F4E92108651C0020C57F /* EHOMESceneTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESceneTimeCell.xib; sourceTree = "<group>"; };
+		4702F4EC210866BF0020C57F /* EHOMEAddTimingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEAddTimingCell.h; sourceTree = "<group>"; };
+		4702F4ED210866BF0020C57F /* EHOMEAddTimingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEAddTimingCell.m; sourceTree = "<group>"; };
+		4702F4EE210866BF0020C57F /* EHOMEAddTimingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEAddTimingCell.xib; sourceTree = "<group>"; };
+		4702F4F821088D310020C57F /* EHOMEAddActionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEAddActionCell.h; sourceTree = "<group>"; };
+		4702F4F921088D310020C57F /* EHOMEAddActionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEAddActionCell.m; sourceTree = "<group>"; };
+		4702F4FA21088D310020C57F /* EHOMEAddActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEAddActionCell.xib; sourceTree = "<group>"; };
+		4702F4FD21088EAD0020C57F /* EHOMESceneActionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESceneActionCell.h; sourceTree = "<group>"; };
+		4702F4FE21088EAD0020C57F /* EHOMESceneActionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESceneActionCell.m; sourceTree = "<group>"; };
+		4702F4FF21088EAD0020C57F /* EHOMESceneActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESceneActionCell.xib; sourceTree = "<group>"; };
 		4704B49B20F842D700E6C779 /* EHOMERoomListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMERoomListTableViewController.h; sourceTree = "<group>"; };
 		4704B49C20F842D800E6C779 /* EHOMERoomListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMERoomListTableViewController.m; sourceTree = "<group>"; };
 		4704B49D20F842D800E6C779 /* EHOMERoomListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMERoomListTableViewController.xib; sourceTree = "<group>"; };
@@ -245,9 +327,6 @@
 		4704FE3320E61D3C0044246E /* EHOMEIntergrationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEIntergrationVC.m; sourceTree = "<group>"; };
 		4704FE3520E61DA70044246E /* EHOMEUseEchoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEUseEchoVC.h; sourceTree = "<group>"; };
 		4704FE3620E61DA70044246E /* EHOMEUseEchoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEUseEchoVC.m; sourceTree = "<group>"; };
-		4706083420F719E200F83233 /* EHOMEScenesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEScenesCell.h; sourceTree = "<group>"; };
-		4706083520F719E200F83233 /* EHOMEScenesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEScenesCell.m; sourceTree = "<group>"; };
-		4706083620F719E200F83233 /* EHOMEScenesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEScenesCell.xib; sourceTree = "<group>"; };
 		4706084120F789F700F83233 /* EHOMEGetStartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEGetStartViewController.h; sourceTree = "<group>"; };
 		4706084220F789F700F83233 /* EHOMEGetStartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEGetStartViewController.m; sourceTree = "<group>"; };
 		4706084320F789F700F83233 /* EHOMEGetStartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEGetStartViewController.xib; sourceTree = "<group>"; };
@@ -256,10 +335,15 @@
 		4707D29720EB847B003BB17F /* EHOMEUpdatePasswordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEUpdatePasswordVC.h; sourceTree = "<group>"; };
 		4707D29820EB847B003BB17F /* EHOMEUpdatePasswordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEUpdatePasswordVC.m; sourceTree = "<group>"; };
 		4707D29920EB847B003BB17F /* EHOMEUpdatePasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEUpdatePasswordVC.xib; sourceTree = "<group>"; };
-		471C8FD220FCCB590052352D /* EHOMEAddDeviceFailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEAddDeviceFailTableViewCell.h; sourceTree = "<group>"; };
-		471C8FD320FCCB590052352D /* EHOMEAddDeviceFailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEAddDeviceFailTableViewCell.m; sourceTree = "<group>"; };
-		471C8FD420FCCB590052352D /* EHOMEAddDeviceFailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEAddDeviceFailTableViewCell.xib; sourceTree = "<group>"; };
-		471D7FAE20F4888B00BEA785 /* WhatieSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WhatieSDK.framework; sourceTree = "<group>"; };
+		471A9C90210965A000A0C4E9 /* EHOMESceneDeviceListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESceneDeviceListTableViewController.h; sourceTree = "<group>"; };
+		471A9C91210965A000A0C4E9 /* EHOMESceneDeviceListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESceneDeviceListTableViewController.m; sourceTree = "<group>"; };
+		471A9C92210965A000A0C4E9 /* EHOMESceneDeviceListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESceneDeviceListTableViewController.xib; sourceTree = "<group>"; };
+		471A9C952109678100A0C4E9 /* EHOMEDeviceInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEDeviceInfoCell.h; sourceTree = "<group>"; };
+		471A9C962109678100A0C4E9 /* EHOMEDeviceInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEDeviceInfoCell.m; sourceTree = "<group>"; };
+		471A9C972109678100A0C4E9 /* EHOMEDeviceInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEDeviceInfoCell.xib; sourceTree = "<group>"; };
+		471A9C9C21096BE900A0C4E9 /* EHOMEOutletStatusTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEOutletStatusTableViewController.h; sourceTree = "<group>"; };
+		471A9C9D21096BE900A0C4E9 /* EHOMEOutletStatusTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEOutletStatusTableViewController.m; sourceTree = "<group>"; };
+		471A9C9E21096BE900A0C4E9 /* EHOMEOutletStatusTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEOutletStatusTableViewController.xib; sourceTree = "<group>"; };
 		471D7FB120F4A51D00BEA785 /* EHOMERoomDetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMERoomDetailTableViewController.h; sourceTree = "<group>"; };
 		471D7FB220F4A51D00BEA785 /* EHOMERoomDetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMERoomDetailTableViewController.m; sourceTree = "<group>"; };
 		471D7FB320F4A51D00BEA785 /* EHOMERoomDetailTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMERoomDetailTableViewController.xib; sourceTree = "<group>"; };
@@ -275,6 +359,15 @@
 		472208E520F2F26100087594 /* EHOMEMemberCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEMemberCell.h; sourceTree = "<group>"; };
 		472208E620F2F26100087594 /* EHOMEMemberCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEMemberCell.m; sourceTree = "<group>"; };
 		472208E720F2F26100087594 /* EHOMEMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEMemberCell.xib; sourceTree = "<group>"; };
+		472352E6210D81CF005FE2BE /* EHOMELightModeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMELightModeTableViewController.h; sourceTree = "<group>"; };
+		472352E7210D81CF005FE2BE /* EHOMELightModeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMELightModeTableViewController.m; sourceTree = "<group>"; };
+		472352E8210D81CF005FE2BE /* EHOMELightModeTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMELightModeTableViewController.xib; sourceTree = "<group>"; };
+		4723A6D221313B8F00D2426A /* EHOMEStoreCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEStoreCollectionViewCell.h; sourceTree = "<group>"; };
+		4723A6D321313B8F00D2426A /* EHOMEStoreCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEStoreCollectionViewCell.m; sourceTree = "<group>"; };
+		4723A6D421313B8F00D2426A /* EHOMEStoreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEStoreCollectionViewCell.xib; sourceTree = "<group>"; };
+		4723A6D72131505300D2426A /* EHOMEMallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEMallViewController.h; sourceTree = "<group>"; };
+		4723A6D82131505300D2426A /* EHOMEMallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEMallViewController.m; sourceTree = "<group>"; };
+		4723A6D92131505300D2426A /* EHOMEMallViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEMallViewController.xib; sourceTree = "<group>"; };
 		4725ECF920F34F4D00E69A8B /* EHOMEFamilyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEFamilyViewController.h; sourceTree = "<group>"; };
 		4725ECFA20F34F4D00E69A8B /* EHOMEFamilyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEFamilyViewController.m; sourceTree = "<group>"; };
 		4725ECFB20F34F4D00E69A8B /* EHOMEFamilyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEFamilyViewController.xib; sourceTree = "<group>"; };
@@ -282,8 +375,6 @@
 		4729B15E20E399B900C74A2E /* EHOMELogoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMELogoView.m; sourceTree = "<group>"; };
 		4729B16020E39A5D00C74A2E /* EHOMESettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESettingVC.h; sourceTree = "<group>"; };
 		4729B16120E39A5D00C74A2E /* EHOMESettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESettingVC.m; sourceTree = "<group>"; };
-		4729B16320E39A7800C74A2E /* EHOMEAgreementVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEAgreementVC.h; sourceTree = "<group>"; };
-		4729B16420E39A7800C74A2E /* EHOMEAgreementVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEAgreementVC.m; sourceTree = "<group>"; };
 		4729B16720E39C8900C74A2E /* features.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = features.html; sourceTree = "<group>"; };
 		4729B16820E39C8900C74A2E /* TermsOfUse.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = TermsOfUse.html; sourceTree = "<group>"; };
 		4729B16D20E3A10C00C74A2E /* NSTimer+timerBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+timerBlock.h"; sourceTree = "<group>"; };
@@ -293,24 +384,56 @@
 		4729B17120E3A10C00C74A2E /* ZZCircleProgress.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZZCircleProgress.bundle; sourceTree = "<group>"; };
 		4729B17220E3A10C00C74A2E /* ZZCountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCountingLabel.h; sourceTree = "<group>"; };
 		4729B17320E3A10C00C74A2E /* ZZCountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCountingLabel.m; sourceTree = "<group>"; };
+		472C74B721114A7D0010990F /* EHMySlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHMySlider.h; sourceTree = "<group>"; };
+		472C74B821114A7D0010990F /* EHMySlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHMySlider.m; sourceTree = "<group>"; };
+		472C74BB211152820010990F /* EHColorslider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHColorslider.h; sourceTree = "<group>"; };
+		472C74BC211152820010990F /* EHColorslider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHColorslider.m; sourceTree = "<group>"; };
+		472C74C321119B6A0010990F /* EHOMEStreamLightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEStreamLightViewController.h; sourceTree = "<group>"; };
+		472C74C421119B6A0010990F /* EHOMEStreamLightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEStreamLightViewController.m; sourceTree = "<group>"; };
+		472C74C521119B6A0010990F /* EHOMEStreamLightViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEStreamLightViewController.xib; sourceTree = "<group>"; };
 		4740971420FF62AE00FB4A01 /* EHOMEMyDevicesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEMyDevicesTableViewController.h; sourceTree = "<group>"; };
 		4740971520FF62AE00FB4A01 /* EHOMEMyDevicesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEMyDevicesTableViewController.m; sourceTree = "<group>"; };
 		4740971620FF62AE00FB4A01 /* EHOMEMyDevicesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEMyDevicesTableViewController.xib; sourceTree = "<group>"; };
+		476A3CBA212FA0CD001E11BF /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		476A3CBB212FA0CD001E11BF /* UIViewController+Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Message.m"; sourceTree = "<group>"; };
+		476A3CBC212FA0CD001E11BF /* MaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaskView.h; sourceTree = "<group>"; };
+		476A3CBD212FA0CE001E11BF /* MaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaskView.m; sourceTree = "<group>"; };
+		476A3CBE212FA0CE001E11BF /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		476A3CBF212FA0CE001E11BF /* UIViewController+Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Message.h"; sourceTree = "<group>"; };
+		476A3CC4212FF972001E11BF /* EHOMEShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEShareViewController.h; sourceTree = "<group>"; };
+		476A3CC5212FF972001E11BF /* EHOMEShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEShareViewController.m; sourceTree = "<group>"; };
+		476A3CC6212FF972001E11BF /* EHOMEShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEShareViewController.xib; sourceTree = "<group>"; };
 		4779F8F820F4CFB500D0334E /* EHOMEBackgroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEBackgroundViewController.h; sourceTree = "<group>"; };
 		4779F8F920F4CFB500D0334E /* EHOMEBackgroundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEBackgroundViewController.m; sourceTree = "<group>"; };
 		4779F8FB20F4D0EF00D0334E /* EHOMEbackgroundCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEbackgroundCell.h; sourceTree = "<group>"; };
 		4779F8FC20F4D0EF00D0334E /* EHOMEbackgroundCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEbackgroundCell.m; sourceTree = "<group>"; };
+		47955EB121109188009A8E0E /* EHOMESetRgbLightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESetRgbLightViewController.h; sourceTree = "<group>"; };
+		47955EB221109188009A8E0E /* EHOMESetRgbLightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESetRgbLightViewController.m; sourceTree = "<group>"; };
+		47955EB321109188009A8E0E /* EHOMESetRgbLightViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESetRgbLightViewController.xib; sourceTree = "<group>"; };
+		47960B4521806D5E006D085B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4798604420F5D71A00A7C0FC /* EHOMEScenesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEScenesTableViewController.h; sourceTree = "<group>"; };
 		4798604520F5D71A00A7C0FC /* EHOMEScenesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEScenesTableViewController.m; sourceTree = "<group>"; };
 		4798604620F5D71A00A7C0FC /* EHOMEScenesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEScenesTableViewController.xib; sourceTree = "<group>"; };
 		479A2B3820F4419E006C47D8 /* EHOMRoomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMRoomCell.h; sourceTree = "<group>"; };
 		479A2B3920F4419E006C47D8 /* EHOMRoomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMRoomCell.m; sourceTree = "<group>"; };
 		479A2B3A20F4419E006C47D8 /* EHOMRoomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMRoomCell.xib; sourceTree = "<group>"; };
+		479ADBAE210EF2FE008C16F4 /* EHOMEAddSceneInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHOMEAddSceneInfoTableViewCell.m; sourceTree = "<group>"; };
+		479ADBAF210EF2FE008C16F4 /* EHOMEAddSceneInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHOMEAddSceneInfoTableViewCell.h; sourceTree = "<group>"; };
+		479ADBB0210EF2FE008C16F4 /* EHOMEAddSceneInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EHOMEAddSceneInfoTableViewCell.xib; sourceTree = "<group>"; };
+		479ADBB6210F33A8008C16F4 /* EHOMESetWhiteLightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESetWhiteLightViewController.h; sourceTree = "<group>"; };
+		479ADBB7210F33A8008C16F4 /* EHOMESetWhiteLightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESetWhiteLightViewController.m; sourceTree = "<group>"; };
+		479ADBB8210F33A8008C16F4 /* EHOMESetWhiteLightViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESetWhiteLightViewController.xib; sourceTree = "<group>"; };
 		47A27B0D20EF4E3A00E6540F /* EHOMERoomTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMERoomTableViewController.h; sourceTree = "<group>"; };
 		47A27B0E20EF4E3A00E6540F /* EHOMERoomTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMERoomTableViewController.m; sourceTree = "<group>"; };
 		47A27B0F20EF4E3A00E6540F /* EHOMERoomTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMERoomTableViewController.xib; sourceTree = "<group>"; };
+		47B800392172F70E0024BF06 /* EHOMEMonochromeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEMonochromeViewController.xib; sourceTree = "<group>"; };
 		47BAEE8A20EDB4A00089B1A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DeviceFunction.strings; sourceTree = "<group>"; };
 		47BAEE8C20EDB4A20089B1A5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DeviceFunction.strings"; sourceTree = "<group>"; };
+		47C53D89216CCA3A00B0D14C /* EHOMEPowerStripViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEPowerStripViewController.h; sourceTree = "<group>"; };
+		47C53D8A216CCA3A00B0D14C /* EHOMEPowerStripViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEPowerStripViewController.m; sourceTree = "<group>"; };
+		47C53D8B216CCA3A00B0D14C /* EHOMEPowerStripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEPowerStripViewController.xib; sourceTree = "<group>"; };
+		47D085962173087F00610A19 /* EHOMEMonochromeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHOMEMonochromeViewController.m; sourceTree = "<group>"; };
+		47D085972173087F00610A19 /* EHOMEMonochromeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHOMEMonochromeViewController.h; sourceTree = "<group>"; };
 		47D1412220EC660E001986B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Info.strings; sourceTree = "<group>"; };
 		47D1412420EC6610001986B7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Info.strings"; sourceTree = "<group>"; };
 		47E7450C2106FCB000F54B88 /* EHOMEManualSceneCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEManualSceneCell.h; sourceTree = "<group>"; };
@@ -319,8 +442,28 @@
 		47E7451121070A7400F54B88 /* EHOMETimingSceneCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMETimingSceneCell.h; sourceTree = "<group>"; };
 		47E7451221070A7400F54B88 /* EHOMETimingSceneCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMETimingSceneCell.m; sourceTree = "<group>"; };
 		47E7451321070A7400F54B88 /* EHOMETimingSceneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMETimingSceneCell.xib; sourceTree = "<group>"; };
+		47E745162107596700F54B88 /* EHOMEAddIntelligenceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEAddIntelligenceVC.h; sourceTree = "<group>"; };
+		47E745172107596700F54B88 /* EHOMEAddIntelligenceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEAddIntelligenceVC.m; sourceTree = "<group>"; };
+		47E745182107596700F54B88 /* EHOMEAddIntelligenceVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEAddIntelligenceVC.xib; sourceTree = "<group>"; };
+		47EC22352119995A00E70B3D /* LrdAlertTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LrdAlertTableView.m; sourceTree = "<group>"; };
+		47EC22362119995A00E70B3D /* LrdAlertTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LrdAlertTableView.h; sourceTree = "<group>"; };
+		47EC2239211999C000E70B3D /* EHOMEAlertActionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEAlertActionTableViewCell.h; sourceTree = "<group>"; };
+		47EC223A211999C000E70B3D /* EHOMEAlertActionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEAlertActionTableViewCell.m; sourceTree = "<group>"; };
+		47EC223B211999C000E70B3D /* EHOMEAlertActionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEAlertActionTableViewCell.xib; sourceTree = "<group>"; };
+		47F1F6082114875800BB3754 /* EHOMEWhiteLightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEWhiteLightViewController.h; sourceTree = "<group>"; };
+		47F1F6092114875800BB3754 /* EHOMEWhiteLightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEWhiteLightViewController.m; sourceTree = "<group>"; };
+		47F1F60A2114875800BB3754 /* EHOMEWhiteLightViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEWhiteLightViewController.xib; sourceTree = "<group>"; };
 		781F4340D496FFC6D0AE3461 /* libPods-WhatieSDKDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhatieSDKDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		825AAC3DEE68AC92AB5E68E7 /* Pods-WhatieSDKDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatieSDKDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatieSDKDemoUITests/Pods-WhatieSDKDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A013746C212A4FFF007ED189 /* EHOMEDefaultEmptyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEDefaultEmptyTableViewCell.h; sourceTree = "<group>"; };
+		A013746D212A4FFF007ED189 /* EHOMEDefaultEmptyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEDefaultEmptyTableViewCell.m; sourceTree = "<group>"; };
+		A013746E212A4FFF007ED189 /* EHOMEDefaultEmptyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEDefaultEmptyTableViewCell.xib; sourceTree = "<group>"; };
+		A0137474212A5C56007ED189 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Empty.strings; sourceTree = "<group>"; };
+		A0137476212A5C58007ED189 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Empty.strings"; sourceTree = "<group>"; };
+		A013747A212A66C5007ED189 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Alert.strings; sourceTree = "<group>"; };
+		A013747C212A66C7007ED189 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Alert.strings"; sourceTree = "<group>"; };
+		A0137480212AA2BC007ED189 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NewFeature.strings; sourceTree = "<group>"; };
+		A0137482212AA2BD007ED189 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/NewFeature.strings"; sourceTree = "<group>"; };
 		A02BC73920D3B8BD0003992B /* EHOMEStreamSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEStreamSettingViewController.h; sourceTree = "<group>"; };
 		A02BC73A20D3B8BD0003992B /* EHOMEStreamSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEStreamSettingViewController.m; sourceTree = "<group>"; };
 		A02BC73B20D3B8BD0003992B /* EHOMEStreamSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEStreamSettingViewController.xib; sourceTree = "<group>"; };
@@ -335,6 +478,18 @@
 		A037BFCB20CE3F3000767519 /* EHOMERGBLightViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMERGBLightViewController.xib; sourceTree = "<group>"; };
 		A037BFD420CE53FB00767519 /* EHOMEColorSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEColorSlider.h; sourceTree = "<group>"; };
 		A037BFD520CE53FB00767519 /* EHOMEColorSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEColorSlider.m; sourceTree = "<group>"; };
+		A03A5F98211AACA0006EFE96 /* EHOMEWifiDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEWifiDB.h; sourceTree = "<group>"; };
+		A03A5F99211AACA0006EFE96 /* EHOMEWifiDB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEWifiDB.m; sourceTree = "<group>"; };
+		A03A5F9B211AB9A4006EFE96 /* EHOMEUserDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEUserDB.h; sourceTree = "<group>"; };
+		A03A5F9C211AB9A4006EFE96 /* EHOMEUserDB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEUserDB.m; sourceTree = "<group>"; };
+		A03A5F9E211AC1A0006EFE96 /* EHOMELoginAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMELoginAlertView.h; sourceTree = "<group>"; };
+		A03A5F9F211AC1A0006EFE96 /* EHOMELoginAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMELoginAlertView.m; sourceTree = "<group>"; };
+		A03A5FA1211B03F1006EFE96 /* EHOMESceneEmptyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESceneEmptyTableViewCell.h; sourceTree = "<group>"; };
+		A03A5FA2211B03F1006EFE96 /* EHOMESceneEmptyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESceneEmptyTableViewCell.m; sourceTree = "<group>"; };
+		A03A5FA3211B03F1006EFE96 /* EHOMESceneEmptyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESceneEmptyTableViewCell.xib; sourceTree = "<group>"; };
+		A047B68B218C61C5005DF64A /* WhatieSDKDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhatieSDKDemo.entitlements; sourceTree = "<group>"; };
+		A047B68D218C6942005DF64A /* EHOMESwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESwitch.h; sourceTree = "<group>"; };
+		A047B68E218C6942005DF64A /* EHOMESwitch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESwitch.m; sourceTree = "<group>"; };
 		A04D2AAE20C784E7007038D8 /* EHOMENavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMENavigationController.h; sourceTree = "<group>"; };
 		A04D2AAF20C784E7007038D8 /* EHOMENavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMENavigationController.m; sourceTree = "<group>"; };
 		A04D2AB120C79397007038D8 /* EHOMETimerTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMETimerTableViewController.h; sourceTree = "<group>"; };
@@ -370,15 +525,30 @@
 		A071CB4320CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMELightMenuCollectionViewCell.h; sourceTree = "<group>"; };
 		A071CB4420CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMELightMenuCollectionViewCell.m; sourceTree = "<group>"; };
 		A071CB4520CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMELightMenuCollectionViewCell.xib; sourceTree = "<group>"; };
-		A081D41620997C4800ECE05A /* EHOMEGetStartedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEGetStartedViewController.h; sourceTree = "<group>"; };
-		A081D41720997C4800ECE05A /* EHOMEGetStartedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEGetStartedViewController.m; sourceTree = "<group>"; };
-		A081D41820997C4800ECE05A /* EHOMEGetStartedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEGetStartedViewController.xib; sourceTree = "<group>"; };
-		A081D41D2099D99700ECE05A /* EHOMEQRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEQRCodeViewController.h; sourceTree = "<group>"; };
-		A081D41E2099D99700ECE05A /* EHOMEQRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEQRCodeViewController.m; sourceTree = "<group>"; };
-		A081D41F2099D99700ECE05A /* EHOMEQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEQRCodeViewController.xib; sourceTree = "<group>"; };
-		A081D4232099DCC800ECE05A /* EHOMEScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEScanViewController.h; sourceTree = "<group>"; };
-		A081D4242099DCC800ECE05A /* EHOMEScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEScanViewController.m; sourceTree = "<group>"; };
-		A081D4252099DCC800ECE05A /* EHOMEScanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEScanViewController.xib; sourceTree = "<group>"; };
+		A0737D272113115E009A9E26 /* DeviceDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceDB.h; sourceTree = "<group>"; };
+		A0737D282113115E009A9E26 /* DeviceDB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceDB.m; sourceTree = "<group>"; };
+		A0737D2A211333CF009A9E26 /* RoomDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomDB.h; sourceTree = "<group>"; };
+		A0737D2B211333CF009A9E26 /* RoomDB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomDB.m; sourceTree = "<group>"; };
+		A0810FD82111C84A00E3DEAA /* EHOMETermsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMETermsTableViewController.h; sourceTree = "<group>"; };
+		A0810FD92111C84A00E3DEAA /* EHOMETermsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMETermsTableViewController.m; sourceTree = "<group>"; };
+		A0810FDA2111C84A00E3DEAA /* EHOMETermsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMETermsTableViewController.xib; sourceTree = "<group>"; };
+		A0810FE32111C89800E3DEAA /* EHOMETermsTitleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMETermsTitleTableViewCell.h; sourceTree = "<group>"; };
+		A0810FE42111C89800E3DEAA /* EHOMETermsTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMETermsTitleTableViewCell.m; sourceTree = "<group>"; };
+		A0810FE52111C89800E3DEAA /* EHOMETermsTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMETermsTitleTableViewCell.xib; sourceTree = "<group>"; };
+		A0810FE82111C8A800E3DEAA /* EHOMETermsContentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMETermsContentTableViewCell.h; sourceTree = "<group>"; };
+		A0810FE92111C8A800E3DEAA /* EHOMETermsContentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMETermsContentTableViewCell.m; sourceTree = "<group>"; };
+		A0810FEA2111C8A800E3DEAA /* EHOMETermsContentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMETermsContentTableViewCell.xib; sourceTree = "<group>"; };
+		A0810FED2112CFB000E3DEAA /* EHOMEDataStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEDataStore.h; sourceTree = "<group>"; };
+		A0810FEE2112CFB000E3DEAA /* EHOMEDataStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEDataStore.m; sourceTree = "<group>"; };
+		A0810FF42112DEDD00E3DEAA /* Home.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home.h; sourceTree = "<group>"; };
+		A0810FF52112DEDD00E3DEAA /* Home.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Home.m; sourceTree = "<group>"; };
+		A094BD712121D5C2001D3AC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A094BD732121D5C3001D3AC6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		A0994E762127B95B00BDA6EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/language.strings; sourceTree = "<group>"; };
+		A0994E782127B95D00BDA6EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/language.strings"; sourceTree = "<group>"; };
+		A0994E7A212845B300BDA6EB /* EHOMESharedOutUserTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESharedOutUserTableViewCell.h; sourceTree = "<group>"; };
+		A0994E7B212845B300BDA6EB /* EHOMESharedOutUserTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESharedOutUserTableViewCell.m; sourceTree = "<group>"; };
+		A0994E7C212845B300BDA6EB /* EHOMESharedOutUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESharedOutUserTableViewCell.xib; sourceTree = "<group>"; };
 		A0B798E720EB1DCA0097AAFB /* EHOMEHomeListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEHomeListTableViewController.h; sourceTree = "<group>"; };
 		A0B798E820EB1DCA0097AAFB /* EHOMEHomeListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEHomeListTableViewController.m; sourceTree = "<group>"; };
 		A0B798E920EB1DCA0097AAFB /* EHOMEHomeListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEHomeListTableViewController.xib; sourceTree = "<group>"; };
@@ -400,27 +570,26 @@
 		A0D3C36820C8D5350071AD24 /* EHOMEForgetPasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEForgetPasswordViewController.h; sourceTree = "<group>"; };
 		A0D3C36920C8D5350071AD24 /* EHOMEForgetPasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEForgetPasswordViewController.m; sourceTree = "<group>"; };
 		A0D3C36A20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEForgetPasswordViewController.xib; sourceTree = "<group>"; };
-		A0D973D720F6F55800F3E47C /* EHOMEAddSceneTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEAddSceneTableViewController.h; sourceTree = "<group>"; };
-		A0D973D820F6F55800F3E47C /* EHOMEAddSceneTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEAddSceneTableViewController.m; sourceTree = "<group>"; };
-		A0D973D920F6F55800F3E47C /* EHOMEAddSceneTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEAddSceneTableViewController.xib; sourceTree = "<group>"; };
-		A0D973DD20F6F75400F3E47C /* EHOMEAddSceneInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEAddSceneInfoTableViewCell.h; sourceTree = "<group>"; };
-		A0D973DE20F6F75400F3E47C /* EHOMEAddSceneInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEAddSceneInfoTableViewCell.m; sourceTree = "<group>"; };
-		A0D973DF20F6F75400F3E47C /* EHOMEAddSceneInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEAddSceneInfoTableViewCell.xib; sourceTree = "<group>"; };
-		A0D973E220F6FAEC00F3E47C /* EHOMESceneDeviceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESceneDeviceTableViewCell.h; sourceTree = "<group>"; };
-		A0D973E320F6FAEC00F3E47C /* EHOMESceneDeviceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESceneDeviceTableViewCell.m; sourceTree = "<group>"; };
-		A0D973E420F6FAEC00F3E47C /* EHOMESceneDeviceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESceneDeviceTableViewCell.xib; sourceTree = "<group>"; };
+		A0D7D4AB2111473F001532E4 /* WhatieSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WhatieSDK.framework; sourceTree = "<group>"; };
+		A0D7D4AD21115005001532E4 /* EHOMEExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEExtension.h; sourceTree = "<group>"; };
+		A0D7D4AE21115005001532E4 /* EHOMEExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEExtension.m; sourceTree = "<group>"; };
+		A0D7D4BB2111A4DC001532E4 /* EHOMEIntergrationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEIntergrationTableViewCell.h; sourceTree = "<group>"; };
+		A0D7D4BC2111A4DC001532E4 /* EHOMEIntergrationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEIntergrationTableViewCell.m; sourceTree = "<group>"; };
+		A0D7D4BD2111A4DC001532E4 /* EHOMEIntergrationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEIntergrationTableViewCell.xib; sourceTree = "<group>"; };
+		A0D7D4C12111B48C001532E4 /* EHOMENewFeatureTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMENewFeatureTableViewController.h; sourceTree = "<group>"; };
+		A0D7D4C22111B48C001532E4 /* EHOMENewFeatureTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMENewFeatureTableViewController.m; sourceTree = "<group>"; };
+		A0D7D4C32111B48C001532E4 /* EHOMENewFeatureTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMENewFeatureTableViewController.xib; sourceTree = "<group>"; };
+		A0D7D4C72111B500001532E4 /* EHOMENewFeatureTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMENewFeatureTableViewCell.h; sourceTree = "<group>"; };
+		A0D7D4C82111B500001532E4 /* EHOMENewFeatureTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMENewFeatureTableViewCell.m; sourceTree = "<group>"; };
+		A0D7D4C92111B500001532E4 /* EHOMENewFeatureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMENewFeatureTableViewCell.xib; sourceTree = "<group>"; };
 		A0D9742220F7345900F3E47C /* EHOMESelectTimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESelectTimeViewController.h; sourceTree = "<group>"; };
 		A0D9742320F7345900F3E47C /* EHOMESelectTimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESelectTimeViewController.m; sourceTree = "<group>"; };
 		A0D9742420F7345900F3E47C /* EHOMESelectTimeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESelectTimeViewController.xib; sourceTree = "<group>"; };
 		A0D9742820F747FC00F3E47C /* EHOMELoopsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMELoopsTableViewController.h; sourceTree = "<group>"; };
 		A0D9742920F747FC00F3E47C /* EHOMELoopsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMELoopsTableViewController.m; sourceTree = "<group>"; };
 		A0D9742A20F747FC00F3E47C /* EHOMELoopsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMELoopsTableViewController.xib; sourceTree = "<group>"; };
-		A0D9742E20F7609C00F3E47C /* EHOMESceneAddDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESceneAddDeviceViewController.h; sourceTree = "<group>"; };
-		A0D9742F20F7609C00F3E47C /* EHOMESceneAddDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESceneAddDeviceViewController.m; sourceTree = "<group>"; };
-		A0D9743020F7609C00F3E47C /* EHOMESceneAddDeviceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESceneAddDeviceViewController.xib; sourceTree = "<group>"; };
-		A0D9743420F764CD00F3E47C /* EHOMESceneAddDeviceCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMESceneAddDeviceCollectionViewCell.h; sourceTree = "<group>"; };
-		A0D9743520F764CD00F3E47C /* EHOMESceneAddDeviceCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMESceneAddDeviceCollectionViewCell.m; sourceTree = "<group>"; };
-		A0D9743620F764CD00F3E47C /* EHOMESceneAddDeviceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMESceneAddDeviceCollectionViewCell.xib; sourceTree = "<group>"; };
+		A0E5A068211545AD0069728A /* SceneDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDB.h; sourceTree = "<group>"; };
+		A0E5A069211545AD0069728A /* SceneDB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDB.m; sourceTree = "<group>"; };
 		A0EB79D920E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EHOMEHomeEmptyTableViewCell.h; sourceTree = "<group>"; };
 		A0EB79DA20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EHOMEHomeEmptyTableViewCell.m; sourceTree = "<group>"; };
 		A0EB79DB20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EHOMEHomeEmptyTableViewCell.xib; sourceTree = "<group>"; };
@@ -447,7 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DE837C060A6979515A6C708 /* libPods-WhatieSDKDemo.a in Frameworks */,
-				471D7FAF20F4888B00BEA785 /* WhatieSDK.framework in Frameworks */,
+				A0D7D4AC2111473F001532E4 /* WhatieSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +677,8 @@
 				A0D3C36120C8D3510071AD24 /* ForgetLoginPassword */,
 				0CB4A94C208087AB008C2017 /* ViewController.h */,
 				0CB4A94D208087AB008C2017 /* ViewController.m */,
+				A03A5F9E211AC1A0006EFE96 /* EHOMELoginAlertView.h */,
+				A03A5F9F211AC1A0006EFE96 /* EHOMELoginAlertView.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -515,12 +686,13 @@
 		0C6BF1302088BD310021D16A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				47B800362172F67C0024BF06 /* Monochrome */,
+				47C53D88216C99FE00B0D14C /* PowerStrip */,
+				476A3CC3212FF923001E11BF /* share */,
 				A0B798E620EB1D150097AAFB /* HomeList */,
 				A037BFBE20CE3DB200767519 /* Light */,
 				A04D2AB620C7939B007038D8 /* Timer */,
 				0CBCFF5C20BD2E30009EADEC /* Outlet */,
-				A081D4222099DCBA00ECE05A /* Scan */,
-				A081D41B2099D96500ECE05A /* QRCode */,
 				0C6BF15C2089FE780021D16A /* cell */,
 				0C6BF1512089FC360021D16A /* EHOMEHomeTableViewController.h */,
 				0C6BF1522089FC360021D16A /* EHOMEHomeTableViewController.m */,
@@ -536,6 +708,8 @@
 				0C6BF13F2088C5760021D16A /* MBProgressHUD.m */,
 				0C6BF13B2088C4F40021D16A /* HUDHelper.h */,
 				0C6BF13C2088C4F40021D16A /* HUDHelper.m */,
+				A0D7D4AD21115005001532E4 /* EHOMEExtension.h */,
+				A0D7D4AE21115005001532E4 /* EHOMEExtension.m */,
 			);
 			path = Utlis;
 			sourceTree = "<group>";
@@ -543,6 +717,7 @@
 		0C6BF1462089FBB70021D16A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				476A3CB9212FA07D001E11BF /* ScanCode */,
 				4740971320FF626B00FB4A01 /* MyDevices */,
 				4704FE3120E61CFB0044246E /* Intergration */,
 				4729B15B20E3996500C74A2E /* ProfileSetting */,
@@ -571,6 +746,7 @@
 		0C6BF15C2089FE780021D16A /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				A047B68C218C6906005DF64A /* view */,
 				0C6BF15D2089FE9A0021D16A /* EHOMEHomeTableViewCell.h */,
 				0C6BF15E2089FE9A0021D16A /* EHOMEHomeTableViewCell.m */,
 				0C6BF15F2089FE9A0021D16A /* EHOMEHomeTableViewCell.xib */,
@@ -608,7 +784,7 @@
 		0CB4A93D208087AB008C2017 = {
 			isa = PBXGroup;
 			children = (
-				471D7FAE20F4888B00BEA785 /* WhatieSDK.framework */,
+				A0D7D4AB2111473F001532E4 /* WhatieSDK.framework */,
 				A06B28D520EB05A1007EA7A6 /* Localizable */,
 				0CB4A948208087AB008C2017 /* WhatieSDKDemo */,
 				0CB4A961208087CB008C2017 /* WhatieSDKDemoTests */,
@@ -632,6 +808,9 @@
 		0CB4A948208087AB008C2017 /* WhatieSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A047B68B218C61C5005DF64A /* WhatieSDKDemo.entitlements */,
+				E0105AB5212CFF26005B66BB /* Store */,
+				A0810FF02112DC6100E3DEAA /* eHomeDB */,
 				4798604320F5D6AB00A7C0FC /* scene */,
 				47A27B0920EF4CCB00E6540F /* Room */,
 				4729B16B20E3A0DF00C74A2E /* 3rd */,
@@ -683,9 +862,19 @@
 			path = Outlet;
 			sourceTree = "<group>";
 		};
+		4702F4D321084C0C0020C57F /* sw */ = {
+			isa = PBXGroup;
+			children = (
+				4702F4D421084C410020C57F /* LHCustomModalTransition.h */,
+				4702F4D521084C410020C57F /* LHCustomModalTransition.m */,
+			);
+			path = sw;
+			sourceTree = "<group>";
+		};
 		4704FE3120E61CFB0044246E /* Intergration */ = {
 			isa = PBXGroup;
 			children = (
+				A0D7D4BA2111A4B9001532E4 /* cell */,
 				4704FE3220E61D3C0044246E /* EHOMEIntergrationVC.h */,
 				4704FE3320E61D3C0044246E /* EHOMEIntergrationVC.m */,
 				4704FE3520E61DA70044246E /* EHOMEUseEchoVC.h */,
@@ -704,14 +893,49 @@
 			path = ResetLoginPassword;
 			sourceTree = "<group>";
 		};
+		471A9C9A21096B5100A0C4E9 /* OutletSet */ = {
+			isa = PBXGroup;
+			children = (
+				471A9C9C21096BE900A0C4E9 /* EHOMEOutletStatusTableViewController.h */,
+				471A9C9D21096BE900A0C4E9 /* EHOMEOutletStatusTableViewController.m */,
+				471A9C9E21096BE900A0C4E9 /* EHOMEOutletStatusTableViewController.xib */,
+			);
+			path = OutletSet;
+			sourceTree = "<group>";
+		};
+		471A9C9B21096B6800A0C4E9 /* LightSet */ = {
+			isa = PBXGroup;
+			children = (
+				472C74BA211152520010990F /* ColorSlider */,
+				472C74B621114A040010990F /* MySlider */,
+				479ADBB5210F3312008C16F4 /* streamLight */,
+				479ADBB4210F32FB008C16F4 /* rgbLight */,
+				479ADBB3210F32DA008C16F4 /* whiteLight */,
+				472352E6210D81CF005FE2BE /* EHOMELightModeTableViewController.h */,
+				472352E7210D81CF005FE2BE /* EHOMELightModeTableViewController.m */,
+				472352E8210D81CF005FE2BE /* EHOMELightModeTableViewController.xib */,
+			);
+			path = LightSet;
+			sourceTree = "<group>";
+		};
+		4723A6D121313B6F00D2426A /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				4723A6D221313B8F00D2426A /* EHOMEStoreCollectionViewCell.h */,
+				4723A6D321313B8F00D2426A /* EHOMEStoreCollectionViewCell.m */,
+				4723A6D421313B8F00D2426A /* EHOMEStoreCollectionViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		4729B15B20E3996500C74A2E /* ProfileSetting */ = {
 			isa = PBXGroup;
 			children = (
+				A0810FD72111C83000E3DEAA /* Terms */,
+				A0D7D4C02111B469001532E4 /* NewFeature */,
 				4729B15C20E3999300C74A2E /* view */,
 				4729B16020E39A5D00C74A2E /* EHOMESettingVC.h */,
 				4729B16120E39A5D00C74A2E /* EHOMESettingVC.m */,
-				4729B16320E39A7800C74A2E /* EHOMEAgreementVC.h */,
-				4729B16420E39A7800C74A2E /* EHOMEAgreementVC.m */,
 			);
 			path = ProfileSetting;
 			sourceTree = "<group>";
@@ -756,6 +980,24 @@
 			path = ZZCircleProgress;
 			sourceTree = "<group>";
 		};
+		472C74B621114A040010990F /* MySlider */ = {
+			isa = PBXGroup;
+			children = (
+				472C74B721114A7D0010990F /* EHMySlider.h */,
+				472C74B821114A7D0010990F /* EHMySlider.m */,
+			);
+			path = MySlider;
+			sourceTree = "<group>";
+		};
+		472C74BA211152520010990F /* ColorSlider */ = {
+			isa = PBXGroup;
+			children = (
+				472C74BB211152820010990F /* EHColorslider.h */,
+				472C74BC211152820010990F /* EHColorslider.m */,
+			);
+			path = ColorSlider;
+			sourceTree = "<group>";
+		};
 		4740971320FF626B00FB4A01 /* MyDevices */ = {
 			isa = PBXGroup;
 			children = (
@@ -766,9 +1008,33 @@
 			path = MyDevices;
 			sourceTree = "<group>";
 		};
+		476A3CB9212FA07D001E11BF /* ScanCode */ = {
+			isa = PBXGroup;
+			children = (
+				476A3CBC212FA0CD001E11BF /* MaskView.h */,
+				476A3CBD212FA0CE001E11BF /* MaskView.m */,
+				476A3CBA212FA0CD001E11BF /* ScanViewController.h */,
+				476A3CBE212FA0CE001E11BF /* ScanViewController.m */,
+				476A3CBF212FA0CE001E11BF /* UIViewController+Message.h */,
+				476A3CBB212FA0CD001E11BF /* UIViewController+Message.m */,
+			);
+			path = ScanCode;
+			sourceTree = "<group>";
+		};
+		476A3CC3212FF923001E11BF /* share */ = {
+			isa = PBXGroup;
+			children = (
+				476A3CC4212FF972001E11BF /* EHOMEShareViewController.h */,
+				476A3CC5212FF972001E11BF /* EHOMEShareViewController.m */,
+				476A3CC6212FF972001E11BF /* EHOMEShareViewController.xib */,
+			);
+			path = share;
+			sourceTree = "<group>";
+		};
 		4798604320F5D6AB00A7C0FC /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				47EC2234211998CB00E70B3D /* alert */,
 				A0D9742D20F7607100F3E47C /* AddDevice */,
 				A0D973D620F6F50600F3E47C /* AddSceneVC */,
 				4798604920F5DA2500A7C0FC /* cell */,
@@ -782,15 +1048,15 @@
 		4798604920F5DA2500A7C0FC /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				4706083420F719E200F83233 /* EHOMEScenesCell.h */,
-				4706083520F719E200F83233 /* EHOMEScenesCell.m */,
-				4706083620F719E200F83233 /* EHOMEScenesCell.xib */,
 				47E7450C2106FCB000F54B88 /* EHOMEManualSceneCell.h */,
 				47E7450D2106FCB000F54B88 /* EHOMEManualSceneCell.m */,
 				47E7450E2106FCB000F54B88 /* EHOMEManualSceneCell.xib */,
 				47E7451121070A7400F54B88 /* EHOMETimingSceneCell.h */,
 				47E7451221070A7400F54B88 /* EHOMETimingSceneCell.m */,
 				47E7451321070A7400F54B88 /* EHOMETimingSceneCell.xib */,
+				A03A5FA1211B03F1006EFE96 /* EHOMESceneEmptyTableViewCell.h */,
+				A03A5FA2211B03F1006EFE96 /* EHOMESceneEmptyTableViewCell.m */,
+				A03A5FA3211B03F1006EFE96 /* EHOMESceneEmptyTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -805,6 +1071,49 @@
 				4779F8FC20F4D0EF00D0334E /* EHOMEbackgroundCell.m */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		479ADBAD210EF2C4008C16F4 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				479ADBAF210EF2FE008C16F4 /* EHOMEAddSceneInfoTableViewCell.h */,
+				479ADBAE210EF2FE008C16F4 /* EHOMEAddSceneInfoTableViewCell.m */,
+				479ADBB0210EF2FE008C16F4 /* EHOMEAddSceneInfoTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		479ADBB3210F32DA008C16F4 /* whiteLight */ = {
+			isa = PBXGroup;
+			children = (
+				479ADBB6210F33A8008C16F4 /* EHOMESetWhiteLightViewController.h */,
+				479ADBB7210F33A8008C16F4 /* EHOMESetWhiteLightViewController.m */,
+				479ADBB8210F33A8008C16F4 /* EHOMESetWhiteLightViewController.xib */,
+				47F1F6082114875800BB3754 /* EHOMEWhiteLightViewController.h */,
+				47F1F6092114875800BB3754 /* EHOMEWhiteLightViewController.m */,
+				47F1F60A2114875800BB3754 /* EHOMEWhiteLightViewController.xib */,
+			);
+			path = whiteLight;
+			sourceTree = "<group>";
+		};
+		479ADBB4210F32FB008C16F4 /* rgbLight */ = {
+			isa = PBXGroup;
+			children = (
+				47955EB121109188009A8E0E /* EHOMESetRgbLightViewController.h */,
+				47955EB221109188009A8E0E /* EHOMESetRgbLightViewController.m */,
+				47955EB321109188009A8E0E /* EHOMESetRgbLightViewController.xib */,
+			);
+			path = rgbLight;
+			sourceTree = "<group>";
+		};
+		479ADBB5210F3312008C16F4 /* streamLight */ = {
+			isa = PBXGroup;
+			children = (
+				472C74C321119B6A0010990F /* EHOMEStreamLightViewController.h */,
+				472C74C421119B6A0010990F /* EHOMEStreamLightViewController.m */,
+				472C74C521119B6A0010990F /* EHOMEStreamLightViewController.xib */,
+			);
+			path = streamLight;
 			sourceTree = "<group>";
 		};
 		47A27B0920EF4CCB00E6540F /* Room */ = {
@@ -824,6 +1133,46 @@
 				4779F8F920F4CFB500D0334E /* EHOMEBackgroundViewController.m */,
 			);
 			path = Room;
+			sourceTree = "<group>";
+		};
+		47B800362172F67C0024BF06 /* Monochrome */ = {
+			isa = PBXGroup;
+			children = (
+				47D085972173087F00610A19 /* EHOMEMonochromeViewController.h */,
+				47D085962173087F00610A19 /* EHOMEMonochromeViewController.m */,
+				47B800392172F70E0024BF06 /* EHOMEMonochromeViewController.xib */,
+			);
+			path = Monochrome;
+			sourceTree = "<group>";
+		};
+		47C53D88216C99FE00B0D14C /* PowerStrip */ = {
+			isa = PBXGroup;
+			children = (
+				47C53D89216CCA3A00B0D14C /* EHOMEPowerStripViewController.h */,
+				47C53D8A216CCA3A00B0D14C /* EHOMEPowerStripViewController.m */,
+				47C53D8B216CCA3A00B0D14C /* EHOMEPowerStripViewController.xib */,
+			);
+			path = PowerStrip;
+			sourceTree = "<group>";
+		};
+		47EC2234211998CB00E70B3D /* alert */ = {
+			isa = PBXGroup;
+			children = (
+				47EC22382119998E00E70B3D /* cell */,
+				47EC22362119995A00E70B3D /* LrdAlertTableView.h */,
+				47EC22352119995A00E70B3D /* LrdAlertTableView.m */,
+			);
+			path = alert;
+			sourceTree = "<group>";
+		};
+		47EC22382119998E00E70B3D /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				47EC2239211999C000E70B3D /* EHOMEAlertActionTableViewCell.h */,
+				47EC223A211999C000E70B3D /* EHOMEAlertActionTableViewCell.m */,
+				47EC223B211999C000E70B3D /* EHOMEAlertActionTableViewCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		4FB1DB96C82AD6DFA0AB7C9D /* Pods */ = {
@@ -892,11 +1241,23 @@
 			path = slider;
 			sourceTree = "<group>";
 		};
+		A047B68C218C6906005DF64A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A047B68D218C6942005DF64A /* EHOMESwitch.h */,
+				A047B68E218C6942005DF64A /* EHOMESwitch.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		A04D2AAD20C78451007038D8 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				A04D2AAE20C784E7007038D8 /* EHOMENavigationController.h */,
 				A04D2AAF20C784E7007038D8 /* EHOMENavigationController.m */,
+				A013746C212A4FFF007ED189 /* EHOMEDefaultEmptyTableViewCell.h */,
+				A013746D212A4FFF007ED189 /* EHOMEDefaultEmptyTableViewCell.m */,
+				A013746E212A4FFF007ED189 /* EHOMEDefaultEmptyTableViewCell.xib */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -948,6 +1309,7 @@
 		A053129720C7FE3600BA20AB /* ShareDeviceList */ = {
 			isa = PBXGroup;
 			children = (
+				A0994E792128459000BDA6EB /* cell */,
 				A053129820C7FE5600BA20AB /* EHOMESharedDeviceTableViewController.h */,
 				A053129920C7FE5600BA20AB /* EHOMESharedDeviceTableViewController.m */,
 				A053129A20C7FE5600BA20AB /* EHOMESharedDeviceTableViewController.xib */,
@@ -981,6 +1343,11 @@
 				4707D29020EB6B18003BB17F /* Device.strings */,
 				47D1412320EC660E001986B7 /* Info.strings */,
 				47BAEE8B20EDB4A00089B1A5 /* DeviceFunction.strings */,
+				A094BD722121D5C2001D3AC6 /* InfoPlist.strings */,
+				A0994E772127B95B00BDA6EB /* language.strings */,
+				A0137475212A5C56007ED189 /* Empty.strings */,
+				A013747B212A66C5007ED189 /* Alert.strings */,
+				A0137481212AA2BC007ED189 /* NewFeature.strings */,
 			);
 			path = Localizable;
 			sourceTree = "<group>";
@@ -995,12 +1362,54 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		A0810FD72111C83000E3DEAA /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				A0810FDD2111C85200E3DEAA /* cell */,
+				A0810FD82111C84A00E3DEAA /* EHOMETermsTableViewController.h */,
+				A0810FD92111C84A00E3DEAA /* EHOMETermsTableViewController.m */,
+				A0810FDA2111C84A00E3DEAA /* EHOMETermsTableViewController.xib */,
+			);
+			path = Terms;
+			sourceTree = "<group>";
+		};
+		A0810FDD2111C85200E3DEAA /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				A0810FE32111C89800E3DEAA /* EHOMETermsTitleTableViewCell.h */,
+				A0810FE42111C89800E3DEAA /* EHOMETermsTitleTableViewCell.m */,
+				A0810FE52111C89800E3DEAA /* EHOMETermsTitleTableViewCell.xib */,
+				A0810FE82111C8A800E3DEAA /* EHOMETermsContentTableViewCell.h */,
+				A0810FE92111C8A800E3DEAA /* EHOMETermsContentTableViewCell.m */,
+				A0810FEA2111C8A800E3DEAA /* EHOMETermsContentTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		A0810FF02112DC6100E3DEAA /* eHomeDB */ = {
+			isa = PBXGroup;
+			children = (
+				A0810FED2112CFB000E3DEAA /* EHOMEDataStore.h */,
+				A0810FEE2112CFB000E3DEAA /* EHOMEDataStore.m */,
+				A0810FF42112DEDD00E3DEAA /* Home.h */,
+				A0810FF52112DEDD00E3DEAA /* Home.m */,
+				A0737D272113115E009A9E26 /* DeviceDB.h */,
+				A0737D282113115E009A9E26 /* DeviceDB.m */,
+				A0737D2A211333CF009A9E26 /* RoomDB.h */,
+				A0737D2B211333CF009A9E26 /* RoomDB.m */,
+				A0E5A068211545AD0069728A /* SceneDB.h */,
+				A0E5A069211545AD0069728A /* SceneDB.m */,
+				A03A5F98211AACA0006EFE96 /* EHOMEWifiDB.h */,
+				A03A5F99211AACA0006EFE96 /* EHOMEWifiDB.m */,
+				A03A5F9B211AB9A4006EFE96 /* EHOMEUserDB.h */,
+				A03A5F9C211AB9A4006EFE96 /* EHOMEUserDB.m */,
+			);
+			path = eHomeDB;
+			sourceTree = "<group>";
+		};
 		A081D41520997C1400ECE05A /* GetStarted */ = {
 			isa = PBXGroup;
 			children = (
-				A081D41620997C4800ECE05A /* EHOMEGetStartedViewController.h */,
-				A081D41720997C4800ECE05A /* EHOMEGetStartedViewController.m */,
-				A081D41820997C4800ECE05A /* EHOMEGetStartedViewController.xib */,
 				4706084120F789F700F83233 /* EHOMEGetStartViewController.h */,
 				4706084220F789F700F83233 /* EHOMEGetStartViewController.m */,
 				4706084320F789F700F83233 /* EHOMEGetStartViewController.xib */,
@@ -1011,24 +1420,14 @@
 			path = GetStarted;
 			sourceTree = "<group>";
 		};
-		A081D41B2099D96500ECE05A /* QRCode */ = {
+		A0994E792128459000BDA6EB /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				A081D41D2099D99700ECE05A /* EHOMEQRCodeViewController.h */,
-				A081D41E2099D99700ECE05A /* EHOMEQRCodeViewController.m */,
-				A081D41F2099D99700ECE05A /* EHOMEQRCodeViewController.xib */,
+				A0994E7A212845B300BDA6EB /* EHOMESharedOutUserTableViewCell.h */,
+				A0994E7B212845B300BDA6EB /* EHOMESharedOutUserTableViewCell.m */,
+				A0994E7C212845B300BDA6EB /* EHOMESharedOutUserTableViewCell.xib */,
 			);
-			path = QRCode;
-			sourceTree = "<group>";
-		};
-		A081D4222099DCBA00ECE05A /* Scan */ = {
-			isa = PBXGroup;
-			children = (
-				A081D4232099DCC800ECE05A /* EHOMEScanViewController.h */,
-				A081D4242099DCC800ECE05A /* EHOMEScanViewController.m */,
-				A081D4252099DCC800ECE05A /* EHOMEScanViewController.xib */,
-			);
-			path = Scan;
+			path = cell;
 			sourceTree = "<group>";
 		};
 		A0B798E620EB1D150097AAFB /* HomeList */ = {
@@ -1116,15 +1515,50 @@
 			path = RegisterNewAccount;
 			sourceTree = "<group>";
 		};
+		A0D7D4BA2111A4B9001532E4 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				A0D7D4BB2111A4DC001532E4 /* EHOMEIntergrationTableViewCell.h */,
+				A0D7D4BC2111A4DC001532E4 /* EHOMEIntergrationTableViewCell.m */,
+				A0D7D4BD2111A4DC001532E4 /* EHOMEIntergrationTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		A0D7D4C02111B469001532E4 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				A0D7D4C62111B4E6001532E4 /* cell */,
+				A0D7D4C12111B48C001532E4 /* EHOMENewFeatureTableViewController.h */,
+				A0D7D4C22111B48C001532E4 /* EHOMENewFeatureTableViewController.m */,
+				A0D7D4C32111B48C001532E4 /* EHOMENewFeatureTableViewController.xib */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
+		A0D7D4C62111B4E6001532E4 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				A0D7D4C72111B500001532E4 /* EHOMENewFeatureTableViewCell.h */,
+				A0D7D4C82111B500001532E4 /* EHOMENewFeatureTableViewCell.m */,
+				A0D7D4C92111B500001532E4 /* EHOMENewFeatureTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		A0D973D620F6F50600F3E47C /* AddSceneVC */ = {
 			isa = PBXGroup;
 			children = (
+				4702F4D321084C0C0020C57F /* sw */,
 				A0D9742720F747E000F3E47C /* Loops */,
 				A0D9742120F7341C00F3E47C /* Time */,
 				A0D973DC20F6F70E00F3E47C /* cell */,
-				A0D973D720F6F55800F3E47C /* EHOMEAddSceneTableViewController.h */,
-				A0D973D820F6F55800F3E47C /* EHOMEAddSceneTableViewController.m */,
-				A0D973D920F6F55800F3E47C /* EHOMEAddSceneTableViewController.xib */,
+				47E745162107596700F54B88 /* EHOMEAddIntelligenceVC.h */,
+				47E745172107596700F54B88 /* EHOMEAddIntelligenceVC.m */,
+				47E745182107596700F54B88 /* EHOMEAddIntelligenceVC.xib */,
+				4702F4D72108587D0020C57F /* EHOMEIntelligentSettingTableViewController.h */,
+				4702F4D82108587D0020C57F /* EHOMEIntelligentSettingTableViewController.m */,
+				4702F4D92108587D0020C57F /* EHOMEIntelligentSettingTableViewController.xib */,
 			);
 			path = AddSceneVC;
 			sourceTree = "<group>";
@@ -1132,15 +1566,21 @@
 		A0D973DC20F6F70E00F3E47C /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				A0D973DD20F6F75400F3E47C /* EHOMEAddSceneInfoTableViewCell.h */,
-				A0D973DE20F6F75400F3E47C /* EHOMEAddSceneInfoTableViewCell.m */,
-				A0D973DF20F6F75400F3E47C /* EHOMEAddSceneInfoTableViewCell.xib */,
-				A0D973E220F6FAEC00F3E47C /* EHOMESceneDeviceTableViewCell.h */,
-				A0D973E320F6FAEC00F3E47C /* EHOMESceneDeviceTableViewCell.m */,
-				A0D973E420F6FAEC00F3E47C /* EHOMESceneDeviceTableViewCell.xib */,
-				471C8FD220FCCB590052352D /* EHOMEAddDeviceFailTableViewCell.h */,
-				471C8FD320FCCB590052352D /* EHOMEAddDeviceFailTableViewCell.m */,
-				471C8FD420FCCB590052352D /* EHOMEAddDeviceFailTableViewCell.xib */,
+				4702F4DC210859AE0020C57F /* EHOMESceneNameCell.h */,
+				4702F4DD210859AE0020C57F /* EHOMESceneNameCell.m */,
+				4702F4DE210859AE0020C57F /* EHOMESceneNameCell.xib */,
+				4702F4E72108651C0020C57F /* EHOMESceneTimeCell.h */,
+				4702F4E82108651C0020C57F /* EHOMESceneTimeCell.m */,
+				4702F4E92108651C0020C57F /* EHOMESceneTimeCell.xib */,
+				4702F4EC210866BF0020C57F /* EHOMEAddTimingCell.h */,
+				4702F4ED210866BF0020C57F /* EHOMEAddTimingCell.m */,
+				4702F4EE210866BF0020C57F /* EHOMEAddTimingCell.xib */,
+				4702F4F821088D310020C57F /* EHOMEAddActionCell.h */,
+				4702F4F921088D310020C57F /* EHOMEAddActionCell.m */,
+				4702F4FA21088D310020C57F /* EHOMEAddActionCell.xib */,
+				4702F4FD21088EAD0020C57F /* EHOMESceneActionCell.h */,
+				4702F4FE21088EAD0020C57F /* EHOMESceneActionCell.m */,
+				4702F4FF21088EAD0020C57F /* EHOMESceneActionCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -1148,6 +1588,7 @@
 		A0D9742120F7341C00F3E47C /* Time */ = {
 			isa = PBXGroup;
 			children = (
+				479ADBAD210EF2C4008C16F4 /* cell */,
 				A0D9742220F7345900F3E47C /* EHOMESelectTimeViewController.h */,
 				A0D9742320F7345900F3E47C /* EHOMESelectTimeViewController.m */,
 				A0D9742420F7345900F3E47C /* EHOMESelectTimeViewController.xib */,
@@ -1168,10 +1609,12 @@
 		A0D9742D20F7607100F3E47C /* AddDevice */ = {
 			isa = PBXGroup;
 			children = (
+				471A9C9B21096B6800A0C4E9 /* LightSet */,
+				471A9C9A21096B5100A0C4E9 /* OutletSet */,
 				A0D9743320F7649F00F3E47C /* cell */,
-				A0D9742E20F7609C00F3E47C /* EHOMESceneAddDeviceViewController.h */,
-				A0D9742F20F7609C00F3E47C /* EHOMESceneAddDeviceViewController.m */,
-				A0D9743020F7609C00F3E47C /* EHOMESceneAddDeviceViewController.xib */,
+				471A9C90210965A000A0C4E9 /* EHOMESceneDeviceListTableViewController.h */,
+				471A9C91210965A000A0C4E9 /* EHOMESceneDeviceListTableViewController.m */,
+				471A9C92210965A000A0C4E9 /* EHOMESceneDeviceListTableViewController.xib */,
 			);
 			path = AddDevice;
 			sourceTree = "<group>";
@@ -1179,9 +1622,9 @@
 		A0D9743320F7649F00F3E47C /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				A0D9743420F764CD00F3E47C /* EHOMESceneAddDeviceCollectionViewCell.h */,
-				A0D9743520F764CD00F3E47C /* EHOMESceneAddDeviceCollectionViewCell.m */,
-				A0D9743620F764CD00F3E47C /* EHOMESceneAddDeviceCollectionViewCell.xib */,
+				471A9C952109678100A0C4E9 /* EHOMEDeviceInfoCell.h */,
+				471A9C962109678100A0C4E9 /* EHOMEDeviceInfoCell.m */,
+				471A9C972109678100A0C4E9 /* EHOMEDeviceInfoCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -1208,9 +1651,21 @@
 			path = cell;
 			sourceTree = "<group>";
 		};
+		E0105AB5212CFF26005B66BB /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				4723A6D121313B6F00D2426A /* cell */,
+				4723A6D72131505300D2426A /* EHOMEMallViewController.h */,
+				4723A6D82131505300D2426A /* EHOMEMallViewController.m */,
+				4723A6D92131505300D2426A /* EHOMEMallViewController.xib */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		F485E59782A7943DF687958B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				47960B4521806D5E006D085B /* WebKit.framework */,
 				D3060AB96A092517C1EF1A2D /* libPods-WhatieSDKDemo.a */,
 				3353857A322CF1969C61E536 /* libPods-WhatieSDKDemoTests.a */,
 				781F4340D496FFC6D0AE3461 /* libPods-WhatieSDKDemoUITests.a */,
@@ -1290,6 +1745,11 @@
 				TargetAttributes = {
 					0CB4A945208087AB008C2017 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 1;
+							};
+						};
 					};
 					0CB4A95D208087CB008C2017 = {
 						CreatedOnToolsVersion = 9.3;
@@ -1331,21 +1791,26 @@
 				0C020A8E208AD128008FBE5D /* EHOMEConfirmWifiViewController.xib in Resources */,
 				A0D9742620F7345900F3E47C /* EHOMESelectTimeViewController.xib in Resources */,
 				A0D3C36C20C8D5350071AD24 /* EHOMEForgetPasswordViewController.xib in Resources */,
-				A0D973E620F6FAEC00F3E47C /* EHOMESceneDeviceTableViewCell.xib in Resources */,
+				471A9C992109678100A0C4E9 /* EHOMEDeviceInfoCell.xib in Resources */,
+				A03A5FA5211B03F1006EFE96 /* EHOMESceneEmptyTableViewCell.xib in Resources */,
 				0C6BF167208A015E0021D16A /* EHOMEProfileTableViewCell.xib in Resources */,
 				0CBCFF6120BD2E51009EADEC /* EHOMEOutletDetailViewController.xib in Resources */,
 				0CB4A956208087CB008C2017 /* LaunchScreen.storyboard in Resources */,
 				A037BFCD20CE3F3000767519 /* EHOMERGBLightViewController.xib in Resources */,
-				A0D973DB20F6F55800F3E47C /* EHOMEAddSceneTableViewController.xib in Resources */,
-				A081D41A20997C4800ECE05A /* EHOMEGetStartedViewController.xib in Resources */,
+				47955EB521109189009A8E0E /* EHOMESetRgbLightViewController.xib in Resources */,
+				471A9CA021096BE900A0C4E9 /* EHOMEOutletStatusTableViewController.xib in Resources */,
+				47B8003B2172F70E0024BF06 /* EHOMEMonochromeViewController.xib in Resources */,
 				0C020A88208AD082008FBE5D /* deviceGIF.gif in Resources */,
 				0C6BF1342088BF720021D16A /* Localizable.strings in Resources */,
+				471A9C94210965A000A0C4E9 /* EHOMESceneDeviceListTableViewController.xib in Resources */,
 				A0BB761520E3788E00FD509A /* EHOMEExperienceCenterViewController.xib in Resources */,
 				0C6BF15B2089FC740021D16A /* EHOMETabBarController.xib in Resources */,
 				47BAEE8920EDB4A00089B1A5 /* DeviceFunction.strings in Resources */,
+				4723A6D621313B8F00D2426A /* EHOMEStoreCollectionViewCell.xib in Resources */,
 				0CB4A953208087CB008C2017 /* Assets.xcassets in Resources */,
+				A0D7D4C52111B48C001532E4 /* EHOMENewFeatureTableViewController.xib in Resources */,
 				471D7FB520F4A51D00BEA785 /* EHOMERoomDetailTableViewController.xib in Resources */,
-				A0D9743820F764CD00F3E47C /* EHOMESceneAddDeviceCollectionViewCell.xib in Resources */,
+				472C74C721119B6A0010990F /* EHOMEStreamLightViewController.xib in Resources */,
 				A0B798F120EB22280097AAFB /* EHOMEDefaultCenterTableViewCell.xib in Resources */,
 				4704B49F20F842D800E6C779 /* EHOMERoomListTableViewController.xib in Resources */,
 				A04D2AB520C79397007038D8 /* EHOMETimerTableViewController.xib in Resources */,
@@ -1354,6 +1819,7 @@
 				A0D3C36720C8D5240071AD24 /* EHOMERegisterAccountViewController.xib in Resources */,
 				A0B798EB20EB1DCA0097AAFB /* EHOMEHomeListTableViewController.xib in Resources */,
 				A053129620C7B25C00BA20AB /* EHOMESetTimeViewController.xib in Resources */,
+				A0D7D4CB2111B500001532E4 /* EHOMENewFeatureTableViewCell.xib in Resources */,
 				4707D28E20EB6B18003BB17F /* Device.strings in Resources */,
 				47E745102106FCB100F54B88 /* EHOMEManualSceneCell.xib in Resources */,
 				A0EB7A2220E23BBE0008473A /* EHOMEProfileInfoTableViewController.xib in Resources */,
@@ -1362,43 +1828,62 @@
 				A0EB7A1C20E22E780008473A /* EHOMEProfileMenuTableViewCell.xib in Resources */,
 				A02BC74320D3BAE30003992B /* EHOMEColorCollectionViewCell.xib in Resources */,
 				472208E920F2F26100087594 /* EHOMEMemberCell.xib in Resources */,
+				A094BD702121D5C2001D3AC6 /* InfoPlist.strings in Resources */,
 				4707D29B20EB847B003BB17F /* EHOMEUpdatePasswordVC.xib in Resources */,
 				A0D9742C20F747FC00F3E47C /* EHOMELoopsTableViewController.xib in Resources */,
+				4702F4DB2108587D0020C57F /* EHOMEIntelligentSettingTableViewController.xib in Resources */,
 				47E7451521070A7400F54B88 /* EHOMETimingSceneCell.xib in Resources */,
 				479A2B3C20F4419E006C47D8 /* EHOMRoomCell.xib in Resources */,
 				0C6BF1612089FE9A0021D16A /* EHOMEHomeTableViewCell.xib in Resources */,
-				A0D973E120F6F75400F3E47C /* EHOMEAddSceneInfoTableViewCell.xib in Resources */,
 				A05312AB20C8059E00BA20AB /* EHOMEAddFeedbackViewController.xib in Resources */,
 				A053129020C7A87300BA20AB /* EHOMEAddTimerTableViewController.xib in Resources */,
+				A0810FDC2111C84A00E3DEAA /* EHOMETermsTableViewController.xib in Resources */,
 				472208E420F2F0F500087594 /* EHOMEDetailHomeTableViewController.xib in Resources */,
 				4729B16920E39C8900C74A2E /* features.html in Resources */,
-				A081D4212099D99700ECE05A /* EHOMEQRCodeViewController.xib in Resources */,
+				4723A6DB2131505400D2426A /* EHOMEMallViewController.xib in Resources */,
 				A05312A620C802DC00BA20AB /* EHOMEFeedbackTableViewController.xib in Resources */,
+				A0137473212A5C56007ED189 /* Empty.strings in Resources */,
 				A06B28C320EB0491007EA7A6 /* Home.strings in Resources */,
 				4729B17620E3A10D00C74A2E /* ZZCircleProgress.bundle in Resources */,
+				47F1F60C2114875800BB3754 /* EHOMEWhiteLightViewController.xib in Resources */,
 				0C6BF1502089FC1F0021D16A /* EHOMEProfileTableViewController.xib in Resources */,
+				A0D7D4BF2111A4DC001532E4 /* EHOMEIntergrationTableViewCell.xib in Resources */,
 				A02BC73D20D3B8BD0003992B /* EHOMEStreamSettingViewController.xib in Resources */,
 				472208DF20F2EAB200087594 /* EHOMEEditHomeListTableViewController.xib in Resources */,
+				4702F50121088EAD0020C57F /* EHOMESceneActionCell.xib in Resources */,
 				A04D2ABC20C79D21007038D8 /* EHOMETimerTableViewCell.xib in Resources */,
 				A032FD7C20E630F8001CA234 /* EHOMETimerTagTableViewCell.xib in Resources */,
 				4740971820FF62AE00FB4A01 /* EHOMEMyDevicesTableViewController.xib in Resources */,
 				A0BB762120E37C4000FD509A /* EHOMEExperienceOutletsViewController.xib in Resources */,
 				47A27B1120EF4E3A00E6540F /* EHOMERoomTableViewController.xib in Resources */,
-				A0D9743220F7609C00F3E47C /* EHOMESceneAddDeviceViewController.xib in Resources */,
+				A0137470212A4FFF007ED189 /* EHOMEDefaultEmptyTableViewCell.xib in Resources */,
+				A0994E7E212845B300BDA6EB /* EHOMESharedOutUserTableViewCell.xib in Resources */,
+				479ADBB2210EF2FE008C16F4 /* EHOMEAddSceneInfoTableViewCell.xib in Resources */,
 				A0EB79DD20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.xib in Resources */,
+				4702F4FC21088D310020C57F /* EHOMEAddActionCell.xib in Resources */,
+				A0810FE72111C89800E3DEAA /* EHOMETermsTitleTableViewCell.xib in Resources */,
+				A0994E752127B95B00BDA6EB /* language.strings in Resources */,
+				4702F4F0210866BF0020C57F /* EHOMEAddTimingCell.xib in Resources */,
 				A0EB7A2820E246A90008473A /* EHOMEProfileInfoTableViewCell.xib in Resources */,
 				0C020A7F208ACC92008FBE5D /* EHOMEAddDeviceTableViewController.xib in Resources */,
+				476A3CC8212FF972001E11BF /* EHOMEShareViewController.xib in Resources */,
 				4798604820F5D71A00A7C0FC /* EHOMEScenesTableViewController.xib in Resources */,
 				A06B28CB20EB057D007EA7A6 /* Room.strings in Resources */,
-				471C8FD620FCCB590052352D /* EHOMEAddDeviceFailTableViewCell.xib in Resources */,
+				4702F4EB2108651C0020C57F /* EHOMESceneTimeCell.xib in Resources */,
+				472352EA210D81CF005FE2BE /* EHOMELightModeTableViewController.xib in Resources */,
+				47E7451A2107596700F54B88 /* EHOMEAddIntelligenceVC.xib in Resources */,
 				A071CB4720CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.xib in Resources */,
 				0C020A86208ACEDF008FBE5D /* EHOMESmartConfigViewController.xib in Resources */,
-				A081D4272099DCC800ECE05A /* EHOMEScanViewController.xib in Resources */,
 				A05312B020C80E1A00BA20AB /* EHOMEFeedbackTableViewCell.xib in Resources */,
+				A013747F212AA2BC007ED189 /* NewFeature.strings in Resources */,
+				A0810FEC2111C8A800E3DEAA /* EHOMETermsContentTableViewCell.xib in Resources */,
+				4702F4E0210859AE0020C57F /* EHOMESceneNameCell.xib in Resources */,
+				47C53D8D216CCA3A00B0D14C /* EHOMEPowerStripViewController.xib in Resources */,
 				A06B28D120EB059B007EA7A6 /* Profile.strings in Resources */,
-				4706083820F719E200F83233 /* EHOMEScenesCell.xib in Resources */,
 				471D7FBA20F4A91F00BEA785 /* EHOMEAddRoomTableViewController.xib in Resources */,
 				4725ECFD20F34F4D00E69A8B /* EHOMEFamilyViewController.xib in Resources */,
+				47EC223D211999C000E70B3D /* EHOMEAlertActionTableViewCell.xib in Resources */,
+				A0137479212A66C5007ED189 /* Alert.strings in Resources */,
 				0CB4A951208087AB008C2017 /* Main.storyboard in Resources */,
 				A0BB761B20E378E400FD509A /* EHOMEExperienceCollectionViewCell.xib in Resources */,
 			);
@@ -1448,13 +1933,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-WhatieSDKDemo/Pods-WhatieSDKDemo-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/SGQRCode/SGQRCode/SGQRCode.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SGQRCode.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1504,75 +1987,112 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4706083720F719E200F83233 /* EHOMEScenesCell.m in Sources */,
+				47F1F60B2114875800BB3754 /* EHOMEWhiteLightViewController.m in Sources */,
+				A0994E7D212845B300BDA6EB /* EHOMESharedOutUserTableViewCell.m in Sources */,
+				A0810FDB2111C84A00E3DEAA /* EHOMETermsTableViewController.m in Sources */,
 				472208E320F2F0F500087594 /* EHOMEDetailHomeTableViewController.m in Sources */,
 				4729B17420E3A10D00C74A2E /* NSTimer+timerBlock.m in Sources */,
 				A04D2AB020C784E7007038D8 /* EHOMENavigationController.m in Sources */,
+				472C74B921114A7E0010990F /* EHMySlider.m in Sources */,
+				47D085982173087F00610A19 /* EHOMEMonochromeViewController.m in Sources */,
 				A0D3C36B20C8D5350071AD24 /* EHOMEForgetPasswordViewController.m in Sources */,
 				4706084420F789F700F83233 /* EHOMEGetStartViewController.m in Sources */,
 				A0B798EA20EB1DCA0097AAFB /* EHOMEHomeListTableViewController.m in Sources */,
+				A0D7D4C42111B48C001532E4 /* EHOMENewFeatureTableViewController.m in Sources */,
 				A053129520C7B25C00BA20AB /* EHOMESetTimeViewController.m in Sources */,
-				A0D973E520F6FAEC00F3E47C /* EHOMESceneDeviceTableViewCell.m in Sources */,
 				472208DE20F2EAB200087594 /* EHOMEEditHomeListTableViewController.m in Sources */,
 				4729B15F20E399B900C74A2E /* EHOMELogoView.m in Sources */,
+				A0737D292113115E009A9E26 /* DeviceDB.m in Sources */,
 				0C6BF15A2089FC740021D16A /* EHOMETabBarController.m in Sources */,
 				A02BC73C20D3B8BD0003992B /* EHOMEStreamSettingViewController.m in Sources */,
 				A05312A520C802DC00BA20AB /* EHOMEFeedbackTableViewController.m in Sources */,
 				A0BB762020E37C4000FD509A /* EHOMEExperienceOutletsViewController.m in Sources */,
-				A0D973DA20F6F55800F3E47C /* EHOMEAddSceneTableViewController.m in Sources */,
-				A0D9743720F764CD00F3E47C /* EHOMESceneAddDeviceCollectionViewCell.m in Sources */,
+				471A9C9F21096BE900A0C4E9 /* EHOMEOutletStatusTableViewController.m in Sources */,
+				47955EB421109189009A8E0E /* EHOMESetRgbLightViewController.m in Sources */,
+				476A3CC7212FF972001E11BF /* EHOMEShareViewController.m in Sources */,
+				A03A5FA0211AC1A0006EFE96 /* EHOMELoginAlertView.m in Sources */,
 				A071CB4620CF86BB004ACC8E /* EHOMELightMenuCollectionViewCell.m in Sources */,
 				A0D9742B20F747FC00F3E47C /* EHOMELoopsTableViewController.m in Sources */,
 				47A27B1020EF4E3A00E6540F /* EHOMERoomTableViewController.m in Sources */,
 				A0EB79DC20E0F8D40008473A /* EHOMEHomeEmptyTableViewCell.m in Sources */,
+				A0810FEB2111C8A800E3DEAA /* EHOMETermsContentTableViewCell.m in Sources */,
+				A0737D2C211333CF009A9E26 /* RoomDB.m in Sources */,
 				A04D2AB420C79397007038D8 /* EHOMETimerTableViewController.m in Sources */,
 				47E7451421070A7400F54B88 /* EHOMETimingSceneCell.m in Sources */,
 				A037BFCC20CE3F3000767519 /* EHOMERGBLightViewController.m in Sources */,
 				0C020A8D208AD128008FBE5D /* EHOMEConfirmWifiViewController.m in Sources */,
+				4702F4DA2108587D0020C57F /* EHOMEIntelligentSettingTableViewController.m in Sources */,
 				A0EB7A1B20E22E780008473A /* EHOMEProfileMenuTableViewCell.m in Sources */,
 				4740971720FF62AE00FB4A01 /* EHOMEMyDevicesTableViewController.m in Sources */,
 				4729B16220E39A5D00C74A2E /* EHOMESettingVC.m in Sources */,
 				A05312AA20C8059E00BA20AB /* EHOMEAddFeedbackViewController.m in Sources */,
+				47C53D8C216CCA3A00B0D14C /* EHOMEPowerStripViewController.m in Sources */,
+				479ADBB9210F33A8008C16F4 /* EHOMESetWhiteLightViewController.m in Sources */,
 				0C6BF1542089FC360021D16A /* EHOMEHomeTableViewController.m in Sources */,
+				A0D7D4BE2111A4DC001532E4 /* EHOMEIntergrationTableViewCell.m in Sources */,
+				A0E5A06A211545AD0069728A /* SceneDB.m in Sources */,
+				A0810FEF2112CFB000E3DEAA /* EHOMEDataStore.m in Sources */,
 				A0EB7A2120E23BBE0008473A /* EHOMEProfileInfoTableViewController.m in Sources */,
 				4707D29A20EB847B003BB17F /* EHOMEUpdatePasswordVC.m in Sources */,
-				471C8FD520FCCB590052352D /* EHOMEAddDeviceFailTableViewCell.m in Sources */,
+				4702F4DF210859AE0020C57F /* EHOMESceneNameCell.m in Sources */,
 				0C6BF14F2089FC1F0021D16A /* EHOMEProfileTableViewController.m in Sources */,
+				472352E9210D81CF005FE2BE /* EHOMELightModeTableViewController.m in Sources */,
 				0CB4A94E208087AB008C2017 /* ViewController.m in Sources */,
 				4779F8FD20F4D0EF00D0334E /* EHOMEbackgroundCell.m in Sources */,
 				0CB4A959208087CB008C2017 /* main.m in Sources */,
 				4725ECFC20F34F4D00E69A8B /* EHOMEFamilyViewController.m in Sources */,
+				47EC22372119995B00E70B3D /* LrdAlertTableView.m in Sources */,
+				472C74C621119B6A0010990F /* EHOMEStreamLightViewController.m in Sources */,
+				476A3CC2212FA0CE001E11BF /* ScanViewController.m in Sources */,
+				4723A6DA2131505400D2426A /* EHOMEMallViewController.m in Sources */,
 				472208E820F2F26100087594 /* EHOMEMemberCell.m in Sources */,
-				A081D4262099DCC800ECE05A /* EHOMEScanViewController.m in Sources */,
 				0C6BF1402088C5760021D16A /* MBProgressHUD.m in Sources */,
-				A0D973E020F6F75400F3E47C /* EHOMEAddSceneInfoTableViewCell.m in Sources */,
 				0C020A85208ACEDF008FBE5D /* EHOMESmartConfigViewController.m in Sources */,
+				47EC223C211999C000E70B3D /* EHOMEAlertActionTableViewCell.m in Sources */,
+				4723A6D521313B8F00D2426A /* EHOMEStoreCollectionViewCell.m in Sources */,
+				471A9C982109678100A0C4E9 /* EHOMEDeviceInfoCell.m in Sources */,
 				0CB4A94B208087AB008C2017 /* AppDelegate.m in Sources */,
+				4702F4EA2108651C0020C57F /* EHOMESceneTimeCell.m in Sources */,
 				A05312AF20C80E1A00BA20AB /* EHOMEFeedbackTableViewCell.m in Sources */,
 				0CBCFF6020BD2E51009EADEC /* EHOMEOutletDetailViewController.m in Sources */,
+				A047B68F218C6942005DF64A /* EHOMESwitch.m in Sources */,
+				476A3CC0212FA0CE001E11BF /* UIViewController+Message.m in Sources */,
 				0C6BF13D2088C4F40021D16A /* HUDHelper.m in Sources */,
+				A03A5F9D211AB9A4006EFE96 /* EHOMEUserDB.m in Sources */,
 				4729B17720E3A10D00C74A2E /* ZZCountingLabel.m in Sources */,
 				4704FE3720E61DA70044246E /* EHOMEUseEchoVC.m in Sources */,
-				4729B16520E39A7800C74A2E /* EHOMEAgreementVC.m in Sources */,
 				A0BB761A20E378E400FD509A /* EHOMEExperienceCollectionViewCell.m in Sources */,
-				A081D4202099D99700ECE05A /* EHOMEQRCodeViewController.m in Sources */,
 				471D7FB420F4A51D00BEA785 /* EHOMERoomDetailTableViewController.m in Sources */,
 				0C6BF166208A015E0021D16A /* EHOMEProfileTableViewCell.m in Sources */,
 				4798604720F5D71A00A7C0FC /* EHOMEScenesTableViewController.m in Sources */,
-				A0D9743120F7609C00F3E47C /* EHOMESceneAddDeviceViewController.m in Sources */,
+				471A9C93210965A000A0C4E9 /* EHOMESceneDeviceListTableViewController.m in Sources */,
 				47E7450F2106FCB000F54B88 /* EHOMEManualSceneCell.m in Sources */,
+				A03A5FA4211B03F1006EFE96 /* EHOMESceneEmptyTableViewCell.m in Sources */,
 				A053129B20C7FE5600BA20AB /* EHOMESharedDeviceTableViewController.m in Sources */,
+				4702F50021088EAD0020C57F /* EHOMESceneActionCell.m in Sources */,
 				A0D9742520F7345900F3E47C /* EHOMESelectTimeViewController.m in Sources */,
+				472C74BD211152830010990F /* EHColorslider.m in Sources */,
 				A032FD7B20E630F8001CA234 /* EHOMETimerTagTableViewCell.m in Sources */,
 				4704B49E20F842D800E6C779 /* EHOMERoomListTableViewController.m in Sources */,
 				471D7FB920F4A91F00BEA785 /* EHOMEAddRoomTableViewController.m in Sources */,
+				4702F4D621084C410020C57F /* LHCustomModalTransition.m in Sources */,
+				4702F4EF210866BF0020C57F /* EHOMEAddTimingCell.m in Sources */,
+				47E745192107596700F54B88 /* EHOMEAddIntelligenceVC.m in Sources */,
 				0C6BF1602089FE9A0021D16A /* EHOMEHomeTableViewCell.m in Sources */,
 				A0EB7A2720E246A90008473A /* EHOMEProfileInfoTableViewCell.m in Sources */,
 				A053128F20C7A87300BA20AB /* EHOMEAddTimerTableViewController.m in Sources */,
+				476A3CC1212FA0CE001E11BF /* MaskView.m in Sources */,
+				479ADBB1210EF2FE008C16F4 /* EHOMEAddSceneInfoTableViewCell.m in Sources */,
+				A0810FE62111C89800E3DEAA /* EHOMETermsTitleTableViewCell.m in Sources */,
+				A013746F212A4FFF007ED189 /* EHOMEDefaultEmptyTableViewCell.m in Sources */,
 				4779F8FA20F4CFB500D0334E /* EHOMEBackgroundViewController.m in Sources */,
+				4702F4FB21088D310020C57F /* EHOMEAddActionCell.m in Sources */,
+				A0D7D4AF21115005001532E4 /* EHOMEExtension.m in Sources */,
+				A03A5F9A211AACA0006EFE96 /* EHOMEWifiDB.m in Sources */,
+				A0D7D4CA2111B500001532E4 /* EHOMENewFeatureTableViewCell.m in Sources */,
 				A0B798F020EB22280097AAFB /* EHOMEDefaultCenterTableViewCell.m in Sources */,
+				A0810FF62112DEDD00E3DEAA /* Home.m in Sources */,
 				A0D3C36620C8D5240071AD24 /* EHOMERegisterAccountViewController.m in Sources */,
-				A081D41920997C4800ECE05A /* EHOMEGetStartedViewController.m in Sources */,
 				A037BFD620CE53FB00767519 /* EHOMEColorSlider.m in Sources */,
 				479A2B3B20F4419E006C47D8 /* EHOMRoomCell.m in Sources */,
 				A0BB761420E3788E00FD509A /* EHOMEExperienceCenterViewController.m in Sources */,
@@ -1670,6 +2190,33 @@
 			name = Info.strings;
 			sourceTree = "<group>";
 		};
+		A0137475212A5C56007ED189 /* Empty.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0137474212A5C56007ED189 /* en */,
+				A0137476212A5C58007ED189 /* zh-Hans */,
+			);
+			name = Empty.strings;
+			sourceTree = "<group>";
+		};
+		A013747B212A66C5007ED189 /* Alert.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A013747A212A66C5007ED189 /* en */,
+				A013747C212A66C7007ED189 /* zh-Hans */,
+			);
+			name = Alert.strings;
+			sourceTree = "<group>";
+		};
+		A0137481212AA2BC007ED189 /* NewFeature.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0137480212AA2BC007ED189 /* en */,
+				A0137482212AA2BD007ED189 /* zh-Hans */,
+			);
+			name = NewFeature.strings;
+			sourceTree = "<group>";
+		};
 		A06B28C520EB0491007EA7A6 /* Home.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1695,6 +2242,24 @@
 				A06B28D420EB059D007EA7A6 /* zh-Hans */,
 			);
 			name = Profile.strings;
+			sourceTree = "<group>";
+		};
+		A094BD722121D5C2001D3AC6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A094BD712121D5C2001D3AC6 /* en */,
+				A094BD732121D5C3001D3AC6 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A0994E772127B95B00BDA6EB /* language.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A0994E762127B95B00BDA6EB /* en */,
+				A0994E782127B95D00BDA6EB /* zh-Hans */,
+			);
+			name = language.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1821,10 +2386,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EFBA169DC859625F1DC506B3 /* Pods-WhatieSDKDemo.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconGeekPlus;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImageeHome;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
+				CODE_SIGN_ENTITLEMENTS = WhatieSDKDemo/WhatieSDKDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
@@ -1840,7 +2407,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.eHome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1852,10 +2419,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E59295F78C6670A39F64ADB2 /* Pods-WhatieSDKDemo.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconGeekPlus;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImageeHome;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
+				CODE_SIGN_ENTITLEMENTS = WhatieSDKDemo/WhatieSDKDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QQKD7VB289;
@@ -1871,7 +2440,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.WhatieSDKDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.whatie.eHome;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

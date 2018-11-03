@@ -1,0 +1,40 @@
+/* 
+  NewFeature.strings
+  WhatieSDKDemo
+
+  Created by IIDreams_zhouwei on 2018/8/20.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+
+//eHome
+"eHomeNewFeatureTitle1" = "1.欢迎使用eHome";
+"eHomeNewFeatureTitle2" = "2.房间";
+"eHomeNewFeatureTitle3" = "3.场景";
+"eHomeNewFeatureTitle4" = "4.个人中心";
+
+"eHomeNewFeatureContent1" = "欢迎使用eHome来创建你的智能家居，开启新的美好生活！";
+"eHomeNewFeatureContent2" = "现在，你可以通过在房间分类中控制你的智能设备。";
+"eHomeNewFeatureContent3" = "场景已准备就绪，你可以添加手动或自动化场景，更方便的批量控制你的多个设备。";
+"eHomeNewFeatureContent4" = "你的家庭列表，设备列表，分享设备相关等等可以在这里查看使用。让我们开始使用吧！";
+
+//Geek Home
+"GeekNewFeatureTitle1" = "1.欢迎使用Geek Home";
+"GeekNewFeatureTitle2" = "2.房间";
+"GeekNewFeatureTitle3" = "3.场景";
+"GeekNewFeatureTitle4" = "4.个人中心";
+
+"GeekNewFeatureContent1" = "欢迎使用Geek Home来创建你的智能家居，开启新的美好生活！";
+"GeekNewFeatureContent2" = "现在，你可以通过在房间分类中控制你的智能设备。";
+"GeekNewFeatureContent3" = "场景已准备就绪，你可以添加手动或自动化场景，更方便的批量控制你的多个设备。";
+"GeekNewFeatureContent4" = "你的家庭列表，设备列表，分享设备相关等等可以在这里查看使用。让我们开始使用吧！";
+
+//Ozwi Home
+"OzwiNewFeatureTitle1" = "1.欢迎使用Ozwi Home";
+"OzwiNewFeatureTitle2" = "2.房间";
+"OzwiNewFeatureTitle3" = "3.场景";
+"OzwiNewFeatureTitle4" = "4.个人中心";
+
+"OzwiNewFeatureContent1" = "欢迎使用Ozwi Home来创建你的智能家居，开启新的美好生活！";
+"OzwiNewFeatureContent2" = "现在，你可以通过在房间分类中控制你的智能设备。";
+"OzwiNewFeatureContent3" = "场景已准备就绪，你可以添加手动或自动化场景，更方便的批量控制你的多个设备。";
+"OzwiNewFeatureContent4" = "你的家庭列表，设备列表，分享设备相关等等可以在这里查看使用。让我们开始使用吧！";

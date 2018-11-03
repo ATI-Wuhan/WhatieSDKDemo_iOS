@@ -1,0 +1,18 @@
+/* 
+  Alert.strings
+  WhatieSDKDemo
+
+  Created by IIDreams_zhouwei on 2018/8/20.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+
+
+"Alert" = "Alert";
+"Cancel" = "Cancel";
+"OK" = "OK";
+"Remove" = "Remove";
+
+//撤回分享设备
+"RemoveSharingDes" = "Do you want to recall sharing from others?";
+"Removing" = "Removing";
+"RecallSharingSuccess" = "Recall sharing success";

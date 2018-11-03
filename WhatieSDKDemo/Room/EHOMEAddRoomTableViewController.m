@@ -25,7 +25,15 @@
     UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedStringFromTable(@"Done", @"Profile", nil) style:(UIBarButtonItemStylePlain) target:self action:@selector(saveAct)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
-    self.addImageView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backgroundImage"]];
+    UIImage *addImage;
+    if (CurrentApp == Geek) {
+        addImage = [UIImage imageNamed:@"geek+background"];
+    }else if (CurrentApp == Ozwi){
+        addImage = [UIImage imageNamed:@"ozwi_background"];
+    }else{
+        addImage = [UIImage imageNamed:@"backgroundImage"];
+    }
+    self.addImageView=[[UIImageView alloc] initWithImage:addImage];
     self.addImageView.contentMode = UIViewContentModeScaleAspectFit;
     self.addImageView.clipsToBounds = YES;
 }
@@ -110,11 +118,16 @@
         backVC.tag=1;
         
         __weak typeof(self) weakSelf = self;
-        [backVC setChangePictureBlock:^(EHOMEBackgroundModel *model) {
-            [weakSelf.addImageView sd_setImageWithURL:[NSURL URLWithString:model.file.path] placeholderImage:[UIImage imageNamed:@""]];
-            NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:1];
-            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
-            weakSelf.RIModel=model;
+        [backVC setChangePictureBlock:^(NSArray *backgrounds) {
+            for(EHOMEBackgroundModel *model in backgrounds){
+                if(model.vertical){
+                    [weakSelf.addImageView sd_setImageWithURL:[NSURL URLWithString:model.file.path] placeholderImage:[UIImage imageNamed:@""]];
+                    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:1];
+                    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+                    weakSelf.RIModel=model;
+                    break;
+                }
+            }
         }];
         [self.navigationController pushViewController:backVC animated:YES];
     }
@@ -141,7 +154,7 @@
                 [self.navigationController popViewControllerAnimated:YES];
             } failure:^(NSError *error) {
                 [HUDHelper hideHUDForView:sharedKeyWindow animated:YES];
-                [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Add room failure", @"Room", nil) hideAfterDelay:1];
+                [HUDHelper showErrorDomain:error];
             }];
         } failure:^(NSError *error) {
             NSLog(@"Get current home failed.error = %@", error);

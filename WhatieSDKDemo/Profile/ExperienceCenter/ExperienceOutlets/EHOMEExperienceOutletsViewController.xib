@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -142,17 +141,17 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdX-UO-Krz">
-                    <rect key="frame" x="0.0" y="20" width="375" height="387"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="407"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="experience_outlets" translatesAutoresizingMaskIntoConstraints="NO" id="55d-qM-TaP">
-                            <rect key="frame" x="102.5" y="108.5" width="170" height="170"/>
+                            <rect key="frame" x="102.5" y="118.5" width="170" height="170"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="170" id="1rT-NF-joe"/>
                                 <constraint firstAttribute="width" constant="170" id="nhr-no-6bQ"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outlets is Off" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIl-vD-TrV">
-                            <rect key="frame" x="16" y="298.5" width="343" height="21"/>
+                            <rect key="frame" x="16" y="308.5" width="343" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="SXj-c9-zef"/>
                             </constraints>
@@ -173,15 +172,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="gdX-UO-Krz" secondAttribute="trailing" id="079-nz-rLo"/>
-                <constraint firstItem="EFb-5b-udx" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="60w-vR-a6R"/>
-                <constraint firstItem="EFb-5b-udx" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="HlV-lE-msj"/>
-                <constraint firstItem="EFb-5b-udx" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="ds6-tS-9f6"/>
+                <constraint firstAttribute="trailing" secondItem="gdX-UO-Krz" secondAttribute="trailing" id="079-nz-rLo"/>
+                <constraint firstItem="EFb-5b-udx" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="60w-vR-a6R"/>
+                <constraint firstItem="EFb-5b-udx" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="HlV-lE-msj"/>
+                <constraint firstItem="EFb-5b-udx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ds6-tS-9f6"/>
                 <constraint firstItem="EFb-5b-udx" firstAttribute="top" secondItem="gdX-UO-Krz" secondAttribute="bottom" id="ezx-ED-RgO"/>
-                <constraint firstItem="gdX-UO-Krz" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="fmR-fk-kTd"/>
-                <constraint firstItem="gdX-UO-Krz" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="jon-t0-lB3"/>
+                <constraint firstItem="gdX-UO-Krz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fmR-fk-kTd"/>
+                <constraint firstItem="gdX-UO-Krz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jon-t0-lB3"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="-99" y="61"/>
         </view>
     </objects>

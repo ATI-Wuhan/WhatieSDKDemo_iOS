@@ -68,6 +68,10 @@
 
 @property (nonatomic, strong) NSArray <EHOMEHomeModel *> *homeArray;
 
+@property (nonatomic, assign) BOOL isHomeArrayFromServer;
+
+@property (nonatomic, assign) BOOL isDeviceArrayFromServer;
+
 
 #pragma mark - Functions
 
@@ -209,6 +213,16 @@
  */
 -(void)syncSharedDeviceWithCloud:(successBlock)success
                          failure:(failBlock)failure;
+
+
+/**
+ syncSharedoOutDeviceWithCloud
+ 
+ Using the "syncSharedOutDeviceWithCloud" method.
+ 
+ */
+-(void)syncSharedOutDeviceWithCloud:(successBlock)success
+                            failure:(failBlock)failure;
 
 
 /**

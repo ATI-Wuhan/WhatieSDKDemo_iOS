@@ -53,3 +53,13 @@
 "White Light" = "White Light";
 "RGB Light" = "RGB Light";
 "Stream Light" = "Stream Light";
+"mode" = "mode";
+"sunlightmode" = "sunlight mode";
+"colorlightmode" = "colorlight mode";
+"Streamermode" = "Streamer mode";
+
+"Monochrome" = "MonochromeLight";
+//
+"Device is Offline" = "Device is Offline";
+
+"Do you want to stop SmartConfig?" = "Do you want to stop SmartConfig?";

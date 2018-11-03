@@ -15,6 +15,7 @@ static NSString *cellId = @"EHOMETimerTableViewCell";
 @interface EHOMETimerTableViewController ()<updateTimerStatusDelegate>
 
 @property (nonatomic, strong) NSArray *timerArray;
+@property (nonatomic, assign) BOOL isStrip;
 
 @end
 
@@ -57,11 +58,22 @@ static NSString *cellId = @"EHOMETimerTableViewCell";
     [self.device getAllTimers:^(id responseObject) {
         NSLog(@"get all timers success,timers = %@", responseObject);
         
-        for (EHOMETimer *timer in responseObject) {
-            NSLog(@"Current timer tag is = %@", timer.deviceClock.tag);
+        if([self.device.productName isEqualToString:@"PowerStrips"]){
+            self.isStrip = true;
+            NSMutableArray *temp = [NSMutableArray array];
+            for (EHOMETimer *timer in responseObject) {
+                if(timer.deviceClock.stripdps.stripsMode == self.stripTag){
+                    [temp addObject:timer];
+                    NSLog(@"mode = %d", timer.deviceClock.stripdps.stripsMode);
+                }
+            }
+            self.timerArray = temp;
+        }else{
+            for (EHOMETimer *timer in responseObject) {
+                NSLog(@"Current timer tag is = %@", timer.deviceClock.tag);
+            }
+            self.timerArray = responseObject;
         }
-        
-        self.timerArray = responseObject;
         
         [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
@@ -77,6 +89,11 @@ static NSString *cellId = @"EHOMETimerTableViewCell";
     EHOMEAddTimerTableViewController *addTimerVC = [[EHOMEAddTimerTableViewController alloc] initWithNibName:@"EHOMEAddTimerTableViewController" bundle:nil];
     addTimerVC.isEditTimer = NO;
     addTimerVC.device = self.device;
+    if(self.isStrip){
+        addTimerVC.stripType = self.stripTag;
+    }else{
+        addTimerVC.stripType = 0;
+    }
     
     [self.navigationController pushViewController:addTimerVC animated:YES];
 }
@@ -104,6 +121,20 @@ static NSString *cellId = @"EHOMETimerTableViewCell";
     }
     
     cell.timer = self.timerArray[indexPath.row];
+    
+    NSString *dpsName;
+    if(self.isStrip){
+        NSLog(@"状态a = %d", cell.timer.deviceClock.stripdps.stripsStatus);
+        dpsName = cell.timer.deviceClock.stripdps.stripsStatus ? NSLocalizedStringFromTable(@"Turn on", @"DeviceFunction", nil) : NSLocalizedStringFromTable(@"Turn off", @"DeviceFunction", nil);
+    }else{
+        NSLog(@"状态b = %d", cell.timer.deviceClock.deviceStatus);
+        dpsName = cell.timer.deviceClock.deviceStatus ? NSLocalizedStringFromTable(@"Turn on", @"DeviceFunction", nil) : NSLocalizedStringFromTable(@"Turn off", @"DeviceFunction", nil);
+    }
+    
+    NSString *tagStr=NSLocalizedStringFromTable(@"Tag", @"DeviceFunction", nil);
+    NSString *toStr=NSLocalizedStringFromTable(@"TO", @"DeviceFunction", nil);
+    cell.timerDpsNameLabel.text = [NSString stringWithFormat:@"%@:%@(%@:%@)",tagStr, cell.timer.deviceClock.tag,toStr,dpsName];
+    
     cell.indexPath = indexPath;
     cell.delegate = self;
 
@@ -126,6 +157,7 @@ static NSString *cellId = @"EHOMETimerTableViewCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     EHOMEAddTimerTableViewController *addTimerVC = [[EHOMEAddTimerTableViewController alloc] initWithNibName:@"EHOMEAddTimerTableViewController" bundle:nil];
+    addTimerVC.device = self.device;
     addTimerVC.isEditTimer = YES;
     addTimerVC.timer = self.timerArray[indexPath.row];
     
@@ -163,7 +195,5 @@ static NSString *cellId = @"EHOMETimerTableViewCell";
     }];
     return @[delete];
 }
-
-
 
 @end

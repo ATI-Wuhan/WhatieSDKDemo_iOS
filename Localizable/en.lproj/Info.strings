@@ -40,3 +40,8 @@
 "Confirm new password" = "Confirm new password";
 "different password" = "New password is different from the confirmed password";
 "SUBMIT" = "SUBMIT";
+"updating password" = "updating password";
+"code sent success" = "code sent success";
+
+"Registering" = "Registering...";
+"Reseting" = "Reseting...";

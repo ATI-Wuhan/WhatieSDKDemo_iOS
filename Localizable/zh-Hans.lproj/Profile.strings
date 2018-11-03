@@ -15,12 +15,13 @@
 "Feedback" = "反馈";
 
 //Integration
-"Use Echo" = "使用Echo";
+"Use Amazon Alexa" = "使用 Amazon Alexa";
+"Use Google Home" = "使用 Google Home";
 
 //ProfileSetting
 "About" = "关于";
-"Features" = "特性";
-"Rate On App Store" = "软件升级";
+"Features" = "新特性";
+"Rate On App Store" = "去评价";
 "Service Agreement" = "服务协议";
 
 //ExperienceCenter
@@ -41,3 +42,13 @@
 //share
 "Shared Devices" = "分享设备";
 "Remove" = "删除";
+
+//Scancode
+"Scan" = "扫描";
+"light" = "闪光灯";
+"Scan results" = "扫描结果";
+"Scan code failure:code does not belong to eHome" = "扫码失败：该二维码不属于eHome";
+"Scan code successfully" = "扫码成功";
+"Interaction failed. Please try again!" = "交互失败，请重试";
+"Turn off" = "关闭闪光灯";
+"Turn on" = "打开闪光灯";

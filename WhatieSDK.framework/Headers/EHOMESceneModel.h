@@ -27,6 +27,7 @@
                deviceIds:(NSArray *)deviceIds
            functionArray:(NSArray *)functionArray
           sceneDeviceIds:(NSArray *)sceneDeviceIds
+               sceneType:(BOOL)isManual
                  success:(successBlock)success
                  failure:(failBlock)failure;
 
@@ -49,6 +50,14 @@
 
 
 /**
+ execute manual Scene
+ 
+ */
+-(void)executeManualScene:(successBlock)success
+                  failure:(failBlock)failure;
+
+
+/**
  get scene devices
  
  */
@@ -60,7 +69,7 @@
 @class EHOMEPhotoModel;
 @interface scene : EHOMEBaseObject
 @property (nonatomic, assign) int id;//场景id
-@property (nonatomic, copy) NSString *type;
+@property (nonatomic, assign) int type;//manual or timing
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) int homeId;
 @property (nonatomic, assign) BOOL status;

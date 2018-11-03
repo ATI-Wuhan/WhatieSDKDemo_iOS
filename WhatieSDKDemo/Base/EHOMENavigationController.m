@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationBar.barTintColor = THEMECOLOR;
+    self.navigationBar.barTintColor = [UIColor THEMECOLOR];
     self.navigationBar.translucent = NO;
     
     [self.navigationBar setTintColor:[UIColor whiteColor]];

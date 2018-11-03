@@ -14,8 +14,10 @@
     [super awakeFromNib];
     // Initialization code
     
-    if ([CurrentApp isEqualToString:@"Geek+"]) {
+    if (CurrentApp == Geek) {
         self.circleImageView.image = [UIImage imageNamed:@"Geek+circle"];
+    }else if(CurrentApp == Ozwi){
+        self.circleImageView.image = [UIImage imageNamed:@"Ozwi_circle"];
     }else{
         self.circleImageView.image = [UIImage imageNamed:@"circle"];
     }

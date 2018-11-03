@@ -10,7 +10,6 @@
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "ViewController.h"
 #import "EHOMETabBarController.h"
-#import <TuyaSmartKit/TuyaSmartKit.h>
 
 @interface AppDelegate ()
 
@@ -33,9 +32,27 @@
 //    NSString * appId = @"Your AccessId";
 //    NSString * secretKey = @"Your AccessKey";
     
+    NSString * appId;
+    NSString * secretKey;
+    
+    switch (CurrentApp) {
+        case eHome:{
 
-    NSString * appId = @"4601134601";
-    NSString * secretKey = @"c5cb80b69c5af7e41baded615391bbc0";
+            appId = @"4601134601";
+            secretKey = @"c5cb80b69c5af7e41baded615391bbc0";
+        }
+            break;
+
+            
+        default:{
+            appId = @"4601134601";
+            secretKey = @"c5cb80b69c5af7e41baded615391bbc0";
+        }
+            break;
+    }
+    
+
+
 
     
     //Init WhatieSDK
@@ -84,6 +101,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    [EHOMEDataStore setDevicesToDBWithDevices:[EHOMEUserModel shareInstance].deviceArray];
 }
 
 

@@ -46,12 +46,7 @@
     _timer = timer;
     
     if (_timer != nil) {
-        
-        NSString *dpsName = _timer.deviceClock.deviceStatus ? NSLocalizedStringFromTable(@"Turn on", @"DeviceFunction", nil) : NSLocalizedStringFromTable(@"Turn off", @"DeviceFunction", nil);
-        
-        NSString *tagStr=NSLocalizedStringFromTable(@"Tag", @"DeviceFunction", nil);
-        NSString *toStr=NSLocalizedStringFromTable(@"TO", @"DeviceFunction", nil);
-        self.timerDpsNameLabel.text = [NSString stringWithFormat:@"%@:%@(%@:%@)",tagStr, _timer.deviceClock.tag,toStr,dpsName];
+    
         self.timerFinishTimeLabel.text = _timer.finishTimeApp;
         
         BOOL timerStatus = _timer.deviceClock.clockStatus;

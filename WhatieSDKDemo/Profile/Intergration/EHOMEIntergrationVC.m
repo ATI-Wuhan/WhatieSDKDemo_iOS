@@ -8,6 +8,11 @@
 
 #import "EHOMEIntergrationVC.h"
 #import "EHOMEUseEchoVC.h"
+#import "EHOMEIntergrationTableViewCell.h"
+
+
+
+#define cellId @"EHOMEIntergrationTableViewCell"
 
 @interface EHOMEIntergrationVC ()
 @property (nonatomic, strong)UIImageView *bgImage; //背景图片
@@ -17,46 +22,71 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title=NSLocalizedStringFromTable(@"Integration", @"Profile", nil);
-    self.view.backgroundColor=GREYCOLOR;
     
-    self.bgImage = [[UIImageView alloc]init];
-    self.bgImage.image=[UIImage imageNamed:@"echo"];
-    [self.view addSubview:self.bgImage];
-    
-    __weak typeof(self) weakSelf = self;
-    [self.bgImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(weakSelf.view).mas_offset(8);
-        make.top.mas_equalTo(weakSelf.view).mas_offset(8);
-        make.right.mas_equalTo(weakSelf.view).mas_offset(-8);
-        make.height.mas_equalTo(200);
-    }];
-    
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickImage)];
-    [self.bgImage addGestureRecognizer:tapGesture];
-    self.bgImage.userInteractionEnabled = YES;
-    // Do any additional setup after loading the view.
+    [self.tableView registerNib:[UINib nibWithNibName:@"EHOMEIntergrationTableViewCell" bundle:nil] forCellReuseIdentifier:cellId];
+    self.tableView.tableFooterView = [UIView new];
+    self.tableView.backgroundColor = GREYCOLOR;
 }
-
--(void)clickImage{
-    EHOMEUseEchoVC *useVC=[[EHOMEUseEchoVC alloc] init];
-    [self.navigationController pushViewController:useVC animated:YES];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 2;
 }
-*/
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    EHOMEIntergrationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!cell) {
+        cell = [[EHOMEIntergrationTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    }
+    
+    NSArray *images = @[[UIImage imageNamed:@"AmazonAlexaLogo"],[UIImage imageNamed:@"GoogleHomeLogo"]];
+    
+    cell.intergrationImageView.image = images[indexPath.section];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    EHOMEUseEchoVC *useVC=[[EHOMEUseEchoVC alloc] init];
+    useVC.intergration = indexPath.section;
+    [self.navigationController pushViewController:useVC animated:YES];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 200.0;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 8.0;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.01;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return [UIView new];
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [UIView new];
+}
+
+
 
 @end

@@ -8,6 +8,8 @@
 "Close" = "Close";
 "Open" = "Open";
 "Offline" = "Offline";
+"Unbind" = "Unbind";
+"FirmwareUpgrading" = "FirmwareUpgrading";
 "On" = "On";
 "Off" = "Off";
 
@@ -17,21 +19,26 @@
 "Remove device success" = "Remove device success";
 
 "ReName" = "ReName";
-"update device name" ="update device name";
-"updating device name" = "updating name";
-"update devName success" = "update name success";
+"update device name" ="Update device name";
+"updating device name" = "Updating name";
+"update devName success" = "Update name success";
 
 "Share" = "Share";
 "Alert" = "Alert";
-"share by email" = "share device to your friend by email.";
+"share by email" = "Share device to your friend by email.";
 "friends email" = "your friends email...";
 "Sharing" = "Sharing";
 "Share success" = "Share device success.";
+
+"ChangeRoom" = "ChangeRoom";
+"changingRoom" = "Changing the room where the device is located";
+"chang Room success" = "Change room success";
 
 "Options" = "Options";
 "Outlets is On" = "Outlets is On";
 "Outlets is Off" = "Outlets is Off";
 "Device" = "Device";
+"PowerStrips" = "Power Strip";
 "Edit" = "Edit";
 "Edit device" = "Edit device name,remove device,and share device.";
 "share device" = "share device";

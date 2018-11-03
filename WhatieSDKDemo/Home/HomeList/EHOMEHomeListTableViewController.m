@@ -21,12 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedStringFromTable(@"Homes", @"Home", nil);
+    NSLog(@"数据库家庭列表 = %@", [EHOMEDataStore getHomesFromDB]);
     
-    if(self.isEditHomes){
-        UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Edit", @"Device", nil) style:UIBarButtonItemStylePlain target:self action:@selector(editHomesAction)];
-        self.navigationItem.rightBarButtonItem = editItem;
-    }
+    self.title = NSLocalizedStringFromTable(@"Homes", @"Home", nil);
+  
+    UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Edit", @"Device", nil) style:UIBarButtonItemStylePlain target:self action:@selector(editHomesAction)];
+    self.navigationItem.rightBarButtonItem = editItem;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"EHOMEDefaultCenterTableViewCell" bundle:nil] forCellReuseIdentifier:centerCellId];
     
@@ -34,13 +34,21 @@
         [self syncHomeWithCloud];
     }];
     
-    if ([EHOMEUserModel shareInstance].homeArray.count == 0) {
-        [self.tableView.mj_header beginRefreshing];
+    if (![EHOMEUserModel shareInstance].isHomeArrayFromServer) {
+        
+        NSLog(@"数据库家庭列表 = %@", [EHOMEDataStore getHomesFromDB]);
+        [EHOMEUserModel shareInstance].homeArray = [EHOMEDataStore getHomesFromDB];
+        
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [self syncHomeWithCloud];
+        });
     }
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(syncHomeWithCloud) name:@"changeHomeName" object:nil];
+//    if ([EHOMEUserModel shareInstance].homeArray.count == 0) {
+//        [self.tableView.mj_header beginRefreshing];
+//    }
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(syncHomeWithCloud) name:@"AddHomeSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(syncHomeWithCloud) name:@"changeHomeName" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(syncHomeWithCloud) name:@"tranferHome" object:nil];
     
@@ -49,6 +57,7 @@
 }
 
 -(void)dealloc {
+    [super dealloc];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -62,8 +71,11 @@
     [[EHOMEUserModel shareInstance] syncHomeWithCloud:^(id responseObject) {
         NSLog(@"Home List = %@", responseObject);
         
+        //获取所有家庭列表成功，存档至数据库
+        [EHOMEDataStore setHomesToDBWithHomes:responseObject];
+        
         [self.tableView.mj_header endRefreshing];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadData];
         
     } failure:^(NSError *error) {
         NSLog(@"Home List failed = %@", error);
@@ -111,9 +123,9 @@
                 EHOMEHomeModel *model = responseObject;
                 
                 if (home.id == model.id) {
-                    cell.textLabel.textColor = THEMECOLOR;
+                    cell.textLabel.textColor = [UIColor THEMECOLOR];
                     cell.accessoryType = UITableViewCellAccessoryCheckmark;
-                    cell.tintColor = THEMECOLOR;
+                    cell.tintColor = [UIColor THEMECOLOR];
                 }else{
                     cell.textLabel.textColor = [UIColor blackColor];
                     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -137,7 +149,7 @@
         }
         
         cell.centerTitleLabel.text = NSLocalizedStringFromTable(@"Add New Home", @"Home", nil);
-        cell.centerTitleLabel.textColor = THEMECOLOR;
+        cell.centerTitleLabel.textColor = [UIColor THEMECOLOR];
         
         return cell;
     }
@@ -163,6 +175,9 @@
             
             
             self.selectHomeBlock(home);
+            
+            NSNotification *notification =[NSNotification notificationWithName:@"currentHomeIsExchanged" object:nil userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
             
             [self.navigationController popViewControllerAnimated:YES];
         }
@@ -234,11 +249,16 @@
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
                 [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"add home success", @"Home", nil) hideAfterDelay:1.0];
                 
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"AddHomeSuccess" object:nil userInfo:nil];
+                //添加家庭成功，[EHOMEUserModel shareInstance].homeArray会自动同步，直接刷新页面即可
+                [self.tableView reloadData];
+                
+                //新增到本地数据库
+                [EHOMEDataStore setHomeToDB:responseObject];
+                
             } failure:^(NSError *error) {
                 NSLog(@"add home failed. error = %@", error);
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+                [HUDHelper showErrorDomain:error];
             }];
         }else{
             [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"please enter name", @"Info", nil) hideAfterDelay:1.0];

@@ -16,6 +16,7 @@ typedef void(^updateTimerBlock)(EHOMETimer *timer);
 
 
 @property (nonatomic, assign) BOOL isEditTimer;
+@property (nonatomic, assign) int stripType;
 
 //add timer for this device
 @property (nonatomic, strong) EHOMEDeviceModel *device;

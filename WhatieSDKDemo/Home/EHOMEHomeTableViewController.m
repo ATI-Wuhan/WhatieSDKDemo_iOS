@@ -13,11 +13,13 @@
 #import "EHOMEHomeTableViewCell.h"
 #import "EHOMEHomeEmptyTableViewCell.h"
 #import "EHOMEAddDeviceTableViewController.h"
-#import "EHOMEQRCodeViewController.h"
-#import "EHOMEScanViewController.h"
 #import "EHOMEOutletDetailViewController.h"
 #import "EHOMERGBLightViewController.h"
 #import "EHOMEHomeListTableViewController.h"
+#import "EHOMEShareViewController.h"
+#import "EHOMEPowerStripViewController.h"
+#import "EHOMEMonochromeViewController.h"
+#import "EHOMERoomListTableViewController.h"
 
 @interface EHOMEHomeTableViewController ()<addDeviceDelegate>
 
@@ -39,7 +41,8 @@
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"add"] style:UIBarButtonItemStylePlain target:self action:@selector(addDeviceAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
-
+    
+    NSLog(@"数据库家庭 = %@", [EHOMEDataStore getHomesFromDB]);
     
     [self initTableView];
     
@@ -79,7 +82,22 @@
         [weakSelf pullDownRefresh];
     }];
     
-    [self.tableView.mj_header beginRefreshing];
+//    [self.tableView.mj_header beginRefreshing];
+    
+    //从后台拿到数据之前，先加载本地设备列表数据
+    if (![EHOMEUserModel shareInstance].isDeviceArrayFromServer) {
+        
+        NSLog(@"数据库设备列表 = %@", [EHOMEDataStore getDevicesFromDB]);
+        [EHOMEUserModel shareInstance].deviceArray = [EHOMEDataStore getDevicesFromDB];
+        
+        [self getDevicesFromCurrentHome];
+        
+        if ([EHOMEUserModel shareInstance].deviceArray.count == 0) {
+            [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedString(@"Loading", nil) hideAfterDelay:3];
+        }
+        
+        [self pullDownRefresh];
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginPullDownRefresh) name:@"GetStartedNotice" object:nil];
 }
@@ -90,10 +108,14 @@
 
     NSLog(@"[EHOMEUserModel shareInstance].deviceArray 有变更, 当前线程 = %@", [NSThread currentThread]);
     
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
+    [self getDevicesFromCurrentHome];
 }
 
 -(void)dealloc {
+    
+    [super dealloc];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -105,42 +127,50 @@
     
     //syncDeviceWithCloud without Home
     
-//    [[EHOMEUserModel shareInstance] syncDeviceWithCloud:^(id responseObject) {
-//        NSLog(@"Get my devices successful : %@", responseObject);
-//
-//        for (EHOMEDeviceModel *device in responseObject) {
-//            NSLog(@"device version = %@", device.device.version.version);
-//        }
-//
-//
-//        if ([EHOMEUserModel shareInstance].deviceArray.count == 0) {
-//
-//            NSLog(@"没有设备");
-//        }
-//
-//        [self.tableView.mj_header endRefreshing];
-//        [self.tableView reloadData];
-//    } failure:^(NSError *error) {
-//        NSLog(@"Get my devices failed : %@", error);
-//
-//        [self.tableView.mj_header endRefreshing];
-//        [self.tableView reloadData];
-//    }];
+    //获取所有的设备列表
+    [[EHOMEUserModel shareInstance] syncDeviceWithCloud:^(id responseObject) {
+        NSLog(@"Get my devices successful : %@", responseObject);
+        
+        [HUDHelper hideHUDForView:sharedKeyWindow animated:YES];
+        
+        NSArray <EHOMEDeviceModel *> *devices = responseObject;
+
+        //存档设备列表到数据库
+        if (devices.count > 0) {
+            [EHOMEDataStore setDevicesToDBWithDevices:devices];
+        }
+
+    } failure:^(NSError *error) {
+        NSLog(@"Get my devices failed : %@", error);
+        [HUDHelper hideHUDForView:sharedKeyWindow animated:YES];
+    }];
+
     
+    //获取当前家庭里的设备列表
+    [self getDevicesFromCurrentHome];
     
-    
+    //获取当前家庭成功，如果同时获取到了所有家庭列表，存档至数据库
+    if ([EHOMEUserModel shareInstance].homeArray.count > 0) {
+        [EHOMEDataStore setHomesToDBWithHomes:[EHOMEUserModel shareInstance].homeArray];
+    }
+
+}
+
+-(void)getDevicesFromCurrentHome{
+    //获取当前家庭后，获取家庭里的设备列表
     [[EHOMEUserModel shareInstance] getCurrentHomeSuccess:^(id responseObject) {
         NSLog(@"Get current home success.home = %@", responseObject);
-        
-        
+
         EHOMEHomeModel *home = responseObject;
         NSLog(@"Get current home success.home = %d", home.id);
         self.navigationItem.title = home.name;
         
+        
+        //获取家庭里的设备列表，此时，deviceArray存在，即可存入数据库
         [home syncDeviceByHomeSuccess:^(id responseObject) {
             self.devices = responseObject;
-            NSLog(@"Get devices success.home = %@", self.devices);
-
+            NSLog(@"Get devices success.device = %@", self.devices);
+            
             [self.tableView.mj_header endRefreshing];
             [self.tableView reloadData];
             
@@ -149,14 +179,24 @@
             [self.tableView.mj_header endRefreshing];
             [self.tableView reloadData];
         }];
-
+        
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSArray *rooms = [EHOMEDataStore getRoomsFromDBWithHomeId:home.id];
+            if (rooms.count == 0) {
+                [home syncRoomByHomeSuccess:^(id responseObject) {
+                    [EHOMEDataStore setRoomsToDBWithRooms:responseObject inHome:home.id];
+                } failure:^(NSError *error) {
+                    
+                }];
+            }
+        });
+        
     } failure:^(NSError *error) {
         NSLog(@"Get current home failed.error = %@", error);
         
         [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
     }];
-
 }
 
 #pragma mark - Table view data source
@@ -241,7 +281,7 @@
 //        EHOMEDeviceModel *model = [EHOMEUserModel shareInstance].deviceArray[indexPath.section];
 
     if (self.devices.count > 0) {
-        EHOMEDeviceModel *model = self.devices[indexPath.section];
+        EHOMEDeviceModel *deviceModel = self.devices[indexPath.section];
         
         NSString *title = NSLocalizedStringFromTable(@"Remove", @"Profile", nil);
         
@@ -257,7 +297,7 @@
                 
                 [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Removing", @"Device", nil) hideAfterDelay:10];
                 
-                [model removeDevice:^(id responseObject) {
+                [deviceModel removeDevice:^(id responseObject) {
                     
                     [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
                     [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Remove device success", @"Device", nil) hideAfterDelay:1.0];
@@ -265,14 +305,14 @@
                     NSLog(@"remove success = %@", responseObject);
                     
                     NSMutableArray *currentArray = [NSMutableArray arrayWithArray:self.devices];
-                    [currentArray removeObject:model];
+                    [currentArray removeObject:deviceModel];
                     self.devices = currentArray;
                     [self.tableView reloadData];
 
                 } failure:^(NSError *error) {
                     NSLog(@"remove failed = %@", error);
                     [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                    [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+                    [HUDHelper showErrorDomain:error];
                 }];
             }];
             
@@ -291,11 +331,39 @@
         editNameRowAction.backgroundColor = RGB(0, 162, 199);
         
         UITableViewRowAction *shareRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:NSLocalizedStringFromTable(@"Share", @"Device", nil) handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-            [self shareDevice:model];
+            //[self shareDevice:model];
+            EHOMEShareViewController *shareVC = [[EHOMEShareViewController alloc] initWithNibName:@"EHOMEShareViewController" bundle:nil];
+            shareVC.codeType = 2;
+            shareVC.deviceModel = deviceModel;
+            [self.navigationController pushViewController:shareVC animated:YES];
         }];
         shareRowAction.backgroundColor = RGB(0, 199, 164);
         
-        return @[deleteRowAction, editNameRowAction, shareRowAction];
+        UITableViewRowAction *changeDeviceRoomRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:NSLocalizedStringFromTable(@"ChangeRoom", @"Device", nil) handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+            EHOMERoomListTableViewController *roomlistVC = [[EHOMERoomListTableViewController alloc] initWithNibName:@"EHOMERoomListTableViewController" bundle:nil];
+            roomlistVC.ModelArray = [EHOMEDataStore getRoomsFromDBWithHomeId:deviceModel.homeId];
+            roomlistVC.DeviceModel = deviceModel;
+            roomlistVC.IsChangeDeviceRoom = YES;
+            for(EHOMERoomModel *RoomModel in roomlistVC.ModelArray){
+                if([RoomModel.room.name isEqualToString:deviceModel.roomName]){
+                    roomlistVC.selectedmodel = RoomModel;
+                    break;
+                }
+            }
+            
+            __weak typeof(self) weakSelf = self;
+            [roomlistVC setSelectedRoomBlock:^(EHOMERoomModel *model) {
+                deviceModel.roomName = model.room.name;
+                NSMutableArray *tempArray = [NSMutableArray arrayWithArray:[EHOMEUserModel shareInstance].deviceArray];
+                [tempArray replaceObjectAtIndex:indexPath.section withObject:deviceModel];
+                [EHOMEUserModel shareInstance].deviceArray = tempArray;
+                [weakSelf.tableView reloadData];
+            }];
+            [self.navigationController pushViewController:roomlistVC animated:YES];
+        }];
+        changeDeviceRoomRowAction.backgroundColor = RGB(255, 190, 70);
+        
+        return @[deleteRowAction, editNameRowAction, changeDeviceRoomRowAction, shareRowAction];
     }else{
         return nil;
     }
@@ -339,7 +407,7 @@
         } failure:^(NSError *error) {
             NSLog(@"share device failed. error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -393,7 +461,7 @@
         } failure:^(NSError *error) {
             NSLog(@"update device name failed. error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
     }];
     
@@ -423,7 +491,7 @@
 //                NSLog(@"Clicked RgbLight");
 //
 //                EHOMERGBLightViewController *lightVC = [[EHOMERGBLightViewController alloc] initWithNibName:@"EHOMERGBLightViewController" bundle:nil];
-//
+///Users/clj/Desktop/eHomeBySDK/WhatieSDKDemo/Home
 //                lightVC.device = device;
 //
 //                [self.navigationController pushViewController:lightVC animated:YES];
@@ -451,36 +519,60 @@
         
         EHOMEDeviceModel *device = self.devices[indexPath.section];
         
-        
-        NSArray *products = @[@"RgbLight",@"Plug"];
-        
-        NSInteger index = [products indexOfObject:device.productName];
-        
-        switch (index) {
-            case 0:{
-                NSLog(@"Clicked RgbLight");
-                
-                EHOMERGBLightViewController *lightVC = [[EHOMERGBLightViewController alloc] initWithNibName:@"EHOMERGBLightViewController" bundle:nil];
-                
-                lightVC.device = device;
-                
-                [self.navigationController pushViewController:lightVC animated:YES];
+        if ([device.device.status isEqualToString:@"Offline"]) {
+            [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Device is Offline", @"DeviceFunction", nil) hideAfterDelay:1.0];
+        }else{
+            NSArray *products = @[@"RgbLight",@"Plug",@"PowerStrips",@"MonochromeLight"];
+            
+            NSInteger index = [products indexOfObject:device.productName];
+            
+            switch (index) {
+                case 0:{
+                    NSLog(@"Clicked RgbLight");
+                    
+                    EHOMERGBLightViewController *lightVC = [[EHOMERGBLightViewController alloc] initWithNibName:@"EHOMERGBLightViewController" bundle:nil];
+                    
+                    lightVC.device = device;
+                    
+                    [self.navigationController pushViewController:lightVC animated:YES];
+                }
+                    break;
+                    
+                case 1:{
+                    NSLog(@"Clicked Plug");
+                    
+                    EHOMEOutletDetailViewController *outletVC = [[EHOMEOutletDetailViewController alloc] initWithNibName:@"EHOMEOutletDetailViewController" bundle:nil];
+                    outletVC.device = device;
+                    
+                    [self.navigationController pushViewController:outletVC animated:YES];
+                }
+                    break;
+                    
+                case 2:{
+                    NSLog(@"Clicked PowerStrip");
+                    
+                    EHOMEPowerStripViewController *stripVC = [[EHOMEPowerStripViewController alloc] initWithNibName:@"EHOMEPowerStripViewController" bundle:nil];
+                    stripVC.stripDevice = device;
+                    
+                    [self.navigationController pushViewController:stripVC animated:YES];
+                }
+                    break;
+                    
+                case 3:{
+                    NSLog(@"Clicked Monochrome");
+                    
+                    EHOMEMonochromeViewController *monochromeVC = [[EHOMEMonochromeViewController alloc] initWithNibName:@"EHOMEMonochromeViewController" bundle:nil];
+                    monochromeVC.monochromeDevice = device;
+                    
+                    [self.navigationController pushViewController:monochromeVC animated:YES];
+                }
+                    break;
+                    
+                default:
+                    break;
             }
-                break;
-                
-            case 1:{
-                NSLog(@"Clicked Plug");
-                
-                EHOMEOutletDetailViewController *outletVC = [[EHOMEOutletDetailViewController alloc] initWithNibName:@"EHOMEOutletDetailViewController" bundle:nil];
-                outletVC.device = device;
-                
-                [self.navigationController pushViewController:outletVC animated:YES];
-            }
-                break;
-                
-            default:
-                break;
         }
+        
     }
 }
 
@@ -539,6 +631,7 @@
 -(void)addDeviceAction{
     EHOMEAddDeviceTableViewController *addDeviceVC = [[EHOMEAddDeviceTableViewController alloc] initWithNibName:@"EHOMEAddDeviceTableViewController" bundle:nil];
     [self.navigationController pushViewController:addDeviceVC animated:YES];
+    
 }
 
 

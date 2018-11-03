@@ -16,4 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *DeviceImage3;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *sceneSwitch;
+- (IBAction)changeSceneStatusAction:(id)sender;
+
+@property (nonatomic, strong) EHOMESceneModel *TSceneModel;
 @end

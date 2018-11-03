@@ -14,9 +14,9 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.experienceTitleLabel.textColor = THEMECOLOR;
+    self.experienceTitleLabel.textColor = [UIColor THEMECOLOR];
     
-    self.experienceLabel.backgroundColor = THEMECOLOR;
+    self.experienceLabel.backgroundColor = [UIColor THEMECOLOR];
     self.experienceLabel.layer.masksToBounds = YES;
     self.experienceLabel.layer.cornerRadius = 3.0;
     self.experienceLabel.textColor = [UIColor whiteColor];

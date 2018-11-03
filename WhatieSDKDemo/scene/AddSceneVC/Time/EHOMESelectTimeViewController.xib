@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EHOMESelectTimeViewController">
             <connections>
+                <outlet property="repeatTableView" destination="8BP-7i-Xs9" id="n9G-3n-6pb"/>
                 <outlet property="timeDatePicker" destination="eFR-5g-JOr" id="86r-iN-Lyd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,24 +22,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eFR-5g-JOr">
-                    <rect key="frame" x="0.0" y="184" width="375" height="320"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="320" id="j7z-bl-AtV"/>
+                        <constraint firstAttribute="height" constant="280" id="ISj-hv-VUw"/>
                     </constraints>
                     <date key="date" timeIntervalSinceReferenceDate="553071735.06394899">
                         <!--2018-07-12 07:02:15 +0000-->
                     </date>
                 </datePicker>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8BP-7i-Xs9">
+                    <rect key="frame" x="0.0" y="300" width="375" height="367"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="eFR-5g-JOr" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="ebp-Xz-16c"/>
-                <constraint firstItem="eFR-5g-JOr" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="fU2-B8-FKI"/>
-                <constraint firstItem="eFR-5g-JOr" firstAttribute="centerY" secondItem="Q5M-cg-NOt" secondAttribute="centerY" id="v1X-K7-mM4"/>
-                <constraint firstItem="eFR-5g-JOr" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="xv0-TJ-SKm"/>
+                <constraint firstItem="8BP-7i-Xs9" firstAttribute="top" secondItem="eFR-5g-JOr" secondAttribute="bottom" constant="20" id="5sw-Rf-BhJ"/>
+                <constraint firstItem="8BP-7i-Xs9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KCF-dR-ZEz"/>
+                <constraint firstItem="8BP-7i-Xs9" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="Nwm-7t-T4R"/>
+                <constraint firstItem="eFR-5g-JOr" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="PbJ-ZB-olv"/>
+                <constraint firstItem="eFR-5g-JOr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TZI-IM-Ruk"/>
+                <constraint firstItem="eFR-5g-JOr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="udR-q6-cjk"/>
+                <constraint firstItem="8BP-7i-Xs9" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="xS3-kE-88F"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-169" y="63"/>
+            <point key="canvasLocation" x="-169.5" y="62.5"/>
         </view>
     </objects>
 </document>

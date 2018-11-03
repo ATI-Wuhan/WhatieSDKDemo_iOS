@@ -34,7 +34,11 @@
         self.title = NSLocalizedStringFromTable(@"Update Timer", @"DeviceFunction", nil);
         
         self.time = self.timer.finishTimeApp;
-        self.status = self.timer.deviceClock.deviceStatus;
+        if([self.device.productName isEqualToString:@"PowerStrips"]){
+            self.status = self.timer.deviceClock.stripdps.stripsStatus;
+        }else{
+            self.status = self.timer.deviceClock.deviceStatus;
+        }
         self.tag = self.timer.deviceClock.tag;
         
         NSString *loopsString = self.timer.deviceClock.timerType;
@@ -49,11 +53,21 @@
     }else{
         self.title = NSLocalizedStringFromTable(@"Add Timer", @"DeviceFunction", nil);
         
-        self.time = @"18:30";
+        self.time = [self dateToString:[NSDate date]];
         self.status = YES;
+        self.tag = @"";
         self.loopsArray = [[NSMutableArray alloc] initWithArray:@[@(1),@(1),@(1),@(1),@(1),@(1),@(1)]];
     }
 }
+
+- (NSString *)dateToString:(NSDate *)date{
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSString *strDate = [dateFormatter stringFromDate:date];
+    return strDate;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -70,7 +84,7 @@
         [loops appendString:[loop stringValue]];
     }
     
-    NSLog(@"Add Timer Info ,time = %@, status = %d, loops = %@",self.time, self.status, loops);
+    NSLog(@"Add Timer Info , time = %@, status = %d, loops = %@",self.time, self.status, loops);
     
     __weak typeof(self) weakSelf = self;
     
@@ -78,31 +92,29 @@
         //update timer
         
         [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"updating timer", @"DeviceFunction", nil) hideAfterDelay:10];
-        
-        [self.timer updateTimerWithLoops:loops time:self.time status:self.status tag:self.tag success:^(id responseObject) {
+        [self.timer updateTimerWithLoops:loops time:self.time status:self.status tag:self.tag deviceType:self.device.device.product.productType success:^(id responseObject) {
             NSLog(@"update timer success, response = %@", responseObject);
             
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-
+            
             EHOMETimer *timer = responseObject;
             
             weakSelf.updateTimerBlock(timer);
             
             [weakSelf.navigationController popViewControllerAnimated:YES];
-            
         } failure:^(NSError *error) {
             NSLog(@"update timer failed, error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1];
+            [HUDHelper showErrorDomain:error];
         }];
     }else{
         //add timer
         
-        [HUDHelper addHUDProgressInView:sharedKeyWindow text:@"Adding timer..." hideAfterDelay:10];
+        [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Adding timer", @"DeviceFunction", nil) hideAfterDelay:10];
     
-        NSLog(@"The tag is %@", self.tag);
+        NSLog(@"The tag is %@,loops = %@,time = %@,status = %d,stripMode = %d", self.tag,loops,self.time,self.status,self.stripType);
         
-        [self.device addTimerWithLoops:loops time:self.time status:self.status tag:self.tag success:^(id responseObject) {
+        [self.device addTimerWithLoops:loops time:self.time status:self.status tag:self.tag stripMode:self.stripType success:^(id responseObject) {
             NSLog(@"add timer success, response = %@", responseObject);
             
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
@@ -110,11 +122,10 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"AddTimerNoticeSuccess" object:nil userInfo:nil];
             
             [weakSelf.navigationController popViewControllerAnimated:YES];
-            
         } failure:^(NSError *error) {
             NSLog(@"add timer failed, error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1];
+            [HUDHelper showErrorDomain:error];
         }];
     }
 }
@@ -176,18 +187,18 @@
             
             if (self.status) {
                 if (indexPath.row == 0) {
-                    cell.textLabel.textColor = THEMECOLOR;
+                    cell.textLabel.textColor = [UIColor THEMECOLOR];
                     cell.accessoryType = UITableViewCellAccessoryCheckmark;
-                    cell.tintColor = THEMECOLOR;
+                    cell.tintColor = [UIColor THEMECOLOR];
                 }else{
                     cell.textLabel.textColor = [UIColor blackColor];
                     cell.accessoryType = UITableViewCellAccessoryNone;
                 }
             }else{
                 if (indexPath.row == 1) {
-                    cell.textLabel.textColor = THEMECOLOR;
+                    cell.textLabel.textColor = [UIColor THEMECOLOR];
                     cell.accessoryType = UITableViewCellAccessoryCheckmark;
-                    cell.tintColor = THEMECOLOR;
+                    cell.tintColor = [UIColor THEMECOLOR];
                 }else{
                     cell.textLabel.textColor = [UIColor blackColor];
                     cell.accessoryType = UITableViewCellAccessoryNone;
@@ -198,9 +209,9 @@
             cell.textLabel.text = @[NSLocalizedStringFromTable(@"Sunday", @"DeviceFunction", nil),NSLocalizedStringFromTable(@"Saturday", @"DeviceFunction", nil),NSLocalizedStringFromTable(@"Friday", @"DeviceFunction", nil),NSLocalizedStringFromTable(@"Thursday", @"DeviceFunction", nil),NSLocalizedStringFromTable(@"Wednesday", @"DeviceFunction", nil),NSLocalizedStringFromTable(@"Tuesday", @"DeviceFunction", nil),NSLocalizedStringFromTable(@"Monday", @"DeviceFunction", nil)][indexPath.row];
             
             if ([self.loopsArray[indexPath.row] intValue] == 1) {
-                cell.textLabel.textColor = THEMECOLOR;
+                cell.textLabel.textColor = [UIColor THEMECOLOR];
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;
-                cell.tintColor = THEMECOLOR;
+                cell.tintColor = [UIColor THEMECOLOR];
             }else{
                 cell.textLabel.textColor = [UIColor blackColor];
                 cell.accessoryType = UITableViewCellAccessoryNone;
@@ -221,7 +232,7 @@
         
         __weak typeof(self) weakSelf = self;
         [setTime setTimeblock:^(NSString *time) {
-            NSLog(@"选择的时间为 = %@", time);
+            NSLog(@"选择hahaha时间为 = %@", time);
             weakSelf.time = time;
             [tableView reloadData];
         }];

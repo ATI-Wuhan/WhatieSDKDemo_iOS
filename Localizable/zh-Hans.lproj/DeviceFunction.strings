@@ -7,8 +7,8 @@
 */
 //outlet
 "Timing countdown" = "倒计时";
-"Start countdown" = "设置倒计时时间";
-"duration" = "时间";
+"Start countdown" = "设置倒计时时间（秒）";
+"duration" = "倒计时时间（秒）";
 "enter duration" = "请输入倒计时的时间";
 "No countdown" = "无倒计时";
 
@@ -53,3 +53,13 @@
 "White Light" = "日光灯";
 "RGB Light" = "彩光灯";
 "Stream Light" = "流光灯";
+"mode" = "模式";
+"sunlightmode" = "日光模式";
+"colorlightmode" = "彩光模式";
+"Streamermode" = "流光模式";
+
+"Monochrome" = "单色灯";
+//
+"Device is Offline" = "设备已离线";
+
+"Do you want to stop SmartConfig?" = "返回将停止配网，你确定返回吗";

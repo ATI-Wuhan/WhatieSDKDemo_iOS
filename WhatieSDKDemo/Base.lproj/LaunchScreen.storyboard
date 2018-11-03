@@ -1,95 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="px1-E9-KrU">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="px1-E9-KrU">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
-            <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JP3-rZ-eXX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="JP3-rZ-eXX" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="CZi-hC-1zG"/>
-                            <constraint firstItem="JP3-rZ-eXX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YTQ-Co-LfS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JP3-rZ-eXX" secondAttribute="trailing" id="gzC-pv-cA0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JP3-rZ-eXX" secondAttribute="bottom" id="mfb-U4-g5d"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-377" y="395"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="9q0-u0-vbe">
             <objects>
                 <viewController id="px1-E9-KrU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IZs-yY-AXE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z6a-7g-PRW"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VSp-lx-LQg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Geek+launch" translatesAutoresizingMaskIntoConstraints="NO" id="M3Q-dN-Pf2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="M3Q-dN-Pf2" firstAttribute="leading" secondItem="FyZ-Ho-4Z3" secondAttribute="leading" id="As5-Mi-QiF"/>
-                            <constraint firstItem="M3Q-dN-Pf2" firstAttribute="top" secondItem="VSp-lx-LQg" secondAttribute="top" id="BcV-Lp-8h4"/>
-                            <constraint firstItem="FyZ-Ho-4Z3" firstAttribute="trailing" secondItem="M3Q-dN-Pf2" secondAttribute="trailing" id="Uyw-sL-aDT"/>
-                            <constraint firstItem="FyZ-Ho-4Z3" firstAttribute="bottom" secondItem="M3Q-dN-Pf2" secondAttribute="bottom" id="ieG-n0-fWj"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="FyZ-Ho-4Z3"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6F2-rQ-uIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="414" y="392"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="LVL-Tb-yja">
-            <objects>
-                <viewController id="98x-Gn-8U6" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xkf-zm-hDy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Axa-bb-ZXo">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="BxX-rn-t8c" firstAttribute="trailing" secondItem="Axa-bb-ZXo" secondAttribute="trailing" id="aVT-eK-mBD"/>
-                            <constraint firstItem="Axa-bb-ZXo" firstAttribute="top" secondItem="xkf-zm-hDy" secondAttribute="top" id="dEg-9P-1i7"/>
-                            <constraint firstItem="Axa-bb-ZXo" firstAttribute="leading" secondItem="BxX-rn-t8c" secondAttribute="leading" id="kOH-RF-6M7"/>
-                            <constraint firstItem="BxX-rn-t8c" firstAttribute="bottom" secondItem="Axa-bb-ZXo" secondAttribute="bottom" id="kuw-Jx-AXN"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="BxX-rn-t8c"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zkW-pi-PSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1160" y="390"/>
-        </scene>
     </scenes>
-    <resources>
-        <image name="Geek+launch" width="375" height="667"/>
-    </resources>
 </document>

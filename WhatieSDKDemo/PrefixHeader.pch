@@ -14,18 +14,23 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 
+typedef NS_ENUM(NSUInteger, APPType) {
+    eHome = 0,
+    Geek = 1,
+    Ozwi = 2,
+};
 
-#define CurrentApp @"Geek+"//@"eHome",@"Geek+",@"Ozwi"
+#define CurrentApp 0
+
 
 
 #define sharedKeyWindow [UIApplication sharedApplication].keyWindow
 
 
 
+
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define RGB(r,g,b) RGBA(r,g,b,1.0f)
-//#define THEMECOLOR RGB(38, 175, 246)//eHome:RGB(38, 175, 246)
-#define THEMECOLOR RGB(25, 107, 162)//Geek+:RGB(25, 107, 162)
 #define GREYCOLOR RGB(240,240,240)
 #define DEVICE_W            [UIScreen mainScreen].bounds.size.width
 #define DEVICE_H            [UIScreen mainScreen].bounds.size.height
@@ -43,5 +48,15 @@
 #import <WhatieSDK/WhatieSDK.h>
 
 #import "EHOMENavigationController.h"
+#import "EHOMEExtension.h"
+#import <Realm/Realm.h>
+#import "EHOMEUserDB.h"
+#import "EHOMEDataStore.h"
+#import "Home.h"
+#import "DeviceDB.h"
+#import "RoomDB.h"
+#import "SceneDB.h"
+#import "EHOMEWifiDB.h"
+
 
 #endif /* PrefixHeader_pch */

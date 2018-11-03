@@ -21,9 +21,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *sendBtn;
 @property (weak, nonatomic) IBOutlet UIButton *ResetBtn;
+@property (retain, nonatomic) IBOutlet UIButton *changeBtn;
 
 - (IBAction)sendVerifyCode:(id)sender;
 - (IBAction)resetLoginPassword:(id)sender;
+- (IBAction)changePasswordDisplay:(id)sender;
 
 @end
 
@@ -38,9 +40,9 @@
     
     UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIBarButtonItemStylePlain target:self action:@selector(dismissVC)];
     self.navigationItem.leftBarButtonItem = cancelItem;
-    self.sendBtn.backgroundColor=THEMECOLOR;
+    self.sendBtn.backgroundColor=[UIColor THEMECOLOR];
     [self.sendBtn setTitle:NSLocalizedString(@"send code", nil) forState:UIControlStateNormal];
-    self.ResetBtn.backgroundColor=THEMECOLOR;
+    self.ResetBtn.backgroundColor=[UIColor THEMECOLOR];
     [self.ResetBtn setTitle:NSLocalizedString(@"Reset Password", nil) forState:UIControlStateNormal];
     
     self.recoverLabel.text = NSLocalizedString(@"Recover Login Password", nil);
@@ -74,21 +76,22 @@
     
     [self.emailTextField resignFirstResponder];
     
-    [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedString(@"sending", nil) hideAfterDelay:5];
-    
     if (email.length > 0 && [email containsString:@"@"]) {
+        
+        [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedString(@"sending", nil) hideAfterDelay:5];
+        
         [[EHOMEUserModel shareInstance] sendVerifyCodeByEmail:email success:^(id responseObject) {
             NSLog(@"Verify Code sent success. res = %@", responseObject);
             
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:@"code sent success" hideAfterDelay:1.0];
+            [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"code sent success", @"Info", nil) hideAfterDelay:1.0];
             
             [self.codeTextField becomeFirstResponder];
             
         } failure:^(NSError *error) {
             NSLog(@"Verify Code sent filed. error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
     }else{
 
@@ -108,19 +111,63 @@
     NSString *password = self.passwordTextField.text;
     
     if (email.length > 0 && code.length > 0 && password.length > 0) {
+        [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Reseting", @"Info", nil) hideAfterDelay:10];
+        
         [[EHOMEUserModel shareInstance] resetPasswordByEmail:email newPassword:password code:code success:^(id responseObject) {
             NSLog(@"Reset password success. res = %@", responseObject);
             
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            
             [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedString(@"reset password success", nil) hideAfterDelay:1.0];
+            
+            //重置密码成功，存至数据库
+            [EHOMEDataStore setUserToDB:email andPassword:password];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
             
         } failure:^(NSError *error) {
             NSLog(@"Reset password failed. error = %@", error);
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+            [HUDHelper showErrorDomain:error];
         }];
+        
     }else{
         [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedString(@"Please check email,code,or password", nil) hideAfterDelay:1.0];
     }
     
 
 }
+
+- (IBAction)changePasswordDisplay:(id)sender {
+    self.changeBtn = sender;
+    self.changeBtn.selected = !self.changeBtn.selected;
+    NSLog(@"是否选中 = %d",self.changeBtn.selected);
+    if (self.changeBtn.selected) { // 按下去了就是明文
+
+        NSString *tempPwdStr = self.passwordTextField.text;
+        self.passwordTextField.text = @""; // 这句代码可以防止切换的时候光标偏移
+        self.passwordTextField.secureTextEntry = NO;
+        self.passwordTextField.text = tempPwdStr;
+
+    } else { // 暗文
+
+        NSString *tempPwdStr = self.passwordTextField.text;
+        self.passwordTextField.text = @"";
+        self.passwordTextField.secureTextEntry = YES;
+        self.passwordTextField.text = tempPwdStr;
+    }
+    
+    if (self.passwordTextField.secureTextEntry) {
+        
+        // 解决输入框从明文切换为密文时进行二次编辑出现清空现象
+        
+        [self.passwordTextField insertText:self.passwordTextField.text];
+        
+    }
+}
+- (void)dealloc {
+    [_changeBtn release];
+    [super dealloc];
+}
+
 @end

@@ -21,6 +21,7 @@
 #import "EHOMEMyDevicesTableViewController.h"
 #import "EHOMESettingVC.h"
 #import "EHOMEIntergrationVC.h"
+#import "ScanViewController.h"
 
 @interface EHOMEProfileTableViewController ()
 
@@ -35,6 +36,10 @@
     
     UIBarButtonItem *settingsItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"] style:UIBarButtonItemStylePlain target:self action:@selector(gotoSettingsPage)];
     self.navigationItem.rightBarButtonItem = settingsItem;
+    
+    //扫描二维码
+    UIBarButtonItem *ScanItem=[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"scan"] style:UIBarButtonItemStylePlain target:self action:@selector(pressScan)];
+    self.navigationItem.leftBarButtonItem=ScanItem;
     
     [self initTableView];
     
@@ -218,7 +223,7 @@
             } failure:^(NSError *error) {
                 NSLog(@"update nickname failed. error = %@", error);
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+                [HUDHelper showErrorDomain:error];
             }];
         }else{
             [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"please enter name", @"Info", nil) hideAfterDelay:1.0];
@@ -262,7 +267,7 @@
         } failure:^(NSError *error) {
             NSLog(@"Update Login Password Failed = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
         
     }];
@@ -281,6 +286,10 @@
     [self.navigationController pushViewController:setvc animated:YES];
 }
 
-
+-(void)pressScan{
+    NSLog(@"scan code");
+    ScanViewController *vc = [[ScanViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

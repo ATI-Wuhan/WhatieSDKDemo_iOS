@@ -37,7 +37,7 @@
     
     self.switchButton.layer.masksToBounds = YES;
     self.switchButton.layer.cornerRadius = 3.0;
-    self.switchButton.backgroundColor = THEMECOLOR;
+    self.switchButton.backgroundColor = [UIColor THEMECOLOR];
     
     self.isOn = YES;
     [self updateDeviceStatus:self.isOn];
@@ -47,7 +47,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
-    self.navigationController.navigationBar.barTintColor = THEMECOLOR;
+    self.navigationController.navigationBar.barTintColor = [UIColor THEMECOLOR];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,8 +68,8 @@
 -(void)updateDeviceStatus:(BOOL)status{
     
     if (status) {
-        self.view.backgroundColor = THEMECOLOR;
-        self.navigationController.navigationBar.barTintColor = THEMECOLOR;
+        self.view.backgroundColor = [UIColor THEMECOLOR];
+        self.navigationController.navigationBar.barTintColor = [UIColor THEMECOLOR];
         self.outletsStatusLabel.text = NSLocalizedStringFromTable(@"Outlets is On", @"Device", nil);
         [self.switchButton setTitle:NSLocalizedStringFromTable(@"Close", @"Device", nil) forState:UIControlStateNormal];
         self.switchButton.backgroundColor = RGB(61, 61, 61);
@@ -78,7 +78,7 @@
         self.navigationController.navigationBar.barTintColor = RGB(61, 61, 61);
         self.outletsStatusLabel.text = NSLocalizedStringFromTable(@"Outlets is Off", @"Device", nil);
         [self.switchButton setTitle:NSLocalizedStringFromTable(@"Open", @"Device", nil) forState:UIControlStateNormal];
-        self.switchButton.backgroundColor = THEMECOLOR;
+        self.switchButton.backgroundColor = [UIColor THEMECOLOR];
     }
 }
 

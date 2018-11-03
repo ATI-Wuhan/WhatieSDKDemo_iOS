@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  WhatieSDKDemo
+
+  Created by IIDreams_zhouwei on 2018/8/13.
+  Copyright © 2018年 IIDreams. All rights reserved.
+*/
+
+NSCameraUsageDescription = "We need to use the camera to scan the QRCode and add new portrait, and other functions.";
+NSPhotoLibraryUsageDescription = "We need to use the potho library to add your new portrait and feedback pictures.";

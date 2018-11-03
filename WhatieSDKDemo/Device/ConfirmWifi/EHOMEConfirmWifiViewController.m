@@ -37,7 +37,7 @@
     
     self.descriptionLabel.text = NSLocalizedStringFromTable(@"Confirmtext", @"Device", nil);
     
-    self.nextButton.backgroundColor = THEMECOLOR;
+    self.nextButton.backgroundColor = [UIColor THEMECOLOR];
     [self.nextButton setTitle:NSLocalizedStringFromTable(@"next", @"Device", nil) forState:UIControlStateNormal];
     self.nextButton.layer.masksToBounds = YES;
     self.nextButton.layer.cornerRadius = 3.0;
@@ -72,6 +72,8 @@
 
 - (IBAction)nextButtonAction:(id)sender {
     
+    [self GetWifiName];
+    
     NSString *title = NSLocalizedStringFromTable(@"Confirm Wifi", @"Device", nil);
     NSString *currentWifi=NSLocalizedStringFromTable(@"current wifi", @"Device", nil);
     NSString *message = [NSString stringWithFormat:@"%@:%@",currentWifi,self.wifiName];
@@ -85,6 +87,9 @@
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:next style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
         NSString *password = [alertController.textFields firstObject].text;
+        
+        [EHOMEDataStore setWifiToDB:self.wifiName andWifiPassword:password];
+        
         [self gotoSmartConfigActionWithPassword:password];
     }];
     
@@ -93,6 +98,10 @@
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         textField.placeholder = NSLocalizedStringFromTable(@"wifi password", @"Device", nil);
+        
+        NSString *wifiPasswordFromDB = [EHOMEDataStore getWifiPasswordFromDBWithWifiName:self.wifiName];
+        
+        textField.text = wifiPasswordFromDB;
     }];
     
     [self presentViewController:alertController animated:YES completion:nil];

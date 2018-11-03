@@ -10,4 +10,8 @@
 
 @interface EHOMEUseEchoVC : UIViewController
 
+@property (nonatomic, assign) NSInteger intergration;//0:AmazonAlex,1:GoogleHome
+
+@property (nonatomic, copy) NSString *url;
+
 @end

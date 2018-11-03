@@ -13,6 +13,7 @@
 #import "EHOMEMemberCell.h"
 #import "EHOMEDefaultCenterTableViewCell.h"
 #import "EHOMEFamilyViewController.h"
+#import "EHOMEShareViewController.h"
 
 @interface EHOMEDetailHomeTableViewController ()
 @property (nonatomic, strong) NSMutableArray *homeMemberModelArray;
@@ -48,7 +49,7 @@
         for (EHomeMemberModel *model in self.homeMemberModelArray) {
             if(model.host){
                 self.homeHostModel = model;
-                NSLog(@"管理员的id = %d", self.homeHostModel.customer.id);
+                NSLog(@"管理员的id = %d和家庭主人id = %d", self.homeHostModel.customer.id,[EHOMEUserModel shareInstance].id);
                 break;
             }
         }
@@ -120,7 +121,7 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             
             cell.textLabel.text = NSLocalizedStringFromTable(@"Invite member", @"Home", nil);
-            cell.textLabel.textColor = THEMECOLOR;
+            cell.textLabel.textColor = [UIColor THEMECOLOR];
             
             return cell;
         }else{
@@ -196,7 +197,11 @@
         
     }else if(indexPath.section==1){
         if(indexPath.row == self.homeMemberModelArray.count){
-            [self inviteMember];
+            //[self inviteMember];
+            EHOMEShareViewController *shareVC = [[EHOMEShareViewController alloc] initWithNibName:@"EHOMEShareViewController" bundle:nil];
+            shareVC.codeType = 1;
+            shareVC.homeModel = self.homeModel;
+            [self.navigationController pushViewController:shareVC animated:YES];
         }else{
             EHomeMemberModel *member = self.homeMemberModelArray[indexPath.row];
             if (member.host) {
@@ -285,7 +290,7 @@
             } failure:^(NSError *error) {
                 NSLog(@"update home name failed. error = %@", error);
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+                [HUDHelper showErrorDomain:error];
             }];
             
         }else{
@@ -323,11 +328,10 @@
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
                 [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Invite successfully", @"Home", nil) hideAfterDelay:1];
                 [self getMember];
-                [self.tableView reloadData];
             } failure:^(NSError *error) {
                 NSLog(@"inviting home failed. error = %@", error);
                 [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+                [HUDHelper showErrorDomain:error];
             }];
             
         }else{
@@ -346,59 +350,63 @@
     
     if ([EHOMEUserModel shareInstance].id == self.homeHostModel.customer.id) {
         NSLog(@"转让家庭");
-        NSString *title = NSLocalizedStringFromTable(@"Transfer", @"Home", nil);
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-            textField.placeholder = NSLocalizedStringFromTable(@"Please enter email", @"Localizable", nil);
-        }];
-        
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"OK", @"Info", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            NSString *name = [[alertController textFields] firstObject].text;
-            
-            if (name.length > 0) {
-                [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"transfering home", @"Home", nil) hideAfterDelay:10];
-                
-                [self.homeModel transferHomeWithByEmail:name success:^(id responseObject) {
-                    NSLog(@"转让家庭成功");
-                    [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                    [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Tranfer home sucessfully", @"Home", nil) hideAfterDelay:1];
-                    
-                    [[EHOMEUserModel shareInstance] getCurrentHomeSuccess:^(id responseObject) {
-                        EHOMEHomeModel *home = responseObject;
-                        NSLog(@"要删除的家庭id=%d，当前家庭id=%d",self.homeModel.id,home.id);
-                        if(self.homeModel.id == home.id){
-                            [[EHOMEUserModel shareInstance] removeCurrentHome];
-                        }
-                        
-                    } failure:^(NSError *error) {
-                        NSLog(@"Get current home failed.error = %@", error);
-                    }];
-                    
-                    NSNotification *notice = [NSNotification notificationWithName:@"tranferHome" object:nil userInfo:nil];
-                    [[NSNotificationCenter defaultCenter] postNotification:notice];
-                    
-                    [self.navigationController popViewControllerAnimated:YES];
-                } failure:^(NSError *error) {
-                    NSLog(@"转让家庭失败. error = %@", error);
-                    [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-                    [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
-                }];
-                
-            }else{
-                [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Please enter email", @"Localizable", nil) hideAfterDelay:1.0];
-            }
-            
-        }];
-        
-        [alertController addAction:cancel];
-        [alertController addAction:action];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
+        EHOMEShareViewController *shareVC = [[EHOMEShareViewController alloc] initWithNibName:@"EHOMEShareViewController" bundle:nil];
+        shareVC.codeType = 3;
+        shareVC.homeModel = self.homeModel;
+        [self.navigationController pushViewController:shareVC animated:YES];
+//        NSString *title = NSLocalizedStringFromTable(@"Transfer", @"Home", nil);
+//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
+//
+//        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+//            textField.placeholder = NSLocalizedStringFromTable(@"Please enter email", @"Localizable", nil);
+//        }];
+//
+//        UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//
+//        }];
+//        UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"OK", @"Info", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//            NSString *name = [[alertController textFields] firstObject].text;
+//
+//            if (name.length > 0) {
+//                [HUDHelper addHUDProgressInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"transfering home", @"Home", nil) hideAfterDelay:10];
+//
+//                [self.homeModel transferHomeWithByEmail:name success:^(id responseObject) {
+//                    NSLog(@"转让家庭成功");
+//                    [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+//                    [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Tranfer home sucessfully", @"Home", nil) hideAfterDelay:1];
+//
+//                    [[EHOMEUserModel shareInstance] getCurrentHomeSuccess:^(id responseObject) {
+//                        EHOMEHomeModel *home = responseObject;
+//                        NSLog(@"要删除的家庭id=%d，当前家庭id=%d",self.homeModel.id,home.id);
+//                        if(self.homeModel.id == home.id){
+//                            [[EHOMEUserModel shareInstance] removeCurrentHome];
+//                        }
+//
+//                    } failure:^(NSError *error) {
+//                        NSLog(@"Get current home failed.error = %@", error);
+//                    }];
+//
+//                    NSNotification *notice = [NSNotification notificationWithName:@"tranferHome" object:nil userInfo:nil];
+//                    [[NSNotificationCenter defaultCenter] postNotification:notice];
+//
+//                    [self.navigationController popViewControllerAnimated:YES];
+//                } failure:^(NSError *error) {
+//                    NSLog(@"转让家庭失败. error = %@", error);
+//                    [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
+//                    [HUDHelper showErrorDomain:error];
+//                }];
+//
+//            }else{
+//                [HUDHelper addHUDInView:sharedKeyWindow text:NSLocalizedStringFromTable(@"Please enter email", @"Localizable", nil) hideAfterDelay:1.0];
+//            }
+//
+//        }];
+//
+//        [alertController addAction:cancel];
+//        [alertController addAction:action];
+//
+//        [self presentViewController:alertController animated:YES completion:nil];
     }else{
         //删除家庭or退出家庭
         [self exitHome];
@@ -435,6 +443,9 @@
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
             [HUDHelper addHUDInView:sharedKeyWindow text:successStr hideAfterDelay:1.0];
             
+            //删除该家庭成功，从数据库中删除对应的家庭。
+            [EHOMEDataStore removeHomeFromDB:self.homeModel];
+            
             [[EHOMEUserModel shareInstance] getCurrentHomeSuccess:^(id responseObject) {
                 EHOMEHomeModel *home = responseObject;
                 NSLog(@"要删除的家庭id=%d，当前家庭id=%d",self.homeModel.id,home.id);
@@ -454,7 +465,7 @@
         } failure:^(NSError *error) {
             NSLog(@"退出家庭失败！=%@",error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
     }];
     

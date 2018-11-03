@@ -132,6 +132,7 @@
                   loops:(NSString *)loops
           deviceIdArray:(NSArray *)deviceIdArray
           functionArray:(NSArray *)functionArray
+               sceneTye:(BOOL)isManual
                 success:(successBlock)success
                 failure:(failBlock)failure;
 
@@ -147,6 +148,29 @@
                 success:(successBlock)success
                  failue:(failBlock)failure;
 
+
+/**
+ inviteHomeMemberWithScanCode
+ @param email : new member email.
+ @param homeId : inviter's homeId.
+ */
++(void)addMemberWithMemberEmail:(NSString *)email
+                         homeId:(int)homeId
+              generateTimeStamp:(long)generateTimeStamp
+                        success:(successBlock)success
+                         failue:(failBlock)failure;
+
+
+/**
+ transferHomeWithScanCode
+ 
+ */
++(void)transferHomeWithHomeId:(int)homeId
+                       hostId:(int)hostId
+                transferEmail:(NSString *)transferEmail
+            generateTimeStamp:(long)generateTimeStamp
+                      success:(successBlock)success
+                      failure:(failBlock)failure;
 @end
 
 

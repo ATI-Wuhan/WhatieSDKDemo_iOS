@@ -16,6 +16,8 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
 
 #import "EHOMEColorSlider.h"
 
+#import "EHOMETimerTableViewController.h"
+
 @interface EHOMERGBLightViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *menuCollectionView;
@@ -35,7 +37,8 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
 @property (nonatomic, strong) NSIndexPath *currentIndexPath;
 @property (nonatomic, assign) NSInteger lightModel;
 
-
+@property (nonatomic, strong) UIImage *lightdarkImage;
+@property (nonatomic, strong) UIImage *lightbrightImage;
 @end
 
 @implementation EHOMERGBLightViewController
@@ -46,8 +49,21 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     
     self.title = NSLocalizedStringFromTable(@"Light", @"DeviceFunction", nil);
     
-    UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Edit", @"Device", nil) style:UIBarButtonItemStylePlain target:self action:@selector(editDeviceAction)];
-    self.navigationItem.rightBarButtonItem = editItem;
+    if (CurrentApp == Geek) {
+        self.lightdarkImage = [UIImage imageNamed:@"小灯泡"];
+        self.lightbrightImage = [UIImage imageNamed:@"小灯泡发光"];
+    }else if (CurrentApp == Ozwi){
+        self.lightdarkImage = [UIImage imageNamed:@"Ozwi_lightdark"];
+        self.lightbrightImage = [UIImage imageNamed:@"Ozwi_lightbright"];
+    }else{
+        self.lightdarkImage = [UIImage imageNamed:@"lightdark"];
+        self.lightbrightImage = [UIImage imageNamed:@"lightbright"];
+    }
+    
+//    UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedStringFromTable(@"Edit", @"Device", nil) style:UIBarButtonItemStylePlain target:self action:@selector(editDeviceAction)];
+//    self.navigationItem.rightBarButtonItem = editItem;
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"clock-Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(addLightTimerAction)];
+    self.navigationItem.rightBarButtonItem = rightItem;
     
     [self initCollectionView];
     [self initScrollView];
@@ -58,8 +74,6 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     self.currentIndexPath = [NSIndexPath indexPathForItem:5 inSection:0];
     
     __weak typeof(self) weakSelf = self;
-    
-    
     [self.device subscribeTopicOnDeviceSuccess:^(id responseObject) {
         NSDictionary *dpsDic = [[responseObject objectForKey:@"data"] objectForKey:@"dps"];
         
@@ -97,7 +111,8 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     }];
     
     
-    
+    //注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLightData) name: EHOMEUserNotificationDeviceArrayChanged object:nil];
     
 //    [self.menuCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionRight];
 //    [self.menuCollectionView reloadData];
@@ -105,6 +120,10 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     
     [self updateCloseButton];
 
+}
+
+-(void)reloadLightData{
+    [self updateCloseButton];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -122,58 +141,63 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
-    self.navigationController.navigationBar.barTintColor = THEMECOLOR;
+    self.navigationController.navigationBar.barTintColor = [UIColor THEMECOLOR];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     self.navigationController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"left_back"] style:UIBarButtonItemStylePlain target:self action:@selector(popViewControllerAnimated:)];
 }
 
--(void)editDeviceAction{
-    
-    //edit device
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTable(@"Options", @"Device", nil) message:NSLocalizedStringFromTable(@"Edit device", @"Device", nil) preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction *updateNameAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"update device name", @"Device", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"update device name action");
-        
-        [self updateDeviceName];
-    }];
-    
-    UIAlertAction *shareDeviceAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"share device", @"Device", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"share device action");
-        [self shareDevice];
-    }];
-    
-    UIAlertAction *removeDeviceAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"remove device", @"Device", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"remove device action");
-        UIAlertController *alertView = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTable(@"Remove Device", @"Device", nil) message:NSLocalizedStringFromTable(@"unsure remove", @"Device", nil) preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Remove", @"Profile", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            [self removeDevice];
-        }];
-        
-        [alertView addAction:cancel];
-        [alertView addAction:ok];
-        
-        [self presentViewController:alertView animated:YES completion:nil];
-    }];
-    
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"cancel");
-    }];
-    
-    [alertController addAction:updateNameAction];
-    [alertController addAction:shareDeviceAction];
-    [alertController addAction:removeDeviceAction];
-    [alertController addAction:cancel];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
+-(void)addLightTimerAction{
+    EHOMETimerTableViewController *TimerVC = [[EHOMETimerTableViewController alloc] initWithNibName:@"EHOMETimerTableViewController" bundle:nil];
+    TimerVC.device = self.device;
+    [self.navigationController pushViewController:TimerVC animated:YES];
 }
+//-(void)editDeviceAction{
+//
+//    //edit device
+//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTable(@"Options", @"Device", nil) message:NSLocalizedStringFromTable(@"Edit device", @"Device", nil) preferredStyle:UIAlertControllerStyleActionSheet];
+//
+//    UIAlertAction *updateNameAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"update device name", @"Device", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"update device name action");
+//
+//        [self updateDeviceName];
+//    }];
+//
+//    UIAlertAction *shareDeviceAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"share device", @"Device", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"share device action");
+//        [self shareDevice];
+//    }];
+//
+//    UIAlertAction *removeDeviceAction = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"remove device", @"Device", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"remove device action");
+//        UIAlertController *alertView = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTable(@"Remove Device", @"Device", nil) message:NSLocalizedStringFromTable(@"unsure remove", @"Device", nil) preferredStyle:UIAlertControllerStyleAlert];
+//
+//        UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//
+//        }];
+//
+//        UIAlertAction *ok = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Remove", @"Profile", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+//            [self removeDevice];
+//        }];
+//
+//        [alertView addAction:cancel];
+//        [alertView addAction:ok];
+//
+//        [self presentViewController:alertView animated:YES completion:nil];
+//    }];
+//
+//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"cancel");
+//    }];
+//
+//    [alertController addAction:updateNameAction];
+//    [alertController addAction:shareDeviceAction];
+//    [alertController addAction:removeDeviceAction];
+//    [alertController addAction:cancel];
+//
+//    [self presentViewController:alertController animated:YES completion:nil];
+//}
 
 -(void)updateDeviceName{
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTable(@"Alert", @"Device", nil) message:NSLocalizedStringFromTable(@"update device name", @"Device", nil) preferredStyle:UIAlertControllerStyleAlert];
@@ -201,7 +225,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         } failure:^(NSError *error) {
             NSLog(@"update device name failed. error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+            [HUDHelper showErrorDomain:error];
         }];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -237,7 +261,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         } failure:^(NSError *error) {
             NSLog(@"share device failed. error = %@", error);
             [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-            [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.5];
+            [HUDHelper showErrorDomain:error];
         }];
     }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"Info", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -267,7 +291,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     } failure:^(NSError *error) {
         NSLog(@"remove device failed = %@", error);
         [HUDHelper hideAllHUDsForView:sharedKeyWindow animated:YES];
-        [HUDHelper addHUDInView:sharedKeyWindow text:error.domain hideAfterDelay:1.0];
+        [HUDHelper showErrorDomain:error];
     }];
 }
 
@@ -315,7 +339,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     self.LightButton = [[UIButton alloc] init];
     self.LightButton.layer.masksToBounds = YES;
     self.LightButton.layer.cornerRadius = 49.0;
-    self.LightButton.backgroundColor = THEMECOLOR;
+    self.LightButton.backgroundColor = [UIColor THEMECOLOR];
     [self.LightButton setTitle:NSLocalizedStringFromTable(@"Close", @"Device", nil) forState:UIControlStateNormal];
     [self.LightButton addTarget:self action:@selector(updateLightStatus) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.LightButton];
@@ -349,7 +373,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         make.top.mas_equalTo(bgView).mas_offset(15);
     }];
     
-    UIImageView *leftImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lightdark"]];
+    UIImageView *leftImageView = [[UIImageView alloc] initWithImage:self.lightdarkImage];
     [bgView addSubview:leftImageView];
     
     [leftImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -359,7 +383,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         make.centerY.mas_equalTo(bgView);
     }];
     
-    UIImageView *rightImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lightbright"]];
+    UIImageView *rightImageView = [[UIImageView alloc] initWithImage:self.lightbrightImage];
     [bgView addSubview:rightImageView];
     
     [rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -373,7 +397,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     self.brightnessSlider = [[UISlider alloc] init];
     self.brightnessSlider.maximumValue = 100;
     self.brightnessSlider.minimumValue = 1;
-    self.brightnessSlider.minimumTrackTintColor = THEMECOLOR;
+    self.brightnessSlider.minimumTrackTintColor = [UIColor THEMECOLOR];
     self.brightnessSlider.value = [self.device.functionValuesMap.brightness floatValue];
     [bgView addSubview:self.brightnessSlider];
 
@@ -438,8 +462,8 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         make.trailing.mas_equalTo(-15);
         make.top.mas_equalTo(bgView2).mas_offset(15);
     }];
-
-    UIImageView *leftImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lightdark"]];
+    
+    UIImageView *leftImageView = [[UIImageView alloc] initWithImage:self.lightdarkImage];
     [bgView2 addSubview:leftImageView];
 
     [leftImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -448,8 +472,8 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         make.leading.mas_equalTo(15);
         make.centerY.mas_equalTo(bgView2);
     }];
-
-    UIImageView *rightImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lightbright"]];
+    
+    UIImageView *rightImageView = [[UIImageView alloc] initWithImage:self.lightbrightImage];
     [bgView2 addSubview:rightImageView];
 
     [rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -463,7 +487,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     self.RGBBrightnessSlider = [[UISlider alloc] init];
     self.RGBBrightnessSlider.maximumValue = 100;
     self.RGBBrightnessSlider.minimumValue = 1;
-    self.RGBBrightnessSlider.minimumTrackTintColor = THEMECOLOR;
+    self.RGBBrightnessSlider.minimumTrackTintColor = [UIColor THEMECOLOR];
     self.RGBBrightnessSlider.value = [self.device.functionValuesMap.brightness floatValue];
     [bgView2 addSubview:self.RGBBrightnessSlider];
 
@@ -500,8 +524,15 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         make.top.mas_equalTo(bgView1).mas_offset(15);
     }];
     
-
-    UIImageView *durationLeftImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fast"]];
+    UIImage *fastImage;
+    if (CurrentApp == Geek) {
+        fastImage = [UIImage imageNamed:@"汽车"];
+    }else if (CurrentApp == Ozwi){
+        fastImage = [UIImage imageNamed:@"Ozwi_fast"];
+    }else{
+        fastImage = [UIImage imageNamed:@"fast"];
+    }
+    UIImageView *durationLeftImageView = [[UIImageView alloc] initWithImage:fastImage];
     [bgView1 addSubview:durationLeftImageView];
     
     [durationLeftImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -511,7 +542,15 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         make.centerY.mas_equalTo(bgView1);
     }];
     
-    UIImageView *brightnessRightImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"slow"]];
+    UIImage *slowImage;
+    if (CurrentApp == Geek) {
+        slowImage = [UIImage imageNamed:@"自行车"];
+    }else if (CurrentApp == Ozwi){
+        slowImage = [UIImage imageNamed:@"Ozwi_slow"];
+    }else{
+        slowImage = [UIImage imageNamed:@"slow"];
+    }
+    UIImageView *brightnessRightImageView = [[UIImageView alloc] initWithImage:slowImage];
     [bgView1 addSubview:brightnessRightImageView];
     
     [brightnessRightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -524,7 +563,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     self.streamDurationSlider = [[UISlider alloc] init];
     self.streamDurationSlider.maximumValue = 5000;
     self.streamDurationSlider.minimumValue = 1000;
-    self.streamDurationSlider.minimumTrackTintColor = THEMECOLOR;
+    self.streamDurationSlider.minimumTrackTintColor = [UIColor THEMECOLOR];
     self.streamDurationSlider.value = [self.device.functionValuesMap.duration floatValue];
     [bgView1 addSubview:self.streamDurationSlider];
     
@@ -558,7 +597,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         make.top.mas_equalTo(bgView2).mas_offset(15);
     }];
     
-    UIImageView *leftImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lightdark"]];
+    UIImageView *leftImageView = [[UIImageView alloc] initWithImage:self.lightdarkImage];
     [bgView2 addSubview:leftImageView];
     
     [leftImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -568,7 +607,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         make.centerY.mas_equalTo(bgView2);
     }];
     
-    UIImageView *rightImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lightbright"]];
+    UIImageView *rightImageView = [[UIImageView alloc] initWithImage:self.lightbrightImage];
     [bgView2 addSubview:rightImageView];
     
     [rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -582,7 +621,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     self.StreamBrightnessSlider = [[UISlider alloc] init];
     self.StreamBrightnessSlider.maximumValue = 100;
     self.StreamBrightnessSlider.minimumValue = 1;
-    self.StreamBrightnessSlider.minimumTrackTintColor = THEMECOLOR;
+    self.StreamBrightnessSlider.minimumTrackTintColor = [UIColor THEMECOLOR];
     self.StreamBrightnessSlider.value = [self.device.functionValuesMap.brightness floatValue];
     [bgView2 addSubview:self.StreamBrightnessSlider];
     
@@ -636,7 +675,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     
     if (self.device.functionValuesMap.colorLight) {
         [self.LightButton setTitle:NSLocalizedStringFromTable(@"Close", @"Device", nil) forState:UIControlStateNormal];
-        self.LightButton.backgroundColor = THEMECOLOR;
+        self.LightButton.backgroundColor = [UIColor THEMECOLOR];
     }else{
         [self.LightButton setTitle:NSLocalizedStringFromTable(@"Open", @"Device", nil) forState:UIControlStateNormal];
         self.LightButton.backgroundColor = RGB(255, 108, 9);
@@ -666,8 +705,18 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
         cell = [[EHOMELightMenuCollectionViewCell alloc] init];
     }
     
-    NSArray *normalImages = @[@"WhiteNormal",@"RGBNormal",@"StreamNormal"];
-    NSArray *selImages = @[@"WhiteSel",@"RGBSel",@"StreamSel"];
+    NSArray *normalImages;
+    NSArray *selImages;
+    if(CurrentApp == Geek){
+        normalImages = @[@"WhiteNormal",@"RGBNormal",@"StreamNormal"];
+        selImages = @[@"WhiteSel",@"彩光选中",@"StreamSel"];
+    }else if (CurrentApp == Ozwi){
+        normalImages = @[@"WhiteNormal",@"RGBNormal",@"StreamNormal"];
+        selImages = @[@"WhiteSel",@"Ozwi_彩光选中",@"StreamSel"];
+    }else{
+        normalImages = @[@"WhiteNormal",@"RGBNormal",@"StreamNormal"];
+        selImages = @[@"WhiteSel",@"RGBSel",@"StreamSel"];
+    }
     
     NSArray *titles = @[NSLocalizedStringFromTable(@"White Light", @"DeviceFunction", nil),NSLocalizedStringFromTable(@"RGB Light", @"DeviceFunction", nil),NSLocalizedStringFromTable(@"Stream Light", @"DeviceFunction", nil)];
     
@@ -675,7 +724,7 @@ static NSString *cellId = @"EHOMELightMenuCollectionViewCell";
     
     if (indexPath.item == self.currentIndexPath.item) {
         cell.menuImageView.image = [UIImage imageNamed:selImages[indexPath.item]];
-        cell.contentView.backgroundColor = THEMECOLOR;
+        cell.contentView.backgroundColor = [UIColor THEMECOLOR];
         cell.menuTitleLabel.textColor = [UIColor whiteColor];
     }else{
         cell.menuImageView.image = [UIImage imageNamed:normalImages[indexPath.item]];

@@ -79,5 +79,7 @@
 
 @property (nonatomic, strong) EHOMEPhotoModel *file;
 @property (nonatomic, assign) int id;//壁纸的id
+@property (nonatomic, assign) BOOL vertical;//竖直
+@property (nonatomic, assign) int wallpaperNum;
 
 @end

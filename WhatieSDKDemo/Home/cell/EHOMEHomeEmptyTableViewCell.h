@@ -16,6 +16,8 @@
 
 @interface EHOMEHomeEmptyTableViewCell : UITableViewCell
 
+@property (retain, nonatomic) IBOutlet UILabel *nodevicesLabel;
+@property (retain, nonatomic) IBOutlet UILabel *nodevicesDescribLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *emptyImageView;
 @property (weak, nonatomic) IBOutlet UIButton *addDeviceButton;
 - (IBAction)addDeviceButtonAction:(id)sender;

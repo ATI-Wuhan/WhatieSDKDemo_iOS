@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="134" id="KGk-i7-Jjw" customClass="EHOMESceneNameCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="134"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="133.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sceneName-background" translatesAutoresizingMaskIntoConstraints="NO" id="eMS-90-Y35">
+                        <rect key="frame" x="8" y="0.0" width="304" height="134"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scene name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCN-5d-MYG">
+                        <rect key="frame" x="26" y="21" width="200" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="BY8-UH-cNu"/>
+                            <constraint firstAttribute="width" constant="200" id="TAi-xx-618"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-pk-Ohh">
+                        <rect key="frame" x="236" y="21" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="Szg-LL-rE8"/>
+                            <constraint firstAttribute="height" constant="24" id="jgG-GL-5bD"/>
+                        </constraints>
+                        <state key="normal" image="fix-Icon"/>
+                        <connections>
+                            <action selector="editNameAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fQX-Br-Fz4"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="KCN-5d-MYG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="2ak-LU-mYj"/>
+                    <constraint firstItem="eMS-90-Y35" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Au1-CG-nGw"/>
+                    <constraint firstAttribute="bottom" secondItem="eMS-90-Y35" secondAttribute="bottom" id="TIW-XH-CgB"/>
+                    <constraint firstAttribute="trailing" secondItem="eMS-90-Y35" secondAttribute="trailing" constant="8" id="WBY-05-1Ni"/>
+                    <constraint firstItem="OhG-pk-Ohh" firstAttribute="leading" secondItem="KCN-5d-MYG" secondAttribute="trailing" constant="10" id="XtR-qZ-wGW"/>
+                    <constraint firstItem="OhG-pk-Ohh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="bgI-PU-e09"/>
+                    <constraint firstItem="eMS-90-Y35" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jk3-DM-4pZ"/>
+                    <constraint firstItem="KCN-5d-MYG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="shR-Fn-YOp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="NameLabel" destination="KCN-5d-MYG" id="IrG-E3-4HD"/>
+                <outlet property="editSceneName" destination="OhG-pk-Ohh" id="5pg-OF-hSW"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="97"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="fix-Icon" width="15" height="15"/>
+        <image name="sceneName-background" width="361" height="156"/>
+    </resources>
+</document>
